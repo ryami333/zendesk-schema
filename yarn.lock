@@ -178,6 +178,11 @@ pirates@^4.0.5:
   resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.6.tgz#3018ae32ecfcff6c29ba2267cbf21166ac1f36b9"
   integrity sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==
 
+postman2openapi@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/postman2openapi/-/postman2openapi-1.2.0.tgz#dac25a36f885c85f8bc7d7b202f3818ec14c7c20"
+  integrity sha512-ob4iyOYomugpmxJBYeqBWuva/fLSWMTeo8EfZIFLWr0iG7g+AClG6Mn9B8Ov1OAKh/qCyxRnL7AkUW3WZywqrw==
+
 prettier@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.1.0.tgz#c6d16474a5f764ea1a4a373c593b779697744d5e"
