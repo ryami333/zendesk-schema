@@ -14,7 +14,7 @@ import { convertOpenApiSchemaToTypeNode } from "./convertOpenApiSchemaToTypeNode
  */
 export function convertOpenApiSchemaToTypeDeclaration(
   name: string,
-  schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject
+  schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject,
 ) {
   if (
     "$ref" in schema ||
@@ -43,9 +43,9 @@ export function convertOpenApiSchemaToTypeDeclaration(
               undefined,
               factory.createIdentifier(propertyName),
               undefined,
-              convertOpenApiSchemaToTypeNode(property)
-            )
-        )
+              convertOpenApiSchemaToTypeNode(property),
+            ),
+        ),
       );
     }
     case "integer":
@@ -59,8 +59,8 @@ export function convertOpenApiSchemaToTypeDeclaration(
           factory.createUnionTypeNode(
             schema.enum.map((enumVal) => {
               return factory.createTypeReferenceNode(JSON.stringify(enumVal));
-            })
-          )
+            }),
+          ),
         );
       }
       return factory.createTypeAliasDeclaration(
@@ -68,13 +68,13 @@ export function convertOpenApiSchemaToTypeDeclaration(
         [exportModifier],
         factory.createIdentifier(name),
         undefined,
-        factory.createTypeReferenceNode(schema.type)
+        factory.createTypeReferenceNode(schema.type),
       );
     }
 
     default: {
       throw new Error(
-        `Unexpected schema:\n${JSON.stringify(schema.type, null, 2)}`
+        `Unexpected schema:\n${JSON.stringify(schema.type, null, 2)}`,
       );
     }
   }

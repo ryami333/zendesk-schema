@@ -6,15 +6,15 @@ const createNullableCallExpression = (expression: ts.Expression) => {
   return factory.createCallExpression(
     factory.createPropertyAccessExpression(
       expression,
-      factory.createIdentifier("nullable")
+      factory.createIdentifier("nullable"),
     ),
     undefined,
-    undefined
+    undefined,
   );
 };
 
 export function convertOpenApiSchemaToZodSchema(
-  openApiSchema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject
+  openApiSchema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject,
 ): ts.Expression {
   if ("allOf" in openApiSchema) {
     if (openApiSchema.allOf?.length === 1) {
@@ -23,12 +23,12 @@ export function convertOpenApiSchemaToZodSchema(
     const innerCallExpression = factory.createCallExpression(
       factory.createPropertyAccessExpression(
         factory.createIdentifier("zod"),
-        factory.createIdentifier("intersection")
+        factory.createIdentifier("intersection"),
       ),
       undefined,
       openApiSchema.allOf?.map((childSchema) =>
-        convertOpenApiSchemaToZodSchema(childSchema)
-      ) || []
+        convertOpenApiSchemaToZodSchema(childSchema),
+      ) || [],
     );
     return openApiSchema.nullable
       ? createNullableCallExpression(innerCallExpression)
@@ -41,16 +41,16 @@ export function convertOpenApiSchemaToZodSchema(
     const innerCallExpression = factory.createCallExpression(
       factory.createPropertyAccessExpression(
         factory.createIdentifier("zod"),
-        factory.createIdentifier("union")
+        factory.createIdentifier("union"),
       ),
       undefined,
       [
         factory.createArrayLiteralExpression(
           openApiSchema.anyOf?.map((childSchema) =>
-            convertOpenApiSchemaToZodSchema(childSchema)
-          ) || []
+            convertOpenApiSchemaToZodSchema(childSchema),
+          ) || [],
         ),
-      ]
+      ],
     );
     return openApiSchema.nullable
       ? createNullableCallExpression(innerCallExpression)
@@ -63,16 +63,16 @@ export function convertOpenApiSchemaToZodSchema(
     const innerCallExpression = factory.createCallExpression(
       factory.createPropertyAccessExpression(
         factory.createIdentifier("zod"),
-        factory.createIdentifier("union")
+        factory.createIdentifier("union"),
       ),
       undefined,
       [
         factory.createArrayLiteralExpression(
           openApiSchema.oneOf?.map((childSchema) =>
-            convertOpenApiSchemaToZodSchema(childSchema)
-          ) || []
+            convertOpenApiSchemaToZodSchema(childSchema),
+          ) || [],
         ),
-      ]
+      ],
     );
     return openApiSchema.nullable
       ? createNullableCallExpression(innerCallExpression)
@@ -92,10 +92,10 @@ export function convertOpenApiSchemaToZodSchema(
       const innerCallExpression = factory.createCallExpression(
         factory.createPropertyAccessExpression(
           factory.createIdentifier("zod"),
-          factory.createIdentifier("array")
+          factory.createIdentifier("array"),
         ),
         undefined,
-        [convertOpenApiSchemaToZodSchema(openApiSchema.items)]
+        [convertOpenApiSchemaToZodSchema(openApiSchema.items)],
       );
       return openApiSchema.nullable
         ? createNullableCallExpression(innerCallExpression)
@@ -106,7 +106,7 @@ export function convertOpenApiSchemaToZodSchema(
       const innerCallExpression = factory.createCallExpression(
         factory.createPropertyAccessExpression(
           factory.createIdentifier("zod"),
-          factory.createIdentifier("object")
+          factory.createIdentifier("object"),
         ),
         undefined,
         [
@@ -115,12 +115,12 @@ export function convertOpenApiSchemaToZodSchema(
               ([propertyName, propertySchema]) => {
                 return factory.createPropertyAssignment(
                   factory.createIdentifier(propertyName),
-                  convertOpenApiSchemaToZodSchema(propertySchema)
+                  convertOpenApiSchemaToZodSchema(propertySchema),
                 );
-              }
-            )
+              },
+            ),
           ),
-        ]
+        ],
       );
       return openApiSchema.nullable
         ? createNullableCallExpression(innerCallExpression)
@@ -134,7 +134,7 @@ export function convertOpenApiSchemaToZodSchema(
         const innerCallExpression = factory.createCallExpression(
           factory.createPropertyAccessExpression(
             factory.createIdentifier("zod"),
-            factory.createIdentifier("union")
+            factory.createIdentifier("union"),
           ),
           undefined,
           [
@@ -161,14 +161,14 @@ export function convertOpenApiSchemaToZodSchema(
                 return factory.createCallExpression(
                   factory.createPropertyAccessExpression(
                     factory.createIdentifier("zod"),
-                    "literal"
+                    "literal",
                   ),
                   undefined,
-                  [getLiteral(item)]
+                  [getLiteral(item)],
                 );
-              })
+              }),
             ),
-          ]
+          ],
         );
 
         return openApiSchema.nullable
@@ -180,11 +180,11 @@ export function convertOpenApiSchemaToZodSchema(
         factory.createPropertyAccessExpression(
           factory.createIdentifier("zod"),
           factory.createIdentifier(
-            openApiSchema.type === "integer" ? "number" : openApiSchema.type
-          )
+            openApiSchema.type === "integer" ? "number" : openApiSchema.type,
+          ),
         ),
         undefined,
-        undefined
+        undefined,
       );
 
       return openApiSchema.nullable
@@ -194,7 +194,7 @@ export function convertOpenApiSchemaToZodSchema(
 
     default: {
       throw new Error(
-        `Unexpected schema:\n${JSON.stringify(openApiSchema, null, 2)}`
+        `Unexpected schema:\n${JSON.stringify(openApiSchema, null, 2)}`,
       );
     }
   }

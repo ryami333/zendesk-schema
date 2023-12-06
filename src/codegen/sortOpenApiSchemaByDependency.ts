@@ -6,7 +6,7 @@ export function sortOpenApiSchemaByDependency(
   schemaLookup: Record<
     string,
     OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject
-  >
+  >,
 ) {
   const schemaSorter = new Topo.Sorter<string>();
 
@@ -26,7 +26,7 @@ export function sortOpenApiSchemaByDependency(
         throw new Error(`Couldn't find schema by key: ${key}`);
       }
       return [key, schema];
-    }
+    },
   );
 
   return sortedSchemas;

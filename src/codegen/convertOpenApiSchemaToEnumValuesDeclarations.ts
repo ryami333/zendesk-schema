@@ -4,7 +4,7 @@ import ts, { factory } from "typescript";
 
 export const convertOpenApiSchemaToEnumValuesDeclarations = (
   name: string,
-  schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject
+  schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject,
 ) => {
   if (
     "type" in schema &&
@@ -25,19 +25,21 @@ export const convertOpenApiSchemaToEnumValuesDeclarations = (
               factory.createArrayLiteralExpression(
                 schema.type === "string"
                   ? schema.enum.map((enumVal) =>
-                      factory.createStringLiteral(enumVal)
+                      factory.createStringLiteral(enumVal),
                     )
                   : schema.enum.map((enumVal) =>
-                      factory.createNumericLiteral(enumVal)
+                      factory.createNumericLiteral(enumVal),
                     ),
-                false
+                false,
               ),
-              factory.createTypeReferenceNode(factory.createIdentifier("const"))
-            )
+              factory.createTypeReferenceNode(
+                factory.createIdentifier("const"),
+              ),
+            ),
           ),
         ],
-        ts.NodeFlags.Const
-      )
+        ts.NodeFlags.Const,
+      ),
     );
   }
 

@@ -8,13 +8,13 @@ function createMaybeTypedTypeNode(typeNode: ts.TypeNode) {
 }
 
 export function convertOpenApiSchemaToTypeNode(
-  openApiSchema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject
+  openApiSchema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject,
 ): ts.TypeNode {
   if ("allOf" in openApiSchema) {
     const innerTypeNode = factory.createIntersectionTypeNode(
       openApiSchema.allOf?.map((childSchema) =>
-        convertOpenApiSchemaToTypeNode(childSchema)
-      ) || []
+        convertOpenApiSchemaToTypeNode(childSchema),
+      ) || [],
     );
 
     return openApiSchema.nullable
@@ -24,8 +24,8 @@ export function convertOpenApiSchemaToTypeNode(
   if ("anyOf" in openApiSchema) {
     const innerTypeNode = factory.createUnionTypeNode(
       openApiSchema.allOf?.map((childSchema) =>
-        convertOpenApiSchemaToTypeNode(childSchema)
-      ) || []
+        convertOpenApiSchemaToTypeNode(childSchema),
+      ) || [],
     );
 
     return openApiSchema.nullable
@@ -35,8 +35,8 @@ export function convertOpenApiSchemaToTypeNode(
   if ("oneOf" in openApiSchema) {
     const innerTypeNode = factory.createUnionTypeNode(
       openApiSchema.oneOf?.map((childSchema) =>
-        convertOpenApiSchemaToTypeNode(childSchema)
-      ) || []
+        convertOpenApiSchemaToTypeNode(childSchema),
+      ) || [],
     );
 
     return openApiSchema.nullable
@@ -65,7 +65,7 @@ export function convertOpenApiSchemaToTypeNode(
           [
             factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
             factory.createKeywordTypeNode(ts.SyntaxKind.UnknownKeyword),
-          ]
+          ],
         );
         return openApiSchema.nullable
           ? createMaybeTypedTypeNode(innerTypeNode)
@@ -78,9 +78,9 @@ export function convertOpenApiSchemaToTypeNode(
             undefined,
             factory.createIdentifier(propertyName),
             undefined,
-            convertOpenApiSchemaToTypeNode(property)
+            convertOpenApiSchemaToTypeNode(property),
           );
-        })
+        }),
       );
       return openApiSchema.nullable
         ? createMaybeTypedTypeNode(innerTypeNode)
@@ -91,7 +91,7 @@ export function convertOpenApiSchemaToTypeNode(
         const innerTypeNode = factory.createUnionTypeNode(
           openApiSchema.enum.map((item) => {
             return factory.createTypeReferenceNode(JSON.stringify(item));
-          })
+          }),
         );
         return openApiSchema.nullable
           ? createMaybeTypedTypeNode(innerTypeNode)
@@ -104,7 +104,7 @@ export function convertOpenApiSchemaToTypeNode(
     }
     case "array": {
       const innerTypeNode = factory.createArrayTypeNode(
-        convertOpenApiSchemaToTypeNode(openApiSchema.items)
+        convertOpenApiSchemaToTypeNode(openApiSchema.items),
       );
       return openApiSchema.nullable
         ? createMaybeTypedTypeNode(innerTypeNode)
@@ -121,7 +121,7 @@ export function convertOpenApiSchemaToTypeNode(
     }
     default: {
       throw new Error(
-        `Unhandled property:\n${JSON.stringify(openApiSchema, null, 2)}`
+        `Unhandled property:\n${JSON.stringify(openApiSchema, null, 2)}`,
       );
     }
   }
