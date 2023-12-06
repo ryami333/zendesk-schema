@@ -23,7 +23,6 @@ export function convertOpenApiDocumentToStatements(
    */
   const importZodStatement = factory.createImportDeclaration(
     undefined,
-    undefined,
     factory.createImportClause(
       false,
       undefined,
@@ -44,7 +43,6 @@ export function convertOpenApiDocumentToStatements(
    * export type Maybe<T> = T | null
    */
   const exportMaybeTypeStatement = factory.createTypeAliasDeclaration(
-    undefined,
     [factory.createModifier(ts.SyntaxKind.ExportKeyword)],
     factory.createIdentifier("Maybe"),
     [
