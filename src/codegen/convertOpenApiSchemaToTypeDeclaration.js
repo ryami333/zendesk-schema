@@ -22,6 +22,7 @@ const { factory } = ts;
  *
  * @param {string} name
  * @param {SchemaObject | ReferenceObject} schema
+ * @return {ts.TypeAliasDeclaration | ts.InterfaceDeclaration} schema
  */
 function convertOpenApiSchemaToTypeDeclaration(name, schema) {
   // No matter the schema-type, we're going to "export" it, so let's create that
