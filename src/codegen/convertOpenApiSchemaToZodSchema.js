@@ -183,25 +183,43 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
 
     case "object": {
       return pipe(
-        factory.createCallExpression(
-          factory.createPropertyAccessExpression(
-            factory.createIdentifier("zod"),
-            factory.createIdentifier("object"),
-          ),
-          undefined,
-          [
-            factory.createObjectLiteralExpression(
-              Object.entries(openApiSchema.properties || {}).map(
-                ([propertyName, propertySchema]) => {
-                  return factory.createPropertyAssignment(
-                    factory.createIdentifier(propertyName),
-                    convertOpenApiSchemaToZodSchema(propertySchema),
-                  );
-                },
+        openApiSchema.properties
+          ? factory.createCallExpression(
+              factory.createPropertyAccessExpression(
+                factory.createIdentifier("zod"),
+                factory.createIdentifier("object"),
               ),
+              undefined,
+              [
+                factory.createObjectLiteralExpression(
+                  Object.entries(openApiSchema.properties).map(
+                    ([propertyName, propertySchema]) => {
+                      return factory.createPropertyAssignment(
+                        factory.createIdentifier(propertyName),
+                        convertOpenApiSchemaToZodSchema(propertySchema),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            )
+          : factory.createCallExpression(
+              factory.createPropertyAccessExpression(
+                factory.createIdentifier("zod"),
+                factory.createIdentifier("record"),
+              ),
+              undefined,
+              [
+                factory.createCallExpression(
+                  factory.createPropertyAccessExpression(
+                    factory.createIdentifier("zod"),
+                    factory.createIdentifier("unknown"),
+                  ),
+                  undefined,
+                  undefined,
+                ),
+              ],
             ),
-          ],
-        ),
         /**
          * Wrap with `zod.nullable(…)`, if applicable.
          */
