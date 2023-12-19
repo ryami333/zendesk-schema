@@ -59,8 +59,12 @@ function convertOpenApiSchemaToTypeNode(openApiSchema) {
      * The ref is formatted like "#/components/schema/Foo". Deliberately
      * omitting the "#" from the path.
      */
-    const path = openApiSchema["$ref"].split("/");
-    return factory.createTypeReferenceNode(path[path.length - 1]);
+    const ref = openApiSchema["$ref"];
+    const refName = ref.split("/").at(-1);
+    if (!refName) {
+      throw new Error(`Could not derive refName from ${ref}`);
+    }
+    return factory.createTypeReferenceNode(refName);
   }
 
   switch (openApiSchema.type) {

@@ -26,7 +26,11 @@ const createNullableCallExpression = (expression) => {
 function convertOpenApiSchemaToZodSchema(openApiSchema) {
   if ("allOf" in openApiSchema) {
     if (openApiSchema.allOf?.length === 1) {
-      return convertOpenApiSchemaToZodSchema(openApiSchema.allOf[0]);
+      const firstSchema = openApiSchema.allOf[0];
+      if (!firstSchema) {
+        throw new Error("Theoretically unreachable");
+      }
+      return convertOpenApiSchemaToZodSchema(firstSchema);
     }
     const innerCallExpression = factory.createCallExpression(
       factory.createPropertyAccessExpression(
@@ -44,7 +48,11 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
   }
   if ("anyOf" in openApiSchema) {
     if (openApiSchema.anyOf?.length === 1) {
-      return convertOpenApiSchemaToZodSchema(openApiSchema.anyOf[0]);
+      const firstSchema = openApiSchema.anyOf[0];
+      if (!firstSchema) {
+        throw new Error("Theoretically unreachable");
+      }
+      return convertOpenApiSchemaToZodSchema(firstSchema);
     }
     const innerCallExpression = factory.createCallExpression(
       factory.createPropertyAccessExpression(
@@ -66,7 +74,11 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
   }
   if ("oneOf" in openApiSchema) {
     if (openApiSchema.oneOf?.length === 1) {
-      return convertOpenApiSchemaToZodSchema(openApiSchema.oneOf[0]);
+      const firstSchema = openApiSchema.oneOf[0];
+      if (!firstSchema) {
+        throw new Error("Theoretically unreachable");
+      }
+      return convertOpenApiSchemaToZodSchema(firstSchema);
     }
     const innerCallExpression = factory.createCallExpression(
       factory.createPropertyAccessExpression(
@@ -91,8 +103,12 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
      * The ref is formatted like "#/components/schema/Foo". Deliberately
      * omitting the "#" from the path.
      */
-    const path = openApiSchema["$ref"].split("/");
-    return createZodSchemaIdentifier(path[path.length - 1]);
+    const ref = openApiSchema["$ref"];
+    const refName = ref.split("/").at(-1);
+    if (!refName) {
+      throw new Error(`Could not derive refName from ${ref}`);
+    }
+    return createZodSchemaIdentifier(refName);
   }
 
   switch (openApiSchema.type) {
