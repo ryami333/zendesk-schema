@@ -7,25 +7,16 @@ import path from "node:path";
 import prettier from "prettier";
 import { convertOpenApiDocumentToStatements } from "./src/codegen/convertOpenApiDocumentToStatements";
 import { artefactsDirectory } from "./src/codegen/config";
-import { fetchSwaggerDefinitions } from "./src/codegen/fetchSwaggerDefinitions";
 import YAML from "yaml";
-import { transpile } from "postman2openapi";
 
 (async () => {
-  // await fetchSwaggerDefinitions();
-
-  const openApiDocumentHandle = "./support-api.postman_collection.json";
+  const openApiDocumentHandle = "./oas.yaml";
 
   if (!fs.existsSync(openApiDocumentHandle)) {
     throw new Error(`No such file exists: (${openApiDocumentHandle})`);
   }
-  const openApiDocument: OpenAPIV3.Document = transpile(
-    JSON.parse(fs.readFileSync(openApiDocumentHandle, "utf-8")),
-  );
-
-  fs.writeFileSync(
-    "./openapi.json",
-    await prettier.format(JSON.stringify(openApiDocument), { parser: "json" }),
+  const openApiDocument: OpenAPIV3.Document = YAML.parse(
+    fs.readFileSync(openApiDocumentHandle, "utf-8"),
   );
 
   const statements = convertOpenApiDocumentToStatements(openApiDocument);
