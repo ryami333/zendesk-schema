@@ -1,6 +1,14 @@
-import { OpenAPIV3 } from "openapi-types";
-import ts, { factory } from "typescript";
-import { convertOpenApiSchemaToTypeNode } from "./convertOpenApiSchemaToTypeNode";
+const ts = require("typescript");
+const {
+  convertOpenApiSchemaToTypeNode,
+} = require("./convertOpenApiSchemaToTypeNode");
+
+const { factory } = ts;
+
+/**
+ * @typedef {import("openapi-types").OpenAPIV3.SchemaObject} SchemaObject
+ * @typedef {import("openapi-types").OpenAPIV3.ReferenceObject} ReferenceObject
+ */
 
 /**
  * Generates an AST (abstract syntax tree) node which represents an exported
@@ -11,11 +19,11 @@ import { convertOpenApiSchemaToTypeNode } from "./convertOpenApiSchemaToTypeNode
  * ```
  * export const Foo = string;
  * ```
+ *
+ * @param {string} name
+ * @param {SchemaObject | ReferenceObject} schema
  */
-export function convertOpenApiSchemaToTypeDeclaration(
-  name: string,
-  schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject,
-) {
+function convertOpenApiSchemaToTypeDeclaration(name, schema) {
   if (
     "$ref" in schema ||
     "allOf" in schema ||
@@ -32,7 +40,6 @@ export function convertOpenApiSchemaToTypeDeclaration(
   switch (schema.type) {
     case "object": {
       return factory.createInterfaceDeclaration(
-        undefined,
         [exportModifier],
         factory.createIdentifier(name),
         undefined,
@@ -52,7 +59,6 @@ export function convertOpenApiSchemaToTypeDeclaration(
     case "string": {
       if (schema.enum) {
         return factory.createTypeAliasDeclaration(
-          undefined,
           [exportModifier],
           factory.createIdentifier(name),
           undefined,
@@ -64,7 +70,6 @@ export function convertOpenApiSchemaToTypeDeclaration(
         );
       }
       return factory.createTypeAliasDeclaration(
-        undefined,
         [exportModifier],
         factory.createIdentifier(name),
         undefined,
@@ -79,3 +84,6 @@ export function convertOpenApiSchemaToTypeDeclaration(
     }
   }
 }
+
+module.exports.convertOpenApiSchemaToTypeDeclaration =
+  convertOpenApiSchemaToTypeDeclaration;

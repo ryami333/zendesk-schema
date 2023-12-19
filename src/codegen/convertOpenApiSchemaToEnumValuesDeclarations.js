@@ -1,11 +1,16 @@
-import camelCase from "lodash.camelcase";
-import { OpenAPIV3 } from "openapi-types";
-import ts, { factory } from "typescript";
+const camelCase = require("lodash.camelcase");
+const ts = require("typescript");
 
-export const convertOpenApiSchemaToEnumValuesDeclarations = (
-  name: string,
-  schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject,
-) => {
+const { factory } = ts;
+
+/**
+ * @typedef {import("openapi-types").OpenAPIV3.SchemaObject} SchemaObject
+ * @typedef {import("openapi-types").OpenAPIV3.ReferenceObject} ReferenceObject
+ *
+ * @param {string} name
+ * @param {SchemaObject | ReferenceObject} schema
+ */
+function convertOpenApiSchemaToEnumValuesDeclarations(name, schema) {
   if (
     "type" in schema &&
     (schema.type === "integer" ||
@@ -44,4 +49,7 @@ export const convertOpenApiSchemaToEnumValuesDeclarations = (
   }
 
   return undefined;
-};
+}
+
+module.exports.convertOpenApiSchemaToEnumValuesDeclarations =
+  convertOpenApiSchemaToEnumValuesDeclarations;

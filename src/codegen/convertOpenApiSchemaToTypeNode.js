@@ -1,15 +1,26 @@
-import { OpenAPIV3 } from "openapi-types";
-import ts, { factory } from "typescript";
+const ts = require("typescript");
 
-function createMaybeTypedTypeNode(typeNode: ts.TypeNode) {
+const { factory } = ts;
+
+/**
+ * @typedef {import("openapi-types").OpenAPIV3.SchemaObject} SchemaObject
+ * @typedef {import("openapi-types").OpenAPIV3.ReferenceObject} ReferenceObject
+ */
+
+/**
+ * @param {ts.TypeNode} typeNode
+ */
+function createMaybeTypedTypeNode(typeNode) {
   return factory.createTypeReferenceNode(factory.createIdentifier("Maybe"), [
     typeNode,
   ]);
 }
 
-export function convertOpenApiSchemaToTypeNode(
-  openApiSchema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject,
-): ts.TypeNode {
+/**
+ * @param {SchemaObject | ReferenceObject} openApiSchema
+ * @returns {ts.TypeNode}
+ */
+function convertOpenApiSchemaToTypeNode(openApiSchema) {
   if ("allOf" in openApiSchema) {
     const innerTypeNode = factory.createIntersectionTypeNode(
       openApiSchema.allOf?.map((childSchema) =>
@@ -126,3 +137,5 @@ export function convertOpenApiSchemaToTypeNode(
     }
   }
 }
+
+module.exports.convertOpenApiSchemaToTypeNode = convertOpenApiSchemaToTypeNode;
