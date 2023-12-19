@@ -24,12 +24,9 @@ const createNullableCallExpression = (expression) => {
  * @returns {ts.Expression}
  */
 function convertOpenApiSchemaToZodSchema(openApiSchema) {
-  if ("allOf" in openApiSchema) {
-    if (openApiSchema.allOf?.length === 1) {
-      const firstSchema = openApiSchema.allOf[0];
-      if (!firstSchema) {
-        throw new Error("Theoretically unreachable");
-      }
+  if ("allOf" in openApiSchema && openApiSchema) {
+    const [firstSchema, ...restSchema] = openApiSchema.allOf ?? [];
+    if (firstSchema && restSchema.length === 0) {
       return convertOpenApiSchemaToZodSchema(firstSchema);
     }
     const innerCallExpression = factory.createCallExpression(
@@ -47,11 +44,9 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
       : innerCallExpression;
   }
   if ("anyOf" in openApiSchema) {
-    if (openApiSchema.anyOf?.length === 1) {
-      const firstSchema = openApiSchema.anyOf[0];
-      if (!firstSchema) {
-        throw new Error("Theoretically unreachable");
-      }
+    const [firstSchema, ...restSchema] = openApiSchema.anyOf ?? [];
+
+    if (firstSchema && restSchema.length === 0) {
       return convertOpenApiSchemaToZodSchema(firstSchema);
     }
     const innerCallExpression = factory.createCallExpression(
@@ -73,11 +68,9 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
       : innerCallExpression;
   }
   if ("oneOf" in openApiSchema) {
-    if (openApiSchema.oneOf?.length === 1) {
-      const firstSchema = openApiSchema.oneOf[0];
-      if (!firstSchema) {
-        throw new Error("Theoretically unreachable");
-      }
+    const [firstSchema, ...restSchema] = openApiSchema.oneOf ?? [];
+
+    if (firstSchema && restSchema.length === 0) {
       return convertOpenApiSchemaToZodSchema(firstSchema);
     }
     const innerCallExpression = factory.createCallExpression(
