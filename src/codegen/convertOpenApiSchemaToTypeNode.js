@@ -65,7 +65,13 @@ function convertOpenApiSchemaToTypeNode(openApiSchema) {
      * omitting the "#" from the path.
      */
     const ref = openApiSchema["$ref"];
-    const refName = ref.split("/").at(-1);
+    const refName = ref
+      .split("/")
+      .at(-1)
+      /**
+       * Fix names which have trailing ".yaml" (possibly erroneously)
+       */
+      ?.replaceAll(/\..*/g, "");
     if (!refName) {
       throw new Error(`Could not derive refName from ${ref}`);
     }

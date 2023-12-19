@@ -1328,7 +1328,7 @@ export interface Pagination {
 export type PushNotificationDevicesInput = unknown[];
 
 export interface PushNotificationDevicesRequest {
-  push_notification_devices: PushNotificationDevicesInput.yaml;
+  push_notification_devices: PushNotificationDevicesInput;
 }
 
 export interface RenewSessionResponse {
@@ -4439,10 +4439,10 @@ export const paginationSchema: zod.ZodSchema<Pagination> = zod.object({
   }),
 });
 
-export const pushNotificationDevicesInputYamlSchema: zod.ZodSchema<PushNotificationDevicesInput.yaml> =
+export const pushNotificationDevicesInputYamlSchema: zod.ZodSchema<PushNotificationDevicesInput> =
   zod.array(zod.unknown());
 
-export const pushNotificationDevicesRequestYamlSchema: zod.ZodSchema<PushNotificationDevicesRequest.yaml> =
+export const pushNotificationDevicesRequestYamlSchema: zod.ZodSchema<PushNotificationDevicesRequest> =
   zod.object({
     push_notification_devices: pushNotificationDevicesInputYamlSchema,
   });
