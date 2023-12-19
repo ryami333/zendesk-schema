@@ -23,7 +23,7 @@ const createNullableCallExpression = (expression) => {
  * @param {SchemaObject | ReferenceObject} openApiSchema
  * @returns {ts.Expression}
  */
-export function convertOpenApiSchemaToZodSchema(openApiSchema) {
+function convertOpenApiSchemaToZodSchema(openApiSchema) {
   if ("allOf" in openApiSchema) {
     if (openApiSchema.allOf?.length === 1) {
       return convertOpenApiSchemaToZodSchema(openApiSchema.allOf[0]);
@@ -210,3 +210,6 @@ export function convertOpenApiSchemaToZodSchema(openApiSchema) {
     }
   }
 }
+
+module.exports.convertOpenApiSchemaToZodSchema =
+  convertOpenApiSchemaToZodSchema;
