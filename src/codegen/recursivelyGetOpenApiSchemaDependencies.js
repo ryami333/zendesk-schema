@@ -25,6 +25,10 @@ function recursivelyGetOpenApiSchemaDependencies(schema) {
       .flat();
   }
   if (schema.type === "array") {
+    if (!schema.items) {
+      console.warn(`Schema has no items: ${JSON.stringify(schema)}`);
+      return [];
+    }
     return recursivelyGetOpenApiSchemaDependencies(schema.items);
   }
 

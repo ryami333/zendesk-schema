@@ -55,6 +55,22 @@ function convertOpenApiSchemaToTypeDeclaration(name, schema) {
         ),
       );
     }
+    case "array": {
+      return factory.createTypeAliasDeclaration(
+        [exportModifier],
+        factory.createIdentifier(name),
+        undefined,
+        factory.createArrayTypeNode(
+          factory.createUnionTypeNode(
+            schema.items
+              ? Object.values(schema.items).map((property) =>
+                  convertOpenApiSchemaToTypeNode(property),
+                )
+              : [factory.createTypeReferenceNode("unknown")],
+          ),
+        ),
+      );
+    }
     case "integer":
     case "string": {
       if (schema.enum) {

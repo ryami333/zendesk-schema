@@ -21,6 +21,11 @@ function createMaybeTypedTypeNode(typeNode) {
  * @returns {ts.TypeNode}
  */
 function convertOpenApiSchemaToTypeNode(openApiSchema) {
+  if (!openApiSchema) {
+    console.warn(`Empty schema`);
+    return factory.createTypeReferenceNode("unknown");
+  }
+
   if ("allOf" in openApiSchema) {
     const innerTypeNode = factory.createIntersectionTypeNode(
       openApiSchema.allOf?.map((childSchema) =>
@@ -118,6 +123,10 @@ function convertOpenApiSchemaToTypeNode(openApiSchema) {
         : innerTypeNode;
     }
     case "array": {
+      if (!openApiSchema) {
+        console.warn(`Schema has no items: ${JSON.stringify(openApiSchema)}`);
+      }
+
       const innerTypeNode = factory.createArrayTypeNode(
         convertOpenApiSchemaToTypeNode(openApiSchema.items),
       );

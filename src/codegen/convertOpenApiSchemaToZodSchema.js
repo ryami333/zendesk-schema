@@ -119,7 +119,18 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
           factory.createIdentifier("array"),
         ),
         undefined,
-        [convertOpenApiSchemaToZodSchema(openApiSchema.items)],
+        [
+          openApiSchema.items
+            ? convertOpenApiSchemaToZodSchema(openApiSchema.items)
+            : factory.createCallExpression(
+                factory.createPropertyAccessExpression(
+                  factory.createIdentifier("zod"),
+                  factory.createIdentifier("unknown"),
+                ),
+                undefined,
+                [],
+              ),
+        ],
       );
       return openApiSchema.nullable
         ? createNullableCallExpression(innerCallExpression)
