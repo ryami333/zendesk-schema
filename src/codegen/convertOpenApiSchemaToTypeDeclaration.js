@@ -24,15 +24,6 @@ const { factory } = ts;
  * @param {SchemaObject | ReferenceObject} schema
  */
 function convertOpenApiSchemaToTypeDeclaration(name, schema) {
-  if (
-    "$ref" in schema ||
-    "allOf" in schema ||
-    "anyOf" in schema ||
-    "oneOf" in schema
-  ) {
-    return undefined;
-  }
-
   // No matter the schema-type, we're going to "export" it, so let's create that
   // re-usable node in advance.
   const exportModifier = factory.createModifier(ts.SyntaxKind.ExportKeyword);
@@ -43,6 +34,30 @@ function convertOpenApiSchemaToTypeDeclaration(name, schema) {
       // Strip trailing ".yaml" (probably erroneously named as such to begin with)
       .replaceAll(/\..*/g, ""),
   );
+
+  if ("allOf" in schema) {
+    return factory.createTypeAliasDeclaration(
+      [exportModifier],
+      nameIdentifier,
+      undefined,
+      factory.createIntersectionTypeNode(
+        schema.allOf?.map((allOfItem) =>
+          convertOpenApiSchemaToTypeNode(allOfItem),
+        ) ?? [],
+      ),
+      // Object.entries(schema.properties || {}).map(([propertyName, property]) =>
+      //   factory.createPropertySignature(
+      //     undefined,
+      //     factory.createIdentifier(propertyName),
+      //     undefined,
+      //     convertOpenApiSchemaToTypeNode(property),
+      //   ),
+      // ),
+    );
+  }
+  if ("$ref" in schema || "anyOf" in schema || "oneOf" in schema) {
+    return undefined;
+  }
 
   switch (schema.type) {
     case "object": {
