@@ -17,6 +17,6 @@
     "moduleResolution": "node16",
     "noUncheckedIndexedAccess": true
   },
-  "include": ["src/**/*", "*"],
+  "include": ["src/**/*", "*", "dist/**/*"],
   "exclude": ["node_modules", "**/node_modules", "**/.*/"]
 }
