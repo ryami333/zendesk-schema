@@ -3228,7 +3228,7 @@ export const accountSettingsRuleObjectSchema: zod.ZodSchema<AccountSettingsRuleO
   zod.object({
     macro_most_used: zod.boolean(),
     macro_order: zod.string(),
-    skill_based_filtered_views: zod.array(zod.record(zod.unknown())),
+    skill_based_filtered_views: zod.array(zod.object({}).passthrough()),
     using_skill_based_routing: zod.boolean(),
   });
 
@@ -3526,7 +3526,7 @@ export const bulkUpdateDefaultCustomStatusRequestSchema: zod.ZodSchema<BulkUpdat
   zod.object({ ids: zod.string() });
 
 export const bulkUpdateDefaultCustomStatusResponseSchema: zod.ZodSchema<BulkUpdateDefaultCustomStatusResponse> =
-  zod.record(zod.unknown());
+  zod.object({});
 
 export const channelFrameworkResultStatusObjectSchema: zod.ZodSchema<ChannelFrameworkResultStatusObject> =
   zod.object({ code: zod.string(), description: zod.string() });
@@ -3634,7 +3634,7 @@ export const customFieldObjectSchema: zod.ZodSchema<CustomFieldObject> =
     raw_description: zod.string(),
     raw_title: zod.string(),
     regexp_for_validation: zod.string().nullable(),
-    relationship_filter: zod.record(zod.unknown()),
+    relationship_filter: zod.object({}),
     relationship_target_type: zod.string(),
     system: zod.boolean(),
     tag: zod.string(),
@@ -3696,7 +3696,7 @@ export const customObjectRecordSchema: zod.ZodSchema<CustomObjectRecord> =
   zod.object({
     created_at: zod.string(),
     created_by_user_id: zod.string(),
-    custom_object_fields: zod.record(zod.unknown()),
+    custom_object_fields: zod.object({}).passthrough(),
     custom_object_key: zod.string(),
     external_id: zod.string().nullable(),
     id: zod.string(),
@@ -3888,7 +3888,7 @@ export const deletedUserObjectSchema: zod.ZodSchema<DeletedUserObject> =
     name: zod.string(),
     organization_id: zod.number(),
     phone: zod.string().nullable(),
-    photo: zod.record(zod.unknown()).nullable(),
+    photo: zod.object({}).nullable(),
     role: zod.string(),
     shared_phone_number: zod.string().nullable(),
     time_zone: zod.string(),
@@ -3944,8 +3944,8 @@ export const errorSchema: zod.ZodSchema<Error> = zod.object({
   code: zod.string(),
   detail: zod.string(),
   id: zod.string(),
-  links: zod.record(zod.unknown()),
-  source: zod.record(zod.unknown()),
+  links: zod.object({}),
+  source: zod.object({}),
   status: zod.string(),
   title: zod.string(),
 });
@@ -3961,7 +3961,7 @@ export const essentialsCardObjectSchema: zod.ZodSchema<EssentialsCardObject> =
   zod.object({
     created_at: zod.string(),
     default: zod.boolean(),
-    fields: zod.array(zod.record(zod.unknown())),
+    fields: zod.array(zod.object({}).passthrough()),
     id: zod.string().nullable(),
     key: zod.string(),
     layout: zod.string(),
@@ -4151,7 +4151,7 @@ export const keyDetailObjectSchema: zod.ZodSchema<KeyDetailObject> = zod.object(
   {
     created_at: zod.string(),
     default: zod.boolean(),
-    fields: zod.array(zod.record(zod.unknown())),
+    fields: zod.array(zod.object({}).passthrough()),
     key: zod.string(),
     max_count: zod.number(),
     updated_at: zod.string(),
@@ -4162,19 +4162,19 @@ export const keyDetailsResponseSchema: zod.ZodSchema<KeyDetailsResponse> =
   zod.object({ key_detail: keyDetailObjectSchema });
 
 export const listTicketCollaboratorsResponseSchema: zod.ZodSchema<ListTicketCollaboratorsResponse> =
-  zod.record(zod.unknown());
+  zod.object({}).passthrough();
 
 export const listTicketEmailCCsResponseSchema: zod.ZodSchema<ListTicketEmailCCsResponse> =
-  zod.record(zod.unknown());
+  zod.object({}).passthrough();
 
 export const listTicketFollowersResponseSchema: zod.ZodSchema<ListTicketFollowersResponse> =
-  zod.record(zod.unknown());
+  zod.object({}).passthrough();
 
 export const listTicketIncidentsResponseSchema: zod.ZodSchema<ListTicketIncidentsResponse> =
-  zod.record(zod.unknown());
+  zod.object({}).passthrough();
 
 export const listTicketProblemsResponseSchema: zod.ZodSchema<ListTicketProblemsResponse> =
-  zod.record(zod.unknown());
+  zod.object({}).passthrough();
 
 export const localeObjectSchema: zod.ZodSchema<LocaleObject> = zod.object({
   created_at: zod.string(),
@@ -4239,7 +4239,7 @@ export const macroCommonObjectSchema: zod.ZodSchema<MacroCommonObject> =
     description: zod.string().nullable(),
     id: zod.number(),
     position: zod.number(),
-    restriction: zod.record(zod.unknown()).nullable(),
+    restriction: zod.object({}).passthrough().nullable(),
     title: zod.string(),
     updated_at: zod.string(),
     url: zod.string(),
@@ -4249,11 +4249,13 @@ export const macroInputSchema: zod.ZodSchema<MacroInput> = zod.object({
   actions: zod.array(actionObjectSchema),
   active: zod.boolean(),
   description: zod.string().nullable(),
-  restriction: zod.object({
-    id: zod.number(),
-    ids: zod.array(zod.number()),
-    type: zod.string(),
-  }),
+  restriction: zod
+    .object({
+      id: zod.number(),
+      ids: zod.array(zod.number()),
+      type: zod.string(),
+    })
+    .passthrough(),
   title: zod.string(),
 });
 
@@ -4368,7 +4370,7 @@ export const organizationObjectSchema: zod.ZodSchema<OrganizationObject> =
     id: zod.number(),
     name: zod.string(),
     notes: zod.string().nullable(),
-    organization_fields: zod.record(zod.unknown()).nullable(),
+    organization_fields: zod.object({}).passthrough().nullable(),
     shared_comments: zod.boolean(),
     shared_tickets: zod.boolean(),
     tags: zod.array(zod.string()),
@@ -4962,7 +4964,7 @@ export const targetsResponseSchema: zod.ZodSchema<TargetsResponse> = zod.object(
 );
 
 export const ticketAuditViaObjectSchema: zod.ZodSchema<TicketAuditViaObject> =
-  zod.object({ channel: zod.string(), source: zod.record(zod.unknown()) });
+  zod.object({ channel: zod.string(), source: zod.object({}).passthrough() });
 
 export const requestObjectSchema: zod.ZodSchema<RequestObject> = zod.object({
   assignee_id: zod.number(),
@@ -5005,9 +5007,9 @@ export const ticketAuditObjectSchema: zod.ZodSchema<TicketAuditObject> =
   zod.object({
     author_id: zod.number(),
     created_at: zod.string(),
-    events: zod.array(zod.record(zod.unknown())),
+    events: zod.array(zod.object({}).passthrough()),
     id: zod.number(),
-    metadata: zod.record(zod.unknown()),
+    metadata: zod.object({}).passthrough(),
     ticket_id: zod.number(),
     via: ticketAuditViaObjectSchema,
   });
@@ -5044,7 +5046,7 @@ export const ticketChatCommentRedactionResponseSchema: zod.ZodSchema<TicketChatC
       type: zod.string(),
       value: zod.object({
         chat_id: zod.string(),
-        history: zod.array(zod.record(zod.unknown())),
+        history: zod.array(zod.object({}).passthrough()),
         visitor_id: zod.string(),
       }),
     }),
@@ -5059,7 +5061,7 @@ export const ticketCommentObjectSchema: zod.ZodSchema<TicketCommentObject> =
     created_at: zod.string(),
     html_body: zod.string(),
     id: zod.number(),
-    metadata: zod.record(zod.unknown()),
+    metadata: zod.object({}).passthrough(),
     plain_body: zod.string(),
     public: zod.boolean(),
     type: zod.string(),
@@ -5152,7 +5154,7 @@ export const ticketFieldObjectSchema: zod.ZodSchema<TicketFieldObject> =
     raw_title: zod.string(),
     raw_title_in_portal: zod.string(),
     regexp_for_validation: zod.string().nullable(),
-    relationship_filter: zod.record(zod.unknown()),
+    relationship_filter: zod.object({}),
     relationship_target_type: zod.string(),
     removable: zod.boolean(),
     required: zod.boolean(),
@@ -5177,11 +5179,11 @@ export const ticketFieldsResponseSchema: zod.ZodSchema<TicketFieldsResponse> =
 export const ticketFormObjectSchema: zod.ZodSchema<TicketFormObject> =
   zod.object({
     active: zod.boolean(),
-    agent_conditions: zod.array(zod.record(zod.unknown())),
+    agent_conditions: zod.array(zod.object({}).passthrough()),
     created_at: zod.string(),
     default: zod.boolean(),
     display_name: zod.string(),
-    end_user_conditions: zod.array(zod.record(zod.unknown())),
+    end_user_conditions: zod.array(zod.object({}).passthrough()),
     end_user_visible: zod.boolean(),
     id: zod.number(),
     in_all_brands: zod.boolean(),
@@ -5274,19 +5276,19 @@ export const ticketMetricEventBreachObjectSchema: zod.ZodSchema<TicketMetricEven
 export const ticketMetricEventGroupSlaObjectSchema: zod.ZodSchema<TicketMetricEventGroupSLAObject> =
   zod.intersection(
     ticketMetricEventBaseObjectSchema,
-    zod.object({ group_sla: zod.record(zod.unknown()) }),
+    zod.object({ group_sla: zod.object({}) }),
   );
 
 export const ticketMetricEventSlaObjectSchema: zod.ZodSchema<TicketMetricEventSLAObject> =
   zod.intersection(
     ticketMetricEventBaseObjectSchema,
-    zod.object({ sla: zod.record(zod.unknown()) }),
+    zod.object({ sla: zod.object({}) }),
   );
 
 export const ticketMetricEventUpdateStatusObjectSchema: zod.ZodSchema<TicketMetricEventUpdateStatusObject> =
   zod.intersection(
     ticketMetricEventBaseObjectSchema,
-    zod.object({ status: zod.record(zod.unknown()) }),
+    zod.object({ status: zod.object({}) }),
   );
 
 export const ticketMetricEventsResponseSchema: zod.ZodSchema<TicketMetricEventsResponse> =
@@ -5347,17 +5349,17 @@ export const ticketObjectSchema: zod.ZodSchema<TicketObject> = zod.object({
   brand_id: zod.number(),
   collaborator_ids: zod.array(zod.unknown()),
   collaborators: zod.array(collaboratorObjectSchema),
-  comment: zod.record(zod.unknown()),
+  comment: zod.object({}),
   created_at: zod.string(),
   custom_fields: zod.array(zod.unknown()),
   custom_status_id: zod.number(),
   description: zod.string(),
   due_at: zod.string().nullable(),
   email_cc_ids: zod.array(zod.unknown()),
-  email_ccs: zod.record(zod.unknown()),
+  email_ccs: zod.object({}),
   external_id: zod.string(),
   follower_ids: zod.array(zod.unknown()),
-  followers: zod.record(zod.unknown()),
+  followers: zod.object({}),
   followup_ids: zod.array(zod.unknown()),
   forum_topic_id: zod.number(),
   from_messaging_channel: zod.boolean(),
@@ -5367,7 +5369,7 @@ export const ticketObjectSchema: zod.ZodSchema<TicketObject> = zod.object({
   is_public: zod.boolean(),
   macro_id: zod.number(),
   macro_ids: zod.array(zod.unknown()),
-  metadata: zod.record(zod.unknown()),
+  metadata: zod.object({}),
   organization_id: zod.number(),
   priority: zod.union([
     zod.literal("urgent"),
@@ -5378,10 +5380,10 @@ export const ticketObjectSchema: zod.ZodSchema<TicketObject> = zod.object({
   problem_id: zod.number(),
   raw_subject: zod.string(),
   recipient: zod.string(),
-  requester: zod.record(zod.unknown()),
+  requester: zod.object({}),
   requester_id: zod.number(),
   safe_update: zod.boolean(),
-  satisfaction_rating: zod.record(zod.unknown()),
+  satisfaction_rating: zod.object({}).passthrough(),
   sharing_agreement_ids: zod.array(zod.unknown()),
   status: zod.union([
     zod.literal("new"),
@@ -5404,10 +5406,13 @@ export const ticketObjectSchema: zod.ZodSchema<TicketObject> = zod.object({
   updated_at: zod.string(),
   updated_stamp: zod.string(),
   url: zod.string(),
-  via: zod.object({ channel: zod.string(), source: zod.record(zod.unknown()) }),
+  via: zod.object({
+    channel: zod.string(),
+    source: zod.object({}).passthrough(),
+  }),
   via_followup_source_id: zod.number(),
   via_id: zod.number(),
-  voice_comment: zod.record(zod.unknown()),
+  voice_comment: zod.object({}),
 });
 
 export const bookmarkObjectSchema: zod.ZodSchema<BookmarkObject> = zod.object({
@@ -5442,7 +5447,7 @@ export const ticketRelatedInformationSchema: zod.ZodSchema<TicketRelatedInformat
     from_archive: zod.boolean(),
     incidents: zod.number(),
     topic_id: zod.string().nullable(),
-    twitter: zod.record(zod.unknown()),
+    twitter: zod.object({}).passthrough(),
   });
 
 export const ticketResponseSchema: zod.ZodSchema<TicketResponse> = zod.object({
@@ -5611,7 +5616,7 @@ export const triggerCategoryRequestSchema: zod.ZodSchema<TriggerCategoryRequest>
   zod.object({ name: zod.string(), position: zod.number() });
 
 export const triggerCategoryRequestRequiredSchema: zod.ZodSchema<TriggerCategoryRequestRequired> =
-  zod.record(zod.unknown());
+  zod.object({});
 
 export const triggerCategoryResponseSchema: zod.ZodSchema<TriggerCategoryResponse> =
   zod.object({ trigger_category: triggerCategorySchema });
@@ -5945,7 +5950,7 @@ export const userForAdminSchema: zod.ZodSchema<UserForAdmin> = zod.object({
   only_private_comments: zod.boolean(),
   organization_id: zod.number().nullable(),
   phone: zod.string().nullable(),
-  photo: zod.record(zod.unknown()).nullable(),
+  photo: zod.object({}).passthrough().nullable(),
   remote_photo_url: zod.string(),
   report_csv: zod.boolean(),
   restricted_agent: zod.boolean(),
@@ -5962,7 +5967,7 @@ export const userForAdminSchema: zod.ZodSchema<UserForAdmin> = zod.object({
   two_factor_auth_enabled: zod.boolean().nullable(),
   updated_at: zod.string(),
   url: zod.string(),
-  user_fields: zod.record(zod.unknown()),
+  user_fields: zod.object({}).passthrough(),
   verified: zod.boolean(),
 });
 
@@ -5976,7 +5981,7 @@ export const userForEndUserSchema: zod.ZodSchema<UserForEndUser> = zod.object({
   name: zod.string(),
   organization_id: zod.number(),
   phone: zod.string(),
-  photo: zod.record(zod.unknown()),
+  photo: zod.object({}).passthrough(),
   role: zod.string(),
   shared_phone_number: zod.boolean(),
   time_zone: zod.string(),
@@ -6043,8 +6048,8 @@ export const activityObjectSchema: zod.ZodSchema<ActivityObject> = zod.object({
   actor_id: zod.number(),
   created_at: zod.string(),
   id: zod.number(),
-  object: zod.record(zod.unknown()),
-  target: zod.record(zod.unknown()),
+  object: zod.object({}).passthrough(),
+  target: zod.object({}).passthrough(),
   title: zod.string(),
   updated_at: zod.string(),
   url: zod.string(),
@@ -6056,11 +6061,11 @@ export const activityObjectSchema: zod.ZodSchema<ActivityObject> = zod.object({
 export const activitiesResponseSchema: zod.ZodSchema<ActivitiesResponse> =
   zod.object({
     activities: zod.array(activityObjectSchema),
-    actors: zod.array(zod.record(zod.unknown())),
+    actors: zod.array(zod.object({}).passthrough()),
     count: zod.number(),
     next_page: zod.string().nullable(),
     previous_page: zod.string().nullable(),
-    users: zod.array(zod.record(zod.unknown())),
+    users: zod.array(zod.object({}).passthrough()),
   });
 
 export const activityResponseSchema: zod.ZodSchema<ActivityResponse> =
@@ -6128,16 +6133,18 @@ export const reverseLookupResponseSchema: zod.ZodSchema<ReverseLookupResponse> =
 
 export const viaObjectSchema: zod.ZodSchema<ViaObject> = zod.object({
   channel: zod.string(),
-  source: zod.object({
-    from: zod.object({
-      address: zod.string().nullable(),
-      id: zod.number().nullable(),
-      name: zod.string().nullable(),
-      title: zod.string().nullable(),
-    }),
-    rel: zod.string().nullable(),
-    to: zod.object({ address: zod.string(), name: zod.string() }),
-  }),
+  source: zod
+    .object({
+      from: zod.object({
+        address: zod.string().nullable(),
+        id: zod.number().nullable(),
+        name: zod.string().nullable(),
+        title: zod.string().nullable(),
+      }),
+      rel: zod.string().nullable(),
+      to: zod.object({ address: zod.string(), name: zod.string() }),
+    })
+    .passthrough(),
 });
 
 export const auditObjectSchema: zod.ZodSchema<AuditObject> = zod.object({
@@ -6145,7 +6152,7 @@ export const auditObjectSchema: zod.ZodSchema<AuditObject> = zod.object({
   created_at: zod.string(),
   events: zod.array(zod.unknown()),
   id: zod.number(),
-  metadata: zod.record(zod.unknown()),
+  metadata: zod.object({}),
   ticket_id: zod.number(),
   via: viaObjectSchema,
 });
@@ -6159,7 +6166,7 @@ export const suspendedTicketObjectSchema: zod.ZodSchema<SuspendedTicketObject> =
     cause_id: zod.number(),
     content: zod.string(),
     created_at: zod.string(),
-    error_messages: zod.array(zod.record(zod.unknown())).nullable(),
+    error_messages: zod.array(zod.object({})).nullable(),
     id: zod.number(),
     message_id: zod.string(),
     recipient: zod.string(),
@@ -6236,22 +6243,22 @@ export const viewExportResponseSchema: zod.ZodSchema<ViewExportResponse> =
 
 export const viewObjectSchema: zod.ZodSchema<ViewObject> = zod.object({
   active: zod.boolean(),
-  conditions: zod.record(zod.unknown()),
+  conditions: zod.object({}).passthrough(),
   created_at: zod.string(),
   default: zod.boolean(),
   description: zod.string(),
-  execution: zod.record(zod.unknown()),
+  execution: zod.object({}).passthrough(),
   id: zod.number(),
   position: zod.number(),
-  restriction: zod.record(zod.unknown()),
+  restriction: zod.object({}).passthrough(),
   title: zod.string(),
   updated_at: zod.string(),
 });
 
 export const viewResponseSchema: zod.ZodSchema<ViewResponse> = zod.object({
-  columns: zod.array(zod.record(zod.unknown())),
-  groups: zod.array(zod.record(zod.unknown())),
-  rows: zod.array(zod.record(zod.unknown())),
+  columns: zod.array(zod.object({}).passthrough()),
+  groups: zod.array(zod.object({}).passthrough()),
+  rows: zod.array(zod.object({}).passthrough()),
   view: viewObjectSchema,
 });
 
@@ -6278,7 +6285,7 @@ export const workspaceInputSchema: zod.ZodSchema<WorkspaceInput> = zod.object({
 export const workspaceObjectSchema: zod.ZodSchema<WorkspaceObject> = zod.object(
   {
     activated: zod.boolean(),
-    apps: zod.array(zod.record(zod.unknown())),
+    apps: zod.array(zod.object({}).passthrough()),
     conditions: conditionsObjectSchema,
     created_at: zod.string(),
     description: zod.string(),
@@ -6394,7 +6401,7 @@ export const getApiV2CustomObjectsByCustomObjectKeyRecordsAutocompleteResponseSc
 
 export const getApiV2CustomObjectsByCustomObjectKeyRecordsCountResponseSchema: zod.ZodSchema<{
   count: Record<string, unknown>;
-}> = zod.object({ count: zod.record(zod.unknown()) });
+}> = zod.object({ count: zod.object({}).passthrough() });
 
 export const getApiV2CustomObjectsByCustomObjectKeyRecordsSearchResponseSchema: zod.ZodSchema<CustomObjectRecordsResponse> =
   customObjectRecordsResponseSchema;
@@ -6551,7 +6558,7 @@ export const getApiV2MacrosByMacroIdAttachmentsResponseSchema: zod.ZodSchema<Mac
 
 export const getApiV2MacrosActionsResponseSchema: zod.ZodSchema<{
   actions: Record<string, unknown>[];
-}> = zod.object({ actions: zod.array(zod.record(zod.unknown())) });
+}> = zod.object({ actions: zod.array(zod.object({}).passthrough()) });
 
 export const getApiV2MacrosActiveResponseSchema: zod.ZodSchema<MacrosResponse> =
   macrosResponseSchema;
@@ -6567,7 +6574,7 @@ export const getApiV2MacrosDefinitionsResponseSchema: zod.ZodSchema<{
     actions: Record<string, unknown>[];
   };
 }> = zod.object({
-  definitions: zod.object({ actions: zod.array(zod.record(zod.unknown())) }),
+  definitions: zod.object({ actions: zod.array(zod.object({}).passthrough()) }),
 });
 
 export const getApiV2MacrosNewResponseSchema: zod.ZodSchema<MacroResponse> =

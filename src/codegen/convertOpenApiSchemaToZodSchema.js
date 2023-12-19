@@ -183,43 +183,39 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
 
     case "object": {
       return pipe(
-        openApiSchema.properties
-          ? factory.createCallExpression(
-              factory.createPropertyAccessExpression(
-                factory.createIdentifier("zod"),
-                factory.createIdentifier("object"),
+        factory.createCallExpression(
+          factory.createPropertyAccessExpression(
+            factory.createIdentifier("zod"),
+            factory.createIdentifier("object"),
+          ),
+          undefined,
+          [
+            factory.createObjectLiteralExpression(
+              Object.entries(openApiSchema.properties ?? {}).map(
+                ([propertyName, propertySchema]) => {
+                  return factory.createPropertyAssignment(
+                    factory.createIdentifier(propertyName),
+                    convertOpenApiSchemaToZodSchema(propertySchema),
+                  );
+                },
               ),
-              undefined,
-              [
-                factory.createObjectLiteralExpression(
-                  Object.entries(openApiSchema.properties).map(
-                    ([propertyName, propertySchema]) => {
-                      return factory.createPropertyAssignment(
-                        factory.createIdentifier(propertyName),
-                        convertOpenApiSchemaToZodSchema(propertySchema),
-                      );
-                    },
-                  ),
-                ),
-              ],
-            )
-          : factory.createCallExpression(
-              factory.createPropertyAccessExpression(
-                factory.createIdentifier("zod"),
-                factory.createIdentifier("record"),
-              ),
-              undefined,
-              [
-                factory.createCallExpression(
-                  factory.createPropertyAccessExpression(
-                    factory.createIdentifier("zod"),
-                    factory.createIdentifier("unknown"),
-                  ),
-                  undefined,
-                  undefined,
-                ),
-              ],
             ),
+          ],
+        ),
+        /**
+         * Chain with `.passthrough(…)`, if applicable.
+         */
+        (carry) =>
+          openApiSchema.additionalProperties
+            ? factory.createCallExpression(
+                factory.createPropertyAccessExpression(
+                  carry,
+                  factory.createIdentifier("passthrough"),
+                ),
+                undefined,
+                undefined,
+              )
+            : carry,
         /**
          * Wrap with `zod.nullable(…)`, if applicable.
          */
