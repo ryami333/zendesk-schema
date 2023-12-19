@@ -45,18 +45,34 @@ function convertOpenApiSchemaToTypeDeclaration(name, schema) {
           convertOpenApiSchemaToTypeNode(allOfItem),
         ) ?? [],
       ),
-      // Object.entries(schema.properties || {}).map(([propertyName, property]) =>
-      //   factory.createPropertySignature(
-      //     undefined,
-      //     factory.createIdentifier(propertyName),
-      //     undefined,
-      //     convertOpenApiSchemaToTypeNode(property),
-      //   ),
-      // ),
     );
   }
-  if ("$ref" in schema || "anyOf" in schema || "oneOf" in schema) {
-    return undefined;
+  if ("anyOf" in schema) {
+    return factory.createTypeAliasDeclaration(
+      [exportModifier],
+      nameIdentifier,
+      undefined,
+      factory.createUnionTypeNode(
+        schema.anyOf?.map((allOfItem) =>
+          convertOpenApiSchemaToTypeNode(allOfItem),
+        ) ?? [],
+      ),
+    );
+  }
+  if ("oneOf" in schema) {
+    return factory.createTypeAliasDeclaration(
+      [exportModifier],
+      nameIdentifier,
+      undefined,
+      factory.createUnionTypeNode(
+        schema.oneOf?.map((allOfItem) =>
+          convertOpenApiSchemaToTypeNode(allOfItem),
+        ) ?? [],
+      ),
+    );
+  }
+  if ("$ref" in schema) {
+    throw new Error("Unhandled case: schema has $ref property");
   }
 
   switch (schema.type) {

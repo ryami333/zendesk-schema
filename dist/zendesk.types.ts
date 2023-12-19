@@ -2634,6 +2634,8 @@ export interface UpdateResourceResult {
   success: boolean;
 }
 
+export type JobStatusResultObject = CreateResourceResult | UpdateResourceResult;
+
 export interface JobStatusObject {
   id: string;
   job_type: string;
@@ -2793,6 +2795,13 @@ export interface UserMergePropertiesInput {
   password: string;
 }
 
+export type UserInput =
+  | UserCreateInput
+  | UserMergePropertiesInput
+  | UserMergeByIdInput;
+
+export type UserObject = UserForAdmin | UserForEndUser;
+
 export interface ActivityObject {
   actor: UserObject;
   actor_id: number;
@@ -2874,6 +2883,8 @@ export interface UsersRequest {
 export interface UsersResponse {
   users: UserObject[];
 }
+
+export type ReverseLookupResponse = UsersResponse;
 
 export interface ViaObject {
   channel: string;
