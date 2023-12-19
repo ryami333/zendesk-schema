@@ -24,7 +24,6 @@ const { factory } = ts;
  * @returns {ts.Statement[]}
  */
 module.exports.convertOpenApiDocumentToStatements = (doc) => {
-  doc;
   const schemas = sortOpenApiSchemaByDependency(doc.components?.schemas || {});
 
   /**
