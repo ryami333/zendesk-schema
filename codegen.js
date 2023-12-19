@@ -1,13 +1,14 @@
-#!/usr/bin/env -S node -r @swc-node/register
+const ts = require("typescript");
+const fs = require("node:fs");
+const path = require("node:path");
+const prettier = require("prettier");
+const {
+  convertOpenApiDocumentToStatements,
+} = require("./src/codegen/convertOpenApiDocumentToStatements");
+const { artefactsDirectory } = require("./src/codegen/config");
+const YAML = require("yaml");
 
-import ts, { factory } from "typescript";
-import { OpenAPIV3 } from "openapi-types";
-import fs from "node:fs";
-import path from "node:path";
-import prettier from "prettier";
-import { convertOpenApiDocumentToStatements } from "./src/codegen/convertOpenApiDocumentToStatements";
-import { artefactsDirectory } from "./src/codegen/config";
-import YAML from "yaml";
+const { factory } = ts;
 
 (async () => {
   const openApiDocumentHandle = "./oas.yaml";
@@ -15,7 +16,11 @@ import YAML from "yaml";
   if (!fs.existsSync(openApiDocumentHandle)) {
     throw new Error(`No such file exists: (${openApiDocumentHandle})`);
   }
-  const openApiDocument: OpenAPIV3.Document = YAML.parse(
+
+  /**
+   * @type {import("openapi-types").OpenAPIV3.Document}
+   */
+  const openApiDocument = YAML.parse(
     fs.readFileSync(openApiDocumentHandle, "utf-8"),
   );
 

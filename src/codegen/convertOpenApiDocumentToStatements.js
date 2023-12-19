@@ -1,25 +1,45 @@
-import camelCase from "lodash.camelcase";
-import { OpenAPIV3 } from "openapi-types";
-import ts, { factory } from "typescript";
-import { notNullish } from "../helpers/notNullish";
-import { convertOpenApiSchemaToEnumValuesDeclarations } from "./convertOpenApiSchemaToEnumValuesDeclarations";
-import { convertOpenApiSchemaToTypeDeclaration } from "./convertOpenApiSchemaToTypeDeclaration";
-import { convertOpenApiSchemaToTypeNode } from "./convertOpenApiSchemaToTypeNode";
-import { convertOpenApiSchemaToZodSchemaExport } from "./convertOpenApiSchemaToZodSchemaExport";
-import { sortOpenApiSchemaByDependency } from "./sortOpenApiSchemaByDependency";
+const camelCase = require("lodash.camelcase");
+const ts = require("typescript");
+const { notNullish } = require("../helpers/notNullish");
+const {
+  convertOpenApiSchemaToEnumValuesDeclarations,
+} = require("./convertOpenApiSchemaToEnumValuesDeclarations");
+const {
+  convertOpenApiSchemaToTypeDeclaration,
+} = require("./convertOpenApiSchemaToTypeDeclaration");
+const {
+  convertOpenApiSchemaToTypeNode,
+} = require("./convertOpenApiSchemaToTypeNode");
+const {
+  convertOpenApiSchemaToZodSchemaExport,
+} = require("./convertOpenApiSchemaToZodSchemaExport");
+const {
+  sortOpenApiSchemaByDependency,
+} = require("./sortOpenApiSchemaByDependency");
 
-export function convertOpenApiDocumentToStatements(
-  doc: OpenAPIV3.Document,
-): ts.Statement[] {
+const { factory } = ts;
+
+/**
+ * @param {import("openapi-types").OpenAPIV3.Document} doc
+ * @returns {ts.Statement[]}
+ */
+module.exports.convertOpenApiDocumentToStatements = (doc) => {
+  doc;
   const schemas = sortOpenApiSchemaByDependency(doc.components?.schemas || {});
 
-  const methodNames = ["get", "post", "put", "delete"] as const;
+  /**
+   * Temporary measure - couldn't find JSDoc equivalent for "as const" in this
+   * context.
+   *
+   * @type ["get", "post", "put", "delete"];
+   */
+  const methodNames = ["get", "post", "put", "delete"];
   const paths = Object.keys(doc.paths || {});
 
   /**
    * Abstract Syntax Tree node for:
    * @example
-   * import { z as zod } from 'zod'
+   * import { z as zod } =require( 'zod)'
    */
   const importZodStatement = factory.createImportDeclaration(
     undefined,
@@ -143,4 +163,4 @@ export function convertOpenApiDocumentToStatements(
     ...exportZodEntitySchemaStatements,
     ...exportZodResponseSchemaStatements,
   ];
-}
+};
