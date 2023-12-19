@@ -37,11 +37,18 @@ function convertOpenApiSchemaToTypeDeclaration(name, schema) {
   // re-usable node in advance.
   const exportModifier = factory.createModifier(ts.SyntaxKind.ExportKeyword);
 
+  // No matter the schema-type, the identifier will be the same.
+  const nameIdentifier = factory.createIdentifier(
+    name
+      // Strip trailing ".yaml" (probably erroneously named as such to begin with)
+      .replaceAll(/\..*/g, ""),
+  );
+
   switch (schema.type) {
     case "object": {
       return factory.createInterfaceDeclaration(
         [exportModifier],
-        factory.createIdentifier(name),
+        nameIdentifier,
         undefined,
         undefined,
         Object.entries(schema.properties || {}).map(
@@ -58,7 +65,7 @@ function convertOpenApiSchemaToTypeDeclaration(name, schema) {
     case "array": {
       return factory.createTypeAliasDeclaration(
         [exportModifier],
-        factory.createIdentifier(name),
+        nameIdentifier,
         undefined,
         factory.createArrayTypeNode(
           factory.createUnionTypeNode(
@@ -76,7 +83,7 @@ function convertOpenApiSchemaToTypeDeclaration(name, schema) {
       if (schema.enum) {
         return factory.createTypeAliasDeclaration(
           [exportModifier],
-          factory.createIdentifier(name),
+          nameIdentifier,
           undefined,
           factory.createUnionTypeNode(
             schema.enum.map((enumVal) => {
@@ -87,7 +94,7 @@ function convertOpenApiSchemaToTypeDeclaration(name, schema) {
       }
       return factory.createTypeAliasDeclaration(
         [exportModifier],
-        factory.createIdentifier(name),
+        nameIdentifier,
         undefined,
         factory.createTypeReferenceNode(schema.type),
       );
