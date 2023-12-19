@@ -134,9 +134,25 @@ function convertOpenApiSchemaToTypeNode(openApiSchema) {
         ? createMaybeTypedTypeNode(innerTypeNode)
         : innerTypeNode;
     }
-    case "boolean":
-    case "number":
     case "string": {
+      if (openApiSchema.enum) {
+        const innerTypeNode = factory.createUnionTypeNode(
+          openApiSchema.enum.map((item) => {
+            return factory.createTypeReferenceNode(JSON.stringify(item));
+          }),
+        );
+        return openApiSchema.nullable
+          ? createMaybeTypedTypeNode(innerTypeNode)
+          : innerTypeNode;
+      }
+      const innerTypeNode = factory.createTypeReferenceNode(openApiSchema.type);
+
+      return openApiSchema.nullable
+        ? createMaybeTypedTypeNode(innerTypeNode)
+        : innerTypeNode;
+    }
+    case "boolean":
+    case "number": {
       const innerTypeNode = factory.createTypeReferenceNode(openApiSchema.type);
 
       return openApiSchema.nullable
