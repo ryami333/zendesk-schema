@@ -1,8 +1,12 @@
-import { OpenAPIV3 } from "openapi-types";
-import ts, { factory } from "typescript";
-import { createZodSchemaIdentifier } from "./createZodSchemaIdentifier";
+const ts = require("typescript");
+const { createZodSchemaIdentifier } = require("./createZodSchemaIdentifier");
 
-const createNullableCallExpression = (expression: ts.Expression) => {
+const { factory } = ts;
+
+/**
+ * @param {ts.Expression} expression
+ */
+const createNullableCallExpression = (expression) => {
   return factory.createCallExpression(
     factory.createPropertyAccessExpression(
       expression,
@@ -13,9 +17,13 @@ const createNullableCallExpression = (expression: ts.Expression) => {
   );
 };
 
-export function convertOpenApiSchemaToZodSchema(
-  openApiSchema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject,
-): ts.Expression {
+/**
+ * @typedef {import("openapi-types").OpenAPIV3.SchemaObject} SchemaObject
+ * @typedef {import("openapi-types").OpenAPIV3.ReferenceObject} ReferenceObject
+ * @param {SchemaObject | ReferenceObject} openApiSchema
+ * @returns {ts.Expression}
+ */
+export function convertOpenApiSchemaToZodSchema(openApiSchema) {
   if ("allOf" in openApiSchema) {
     if (openApiSchema.allOf?.length === 1) {
       return convertOpenApiSchemaToZodSchema(openApiSchema.allOf[0]);
@@ -140,7 +148,10 @@ export function convertOpenApiSchemaToZodSchema(
           [
             factory.createArrayLiteralExpression(
               openApiSchema.enum.map((item) => {
-                const getLiteral = (item: unknown) => {
+                /**
+                 * @param {unknown} item
+                 */
+                const getLiteral = (item) => {
                   switch (typeof item) {
                     case "string": {
                       return factory.createStringLiteral(item);

@@ -1,6 +1,6 @@
-import "dotenv/config";
-import { createEnv } from "@t3-oss/env-core";
-import { z } from "zod";
+require("dotenv/config");
+const { createEnv } = require("@t3-oss/env-core");
+const { z } = require("zod");
 
 export const env = createEnv({
   server: {

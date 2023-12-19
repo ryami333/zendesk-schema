@@ -1,9 +1,12 @@
-import { OpenAPIV3 } from "openapi-types";
-import { notNullish } from "../helpers/notNullish";
+const { notNullish } = require("../helpers/notNullish");
 
-export function recursivelyGetOpenApiSchemaDependencies(
-  schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject,
-): string[] {
+/**
+ * @typedef {import("openapi-types").OpenAPIV3.SchemaObject} SchemaObject
+ * @typedef {import("openapi-types").OpenAPIV3.ReferenceObject} ReferenceObject
+ * @param {SchemaObject | ReferenceObject} schema
+ * @return {string[]}
+ */
+function recursivelyGetOpenApiSchemaDependencies(schema) {
   if ("oneOf" in schema || "anyOf" in schema || "allOf" in schema) {
     const childSchemas = [schema.oneOf, schema.allOf, schema.anyOf]
       .flat()
@@ -27,3 +30,6 @@ export function recursivelyGetOpenApiSchemaDependencies(
 
   return [];
 }
+
+module.exports.recursivelyGetOpenApiSchemaDependencies =
+  recursivelyGetOpenApiSchemaDependencies;

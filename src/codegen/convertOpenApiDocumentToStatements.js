@@ -39,7 +39,7 @@ module.exports.convertOpenApiDocumentToStatements = (doc) => {
   /**
    * Abstract Syntax Tree node for:
    * @example
-   * import { z as zod } =require( 'zod)'
+   * import { z as zod } =require('zod')
    */
   const importZodStatement = factory.createImportDeclaration(
     undefined,
