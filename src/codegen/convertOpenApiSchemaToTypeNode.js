@@ -39,7 +39,7 @@ function convertOpenApiSchemaToTypeNode(openApiSchema) {
   }
   if ("anyOf" in openApiSchema) {
     const innerTypeNode = factory.createUnionTypeNode(
-      openApiSchema.allOf?.map((childSchema) =>
+      openApiSchema.anyOf?.map((childSchema) =>
         convertOpenApiSchemaToTypeNode(childSchema),
       ) || [],
     );
