@@ -5595,7 +5595,7 @@ export const triggerCategoryBatchRequestSchema: zod.ZodSchema<TriggerCategoryBat
 export const batchJobRequestSchema: zod.ZodSchema<BatchJobRequest> = zod.object(
   {
     job: zod.object({
-      action: zod.union([zod.literal("patch")]),
+      action: zod.literal("patch"),
       items: zod.object({
         trigger_categories: zod.array(triggerCategoryBatchRequestSchema),
         triggers: zod.array(triggerBatchRequestSchema),

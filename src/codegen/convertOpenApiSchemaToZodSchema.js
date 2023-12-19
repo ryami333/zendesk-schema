@@ -1,3 +1,4 @@
+const { pipe } = require("fp-ts/lib/function");
 const ts = require("typescript");
 const { createZodSchemaIdentifier } = require("./createZodSchemaIdentifier");
 
@@ -159,52 +160,62 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
     case "integer":
     case "string": {
       if (openApiSchema.enum) {
-        const innerCallExpression = factory.createCallExpression(
-          factory.createPropertyAccessExpression(
-            factory.createIdentifier("zod"),
-            factory.createIdentifier("union"),
-          ),
-          undefined,
-          [
-            factory.createArrayLiteralExpression(
-              openApiSchema.enum.map((item) => {
-                /**
-                 * @param {unknown} item
-                 */
-                const getLiteral = (item) => {
-                  switch (typeof item) {
-                    case "string": {
-                      return factory.createStringLiteral(item);
-                    }
-                    case "number": {
-                      return factory.createNumericLiteral(item);
-                    }
-                    case "boolean": {
-                      return item
-                        ? factory.createTrue()
-                        : factory.createFalse();
-                    }
-                    default: {
-                      throw new Error(`Unhandled type: ${typeof item}`);
-                    }
-                  }
-                };
-                return factory.createCallExpression(
-                  factory.createPropertyAccessExpression(
-                    factory.createIdentifier("zod"),
-                    "literal",
-                  ),
-                  undefined,
-                  [getLiteral(item)],
-                );
-              }),
+        const callExpressions = openApiSchema.enum.map((item) => {
+          /**
+           * @param {unknown} item
+           */
+          const getLiteral = (item) => {
+            switch (typeof item) {
+              case "string": {
+                return factory.createStringLiteral(item);
+              }
+              case "number": {
+                return factory.createNumericLiteral(item);
+              }
+              case "boolean": {
+                return item ? factory.createTrue() : factory.createFalse();
+              }
+              default: {
+                throw new Error(`Unhandled type: ${typeof item}`);
+              }
+            }
+          };
+          return factory.createCallExpression(
+            factory.createPropertyAccessExpression(
+              factory.createIdentifier("zod"),
+              "literal",
             ),
-          ],
-        );
+            undefined,
+            [getLiteral(item)],
+          );
+        });
 
-        return openApiSchema.nullable
-          ? createNullableCallExpression(innerCallExpression)
-          : innerCallExpression;
+        return pipe(
+          callExpressions,
+          (input) => {
+            /**
+             * Wrap with zod.union([…]), but only if there are multiple options,
+             * because `zod.union([zod.literal("foo")])` is redundant.
+             */
+            const [firstExpression, ...restExpressions] = input;
+            if (firstExpression && restExpressions.length === 0) {
+              return firstExpression;
+            }
+            return factory.createCallExpression(
+              factory.createPropertyAccessExpression(
+                factory.createIdentifier("zod"),
+                factory.createIdentifier("union"),
+              ),
+              undefined,
+              [factory.createArrayLiteralExpression(input)],
+            );
+          },
+          // Wrap with `zod.nullable(…)`, if applicable.
+          (input) =>
+            openApiSchema.nullable
+              ? createNullableCallExpression(input)
+              : input,
+        );
       }
 
       const innerCallExpression = factory.createCallExpression(
