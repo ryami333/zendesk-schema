@@ -3068,7 +3068,7 @@ export type WorkspaceResponse = {
   workspaces: WorkspaceObject[];
 } & OffsetPaginationObject;
 
-export const accountSettingsActiveFeaturesObjectSchema: zod.ZodSchema<AccountSettingsActiveFeaturesObject> =
+export const accountSettingsActiveFeaturesObjectSchema: z.ZodSchema<AccountSettingsActiveFeaturesObject> =
   z
     .object({
       advanced_analytics: z.boolean(),
@@ -3117,7 +3117,7 @@ export const accountSettingsActiveFeaturesObjectSchema: zod.ZodSchema<AccountSet
       "The active features for an account. See [Active Features](#active-features)",
     );
 
-export const accountSettingsAgentObjectSchema: zod.ZodSchema<AccountSettingsAgentObject> =
+export const accountSettingsAgentObjectSchema: z.ZodSchema<AccountSettingsAgentObject> =
   z
     .object({
       agent_home: z.boolean(),
@@ -3129,7 +3129,7 @@ export const accountSettingsAgentObjectSchema: zod.ZodSchema<AccountSettingsAgen
     })
     .describe("Configuration for the agent workspace. See [Agents](#agents)");
 
-export const accountSettingsApiObjectSchema: zod.ZodSchema<AccountSettingsApiObject> =
+export const accountSettingsApiObjectSchema: z.ZodSchema<AccountSettingsApiObject> =
   z
     .object({
       accepted_api_agreement: z.boolean(),
@@ -3138,7 +3138,7 @@ export const accountSettingsApiObjectSchema: zod.ZodSchema<AccountSettingsApiObj
     })
     .describe("API configuration options. See [API](#api)");
 
-export const accountSettingsAppsObjectSchema: zod.ZodSchema<AccountSettingsAppsObject> =
+export const accountSettingsAppsObjectSchema: z.ZodSchema<AccountSettingsAppsObject> =
   z
     .object({
       create_private: z.boolean(),
@@ -3147,12 +3147,12 @@ export const accountSettingsAppsObjectSchema: zod.ZodSchema<AccountSettingsAppsO
     })
     .describe("Apps configuration options. See [Apps](#apps)");
 
-export const accountSettingsBillingObjectSchema: zod.ZodSchema<AccountSettingsBillingObject> =
+export const accountSettingsBillingObjectSchema: z.ZodSchema<AccountSettingsBillingObject> =
   z
     .object({ backend: z.string() })
     .describe("Billing configuration options. See [Billing](#billing)");
 
-export const accountSettingsBrandingObjectSchema: zod.ZodSchema<AccountSettingsBrandingObject> =
+export const accountSettingsBrandingObjectSchema: z.ZodSchema<AccountSettingsBrandingObject> =
   z
     .object({
       favicon_url: z.string().nullable(),
@@ -3164,7 +3164,7 @@ export const accountSettingsBrandingObjectSchema: zod.ZodSchema<AccountSettingsB
     })
     .describe("Branding settings. See [Branding](#branding)");
 
-export const accountSettingsBrandsObjectSchema: zod.ZodSchema<AccountSettingsBrandsObject> =
+export const accountSettingsBrandsObjectSchema: z.ZodSchema<AccountSettingsBrandsObject> =
   z
     .object({
       default_brand_id: z.number(),
@@ -3172,7 +3172,7 @@ export const accountSettingsBrandsObjectSchema: zod.ZodSchema<AccountSettingsBra
     })
     .describe("Brand settings. See [Brands](#brands)");
 
-export const accountSettingsCdnObjectSchema: zod.ZodSchema<AccountSettingsCdnObject> =
+export const accountSettingsCdnObjectSchema: z.ZodSchema<AccountSettingsCdnObject> =
   z
     .object({
       cdn_provider: z.string(),
@@ -3181,7 +3181,7 @@ export const accountSettingsCdnObjectSchema: zod.ZodSchema<AccountSettingsCdnObj
     })
     .describe("CDN settings");
 
-export const accountSettingsChatObjectSchema: zod.ZodSchema<AccountSettingsChatObject> =
+export const accountSettingsChatObjectSchema: z.ZodSchema<AccountSettingsChatObject> =
   z
     .object({
       available: z.boolean(),
@@ -3192,7 +3192,7 @@ export const accountSettingsChatObjectSchema: zod.ZodSchema<AccountSettingsChatO
     })
     .describe("Zendesk Chat settings. See [Chat](#chat)");
 
-export const accountSettingsCrossSellObjectSchema: zod.ZodSchema<AccountSettingsCrossSellObject> =
+export const accountSettingsCrossSellObjectSchema: z.ZodSchema<AccountSettingsCrossSellObject> =
   z
     .object({
       show_chat_tooltip: z.boolean(),
@@ -3200,14 +3200,14 @@ export const accountSettingsCrossSellObjectSchema: zod.ZodSchema<AccountSettings
     })
     .describe("Cross Sell settings");
 
-export const accountSettingsGooddataAdvancedAnalyticsObjectSchema: zod.ZodSchema<AccountSettingsGooddataAdvancedAnalyticsObject> =
+export const accountSettingsGooddataAdvancedAnalyticsObjectSchema: z.ZodSchema<AccountSettingsGooddataAdvancedAnalyticsObject> =
   z
     .object({ enabled: z.boolean() })
     .describe(
       "GoodData settings, used for insights. Legacy configuration prior to Zendesk Explore. See [GoodData Advanced Analytics](#gooddata-advanced-analytics)",
     );
 
-export const accountSettingsGoogleAppsObjectSchema: zod.ZodSchema<AccountSettingsGoogleAppsObject> =
+export const accountSettingsGoogleAppsObjectSchema: z.ZodSchema<AccountSettingsGoogleAppsObject> =
   z
     .object({
       has_google_apps: z.boolean(),
@@ -3215,24 +3215,24 @@ export const accountSettingsGoogleAppsObjectSchema: zod.ZodSchema<AccountSetting
     })
     .describe("Google Apps configuration. See [G Suite](#g-suite)");
 
-export const accountSettingsGroupObjectSchema: zod.ZodSchema<AccountSettingsGroupObject> =
+export const accountSettingsGroupObjectSchema: z.ZodSchema<AccountSettingsGroupObject> =
   z
     .object({ check_group_name_uniqueness: z.boolean() })
     .describe("Group configuration");
 
-export const accountSettingsLimitsObjectSchema: zod.ZodSchema<AccountSettingsLimitsObject> =
+export const accountSettingsLimitsObjectSchema: z.ZodSchema<AccountSettingsLimitsObject> =
   z
     .object({ attachment_size: z.number() })
     .describe("Account limits configuration. See [Limits](#limits)");
 
-export const accountSettingsLocalizationObjectSchema: zod.ZodSchema<AccountSettingsLocalizationObject> =
+export const accountSettingsLocalizationObjectSchema: z.ZodSchema<AccountSettingsLocalizationObject> =
   z
     .object({ locale_ids: z.array(z.number()) })
     .describe(
       "Internationalization configuration settings. See [Localization](#localization)",
     );
 
-export const accountSettingsLotusObjectSchema: zod.ZodSchema<AccountSettingsLotusObject> =
+export const accountSettingsLotusObjectSchema: z.ZodSchema<AccountSettingsLotusObject> =
   z
     .object({
       pod_id: z.number(),
@@ -3241,12 +3241,12 @@ export const accountSettingsLotusObjectSchema: zod.ZodSchema<AccountSettingsLotu
     })
     .describe("Support UI settings. See [Lotus](#lotus)");
 
-export const accountSettingsMetricsObjectSchema: zod.ZodSchema<AccountSettingsMetricsObject> =
+export const accountSettingsMetricsObjectSchema: z.ZodSchema<AccountSettingsMetricsObject> =
   z
     .object({ account_size: z.string() })
     .describe("Account metrics settings. See [Metrics](#metrics)");
 
-export const accountSettingsOnboardingObjectSchema: zod.ZodSchema<AccountSettingsOnboardingObject> =
+export const accountSettingsOnboardingObjectSchema: z.ZodSchema<AccountSettingsOnboardingObject> =
   z
     .object({
       checklist_onboarding_version: z.number(),
@@ -3255,7 +3255,7 @@ export const accountSettingsOnboardingObjectSchema: zod.ZodSchema<AccountSetting
     })
     .describe("Onboarding settings");
 
-export const accountSettingsRoutingObjectSchema: zod.ZodSchema<AccountSettingsRoutingObject> =
+export const accountSettingsRoutingObjectSchema: z.ZodSchema<AccountSettingsRoutingObject> =
   z
     .object({
       autorouting_tag: z.string(),
@@ -3268,7 +3268,7 @@ export const accountSettingsRoutingObjectSchema: zod.ZodSchema<AccountSettingsRo
     })
     .describe("Configuration for routing. See [Routing](#routing)");
 
-export const accountSettingsRuleObjectSchema: zod.ZodSchema<AccountSettingsRuleObject> =
+export const accountSettingsRuleObjectSchema: z.ZodSchema<AccountSettingsRuleObject> =
   z
     .object({
       macro_most_used: z.boolean(),
@@ -3280,7 +3280,7 @@ export const accountSettingsRuleObjectSchema: zod.ZodSchema<AccountSettingsRuleO
       "Rules settings for triggers, macros, views, and automations. See [Rules](#rules)",
     );
 
-export const accountSettingsSideConversationsObjectSchema: zod.ZodSchema<AccountSettingsSideConversationsObject> =
+export const accountSettingsSideConversationsObjectSchema: z.ZodSchema<AccountSettingsSideConversationsObject> =
   z
     .object({
       email_channel: z.boolean(),
@@ -3291,7 +3291,7 @@ export const accountSettingsSideConversationsObjectSchema: zod.ZodSchema<Account
     })
     .describe("Side conversations settings");
 
-export const accountSettingsStatisticsObjectSchema: zod.ZodSchema<AccountSettingsStatisticsObject> =
+export const accountSettingsStatisticsObjectSchema: z.ZodSchema<AccountSettingsStatisticsObject> =
   z
     .object({
       forum: z.boolean(),
@@ -3300,7 +3300,7 @@ export const accountSettingsStatisticsObjectSchema: zod.ZodSchema<AccountSetting
     })
     .describe("Account statistics settings. See [Statistics](#statistics)");
 
-export const accountSettingsTicketFormObjectSchema: zod.ZodSchema<AccountSettingsTicketFormObject> =
+export const accountSettingsTicketFormObjectSchema: z.ZodSchema<AccountSettingsTicketFormObject> =
   z
     .object({
       raw_ticket_forms_instructions: z.string(),
@@ -3308,7 +3308,7 @@ export const accountSettingsTicketFormObjectSchema: zod.ZodSchema<AccountSetting
     })
     .describe("Ticket form settings. See [Ticket Form](#ticket-form)");
 
-export const accountSettingsTicketObjectSchema: zod.ZodSchema<AccountSettingsTicketObject> =
+export const accountSettingsTicketObjectSchema: z.ZodSchema<AccountSettingsTicketObject> =
   z
     .object({
       accepted_new_collaboration_tos: z.boolean(),
@@ -3340,19 +3340,19 @@ export const accountSettingsTicketObjectSchema: zod.ZodSchema<AccountSettingsTic
     })
     .describe("Ticket settings. See [Tickets](#tickets)");
 
-export const accountSettingsTicketSharingPartnersObjectSchema: zod.ZodSchema<AccountSettingsTicketSharingPartnersObject> =
+export const accountSettingsTicketSharingPartnersObjectSchema: z.ZodSchema<AccountSettingsTicketSharingPartnersObject> =
   z
     .object({ support_addresses: z.array(z.string()) })
     .describe(
       "Ticket sharing partners settings. See [Ticket Sharing Partners](#ticket-sharing-partners)",
     );
 
-export const accountSettingsTwitterObjectSchema: zod.ZodSchema<AccountSettingsTwitterObject> =
+export const accountSettingsTwitterObjectSchema: z.ZodSchema<AccountSettingsTwitterObject> =
   z
     .object({ shorten_url: z.string() })
     .describe("X (formerly Twitter) settings. See [X](#x-formerly-twitter)");
 
-export const accountSettingsUserObjectSchema: zod.ZodSchema<AccountSettingsUserObject> =
+export const accountSettingsUserObjectSchema: z.ZodSchema<AccountSettingsUserObject> =
   z
     .object({
       agent_created_welcome_emails: z.boolean(),
@@ -3365,7 +3365,7 @@ export const accountSettingsUserObjectSchema: zod.ZodSchema<AccountSettingsUserO
     })
     .describe("User settings. See [Users](#users)");
 
-export const accountSettingsVoiceObjectSchema: zod.ZodSchema<AccountSettingsVoiceObject> =
+export const accountSettingsVoiceObjectSchema: z.ZodSchema<AccountSettingsVoiceObject> =
   z
     .object({
       agent_confirmation_when_forwarding: z.boolean(),
@@ -3381,7 +3381,7 @@ export const accountSettingsVoiceObjectSchema: zod.ZodSchema<AccountSettingsVoic
     })
     .describe("Zendesk Talk settings. See [Voice](#voice)");
 
-export const accountSettingsObjectSchema: zod.ZodSchema<AccountSettingsObject> =
+export const accountSettingsObjectSchema: z.ZodSchema<AccountSettingsObject> =
   z.object({
     active_features: accountSettingsActiveFeaturesObjectSchema,
     agents: accountSettingsAgentObjectSchema,
@@ -3414,31 +3414,31 @@ export const accountSettingsObjectSchema: zod.ZodSchema<AccountSettingsObject> =
     voice: accountSettingsVoiceObjectSchema,
   });
 
-export const accountSettingsResponseSchema: zod.ZodSchema<AccountSettingsResponse> =
+export const accountSettingsResponseSchema: z.ZodSchema<AccountSettingsResponse> =
   z.object({ settings: accountSettingsObjectSchema });
 
-export const actionObjectSchema: zod.ZodSchema<ActionObject> = z.object({
+export const actionObjectSchema: z.ZodSchema<ActionObject> = z.object({
   field: z.string().describe("The name of a ticket field to modify"),
   value: z.string().describe("The new value of the field"),
 });
 
-export const actionsObjectSchema: zod.ZodSchema<ActionsObject> = z.object({
+export const actionsObjectSchema: z.ZodSchema<ActionsObject> = z.object({
   actions: z.array(actionObjectSchema),
 });
 
-export const activitiesCountResponseSchema: zod.ZodSchema<ActivitiesCountResponse> =
+export const activitiesCountResponseSchema: z.ZodSchema<ActivitiesCountResponse> =
   z.object({
     count: z.object({ refreshed_at: z.string(), value: z.number() }),
   });
 
-export const assigneeFieldAssignableAgentObjectSchema: zod.ZodSchema<AssigneeFieldAssignableAgentObject> =
+export const assigneeFieldAssignableAgentObjectSchema: z.ZodSchema<AssigneeFieldAssignableAgentObject> =
   z.object({
     avatar_url: z.string().nullable().describe("URL of Agent's avatar"),
     id: z.number().describe("Agent Support ID"),
     name: z.string().describe("Name of the agent"),
   });
 
-export const assigneeFieldAssignableGroupAgentsResponseSchema: zod.ZodSchema<AssigneeFieldAssignableGroupAgentsResponse> =
+export const assigneeFieldAssignableGroupAgentsResponseSchema: z.ZodSchema<AssigneeFieldAssignableGroupAgentsResponse> =
   z.object({
     agents: z.array(assigneeFieldAssignableAgentObjectSchema),
     count: z.number().describe("Number of agents listed in `agents` property."),
@@ -3446,14 +3446,14 @@ export const assigneeFieldAssignableGroupAgentsResponseSchema: zod.ZodSchema<Ass
     previous_page: z.string().nullable(),
   });
 
-export const assigneeFieldAssignableGroupObjectSchema: zod.ZodSchema<AssigneeFieldAssignableGroupObject> =
+export const assigneeFieldAssignableGroupObjectSchema: z.ZodSchema<AssigneeFieldAssignableGroupObject> =
   z.object({
     description: z.string().describe("Description of the group"),
     id: z.number().describe("Group ID"),
     name: z.string().describe("Name of the group"),
   });
 
-export const assigneeFieldAssignableGroupsResponseSchema: zod.ZodSchema<AssigneeFieldAssignableGroupsResponse> =
+export const assigneeFieldAssignableGroupsResponseSchema: z.ZodSchema<AssigneeFieldAssignableGroupsResponse> =
   z.object({
     count: z.number().describe("Number of groups listed in `groups` property."),
     groups: z.array(assigneeFieldAssignableGroupObjectSchema),
@@ -3461,7 +3461,7 @@ export const assigneeFieldAssignableGroupsResponseSchema: zod.ZodSchema<Assignee
     previous_page: z.string().nullable(),
   });
 
-export const assigneeFieldAssignableSearchAgentObjectSchema: zod.ZodSchema<AssigneeFieldAssignableSearchAgentObject> =
+export const assigneeFieldAssignableSearchAgentObjectSchema: z.ZodSchema<AssigneeFieldAssignableSearchAgentObject> =
   z.object({
     group: z.string().describe("Name of the agent's group"),
     group_id: z.number().describe("Agent's Group ID"),
@@ -3470,13 +3470,13 @@ export const assigneeFieldAssignableSearchAgentObjectSchema: zod.ZodSchema<Assig
     photo_url: z.string().nullable().describe("URL of Avatar"),
   });
 
-export const assigneeFieldAssignableSearchGroupObjectSchema: zod.ZodSchema<AssigneeFieldAssignableSearchGroupObject> =
+export const assigneeFieldAssignableSearchGroupObjectSchema: z.ZodSchema<AssigneeFieldAssignableSearchGroupObject> =
   z.object({
     id: z.number().describe("Group ID"),
     name: z.string().describe("Name of the group"),
   });
 
-export const assigneeFieldAssignableGroupsAndAgentsSearchResponseSchema: zod.ZodSchema<AssigneeFieldAssignableGroupsAndAgentsSearchResponse> =
+export const assigneeFieldAssignableGroupsAndAgentsSearchResponseSchema: z.ZodSchema<AssigneeFieldAssignableGroupsAndAgentsSearchResponse> =
   z.object({
     agents: z.array(assigneeFieldAssignableSearchAgentObjectSchema),
     count: z
@@ -3485,7 +3485,7 @@ export const assigneeFieldAssignableGroupsAndAgentsSearchResponseSchema: zod.Zod
     groups: z.array(assigneeFieldAssignableSearchGroupObjectSchema),
   });
 
-export const attachmentBaseObjectSchema: zod.ZodSchema<AttachmentBaseObject> =
+export const attachmentBaseObjectSchema: z.ZodSchema<AttachmentBaseObject> =
   z.object({
     content_type: z
       .string()
@@ -3530,7 +3530,7 @@ export const attachmentBaseObjectSchema: zod.ZodSchema<AttachmentBaseObject> =
       ),
   });
 
-export const attachmentThumbnailsSchema: zod.ZodSchema<AttachmentThumbnails> =
+export const attachmentThumbnailsSchema: z.ZodSchema<AttachmentThumbnails> =
   z.object({
     thumbnails: z
       .array(attachmentBaseObjectSchema)
@@ -3539,26 +3539,26 @@ export const attachmentThumbnailsSchema: zod.ZodSchema<AttachmentThumbnails> =
       ),
   });
 
-export const attachmentObjectSchema: zod.ZodSchema<AttachmentObject> = z
+export const attachmentObjectSchema: z.ZodSchema<AttachmentObject> = z
   .intersection(attachmentBaseObjectSchema, attachmentThumbnailsSchema)
   .describe(
     "A file represented as an [Attachment](/api-reference/ticketing/tickets/ticket-attachments/) object",
   );
 
-export const attachmentResponseSchema: zod.ZodSchema<AttachmentResponse> =
+export const attachmentResponseSchema: z.ZodSchema<AttachmentResponse> =
   z.object({ attachment: attachmentObjectSchema });
 
-export const attachmentUpdateInputSchema: zod.ZodSchema<AttachmentUpdateInput> =
+export const attachmentUpdateInputSchema: z.ZodSchema<AttachmentUpdateInput> =
   z.object({
     malware_access_override: z
       .boolean()
       .describe("If true, allows access to attachments with detected malware."),
   });
 
-export const attachmentUpdateRequestSchema: zod.ZodSchema<AttachmentUpdateRequest> =
+export const attachmentUpdateRequestSchema: z.ZodSchema<AttachmentUpdateRequest> =
   z.object({ attachment: attachmentUpdateInputSchema });
 
-export const attachmentUploadResponseSchema: zod.ZodSchema<AttachmentUploadResponse> =
+export const attachmentUploadResponseSchema: z.ZodSchema<AttachmentUploadResponse> =
   z.object({
     upload: z.object({
       attachment: attachmentObjectSchema,
@@ -3567,7 +3567,7 @@ export const attachmentUploadResponseSchema: zod.ZodSchema<AttachmentUploadRespo
     }),
   });
 
-export const auditLogObjectSchema: zod.ZodSchema<AuditLogObject> = z.object({
+export const auditLogObjectSchema: z.ZodSchema<AuditLogObject> = z.object({
   action: z
     .string()
     .describe(
@@ -3596,27 +3596,28 @@ export const auditLogObjectSchema: zod.ZodSchema<AuditLogObject> = z.object({
   url: z.string().describe("The URL to access the audit log"),
 });
 
-export const auditLogResponseSchema: zod.ZodSchema<AuditLogResponse> = z.object(
-  { audit_log: auditLogObjectSchema },
+export const auditLogResponseSchema: z.ZodSchema<AuditLogResponse> = z.object({
+  audit_log: auditLogObjectSchema,
+});
+
+export const auditLogsResponseSchema: z.ZodSchema<AuditLogsResponse> = z.object(
+  { audit_logs: z.array(auditLogObjectSchema) },
 );
 
-export const auditLogsResponseSchema: zod.ZodSchema<AuditLogsResponse> =
-  z.object({ audit_logs: z.array(auditLogObjectSchema) });
-
-export const authorObjectSchema: zod.ZodSchema<AuthorObject> = z.object({
+export const authorObjectSchema: z.ZodSchema<AuthorObject> = z.object({
   email: z.string().describe("The author email"),
   id: z.number().describe("The author id"),
   name: z.string().describe("The author name"),
 });
 
-export const bookmarkInputSchema: zod.ZodSchema<BookmarkInput> = z.object({
+export const bookmarkInputSchema: z.ZodSchema<BookmarkInput> = z.object({
   ticket_id: z.number().describe("The id of the ticket the bookmark is for."),
 });
 
-export const bookmarkCreateRequestSchema: zod.ZodSchema<BookmarkCreateRequest> =
+export const bookmarkCreateRequestSchema: z.ZodSchema<BookmarkCreateRequest> =
   z.object({ bookmark: bookmarkInputSchema });
 
-export const brandObjectSchema: zod.ZodSchema<BrandObject> = z.object({
+export const brandObjectSchema: z.ZodSchema<BrandObject> = z.object({
   active: z.boolean().describe("If the brand is set as active"),
   brand_url: z.string().describe("The url of the brand"),
   created_at: z.string().describe("The time the brand was created"),
@@ -3651,17 +3652,17 @@ export const brandObjectSchema: zod.ZodSchema<BrandObject> = z.object({
   url: z.string().describe("The API url of this brand"),
 });
 
-export const brandCreateRequestSchema: zod.ZodSchema<BrandCreateRequest> =
+export const brandCreateRequestSchema: z.ZodSchema<BrandCreateRequest> =
   z.object({ brand: brandObjectSchema });
 
-export const brandResponseSchema: zod.ZodSchema<BrandResponse> = z.object({
+export const brandResponseSchema: z.ZodSchema<BrandResponse> = z.object({
   brand: brandObjectSchema,
 });
 
-export const brandUpdateRequestSchema: zod.ZodSchema<BrandUpdateRequest> =
+export const brandUpdateRequestSchema: z.ZodSchema<BrandUpdateRequest> =
   z.object({ brand: brandObjectSchema });
 
-export const bulkUpdateDefaultCustomStatusRequestSchema: zod.ZodSchema<BulkUpdateDefaultCustomStatusRequest> =
+export const bulkUpdateDefaultCustomStatusRequestSchema: z.ZodSchema<BulkUpdateDefaultCustomStatusRequest> =
   z.object({
     ids: z
       .string()
@@ -3670,10 +3671,10 @@ export const bulkUpdateDefaultCustomStatusRequestSchema: zod.ZodSchema<BulkUpdat
       ),
   });
 
-export const bulkUpdateDefaultCustomStatusResponseSchema: zod.ZodSchema<BulkUpdateDefaultCustomStatusResponse> =
+export const bulkUpdateDefaultCustomStatusResponseSchema: z.ZodSchema<BulkUpdateDefaultCustomStatusResponse> =
   z.object({});
 
-export const channelFrameworkResultStatusObjectSchema: zod.ZodSchema<ChannelFrameworkResultStatusObject> =
+export const channelFrameworkResultStatusObjectSchema: z.ZodSchema<ChannelFrameworkResultStatusObject> =
   z
     .object({
       code: z
@@ -3689,7 +3690,7 @@ export const channelFrameworkResultStatusObjectSchema: zod.ZodSchema<ChannelFram
     })
     .describe("The status of the import for the indicated resource");
 
-export const channelFrameworkResultObjectSchema: zod.ZodSchema<ChannelFrameworkResultObject> =
+export const channelFrameworkResultObjectSchema: z.ZodSchema<ChannelFrameworkResultObject> =
   z.object({
     external_resource_id: z
       .string()
@@ -3697,17 +3698,17 @@ export const channelFrameworkResultObjectSchema: zod.ZodSchema<ChannelFrameworkR
     status: channelFrameworkResultStatusObjectSchema,
   });
 
-export const channelFrameworkPushResultsResponseSchema: zod.ZodSchema<ChannelFrameworkPushResultsResponse> =
+export const channelFrameworkPushResultsResponseSchema: z.ZodSchema<ChannelFrameworkPushResultsResponse> =
   z.object({
     results: z
       .array(channelFrameworkResultObjectSchema)
       .describe("An array of [result objects](#result-object)"),
   });
 
-export const collaboratorObjectSchema: zod.ZodSchema<CollaboratorObject> =
+export const collaboratorObjectSchema: z.ZodSchema<CollaboratorObject> =
   z.object({ email: z.string(), name: z.string() });
 
-export const complianceDeletionStatusObjectSchema: zod.ZodSchema<ComplianceDeletionStatusObject> =
+export const complianceDeletionStatusObjectSchema: z.ZodSchema<ComplianceDeletionStatusObject> =
   z.object({
     account_subdomain: z.string(),
     action: z.string(),
@@ -3717,12 +3718,12 @@ export const complianceDeletionStatusObjectSchema: zod.ZodSchema<ComplianceDelet
     user_id: z.number(),
   });
 
-export const complianceDeletionStatusesResponseSchema: zod.ZodSchema<ComplianceDeletionStatusesResponse> =
+export const complianceDeletionStatusesResponseSchema: z.ZodSchema<ComplianceDeletionStatusesResponse> =
   z.object({
     compliance_deletion_statuses: z.array(complianceDeletionStatusObjectSchema),
   });
 
-export const conditionObjectSchema: zod.ZodSchema<ConditionObject> = z.object({
+export const conditionObjectSchema: z.ZodSchema<ConditionObject> = z.object({
   field: z.string().describe("The name of a ticket field"),
   operator: z.string().describe("A comparison operator"),
   value: z
@@ -3730,7 +3731,7 @@ export const conditionObjectSchema: zod.ZodSchema<ConditionObject> = z.object({
     .describe("The value of a ticket field"),
 });
 
-export const conditionsObjectSchema: zod.ZodSchema<ConditionsObject> = z
+export const conditionsObjectSchema: z.ZodSchema<ConditionsObject> = z
   .object({
     all: z
       .array(conditionObjectSchema)
@@ -3747,37 +3748,35 @@ export const conditionsObjectSchema: zod.ZodSchema<ConditionsObject> = z
     "An object that describes the conditions under which the automation will execute. See [Conditions reference](/documentation/ticketing/reference-guides/conditions-reference)",
   );
 
-export const automationObjectSchema: zod.ZodSchema<AutomationObject> = z.object(
-  {
-    actions: z
-      .array(actionObjectSchema)
-      .describe(
-        "An object describing what the automation will do. See [Actions reference](/documentation/ticketing/reference-guides/actions-reference)",
-      ),
-    active: z.boolean().describe("Whether the automation is active"),
-    conditions: conditionsObjectSchema,
-    created_at: z.string().describe("The time the automation was created"),
-    default: z
-      .boolean()
-      .describe("If true, the automation is a default automation"),
-    id: z.number().describe("Automatically assigned when created"),
-    position: z
-      .number()
-      .describe(
-        "The position of the automation which specifies the order it will be executed",
-      ),
-    raw_title: z.string().describe("The raw title of the automation"),
-    title: z.string().describe("The title of the automation"),
-    updated_at: z
-      .string()
-      .describe("The time of the last update of the automation"),
-  },
-);
+export const automationObjectSchema: z.ZodSchema<AutomationObject> = z.object({
+  actions: z
+    .array(actionObjectSchema)
+    .describe(
+      "An object describing what the automation will do. See [Actions reference](/documentation/ticketing/reference-guides/actions-reference)",
+    ),
+  active: z.boolean().describe("Whether the automation is active"),
+  conditions: conditionsObjectSchema,
+  created_at: z.string().describe("The time the automation was created"),
+  default: z
+    .boolean()
+    .describe("If true, the automation is a default automation"),
+  id: z.number().describe("Automatically assigned when created"),
+  position: z
+    .number()
+    .describe(
+      "The position of the automation which specifies the order it will be executed",
+    ),
+  raw_title: z.string().describe("The raw title of the automation"),
+  title: z.string().describe("The title of the automation"),
+  updated_at: z
+    .string()
+    .describe("The time of the last update of the automation"),
+});
 
-export const automationResponseSchema: zod.ZodSchema<AutomationResponse> =
+export const automationResponseSchema: z.ZodSchema<AutomationResponse> =
   z.object({ automation: automationObjectSchema });
 
-export const automationsResponseSchema: zod.ZodSchema<AutomationsResponse> =
+export const automationsResponseSchema: z.ZodSchema<AutomationsResponse> =
   z.object({
     automations: z.array(automationObjectSchema),
     count: z.number(),
@@ -3785,23 +3784,23 @@ export const automationsResponseSchema: zod.ZodSchema<AutomationsResponse> =
     previous_page: z.string().nullable(),
   });
 
-export const countOrganizationObjectSchema: zod.ZodSchema<CountOrganizationObject> =
+export const countOrganizationObjectSchema: z.ZodSchema<CountOrganizationObject> =
   z.object({ refreshed_at: z.string(), value: z.number() });
 
-export const countOrganizationResponseSchema: zod.ZodSchema<CountOrganizationResponse> =
+export const countOrganizationResponseSchema: z.ZodSchema<CountOrganizationResponse> =
   z.object({ count: countOrganizationObjectSchema });
 
-export const countResponseSchema: zod.ZodSchema<CountResponse> = z.object({
+export const countResponseSchema: z.ZodSchema<CountResponse> = z.object({
   count: z.object({ refreshed_at: z.string(), value: z.number() }),
 });
 
-export const createResourceResultSchema: zod.ZodSchema<CreateResourceResult> =
+export const createResourceResultSchema: z.ZodSchema<CreateResourceResult> =
   z.object({
     id: z.number().describe("the id of the new resource"),
     index: z.number().describe("the index number of the resul"),
   });
 
-export const customFieldOptionObjectSchema: zod.ZodSchema<CustomFieldOptionObject> =
+export const customFieldOptionObjectSchema: z.ZodSchema<CustomFieldOptionObject> =
   z.object({
     id: z.number().describe("Automatically assigned upon creation"),
     name: z.string().describe("Name of the dropdown option"),
@@ -3811,8 +3810,8 @@ export const customFieldOptionObjectSchema: zod.ZodSchema<CustomFieldOptionObjec
     value: z.string().describe("Value of the dropdown option"),
   });
 
-export const customFieldObjectSchema: zod.ZodSchema<CustomFieldObject> =
-  z.object({
+export const customFieldObjectSchema: z.ZodSchema<CustomFieldObject> = z.object(
+  {
     active: z.boolean().describe("If true, this field is available for use"),
     created_at: z
       .string()
@@ -3880,12 +3879,13 @@ export const customFieldObjectSchema: zod.ZodSchema<CustomFieldObject> =
       .string()
       .describe("The time of the last update of the ticket field"),
     url: z.string().describe("The URL for this resource"),
-  });
+  },
+);
 
-export const customFieldOptionResponseSchema: zod.ZodSchema<CustomFieldOptionResponse> =
+export const customFieldOptionResponseSchema: z.ZodSchema<CustomFieldOptionResponse> =
   z.object({ custom_field_option: customFieldOptionObjectSchema });
 
-export const customFieldOptionsResponseSchema: zod.ZodSchema<CustomFieldOptionsResponse> =
+export const customFieldOptionsResponseSchema: z.ZodSchema<CustomFieldOptionsResponse> =
   z.object({
     count: z.number().describe("Total count of records retrieved"),
     custom_field_options: z.array(customFieldOptionObjectSchema),
@@ -3893,7 +3893,7 @@ export const customFieldOptionsResponseSchema: zod.ZodSchema<CustomFieldOptionsR
     previous_page: z.string().nullable().describe("URL of the previous page"),
   });
 
-export const customObjectSchema: zod.ZodSchema<CustomObject> = z.object({
+export const customObjectSchema: z.ZodSchema<CustomObject> = z.object({
   created_at: z.string().describe("The time the object type was created"),
   created_by_user_id: z
     .string()
@@ -3930,7 +3930,7 @@ export const customObjectSchema: zod.ZodSchema<CustomObject> = z.object({
   url: z.string().describe("Direct link to the specific custom object"),
 });
 
-export const customObjectCreateInputSchema: zod.ZodSchema<CustomObjectCreateInput> =
+export const customObjectCreateInputSchema: z.ZodSchema<CustomObjectCreateInput> =
   z.object({
     key: z.string().describe("Unique identifier. Writable on create only"),
     title: z.string().describe("Display name for the object"),
@@ -3939,19 +3939,19 @@ export const customObjectCreateInputSchema: zod.ZodSchema<CustomObjectCreateInpu
       .describe("Pluralized version of the object's title"),
   });
 
-export const customObjectFieldSchema: zod.ZodSchema<CustomObjectField> =
+export const customObjectFieldSchema: z.ZodSchema<CustomObjectField> =
   customFieldObjectSchema;
 
-export const customObjectFieldResponseSchema: zod.ZodSchema<CustomObjectFieldResponse> =
+export const customObjectFieldResponseSchema: z.ZodSchema<CustomObjectFieldResponse> =
   z.object({ custom_object_field: customObjectFieldSchema });
 
-export const customObjectFieldsCreateRequestSchema: zod.ZodSchema<CustomObjectFieldsCreateRequest> =
+export const customObjectFieldsCreateRequestSchema: z.ZodSchema<CustomObjectFieldsCreateRequest> =
   z.object({ custom_object_field: customObjectFieldSchema });
 
-export const customObjectFieldsResponseSchema: zod.ZodSchema<CustomObjectFieldsResponse> =
+export const customObjectFieldsResponseSchema: z.ZodSchema<CustomObjectFieldsResponse> =
   z.object({ custom_object_fields: z.array(customObjectFieldSchema) });
 
-export const customObjectLimitsResponseSchema: zod.ZodSchema<CustomObjectLimitsResponse> =
+export const customObjectLimitsResponseSchema: z.ZodSchema<CustomObjectLimitsResponse> =
   z.object({
     count: z.number().describe("The current numnber of the requested resource"),
     limit: z
@@ -3959,7 +3959,7 @@ export const customObjectLimitsResponseSchema: zod.ZodSchema<CustomObjectLimitsR
       .describe("The maximum allowed number for the requested resource"),
   });
 
-export const customObjectRecordSchema: zod.ZodSchema<CustomObjectRecord> =
+export const customObjectRecordSchema: z.ZodSchema<CustomObjectRecord> =
   z.object({
     created_at: z.string().describe("The time the object was created"),
     created_by_user_id: z
@@ -3984,10 +3984,10 @@ export const customObjectRecordSchema: zod.ZodSchema<CustomObjectRecord> =
     url: z.string().describe("Direct link to the specific custom object"),
   });
 
-export const customObjectRecordResponseSchema: zod.ZodSchema<CustomObjectRecordResponse> =
+export const customObjectRecordResponseSchema: z.ZodSchema<CustomObjectRecordResponse> =
   z.object({ custom_object_record: customObjectRecordSchema });
 
-export const customObjectRecordsBulkCreateRequestSchema: zod.ZodSchema<CustomObjectRecordsBulkCreateRequest> =
+export const customObjectRecordsBulkCreateRequestSchema: z.ZodSchema<CustomObjectRecordsBulkCreateRequest> =
   z.object({
     job: z.object({
       action: z.string(),
@@ -3999,10 +3999,10 @@ export const customObjectRecordsBulkCreateRequestSchema: zod.ZodSchema<CustomObj
     }),
   });
 
-export const customObjectRecordsCreateRequestSchema: zod.ZodSchema<CustomObjectRecordsCreateRequest> =
+export const customObjectRecordsCreateRequestSchema: z.ZodSchema<CustomObjectRecordsCreateRequest> =
   z.object({ custom_object_record: customObjectRecordSchema });
 
-export const customObjectRecordsJobsResponseSchema: zod.ZodSchema<CustomObjectRecordsJobsResponse> =
+export const customObjectRecordsJobsResponseSchema: z.ZodSchema<CustomObjectRecordsJobsResponse> =
   z.object({
     job_status: z.object({
       id: z.string(),
@@ -4015,7 +4015,7 @@ export const customObjectRecordsJobsResponseSchema: zod.ZodSchema<CustomObjectRe
     }),
   });
 
-export const customObjectRecordsResponseSchema: zod.ZodSchema<CustomObjectRecordsResponse> =
+export const customObjectRecordsResponseSchema: z.ZodSchema<CustomObjectRecordsResponse> =
   z.object({
     count: z
       .number()
@@ -4032,19 +4032,19 @@ export const customObjectRecordsResponseSchema: zod.ZodSchema<CustomObjectRecord
     }),
   });
 
-export const customObjectRecordsUpsertRequestSchema: zod.ZodSchema<CustomObjectRecordsUpsertRequest> =
+export const customObjectRecordsUpsertRequestSchema: z.ZodSchema<CustomObjectRecordsUpsertRequest> =
   z.object({ custom_object_record: customObjectRecordSchema });
 
-export const customObjectResponseSchema: zod.ZodSchema<CustomObjectResponse> =
+export const customObjectResponseSchema: z.ZodSchema<CustomObjectResponse> =
   z.object({ custom_object: customObjectSchema });
 
-export const customObjectsCreateRequestSchema: zod.ZodSchema<CustomObjectsCreateRequest> =
+export const customObjectsCreateRequestSchema: z.ZodSchema<CustomObjectsCreateRequest> =
   z.object({ custom_object: customObjectCreateInputSchema });
 
-export const customObjectsResponseSchema: zod.ZodSchema<CustomObjectsResponse> =
+export const customObjectsResponseSchema: z.ZodSchema<CustomObjectsResponse> =
   z.object({ custom_objects: z.array(customObjectSchema) });
 
-export const customRoleConfigurationObjectSchema: zod.ZodSchema<CustomRoleConfigurationObject> =
+export const customRoleConfigurationObjectSchema: z.ZodSchema<CustomRoleConfigurationObject> =
   z
     .object({
       assign_tickets_to_any_group: z
@@ -4188,32 +4188,30 @@ export const customRoleConfigurationObjectSchema: zod.ZodSchema<CustomRoleConfig
       "Configuration settings for the role. See [Configuration](#configuration)",
     );
 
-export const customRoleObjectSchema: zod.ZodSchema<CustomRoleObject> = z.object(
-  {
-    configuration: customRoleConfigurationObjectSchema,
-    created_at: z.string().describe("The time the record was created"),
-    description: z.string().describe("A description of the role"),
-    id: z.number().describe("Automatically assigned on creation"),
-    name: z.string().describe("Name of the custom role"),
-    role_type: z
-      .number()
-      .describe(
-        "The user's role. 0 stands for a custom agent, 1 for a light agent, 2 for a chat agent, 3 for a contributor, 4 for an admin and 5 for a billing admin. See [Understanding standard agent roles in Zendesk Support](https://support.zendesk.com/hc/en-us/articles/4409155971354-Understanding-standard-agent-roles-in-Zendesk-Support) in Zendesk help",
-      ),
-    team_member_count: z
-      .number()
-      .describe("The number of team members assigned to this role"),
-    updated_at: z.string().describe("The time the record was last updated"),
-  },
-);
+export const customRoleObjectSchema: z.ZodSchema<CustomRoleObject> = z.object({
+  configuration: customRoleConfigurationObjectSchema,
+  created_at: z.string().describe("The time the record was created"),
+  description: z.string().describe("A description of the role"),
+  id: z.number().describe("Automatically assigned on creation"),
+  name: z.string().describe("Name of the custom role"),
+  role_type: z
+    .number()
+    .describe(
+      "The user's role. 0 stands for a custom agent, 1 for a light agent, 2 for a chat agent, 3 for a contributor, 4 for an admin and 5 for a billing admin. See [Understanding standard agent roles in Zendesk Support](https://support.zendesk.com/hc/en-us/articles/4409155971354-Understanding-standard-agent-roles-in-Zendesk-Support) in Zendesk help",
+    ),
+  team_member_count: z
+    .number()
+    .describe("The number of team members assigned to this role"),
+  updated_at: z.string().describe("The time the record was last updated"),
+});
 
-export const customRoleResponseSchema: zod.ZodSchema<CustomRoleResponse> =
+export const customRoleResponseSchema: z.ZodSchema<CustomRoleResponse> =
   z.object({ custom_role: customRoleObjectSchema });
 
-export const customRolesResponseSchema: zod.ZodSchema<CustomRolesResponse> =
+export const customRolesResponseSchema: z.ZodSchema<CustomRolesResponse> =
   z.object({ custom_roles: z.array(customRoleObjectSchema) });
 
-export const customStatusObjectSchema: zod.ZodSchema<CustomStatusObject> =
+export const customStatusObjectSchema: z.ZodSchema<CustomStatusObject> =
   z.object({
     active: z
       .boolean()
@@ -4285,10 +4283,10 @@ export const customStatusObjectSchema: zod.ZodSchema<CustomStatusObject> =
       .describe("The date and time the custom ticket status was last updated"),
   });
 
-export const customStatusResponseSchema: zod.ZodSchema<CustomStatusResponse> =
+export const customStatusResponseSchema: z.ZodSchema<CustomStatusResponse> =
   z.object({ custom_status: customStatusObjectSchema });
 
-export const customStatusUpdateInputSchema: zod.ZodSchema<CustomStatusUpdateInput> =
+export const customStatusUpdateInputSchema: z.ZodSchema<CustomStatusUpdateInput> =
   z.object({
     active: z
       .boolean()
@@ -4317,7 +4315,7 @@ export const customStatusUpdateInputSchema: zod.ZodSchema<CustomStatusUpdateInpu
       ),
   });
 
-export const customStatusCreateInputSchema: zod.ZodSchema<CustomStatusCreateInput> =
+export const customStatusCreateInputSchema: z.ZodSchema<CustomStatusCreateInput> =
   z.intersection(
     customStatusUpdateInputSchema,
     z.object({
@@ -4333,17 +4331,17 @@ export const customStatusCreateInputSchema: zod.ZodSchema<CustomStatusCreateInpu
     }),
   );
 
-export const customStatusCreateRequestSchema: zod.ZodSchema<CustomStatusCreateRequest> =
+export const customStatusCreateRequestSchema: z.ZodSchema<CustomStatusCreateRequest> =
   z.object({ custom_status: customStatusCreateInputSchema });
 
-export const customStatusUpdateRequestSchema: zod.ZodSchema<CustomStatusUpdateRequest> =
+export const customStatusUpdateRequestSchema: z.ZodSchema<CustomStatusUpdateRequest> =
   z.object({ custom_status: customStatusUpdateInputSchema });
 
-export const customStatusesResponseSchema: zod.ZodSchema<CustomStatusesResponse> =
+export const customStatusesResponseSchema: z.ZodSchema<CustomStatusesResponse> =
   z.object({ custom_statuses: z.array(customStatusObjectSchema) });
 
-export const deletedUserObjectSchema: zod.ZodSchema<DeletedUserObject> =
-  z.object({
+export const deletedUserObjectSchema: z.ZodSchema<DeletedUserObject> = z.object(
+  {
     active: z.boolean(),
     created_at: z.string(),
     email: z.string(),
@@ -4359,15 +4357,16 @@ export const deletedUserObjectSchema: zod.ZodSchema<DeletedUserObject> =
     time_zone: z.string(),
     updated_at: z.string(),
     url: z.string(),
-  });
+  },
+);
 
-export const deletedUserResponseSchema: zod.ZodSchema<DeletedUserResponse> =
+export const deletedUserResponseSchema: z.ZodSchema<DeletedUserResponse> =
   z.object({ deleted_user: deletedUserObjectSchema });
 
-export const deletedUsersResponseSchema: zod.ZodSchema<DeletedUsersResponse> =
+export const deletedUsersResponseSchema: z.ZodSchema<DeletedUsersResponse> =
   z.object({ deleted_users: z.array(deletedUserObjectSchema) });
 
-export const dynamicContentVariantObjectSchema: zod.ZodSchema<DynamicContentVariantObject> =
+export const dynamicContentVariantObjectSchema: z.ZodSchema<DynamicContentVariantObject> =
   z.object({
     active: z.boolean().describe("If the variant is active and useable"),
     content: z.string().describe("The content of the variant"),
@@ -4384,7 +4383,7 @@ export const dynamicContentVariantObjectSchema: zod.ZodSchema<DynamicContentVari
     url: z.string().describe("The API url of the variant"),
   });
 
-export const dynamicContentObjectSchema: zod.ZodSchema<DynamicContentObject> =
+export const dynamicContentObjectSchema: z.ZodSchema<DynamicContentObject> =
   z.object({
     created_at: z.string().describe("When this record was created"),
     default_locale_id: z
@@ -4411,19 +4410,19 @@ export const dynamicContentObjectSchema: zod.ZodSchema<DynamicContentObject> =
       ),
   });
 
-export const dynamicContentResponseSchema: zod.ZodSchema<DynamicContentResponse> =
+export const dynamicContentResponseSchema: z.ZodSchema<DynamicContentResponse> =
   z.object({ item: dynamicContentObjectSchema });
 
-export const dynamicContentVariantResponseSchema: zod.ZodSchema<DynamicContentVariantResponse> =
+export const dynamicContentVariantResponseSchema: z.ZodSchema<DynamicContentVariantResponse> =
   z.object({ variant: dynamicContentVariantObjectSchema });
 
-export const dynamicContentVariantsResponseSchema: zod.ZodSchema<DynamicContentVariantsResponse> =
+export const dynamicContentVariantsResponseSchema: z.ZodSchema<DynamicContentVariantsResponse> =
   z.object({ variants: z.array(dynamicContentVariantObjectSchema) });
 
-export const dynamicContentsResponseSchema: zod.ZodSchema<DynamicContentsResponse> =
+export const dynamicContentsResponseSchema: z.ZodSchema<DynamicContentsResponse> =
   z.object({ items: z.array(dynamicContentObjectSchema) });
 
-export const errorSchema: zod.ZodSchema<Error> = z.object({
+export const errorSchema: z.ZodSchema<Error> = z.object({
   code: z.string(),
   detail: z.string(),
   id: z.string(),
@@ -4433,14 +4432,16 @@ export const errorSchema: zod.ZodSchema<Error> = z.object({
   title: z.string(),
 });
 
-export const batchErrorItemSchema: zod.ZodSchema<BatchErrorItem> =
-  z.intersection(errorSchema, z.object({ trigger_id: z.string() }));
+export const batchErrorItemSchema: z.ZodSchema<BatchErrorItem> = z.intersection(
+  errorSchema,
+  z.object({ trigger_id: z.string() }),
+);
 
-export const errorsSchema: zod.ZodSchema<Errors> = z.object({
+export const errorsSchema: z.ZodSchema<Errors> = z.object({
   errors: z.array(errorSchema),
 });
 
-export const essentialsCardObjectSchema: zod.ZodSchema<EssentialsCardObject> =
+export const essentialsCardObjectSchema: z.ZodSchema<EssentialsCardObject> =
   z.object({
     created_at: z
       .string()
@@ -4468,19 +4469,19 @@ export const essentialsCardObjectSchema: zod.ZodSchema<EssentialsCardObject> =
       .describe("Date and time the key details were last updated"),
   });
 
-export const essentialsCardResponseSchema: zod.ZodSchema<EssentialsCardResponse> =
+export const essentialsCardResponseSchema: z.ZodSchema<EssentialsCardResponse> =
   z.object({ object_layout: essentialsCardObjectSchema });
 
-export const essentialsCardsResponseSchema: zod.ZodSchema<EssentialsCardsResponse> =
+export const essentialsCardsResponseSchema: z.ZodSchema<EssentialsCardsResponse> =
   z.object({ object_layouts: z.array(essentialsCardObjectSchema) });
 
-export const followerObjectSchema: zod.ZodSchema<FollowerObject> = z.object({
+export const followerObjectSchema: z.ZodSchema<FollowerObject> = z.object({
   action: z.union([z.literal("put"), z.literal("delete")]),
   user_email: z.string(),
   user_id: z.string(),
 });
 
-export const emailCcObjectSchema: zod.ZodSchema<EmailCCObject> = z.intersection(
+export const emailCcObjectSchema: z.ZodSchema<EmailCCObject> = z.intersection(
   followerObjectSchema,
   z.object({
     action: z.union([z.literal("put"), z.literal("delete")]),
@@ -4490,7 +4491,7 @@ export const emailCcObjectSchema: zod.ZodSchema<EmailCCObject> = z.intersection(
   }),
 );
 
-export const groupMembershipObjectSchema: zod.ZodSchema<GroupMembershipObject> =
+export const groupMembershipObjectSchema: z.ZodSchema<GroupMembershipObject> =
   z.object({
     created_at: z.string().describe("The time the group was created"),
     default: z
@@ -4505,13 +4506,13 @@ export const groupMembershipObjectSchema: zod.ZodSchema<GroupMembershipObject> =
     user_id: z.number().describe("The id of an agent"),
   });
 
-export const groupMembershipResponseSchema: zod.ZodSchema<GroupMembershipResponse> =
+export const groupMembershipResponseSchema: z.ZodSchema<GroupMembershipResponse> =
   z.object({ group_membership: groupMembershipObjectSchema });
 
-export const groupMembershipsResponseSchema: zod.ZodSchema<GroupMembershipsResponse> =
+export const groupMembershipsResponseSchema: z.ZodSchema<GroupMembershipsResponse> =
   z.object({ group_memberships: z.array(groupMembershipObjectSchema) });
 
-export const groupObjectSchema: zod.ZodSchema<GroupObject> = z.object({
+export const groupObjectSchema: z.ZodSchema<GroupObject> = z.object({
   created_at: z.string().describe("The time the group was created"),
   default: z
     .boolean()
@@ -4529,18 +4530,18 @@ export const groupObjectSchema: zod.ZodSchema<GroupObject> = z.object({
   url: z.string().describe("The API url of the group"),
 });
 
-export const groupResponseSchema: zod.ZodSchema<GroupResponse> = z.object({
+export const groupResponseSchema: z.ZodSchema<GroupResponse> = z.object({
   group: groupObjectSchema,
 });
 
-export const groupSlaPolicyFilterConditionObjectSchema: zod.ZodSchema<GroupSLAPolicyFilterConditionObject> =
+export const groupSlaPolicyFilterConditionObjectSchema: z.ZodSchema<GroupSLAPolicyFilterConditionObject> =
   z.object({
     field: z.string().describe("The name of a ticket field"),
     operator: z.string().describe("A comparison operator"),
     value: z.array(z.unknown()).describe("The value of a ticket field"),
   });
 
-export const groupSlaPolicyFilterDefinitionResponseSchema: zod.ZodSchema<GroupSLAPolicyFilterDefinitionResponse> =
+export const groupSlaPolicyFilterDefinitionResponseSchema: z.ZodSchema<GroupSLAPolicyFilterDefinitionResponse> =
   z.object({
     definitions: z.object({
       all: z.array(
@@ -4562,14 +4563,14 @@ export const groupSlaPolicyFilterDefinitionResponseSchema: zod.ZodSchema<GroupSL
     }),
   });
 
-export const groupSlaPolicyFilterObjectSchema: zod.ZodSchema<GroupSLAPolicyFilterObject> =
+export const groupSlaPolicyFilterObjectSchema: z.ZodSchema<GroupSLAPolicyFilterObject> =
   z
     .object({ all: z.array(groupSlaPolicyFilterConditionObjectSchema) })
     .describe(
       "An object that describes the conditions a ticket must match for a Group SLA policy to be applied to the ticket. See [Filter](#filter).",
     );
 
-export const groupSlaPolicyMetricObjectSchema: zod.ZodSchema<GroupSLAPolicyMetricObject> =
+export const groupSlaPolicyMetricObjectSchema: z.ZodSchema<GroupSLAPolicyMetricObject> =
   z.object({
     business_hours: z
       .boolean()
@@ -4587,7 +4588,7 @@ export const groupSlaPolicyMetricObjectSchema: zod.ZodSchema<GroupSLAPolicyMetri
       ),
   });
 
-export const groupSlaPolicyObjectSchema: zod.ZodSchema<GroupSLAPolicyObject> =
+export const groupSlaPolicyObjectSchema: z.ZodSchema<GroupSLAPolicyObject> =
   z.object({
     created_at: z
       .string()
@@ -4610,7 +4611,7 @@ export const groupSlaPolicyObjectSchema: zod.ZodSchema<GroupSLAPolicyObject> =
     url: z.string().describe("URL of the Group SLA policy record"),
   });
 
-export const groupSlaPoliciesResponseSchema: zod.ZodSchema<GroupSLAPoliciesResponse> =
+export const groupSlaPoliciesResponseSchema: z.ZodSchema<GroupSLAPoliciesResponse> =
   z.object({
     count: z.number(),
     group_sla_policies: z.array(groupSlaPolicyObjectSchema),
@@ -4618,25 +4619,26 @@ export const groupSlaPoliciesResponseSchema: zod.ZodSchema<GroupSLAPoliciesRespo
     previous_page: z.string().nullable(),
   });
 
-export const groupSlaPolicyResponseSchema: zod.ZodSchema<GroupSLAPolicyResponse> =
+export const groupSlaPolicyResponseSchema: z.ZodSchema<GroupSLAPolicyResponse> =
   z.object({ group_sla_policy: groupSlaPolicyObjectSchema });
 
-export const groupsCountObjectSchema: zod.ZodSchema<GroupsCountObject> =
-  z.object({
+export const groupsCountObjectSchema: z.ZodSchema<GroupsCountObject> = z.object(
+  {
     count: z.object({
       refreshed_at: z
         .string()
         .describe("Timestamp that indicates when the count was last updated"),
       value: z.number().describe("Approximate count of groups"),
     }),
-  });
+  },
+);
 
-export const groupsResponseSchema: zod.ZodSchema<GroupsResponse> = z.object({
+export const groupsResponseSchema: z.ZodSchema<GroupsResponse> = z.object({
   groups: z.array(groupObjectSchema),
 });
 
-export const hostMappingObjectSchema: zod.ZodSchema<HostMappingObject> =
-  z.object({
+export const hostMappingObjectSchema: z.ZodSchema<HostMappingObject> = z.object(
+  {
     cname: z.string().describe("The canonical name record for a host mapping"),
     expected_cnames: z
       .array(z.string())
@@ -4647,9 +4649,10 @@ export const hostMappingObjectSchema: zod.ZodSchema<HostMappingObject> =
       .boolean()
       .describe("Whether a host mapping is valid or not for a given brand"),
     reason: z.string().describe("Reason why a host mapping is valid or not"),
-  });
+  },
+);
 
-export const incrementalSkillBasedRoutingAttributeSchema: zod.ZodSchema<IncrementalSkillBasedRoutingAttribute> =
+export const incrementalSkillBasedRoutingAttributeSchema: z.ZodSchema<IncrementalSkillBasedRoutingAttribute> =
   z.object({
     id: z
       .string()
@@ -4661,7 +4664,7 @@ export const incrementalSkillBasedRoutingAttributeSchema: zod.ZodSchema<Incremen
     type: z.string().describe('One of "create", "update", or "delete"'),
   });
 
-export const incrementalSkillBasedRoutingAttributeValueSchema: zod.ZodSchema<IncrementalSkillBasedRoutingAttributeValue> =
+export const incrementalSkillBasedRoutingAttributeValueSchema: z.ZodSchema<IncrementalSkillBasedRoutingAttributeValue> =
   z.object({
     attribute_id: z.string().describe("Id of the associated attribute"),
     id: z
@@ -4676,7 +4679,7 @@ export const incrementalSkillBasedRoutingAttributeValueSchema: zod.ZodSchema<Inc
     type: z.string().describe('One of "create", "update", or "delete"'),
   });
 
-export const incrementalSkillBasedRoutingInstanceValueSchema: zod.ZodSchema<IncrementalSkillBasedRoutingInstanceValue> =
+export const incrementalSkillBasedRoutingInstanceValueSchema: z.ZodSchema<IncrementalSkillBasedRoutingInstanceValue> =
   z.object({
     attribute_value_id: z
       .string()
@@ -4695,7 +4698,7 @@ export const incrementalSkillBasedRoutingInstanceValueSchema: zod.ZodSchema<Incr
       ),
   });
 
-export const incrementalSkillBasedRoutingSchema: zod.ZodSchema<IncrementalSkillBasedRouting> =
+export const incrementalSkillBasedRoutingSchema: z.ZodSchema<IncrementalSkillBasedRouting> =
   z.object({
     attribute_values: z
       .array(incrementalSkillBasedRoutingAttributeValueSchema)
@@ -4719,7 +4722,7 @@ export const incrementalSkillBasedRoutingSchema: zod.ZodSchema<IncrementalSkillB
       .describe("The URL that should be called to get the next set of results"),
   });
 
-export const keyDetailObjectSchema: zod.ZodSchema<KeyDetailObject> = z.object({
+export const keyDetailObjectSchema: z.ZodSchema<KeyDetailObject> = z.object({
   created_at: z.string().describe("Date and time the key details were created"),
   default: z
     .boolean()
@@ -4744,25 +4747,25 @@ export const keyDetailObjectSchema: zod.ZodSchema<KeyDetailObject> = z.object({
     .describe("Date and time the key details were last updated"),
 });
 
-export const keyDetailsResponseSchema: zod.ZodSchema<KeyDetailsResponse> =
+export const keyDetailsResponseSchema: z.ZodSchema<KeyDetailsResponse> =
   z.object({ key_detail: keyDetailObjectSchema });
 
-export const listTicketCollaboratorsResponseSchema: zod.ZodSchema<ListTicketCollaboratorsResponse> =
+export const listTicketCollaboratorsResponseSchema: z.ZodSchema<ListTicketCollaboratorsResponse> =
   z.object({}).passthrough();
 
-export const listTicketEmailCCsResponseSchema: zod.ZodSchema<ListTicketEmailCCsResponse> =
+export const listTicketEmailCCsResponseSchema: z.ZodSchema<ListTicketEmailCCsResponse> =
   z.object({}).passthrough();
 
-export const listTicketFollowersResponseSchema: zod.ZodSchema<ListTicketFollowersResponse> =
+export const listTicketFollowersResponseSchema: z.ZodSchema<ListTicketFollowersResponse> =
   z.object({}).passthrough();
 
-export const listTicketIncidentsResponseSchema: zod.ZodSchema<ListTicketIncidentsResponse> =
+export const listTicketIncidentsResponseSchema: z.ZodSchema<ListTicketIncidentsResponse> =
   z.object({}).passthrough();
 
-export const listTicketProblemsResponseSchema: zod.ZodSchema<ListTicketProblemsResponse> =
+export const listTicketProblemsResponseSchema: z.ZodSchema<ListTicketProblemsResponse> =
   z.object({}).passthrough();
 
-export const localeObjectSchema: zod.ZodSchema<LocaleObject> = z.object({
+export const localeObjectSchema: z.ZodSchema<LocaleObject> = z.object({
   created_at: z
     .string()
     .describe("The ISO 8601 formatted date-time the locale was created"),
@@ -4777,15 +4780,15 @@ export const localeObjectSchema: zod.ZodSchema<LocaleObject> = z.object({
   url: z.string().describe("The URL of the locale record"),
 });
 
-export const localeResponseSchema: zod.ZodSchema<LocaleResponse> = z.object({
+export const localeResponseSchema: z.ZodSchema<LocaleResponse> = z.object({
   locale: localeObjectSchema,
 });
 
-export const localesResponseSchema: zod.ZodSchema<LocalesResponse> = z.object({
+export const localesResponseSchema: z.ZodSchema<LocalesResponse> = z.object({
   locales: z.array(localeObjectSchema),
 });
 
-export const macroApplyTicketResponseSchema: zod.ZodSchema<MacroApplyTicketResponse> =
+export const macroApplyTicketResponseSchema: z.ZodSchema<MacroApplyTicketResponse> =
   z.object({
     result: z.object({
       ticket: z.object({
@@ -4803,7 +4806,7 @@ export const macroApplyTicketResponseSchema: zod.ZodSchema<MacroApplyTicketRespo
     }),
   });
 
-export const macroAttachmentObjectSchema: zod.ZodSchema<MacroAttachmentObject> =
+export const macroAttachmentObjectSchema: z.ZodSchema<MacroAttachmentObject> =
   z.object({
     content_type: z
       .string()
@@ -4819,17 +4822,17 @@ export const macroAttachmentObjectSchema: zod.ZodSchema<MacroAttachmentObject> =
     size: z.number().describe("The size of the image file in bytes"),
   });
 
-export const macroAttachmentResponseSchema: zod.ZodSchema<MacroAttachmentResponse> =
+export const macroAttachmentResponseSchema: z.ZodSchema<MacroAttachmentResponse> =
   z.object({ macro_attachment: macroAttachmentObjectSchema });
 
-export const macroAttachmentsResponseSchema: zod.ZodSchema<MacroAttachmentsResponse> =
+export const macroAttachmentsResponseSchema: z.ZodSchema<MacroAttachmentsResponse> =
   z.object({ macro_attachments: z.array(macroAttachmentObjectSchema) });
 
-export const macroCategoriesResponseSchema: zod.ZodSchema<MacroCategoriesResponse> =
+export const macroCategoriesResponseSchema: z.ZodSchema<MacroCategoriesResponse> =
   z.object({ categories: z.array(z.string()) });
 
-export const macroCommonObjectSchema: zod.ZodSchema<MacroCommonObject> =
-  z.object({
+export const macroCommonObjectSchema: z.ZodSchema<MacroCommonObject> = z.object(
+  {
     actions: z
       .array(actionObjectSchema)
       .describe(
@@ -4855,9 +4858,10 @@ export const macroCommonObjectSchema: zod.ZodSchema<MacroCommonObject> =
     title: z.string().describe("The title of the macro"),
     updated_at: z.string().describe("The time of the last update of the macro"),
     url: z.string().describe("A URL to access the macro's details"),
-  });
+  },
+);
 
-export const macroInputSchema: zod.ZodSchema<MacroInput> = z.object({
+export const macroInputSchema: z.ZodSchema<MacroInput> = z.object({
   actions: z
     .array(actionObjectSchema)
     .describe("Each action describes what the macro will do"),
@@ -4878,7 +4882,7 @@ export const macroInputSchema: zod.ZodSchema<MacroInput> = z.object({
   title: z.string().describe("The title of the macro"),
 });
 
-export const macroObjectSchema: zod.ZodSchema<MacroObject> = z.intersection(
+export const macroObjectSchema: z.ZodSchema<MacroObject> = z.intersection(
   macroCommonObjectSchema,
   z.object({
     app_installation: z
@@ -4908,11 +4912,11 @@ export const macroObjectSchema: zod.ZodSchema<MacroObject> = z.intersection(
   }),
 );
 
-export const macroResponseSchema: zod.ZodSchema<MacroResponse> = z.object({
+export const macroResponseSchema: z.ZodSchema<MacroResponse> = z.object({
   macro: macroObjectSchema,
 });
 
-export const macroUpdateManyInputSchema: zod.ZodSchema<MacroUpdateManyInput> =
+export const macroUpdateManyInputSchema: z.ZodSchema<MacroUpdateManyInput> =
   z.object({
     macros: z.array(
       z.object({
@@ -4925,7 +4929,7 @@ export const macroUpdateManyInputSchema: zod.ZodSchema<MacroUpdateManyInput> =
     ),
   });
 
-export const offsetPaginationObjectSchema: zod.ZodSchema<OffsetPaginationObject> =
+export const offsetPaginationObjectSchema: z.ZodSchema<OffsetPaginationObject> =
   z.object({
     count: z.number().describe("the total record count"),
     next_page: z.string().nullable().describe("the URL of the next page"),
@@ -4935,15 +4939,12 @@ export const offsetPaginationObjectSchema: zod.ZodSchema<OffsetPaginationObject>
       .describe("the URL of the previous page"),
   });
 
-export const brandsResponseSchema: zod.ZodSchema<BrandsResponse> =
-  z.intersection(
-    offsetPaginationObjectSchema,
-    z.object({
-      brands: z.array(brandObjectSchema).describe("Array of brands"),
-    }),
-  );
+export const brandsResponseSchema: z.ZodSchema<BrandsResponse> = z.intersection(
+  offsetPaginationObjectSchema,
+  z.object({ brands: z.array(brandObjectSchema).describe("Array of brands") }),
+);
 
-export const listDeletedTicketsResponseSchema: zod.ZodSchema<ListDeletedTicketsResponse> =
+export const listDeletedTicketsResponseSchema: z.ZodSchema<ListDeletedTicketsResponse> =
   z.intersection(
     z.object({
       deleted_tickets: z.array(
@@ -4959,19 +4960,18 @@ export const listDeletedTicketsResponseSchema: zod.ZodSchema<ListDeletedTicketsR
     offsetPaginationObjectSchema,
   );
 
-export const macrosResponseSchema: zod.ZodSchema<MacrosResponse> =
-  z.intersection(
-    z.object({ macros: z.array(macroObjectSchema) }),
-    offsetPaginationObjectSchema,
-  );
+export const macrosResponseSchema: z.ZodSchema<MacrosResponse> = z.intersection(
+  z.object({ macros: z.array(macroObjectSchema) }),
+  offsetPaginationObjectSchema,
+);
 
-export const organizationFieldObjectSchema: zod.ZodSchema<OrganizationFieldObject> =
+export const organizationFieldObjectSchema: z.ZodSchema<OrganizationFieldObject> =
   customFieldObjectSchema;
 
-export const organizationFieldResponseSchema: zod.ZodSchema<OrganizationFieldResponse> =
+export const organizationFieldResponseSchema: z.ZodSchema<OrganizationFieldResponse> =
   z.object({ organization_field: organizationFieldObjectSchema });
 
-export const organizationFieldsResponseSchema: zod.ZodSchema<OrganizationFieldsResponse> =
+export const organizationFieldsResponseSchema: z.ZodSchema<OrganizationFieldsResponse> =
   z.object({
     count: z.number().describe("Total count of records retrieved"),
     next_page: z.string().nullable().describe("URL of the next page"),
@@ -4979,7 +4979,7 @@ export const organizationFieldsResponseSchema: zod.ZodSchema<OrganizationFieldsR
     previous_page: z.string().nullable().describe("URL of the previous page"),
   });
 
-export const organizationMembershipObjectSchema: zod.ZodSchema<OrganizationMembershipObject> =
+export const organizationMembershipObjectSchema: z.ZodSchema<OrganizationMembershipObject> =
   z.object({
     created_at: z.string().describe("When this record was created"),
     default: z
@@ -5013,15 +5013,15 @@ export const organizationMembershipObjectSchema: zod.ZodSchema<OrganizationMembe
       ),
   });
 
-export const organizationMembershipResponseSchema: zod.ZodSchema<OrganizationMembershipResponse> =
+export const organizationMembershipResponseSchema: z.ZodSchema<OrganizationMembershipResponse> =
   z.object({ organization_membership: organizationMembershipObjectSchema });
 
-export const organizationMembershipsResponseSchema: zod.ZodSchema<OrganizationMembershipsResponse> =
+export const organizationMembershipsResponseSchema: z.ZodSchema<OrganizationMembershipsResponse> =
   z.object({
     organization_memberships: z.array(organizationMembershipObjectSchema),
   });
 
-export const organizationMetadataObjectSchema: zod.ZodSchema<OrganizationMetadataObject> =
+export const organizationMetadataObjectSchema: z.ZodSchema<OrganizationMetadataObject> =
   z.object({
     tickets_count: z
       .number()
@@ -5031,7 +5031,7 @@ export const organizationMetadataObjectSchema: zod.ZodSchema<OrganizationMetadat
       .describe("The number of users for the organization"),
   });
 
-export const organizationObjectSchema: zod.ZodSchema<OrganizationObject> =
+export const organizationObjectSchema: z.ZodSchema<OrganizationObject> =
   z.object({
     created_at: z.string().describe("The time the organization was created"),
     details: z
@@ -5085,7 +5085,7 @@ export const organizationObjectSchema: zod.ZodSchema<OrganizationObject> =
     url: z.string().describe("The API url of this organization"),
   });
 
-export const exportIncrementalOrganizationsResponseSchema: zod.ZodSchema<ExportIncrementalOrganizationsResponse> =
+export const exportIncrementalOrganizationsResponseSchema: z.ZodSchema<ExportIncrementalOrganizationsResponse> =
   z.object({
     count: z.number(),
     end_of_stream: z.boolean(),
@@ -5094,19 +5094,19 @@ export const exportIncrementalOrganizationsResponseSchema: zod.ZodSchema<ExportI
     organizations: z.array(organizationObjectSchema),
   });
 
-export const organizationResponseSchema: zod.ZodSchema<OrganizationResponse> =
+export const organizationResponseSchema: z.ZodSchema<OrganizationResponse> =
   z.object({ organization: organizationObjectSchema });
 
-export const organizationSubscriptionInputSchema: zod.ZodSchema<OrganizationSubscriptionInput> =
+export const organizationSubscriptionInputSchema: z.ZodSchema<OrganizationSubscriptionInput> =
   z.object({
     organization_id: z.number().describe("The ID of the organization"),
     user_id: z.number().describe("The ID of the user"),
   });
 
-export const organizationSubscriptionCreateRequestSchema: zod.ZodSchema<OrganizationSubscriptionCreateRequest> =
+export const organizationSubscriptionCreateRequestSchema: z.ZodSchema<OrganizationSubscriptionCreateRequest> =
   z.object({ organization_subscription: organizationSubscriptionInputSchema });
 
-export const organizationSubscriptionObjectSchema: zod.ZodSchema<OrganizationSubscriptionObject> =
+export const organizationSubscriptionObjectSchema: z.ZodSchema<OrganizationSubscriptionObject> =
   z.object({
     created_at: z
       .string()
@@ -5116,10 +5116,10 @@ export const organizationSubscriptionObjectSchema: zod.ZodSchema<OrganizationSub
     user_id: z.number().describe("The ID of the user"),
   });
 
-export const organizationSubscriptionResponseSchema: zod.ZodSchema<OrganizationSubscriptionResponse> =
+export const organizationSubscriptionResponseSchema: z.ZodSchema<OrganizationSubscriptionResponse> =
   z.object({ organization_subscription: organizationSubscriptionObjectSchema });
 
-export const organizationSubscriptionsResponseSchema: zod.ZodSchema<OrganizationSubscriptionsResponse> =
+export const organizationSubscriptionsResponseSchema: z.ZodSchema<OrganizationSubscriptionsResponse> =
   z.intersection(
     offsetPaginationObjectSchema,
     z.object({
@@ -5129,10 +5129,10 @@ export const organizationSubscriptionsResponseSchema: zod.ZodSchema<Organization
     }),
   );
 
-export const organizationsRelatedResponseSchema: zod.ZodSchema<OrganizationsRelatedResponse> =
+export const organizationsRelatedResponseSchema: z.ZodSchema<OrganizationsRelatedResponse> =
   z.object({ organization_related: organizationMetadataObjectSchema });
 
-export const organizationsResponseSchema: zod.ZodSchema<OrganizationsResponse> =
+export const organizationsResponseSchema: z.ZodSchema<OrganizationsResponse> =
   z.object({
     count: z.number(),
     next_page: z.string().nullable(),
@@ -5140,7 +5140,7 @@ export const organizationsResponseSchema: zod.ZodSchema<OrganizationsResponse> =
     previous_page: z.string().nullable(),
   });
 
-export const paginationSchema: zod.ZodSchema<Pagination> = z.object({
+export const paginationSchema: z.ZodSchema<Pagination> = z.object({
   links: z.object({ next: z.string(), prev: z.string() }),
   meta: z.object({
     after_cursor: z.string(),
@@ -5149,22 +5149,22 @@ export const paginationSchema: zod.ZodSchema<Pagination> = z.object({
   }),
 });
 
-export const pushNotificationDevicesInputYamlSchema: zod.ZodSchema<PushNotificationDevicesInput> =
+export const pushNotificationDevicesInputYamlSchema: z.ZodSchema<PushNotificationDevicesInput> =
   z.array(z.unknown());
 
-export const pushNotificationDevicesRequestYamlSchema: zod.ZodSchema<PushNotificationDevicesRequest> =
+export const pushNotificationDevicesRequestYamlSchema: z.ZodSchema<PushNotificationDevicesRequest> =
   z.object({
     push_notification_devices: pushNotificationDevicesInputYamlSchema,
   });
 
-export const renewSessionResponseSchema: zod.ZodSchema<RenewSessionResponse> =
+export const renewSessionResponseSchema: z.ZodSchema<RenewSessionResponse> =
   z.object({
     authenticity_token: z
       .string()
       .describe("A token of authenticity for the request"),
   });
 
-export const resourceCollectionObjectSchema: zod.ZodSchema<ResourceCollectionObject> =
+export const resourceCollectionObjectSchema: z.ZodSchema<ResourceCollectionObject> =
   z.object({
     created_at: z.string().describe("When the resource collection was created"),
     id: z
@@ -5182,10 +5182,10 @@ export const resourceCollectionObjectSchema: zod.ZodSchema<ResourceCollectionObj
       .describe("Last time the resource collection was updated"),
   });
 
-export const resourceCollectionResponseSchema: zod.ZodSchema<ResourceCollectionResponse> =
+export const resourceCollectionResponseSchema: z.ZodSchema<ResourceCollectionResponse> =
   z.object({ resource_collection: resourceCollectionObjectSchema });
 
-export const resourceCollectionsResponseSchema: zod.ZodSchema<ResourceCollectionsResponse> =
+export const resourceCollectionsResponseSchema: z.ZodSchema<ResourceCollectionsResponse> =
   z.object({
     count: z.number(),
     next_page: z.string().nullable(),
@@ -5193,7 +5193,7 @@ export const resourceCollectionsResponseSchema: zod.ZodSchema<ResourceCollection
     resource_collections: z.array(resourceCollectionObjectSchema),
   });
 
-export const slaPolicyFilterConditionObjectSchema: zod.ZodSchema<SLAPolicyFilterConditionObject> =
+export const slaPolicyFilterConditionObjectSchema: z.ZodSchema<SLAPolicyFilterConditionObject> =
   z.object({
     field: z.string().describe("The name of a ticket field"),
     operator: z.string().describe("A comparison operator"),
@@ -5202,7 +5202,7 @@ export const slaPolicyFilterConditionObjectSchema: zod.ZodSchema<SLAPolicyFilter
       .describe("The value of a ticket field"),
   });
 
-export const slaPolicyFilterDefinitionResponseSchema: zod.ZodSchema<SLAPolicyFilterDefinitionResponse> =
+export const slaPolicyFilterDefinitionResponseSchema: z.ZodSchema<SLAPolicyFilterDefinitionResponse> =
   z.object({
     definitions: z.object({
       all: z.array(
@@ -5242,17 +5242,16 @@ export const slaPolicyFilterDefinitionResponseSchema: zod.ZodSchema<SLAPolicyFil
     }),
   });
 
-export const slaPolicyFilterObjectSchema: zod.ZodSchema<SLAPolicyFilterObject> =
-  z
-    .object({
-      all: z.array(slaPolicyFilterConditionObjectSchema),
-      any: z.array(slaPolicyFilterConditionObjectSchema),
-    })
-    .describe(
-      "An object that describes the conditions that a ticket must match in order for an SLA policy to be applied to that ticket. See [Filter](#filter).",
-    );
+export const slaPolicyFilterObjectSchema: z.ZodSchema<SLAPolicyFilterObject> = z
+  .object({
+    all: z.array(slaPolicyFilterConditionObjectSchema),
+    any: z.array(slaPolicyFilterConditionObjectSchema),
+  })
+  .describe(
+    "An object that describes the conditions that a ticket must match in order for an SLA policy to be applied to that ticket. See [Filter](#filter).",
+  );
 
-export const slaPolicyMetricObjectSchema: zod.ZodSchema<SLAPolicyMetricObject> =
+export const slaPolicyMetricObjectSchema: z.ZodSchema<SLAPolicyMetricObject> =
   z.object({
     business_hours: z
       .boolean()
@@ -5270,7 +5269,7 @@ export const slaPolicyMetricObjectSchema: zod.ZodSchema<SLAPolicyMetricObject> =
       ),
   });
 
-export const slaPolicyObjectSchema: zod.ZodSchema<SLAPolicyObject> = z.object({
+export const slaPolicyObjectSchema: z.ZodSchema<SLAPolicyObject> = z.object({
   created_at: z.string().describe("The time the SLA policy was created"),
   description: z.string().describe("The description of the SLA policy"),
   filter: slaPolicyFilterObjectSchema,
@@ -5290,7 +5289,7 @@ export const slaPolicyObjectSchema: zod.ZodSchema<SLAPolicyObject> = z.object({
   url: z.string().describe("URL of the SLA Policy reacord"),
 });
 
-export const slaPoliciesResponseSchema: zod.ZodSchema<SLAPoliciesResponse> =
+export const slaPoliciesResponseSchema: z.ZodSchema<SLAPoliciesResponse> =
   z.object({
     count: z.number(),
     next_page: z.string().nullable(),
@@ -5298,10 +5297,11 @@ export const slaPoliciesResponseSchema: zod.ZodSchema<SLAPoliciesResponse> =
     sla_policies: z.array(slaPolicyObjectSchema),
   });
 
-export const slaPolicyResponseSchema: zod.ZodSchema<SLAPolicyResponse> =
-  z.object({ sla_policy: slaPolicyObjectSchema });
+export const slaPolicyResponseSchema: z.ZodSchema<SLAPolicyResponse> = z.object(
+  { sla_policy: slaPolicyObjectSchema },
+);
 
-export const satisfactionRatingObjectSchema: zod.ZodSchema<SatisfactionRatingObject> =
+export const satisfactionRatingObjectSchema: z.ZodSchema<SatisfactionRatingObject> =
   z.object({
     assignee_id: z
       .number()
@@ -5344,18 +5344,18 @@ export const satisfactionRatingObjectSchema: zod.ZodSchema<SatisfactionRatingObj
     url: z.string().describe("The API url of this rating"),
   });
 
-export const satisfactionRatingResponseSchema: zod.ZodSchema<SatisfactionRatingResponse> =
+export const satisfactionRatingResponseSchema: z.ZodSchema<SatisfactionRatingResponse> =
   z.object({ satisfaction_rating: z.array(satisfactionRatingObjectSchema) });
 
-export const satisfactionRatingsCountResponseSchema: zod.ZodSchema<SatisfactionRatingsCountResponse> =
+export const satisfactionRatingsCountResponseSchema: z.ZodSchema<SatisfactionRatingsCountResponse> =
   z.object({
     count: z.object({ refreshed_at: z.string(), value: z.number() }),
   });
 
-export const satisfactionRatingsResponseSchema: zod.ZodSchema<SatisfactionRatingsResponse> =
+export const satisfactionRatingsResponseSchema: z.ZodSchema<SatisfactionRatingsResponse> =
   z.object({ satisfaction_ratings: z.array(satisfactionRatingObjectSchema) });
 
-export const satisfactionReasonObjectSchema: zod.ZodSchema<SatisfactionReasonObject> =
+export const satisfactionReasonObjectSchema: z.ZodSchema<SatisfactionReasonObject> =
   z.object({
     created_at: z.string().describe("The time the reason was created"),
     deleted_at: z.string().describe("The time the reason was deleted"),
@@ -5377,16 +5377,16 @@ export const satisfactionReasonObjectSchema: zod.ZodSchema<SatisfactionReasonObj
       .describe("Translated value of the reason in the account locale"),
   });
 
-export const satisfactionReasonResponseSchema: zod.ZodSchema<SatisfactionReasonResponse> =
+export const satisfactionReasonResponseSchema: z.ZodSchema<SatisfactionReasonResponse> =
   z.object({ reason: z.array(satisfactionReasonObjectSchema) });
 
-export const satisfactionReasonsResponseSchema: zod.ZodSchema<SatisfactionReasonsResponse> =
+export const satisfactionReasonsResponseSchema: z.ZodSchema<SatisfactionReasonsResponse> =
   z.object({ reasons: z.array(satisfactionReasonObjectSchema) });
 
-export const searchCountResponseSchema: zod.ZodSchema<SearchCountResponse> =
+export const searchCountResponseSchema: z.ZodSchema<SearchCountResponse> =
   z.object({ count: z.number() });
 
-export const searchResultObjectSchema: zod.ZodSchema<SearchResultObject> =
+export const searchResultObjectSchema: z.ZodSchema<SearchResultObject> =
   z.object({
     created_at: z.string().describe("When the resource was created"),
     default: z
@@ -5403,7 +5403,7 @@ export const searchResultObjectSchema: zod.ZodSchema<SearchResultObject> =
     url: z.string().describe("The url of the resource"),
   });
 
-export const searchExportResponseSchema: zod.ZodSchema<SearchExportResponse> =
+export const searchExportResponseSchema: z.ZodSchema<SearchExportResponse> =
   z.object({
     facets: z
       .string()
@@ -5447,7 +5447,7 @@ export const searchExportResponseSchema: zod.ZodSchema<SearchExportResponse> =
       ),
   });
 
-export const searchResponseSchema: zod.ZodSchema<SearchResponse> = z.object({
+export const searchResponseSchema: z.ZodSchema<SearchResponse> = z.object({
   count: z
     .number()
     .describe(
@@ -5469,7 +5469,7 @@ export const searchResponseSchema: zod.ZodSchema<SearchResponse> = z.object({
     ),
 });
 
-export const sessionObjectSchema: zod.ZodSchema<SessionObject> = z.object({
+export const sessionObjectSchema: z.ZodSchema<SessionObject> = z.object({
   authenticated_at: z
     .string()
     .nullable()
@@ -5485,15 +5485,15 @@ export const sessionObjectSchema: zod.ZodSchema<SessionObject> = z.object({
   user_id: z.number().nullable().describe("The id of the user"),
 });
 
-export const sessionResponseSchema: zod.ZodSchema<SessionResponse> = z.object({
+export const sessionResponseSchema: z.ZodSchema<SessionResponse> = z.object({
   session: z.array(sessionObjectSchema),
 });
 
-export const sessionsResponseSchema: zod.ZodSchema<SessionsResponse> = z.object(
-  { sessions: z.array(sessionObjectSchema) },
-);
+export const sessionsResponseSchema: z.ZodSchema<SessionsResponse> = z.object({
+  sessions: z.array(sessionObjectSchema),
+});
 
-export const sharingAgreementObjectSchema: zod.ZodSchema<SharingAgreementObject> =
+export const sharingAgreementObjectSchema: z.ZodSchema<SharingAgreementObject> =
   z.object({
     created_at: z.string().describe("The time the record was created"),
     id: z.number().describe("Automatically assigned upon creation"),
@@ -5518,13 +5518,13 @@ export const sharingAgreementObjectSchema: zod.ZodSchema<SharingAgreementObject>
     url: z.string().describe("URL of the sharing agreement record"),
   });
 
-export const sharingAgreementResponseSchema: zod.ZodSchema<SharingAgreementResponse> =
+export const sharingAgreementResponseSchema: z.ZodSchema<SharingAgreementResponse> =
   z.object({ sharing_agreement: sharingAgreementObjectSchema });
 
-export const sharingAgreementsResponseSchema: zod.ZodSchema<SharingAgreementsResponse> =
+export const sharingAgreementsResponseSchema: z.ZodSchema<SharingAgreementsResponse> =
   z.object({ sharing_agreements: z.array(sharingAgreementObjectSchema) });
 
-export const skillBasedRoutingAttributeDefinitionsSchema: zod.ZodSchema<SkillBasedRoutingAttributeDefinitions> =
+export const skillBasedRoutingAttributeDefinitionsSchema: z.ZodSchema<SkillBasedRoutingAttributeDefinitions> =
   z.object({
     definitions: z.object({
       conditions_all: z.array(
@@ -5536,7 +5536,7 @@ export const skillBasedRoutingAttributeDefinitionsSchema: zod.ZodSchema<SkillBas
     }),
   });
 
-export const skillBasedRoutingAttributeObjectSchema: zod.ZodSchema<SkillBasedRoutingAttributeObject> =
+export const skillBasedRoutingAttributeObjectSchema: z.ZodSchema<SkillBasedRoutingAttributeObject> =
   z.object({
     created_at: z.string().describe("When this record was created"),
     id: z
@@ -5547,10 +5547,10 @@ export const skillBasedRoutingAttributeObjectSchema: zod.ZodSchema<SkillBasedRou
     url: z.string().describe("URL of the attribute"),
   });
 
-export const skillBasedRoutingAttributeResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeResponse> =
+export const skillBasedRoutingAttributeResponseSchema: z.ZodSchema<SkillBasedRoutingAttributeResponse> =
   z.object({ attribute: skillBasedRoutingAttributeObjectSchema });
 
-export const skillBasedRoutingAttributeValueObjectSchema: zod.ZodSchema<SkillBasedRoutingAttributeValueObject> =
+export const skillBasedRoutingAttributeValueObjectSchema: z.ZodSchema<SkillBasedRoutingAttributeValueObject> =
   z.object({
     attribute_id: z.string().describe("Id of the associated attribute"),
     created_at: z.string().describe("When this record was created"),
@@ -5562,15 +5562,15 @@ export const skillBasedRoutingAttributeValueObjectSchema: zod.ZodSchema<SkillBas
     url: z.string().describe("URL of the attribute value"),
   });
 
-export const skillBasedRoutingAttributeValueResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeValueResponse> =
+export const skillBasedRoutingAttributeValueResponseSchema: z.ZodSchema<SkillBasedRoutingAttributeValueResponse> =
   z.object({ attribute_value: skillBasedRoutingAttributeValueObjectSchema });
 
-export const skillBasedRoutingAttributeValuesResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeValuesResponse> =
+export const skillBasedRoutingAttributeValuesResponseSchema: z.ZodSchema<SkillBasedRoutingAttributeValuesResponse> =
   z.object({
     attribute_values: z.array(skillBasedRoutingAttributeValueObjectSchema),
   });
 
-export const skillBasedRoutingAttributesResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributesResponse> =
+export const skillBasedRoutingAttributesResponseSchema: z.ZodSchema<SkillBasedRoutingAttributesResponse> =
   z.object({
     attributes: z.array(skillBasedRoutingAttributeObjectSchema),
     count: z.number(),
@@ -5578,10 +5578,10 @@ export const skillBasedRoutingAttributesResponseSchema: zod.ZodSchema<SkillBased
     previous_page: z.string().nullable(),
   });
 
-export const skillBasedRoutingTicketFulfilledResponseSchema: zod.ZodSchema<SkillBasedRoutingTicketFulfilledResponse> =
+export const skillBasedRoutingTicketFulfilledResponseSchema: z.ZodSchema<SkillBasedRoutingTicketFulfilledResponse> =
   z.object({ fulfilled_ticket_ids: z.array(z.number()) });
 
-export const supportAddressObjectSchema: zod.ZodSchema<SupportAddressObject> =
+export const supportAddressObjectSchema: z.ZodSchema<SupportAddressObject> =
   z.object({
     brand_id: z
       .number()
@@ -5637,13 +5637,13 @@ export const supportAddressObjectSchema: zod.ZodSchema<SupportAddressObject> =
     updated_at: z.string().describe("When the address was updated"),
   });
 
-export const supportAddressResponseSchema: zod.ZodSchema<SupportAddressResponse> =
+export const supportAddressResponseSchema: z.ZodSchema<SupportAddressResponse> =
   z.object({ recipient_address: supportAddressObjectSchema });
 
-export const supportAddressesResponseSchema: zod.ZodSchema<SupportAddressesResponse> =
+export const supportAddressesResponseSchema: z.ZodSchema<SupportAddressesResponse> =
   z.object({ recipient_addresses: z.array(supportAddressObjectSchema) });
 
-export const suspendedTicketsAttachmentsResponseSchema: zod.ZodSchema<SuspendedTicketsAttachmentsResponse> =
+export const suspendedTicketsAttachmentsResponseSchema: z.ZodSchema<SuspendedTicketsAttachmentsResponse> =
   z.object({
     upload: z.object({
       attachments: z.array(attachmentObjectSchema),
@@ -5651,48 +5651,46 @@ export const suspendedTicketsAttachmentsResponseSchema: zod.ZodSchema<SuspendedT
     }),
   });
 
-export const suspendedTicketsExportResponseSchema: zod.ZodSchema<SuspendedTicketsExportResponse> =
+export const suspendedTicketsExportResponseSchema: z.ZodSchema<SuspendedTicketsExportResponse> =
   z.object({ export: z.object({ status: z.string(), view_id: z.string() }) });
 
-export const systemFieldOptionObjectSchema: zod.ZodSchema<SystemFieldOptionObject> =
+export const systemFieldOptionObjectSchema: z.ZodSchema<SystemFieldOptionObject> =
   z.object({
     name: z.string().describe("Name of the system field option"),
     value: z.string().describe("Value of the system field option"),
   });
 
-export const tagCountObjectSchema: zod.ZodSchema<TagCountObject> = z.object({
+export const tagCountObjectSchema: z.ZodSchema<TagCountObject> = z.object({
   refreshed_at: z
     .string()
     .describe("The time that the count value was last refreshed"),
   value: z.number().describe("The count of tags created in the last 24 hours"),
 });
 
-export const tagCountResponseSchema: zod.ZodSchema<TagCountResponse> = z.object(
-  { count: tagCountObjectSchema },
-);
+export const tagCountResponseSchema: z.ZodSchema<TagCountResponse> = z.object({
+  count: tagCountObjectSchema,
+});
 
-export const tagListTagObjectSchema: zod.ZodSchema<TagListTagObject> = z.object(
-  {
-    count: z.number().describe("The number of tags"),
-    name: z.string().describe("A name for the tag"),
-  },
-);
+export const tagListTagObjectSchema: z.ZodSchema<TagListTagObject> = z.object({
+  count: z.number().describe("The number of tags"),
+  name: z.string().describe("A name for the tag"),
+});
 
-export const tagUrlObjectSchema: zod.ZodSchema<TagUrlObject> = z.object({
+export const tagUrlObjectSchema: z.ZodSchema<TagUrlObject> = z.object({
   url: z.string().describe("The url associated to the api request"),
 });
 
-export const tagsByObjectIdResponseSchema: zod.ZodSchema<TagsByObjectIdResponse> =
+export const tagsByObjectIdResponseSchema: z.ZodSchema<TagsByObjectIdResponse> =
   z.object({ tags: z.array(z.string()).describe("An array of strings") });
 
-export const tagsResponseSchema: zod.ZodSchema<TagsResponse> = z.object({
+export const tagsResponseSchema: z.ZodSchema<TagsResponse> = z.object({
   count: z.number().describe("The number of pages"),
   next_page: z.string().nullable().describe("The url of the previous page"),
   previous_page: z.string().nullable().describe("The url of the next page"),
   tags: z.array(tagListTagObjectSchema),
 });
 
-export const targetBasecampSchema: zod.ZodSchema<TargetBasecamp> = z.object({
+export const targetBasecampSchema: z.ZodSchema<TargetBasecamp> = z.object({
   message_id: z
     .string()
     .describe('Can be filled if it is a "message" resource'),
@@ -5723,7 +5721,7 @@ export const targetBasecampSchema: zod.ZodSchema<TargetBasecamp> = z.object({
     ),
 });
 
-export const targetCampfireSchema: zod.ZodSchema<TargetCampfire> = z.object({
+export const targetCampfireSchema: z.ZodSchema<TargetCampfire> = z.object({
   preserve_format: z.boolean(),
   room: z.string(),
   ssl: z.boolean(),
@@ -5731,21 +5729,19 @@ export const targetCampfireSchema: zod.ZodSchema<TargetCampfire> = z.object({
   token: z.string(),
 });
 
-export const targetClickatellSchema: zod.ZodSchema<TargetClickatell> = z.object(
-  {
-    api_id: z.string(),
-    attribute: z.string().describe("Read-only"),
-    from: z.string(),
-    method: z.string().describe("Read-only"),
-    password: z.string().describe("only writable"),
-    target_url: z.string().describe("Read-only"),
-    to: z.string(),
-    us_small_business_account: z.string(),
-    username: z.string(),
-  },
-);
+export const targetClickatellSchema: z.ZodSchema<TargetClickatell> = z.object({
+  api_id: z.string(),
+  attribute: z.string().describe("Read-only"),
+  from: z.string(),
+  method: z.string().describe("Read-only"),
+  password: z.string().describe("only writable"),
+  target_url: z.string().describe("Read-only"),
+  to: z.string(),
+  us_small_business_account: z.string(),
+  username: z.string(),
+});
 
-export const targetCommonFieldsSchema: zod.ZodSchema<TargetCommonFields> =
+export const targetCommonFieldsSchema: z.ZodSchema<TargetCommonFields> =
   z.object({
     active: z.boolean().describe("Whether or not the target is activated"),
     created_at: z.string().describe("The time the target was created"),
@@ -5758,12 +5754,12 @@ export const targetCommonFieldsSchema: zod.ZodSchema<TargetCommonFields> =
       ),
   });
 
-export const targetEmailSchema: zod.ZodSchema<TargetEmail> = z.object({
+export const targetEmailSchema: z.ZodSchema<TargetEmail> = z.object({
   email: z.string(),
   subject: z.string(),
 });
 
-export const targetFailureObjectSchema: zod.ZodSchema<TargetFailureObject> =
+export const targetFailureObjectSchema: z.ZodSchema<TargetFailureObject> =
   z.object({
     consecutive_failure_count: z
       .number()
@@ -5777,17 +5773,17 @@ export const targetFailureObjectSchema: zod.ZodSchema<TargetFailureObject> =
     url: z.string().describe("The API url of the failure record"),
   });
 
-export const targetFailureResponseSchema: zod.ZodSchema<TargetFailureResponse> =
+export const targetFailureResponseSchema: z.ZodSchema<TargetFailureResponse> =
   z.object({ target_failure: targetFailureObjectSchema });
 
-export const targetFailuresResponseSchema: zod.ZodSchema<TargetFailuresResponse> =
+export const targetFailuresResponseSchema: z.ZodSchema<TargetFailuresResponse> =
   z.object({ target_failures: z.array(targetFailureObjectSchema) });
 
-export const targetFlowdockSchema: zod.ZodSchema<TargetFlowdock> = z.object({
+export const targetFlowdockSchema: z.ZodSchema<TargetFlowdock> = z.object({
   api_token: z.string(),
 });
 
-export const targetGetSatisfactionSchema: zod.ZodSchema<TargetGetSatisfaction> =
+export const targetGetSatisfactionSchema: z.ZodSchema<TargetGetSatisfaction> =
   z.object({
     account_name: z.string(),
     email: z.string(),
@@ -5795,7 +5791,7 @@ export const targetGetSatisfactionSchema: zod.ZodSchema<TargetGetSatisfaction> =
     target_url: z.string(),
   });
 
-export const targetHttpSchema: zod.ZodSchema<TargetHTTP> = z.object({
+export const targetHttpSchema: z.ZodSchema<TargetHTTP> = z.object({
   content_type: z
     .string()
     .describe(
@@ -5807,13 +5803,13 @@ export const targetHttpSchema: zod.ZodSchema<TargetHTTP> = z.object({
   username: z.string(),
 });
 
-export const targetJiraSchema: zod.ZodSchema<TargetJira> = z.object({
+export const targetJiraSchema: z.ZodSchema<TargetJira> = z.object({
   password: z.string().describe("only writable"),
   target_url: z.string(),
   username: z.string(),
 });
 
-export const targetPivotalSchema: zod.ZodSchema<TargetPivotal> = z.object({
+export const targetPivotalSchema: z.ZodSchema<TargetPivotal> = z.object({
   owner_by: z.string(),
   project_id: z.string(),
   requested_by: z.string(),
@@ -5823,12 +5819,12 @@ export const targetPivotalSchema: zod.ZodSchema<TargetPivotal> = z.object({
   token: z.string(),
 });
 
-export const targetTwitterSchema: zod.ZodSchema<TargetTwitter> = z.object({
+export const targetTwitterSchema: z.ZodSchema<TargetTwitter> = z.object({
   secret: z.string().describe("only writable"),
   token: z.string(),
 });
 
-export const targetUrlSchema: zod.ZodSchema<TargetURL> = z.object({
+export const targetUrlSchema: z.ZodSchema<TargetURL> = z.object({
   attribute: z.string(),
   method: z.string().describe('"get"'),
   password: z.string().describe("only writable"),
@@ -5836,12 +5832,12 @@ export const targetUrlSchema: zod.ZodSchema<TargetURL> = z.object({
   username: z.string(),
 });
 
-export const targetYammerSchema: zod.ZodSchema<TargetYammer> = z.object({
+export const targetYammerSchema: z.ZodSchema<TargetYammer> = z.object({
   group_id: z.string(),
   token: z.string(),
 });
 
-export const targetObjectSchema: zod.ZodSchema<TargetObject> = z.intersection(
+export const targetObjectSchema: z.ZodSchema<TargetObject> = z.intersection(
   targetCommonFieldsSchema,
   z.union([
     targetBasecampSchema,
@@ -5859,15 +5855,15 @@ export const targetObjectSchema: zod.ZodSchema<TargetObject> = z.intersection(
   ]),
 );
 
-export const targetResponseSchema: zod.ZodSchema<TargetResponse> = z.object({
+export const targetResponseSchema: z.ZodSchema<TargetResponse> = z.object({
   target: targetObjectSchema,
 });
 
-export const targetsResponseSchema: zod.ZodSchema<TargetsResponse> = z.object({
+export const targetsResponseSchema: z.ZodSchema<TargetsResponse> = z.object({
   targets: z.array(targetObjectSchema),
 });
 
-export const ticketAuditViaObjectSchema: zod.ZodSchema<TicketAuditViaObject> = z
+export const ticketAuditViaObjectSchema: z.ZodSchema<TicketAuditViaObject> = z
   .object({
     channel: z
       .string()
@@ -5885,7 +5881,7 @@ export const ticketAuditViaObjectSchema: zod.ZodSchema<TicketAuditViaObject> = z
     "Describes how the object was created. See the [Via object reference](/documentation/ticketing/reference-guides/via-object-reference)",
   );
 
-export const requestObjectSchema: zod.ZodSchema<RequestObject> = z.object({
+export const requestObjectSchema: z.ZodSchema<RequestObject> = z.object({
   assignee_id: z
     .number()
     .describe("The id of the assignee if the field is visible to end users"),
@@ -5971,16 +5967,16 @@ export const requestObjectSchema: zod.ZodSchema<RequestObject> = z.object({
   via: ticketAuditViaObjectSchema,
 });
 
-export const requestResponseSchema: zod.ZodSchema<RequestResponse> = z.object({
+export const requestResponseSchema: z.ZodSchema<RequestResponse> = z.object({
   request: requestObjectSchema,
 });
 
-export const requestsResponseSchema: zod.ZodSchema<RequestsResponse> = z.object(
-  { requests: z.array(requestObjectSchema) },
-);
+export const requestsResponseSchema: z.ZodSchema<RequestsResponse> = z.object({
+  requests: z.array(requestObjectSchema),
+});
 
-export const ticketAuditObjectSchema: zod.ZodSchema<TicketAuditObject> =
-  z.object({
+export const ticketAuditObjectSchema: z.ZodSchema<TicketAuditObject> = z.object(
+  {
     author_id: z.number().describe("The user who created the audit"),
     created_at: z.string().describe("The time the audit was created"),
     events: z
@@ -5995,17 +5991,18 @@ export const ticketAuditObjectSchema: zod.ZodSchema<TicketAuditObject> =
       .describe("Metadata for the audit, custom and system data"),
     ticket_id: z.number().describe("The ID of the associated ticket"),
     via: ticketAuditViaObjectSchema,
-  });
+  },
+);
 
-export const ticketAuditResponseSchema: zod.ZodSchema<TicketAuditResponse> =
+export const ticketAuditResponseSchema: z.ZodSchema<TicketAuditResponse> =
   z.object({ audit: ticketAuditObjectSchema });
 
-export const ticketAuditsCountResponseSchema: zod.ZodSchema<TicketAuditsCountResponse> =
+export const ticketAuditsCountResponseSchema: z.ZodSchema<TicketAuditsCountResponse> =
   z.object({
     count: z.object({ refreshed_at: z.string(), value: z.number() }),
   });
 
-export const ticketAuditsResponseSchema: zod.ZodSchema<TicketAuditsResponse> =
+export const ticketAuditsResponseSchema: z.ZodSchema<TicketAuditsResponse> =
   z.object({
     after_cursor: z.string(),
     after_url: z.string(),
@@ -6014,7 +6011,7 @@ export const ticketAuditsResponseSchema: zod.ZodSchema<TicketAuditsResponse> =
     before_url: z.string(),
   });
 
-export const ticketAuditsResponseNoneCursorSchema: zod.ZodSchema<TicketAuditsResponseNoneCursor> =
+export const ticketAuditsResponseNoneCursorSchema: z.ZodSchema<TicketAuditsResponseNoneCursor> =
   z.object({
     audits: z.array(ticketAuditObjectSchema),
     count: z.number(),
@@ -6022,7 +6019,7 @@ export const ticketAuditsResponseNoneCursorSchema: zod.ZodSchema<TicketAuditsRes
     previous_page: z.string().nullable(),
   });
 
-export const ticketChatCommentRedactionResponseSchema: zod.ZodSchema<TicketChatCommentRedactionResponse> =
+export const ticketChatCommentRedactionResponseSchema: z.ZodSchema<TicketChatCommentRedactionResponse> =
   z.object({
     chat_event: z
       .object({
@@ -6041,7 +6038,7 @@ export const ticketChatCommentRedactionResponseSchema: zod.ZodSchema<TicketChatC
       .describe("Chat event object"),
   });
 
-export const ticketCommentObjectSchema: zod.ZodSchema<TicketCommentObject> =
+export const ticketCommentObjectSchema: z.ZodSchema<TicketCommentObject> =
   z.object({
     attachments: z
       .array(attachmentObjectSchema)
@@ -6091,18 +6088,18 @@ export const ticketCommentObjectSchema: zod.ZodSchema<TicketCommentObject> =
     via: ticketAuditViaObjectSchema,
   });
 
-export const ticketCommentResponseSchema: zod.ZodSchema<TicketCommentResponse> =
+export const ticketCommentResponseSchema: z.ZodSchema<TicketCommentResponse> =
   z.object({ comment: ticketCommentObjectSchema });
 
-export const ticketCommentsCountResponseSchema: zod.ZodSchema<TicketCommentsCountResponse> =
+export const ticketCommentsCountResponseSchema: z.ZodSchema<TicketCommentsCountResponse> =
   z.object({
     count: z.object({ refreshed_at: z.string(), value: z.number() }),
   });
 
-export const ticketCommentsResponseSchema: zod.ZodSchema<TicketCommentsResponse> =
+export const ticketCommentsResponseSchema: z.ZodSchema<TicketCommentsResponse> =
   z.object({ comments: z.array(ticketCommentObjectSchema) });
 
-export const ticketCreateVoicemailTicketVoiceCommentInputSchema: zod.ZodSchema<TicketCreateVoicemailTicketVoiceCommentInput> =
+export const ticketCreateVoicemailTicketVoiceCommentInputSchema: z.ZodSchema<TicketCreateVoicemailTicketVoiceCommentInput> =
   z.object({
     answered_by_id: z.number().describe("The agent who answered the call"),
     call_duration: z.number().describe("Duration in seconds of the call"),
@@ -6120,7 +6117,7 @@ export const ticketCreateVoicemailTicketVoiceCommentInputSchema: zod.ZodSchema<T
       .describe("Transcription of the call (optional)"),
   });
 
-export const ticketCreateVoicemailTicketInputSchema: zod.ZodSchema<TicketCreateVoicemailTicketInput> =
+export const ticketCreateVoicemailTicketInputSchema: z.ZodSchema<TicketCreateVoicemailTicketInput> =
   z.object({
     comment: ticketCommentObjectSchema,
     priority: z
@@ -6139,7 +6136,7 @@ export const ticketCreateVoicemailTicketInputSchema: zod.ZodSchema<TicketCreateV
     ),
   });
 
-export const ticketCreateVoicemailTicketRequestSchema: zod.ZodSchema<TicketCreateVoicemailTicketRequest> =
+export const ticketCreateVoicemailTicketRequestSchema: z.ZodSchema<TicketCreateVoicemailTicketRequest> =
   z.object({
     display_to_agent: z
       .number()
@@ -6151,12 +6148,12 @@ export const ticketCreateVoicemailTicketRequestSchema: zod.ZodSchema<TicketCreat
     ),
   });
 
-export const ticketFieldCountResponseSchema: zod.ZodSchema<TicketFieldCountResponse> =
+export const ticketFieldCountResponseSchema: z.ZodSchema<TicketFieldCountResponse> =
   z.object({
     count: z.object({ refreshed_at: z.string(), value: z.number() }),
   });
 
-export const ticketFieldCustomStatusObjectSchema: zod.ZodSchema<TicketFieldCustomStatusObject> =
+export const ticketFieldCustomStatusObjectSchema: z.ZodSchema<TicketFieldCustomStatusObject> =
   z.object({
     active: z
       .boolean()
@@ -6204,8 +6201,8 @@ export const ticketFieldCustomStatusObjectSchema: zod.ZodSchema<TicketFieldCusto
       ),
   });
 
-export const ticketFieldObjectSchema: zod.ZodSchema<TicketFieldObject> =
-  z.object({
+export const ticketFieldObjectSchema: z.ZodSchema<TicketFieldObject> = z.object(
+  {
     active: z.boolean().describe("Whether this field is available"),
     agent_description: z
       .string()
@@ -6328,76 +6325,73 @@ export const ticketFieldObjectSchema: zod.ZodSchema<TicketFieldObject> =
     visible_in_portal: z
       .boolean()
       .describe("Whether this field is visible to end users in Help Center"),
-  });
-
-export const ticketFieldResponseSchema: zod.ZodSchema<TicketFieldResponse> =
-  z.object({ ticket_field: ticketFieldObjectSchema });
-
-export const ticketFieldsResponseSchema: zod.ZodSchema<TicketFieldsResponse> =
-  z.object({ ticket_fields: z.array(ticketFieldObjectSchema) });
-
-export const ticketFormObjectSchema: zod.ZodSchema<TicketFormObject> = z.object(
-  {
-    active: z.boolean().describe("If the form is set as active"),
-    agent_conditions: z
-      .array(z.object({}).passthrough())
-      .describe("Array of condition sets for agent workspaces"),
-    created_at: z.string().describe("The time the ticket form was created"),
-    default: z
-      .boolean()
-      .describe("Is the form the default form for this account"),
-    display_name: z
-      .string()
-      .describe("The name of the form that is displayed to an end user"),
-    end_user_conditions: z
-      .array(z.object({}).passthrough())
-      .describe("Array of condition sets for end user products"),
-    end_user_visible: z
-      .boolean()
-      .describe("Is the form visible to the end user"),
-    id: z.number().describe("Automatically assigned when creating ticket form"),
-    in_all_brands: z
-      .boolean()
-      .describe("Is the form available for use in all brands on this account"),
-    name: z.string().describe("The name of the form"),
-    position: z
-      .number()
-      .describe(
-        "The position of this form among other forms in the account, i.e. dropdown",
-      ),
-    raw_display_name: z
-      .string()
-      .describe(
-        'The dynamic content placeholder, if present, or the "display_name" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
-      ),
-    raw_name: z
-      .string()
-      .describe(
-        'The dynamic content placeholder, if present, or the "name" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
-      ),
-    restricted_brand_ids: z
-      .array(z.number())
-      .describe("ids of all brands that this ticket form is restricted to"),
-    ticket_field_ids: z
-      .array(z.number())
-      .describe(
-        "ids of all ticket fields which are in this ticket form. The products use the order of the ids to show the field values in the tickets",
-      ),
-    updated_at: z
-      .string()
-      .describe("The time of the last update of the ticket form"),
-    url: z.string().describe("URL of the ticket form"),
   },
 );
 
-export const ticketFormResponseSchema: zod.ZodSchema<TicketFormResponse> =
+export const ticketFieldResponseSchema: z.ZodSchema<TicketFieldResponse> =
+  z.object({ ticket_field: ticketFieldObjectSchema });
+
+export const ticketFieldsResponseSchema: z.ZodSchema<TicketFieldsResponse> =
+  z.object({ ticket_fields: z.array(ticketFieldObjectSchema) });
+
+export const ticketFormObjectSchema: z.ZodSchema<TicketFormObject> = z.object({
+  active: z.boolean().describe("If the form is set as active"),
+  agent_conditions: z
+    .array(z.object({}).passthrough())
+    .describe("Array of condition sets for agent workspaces"),
+  created_at: z.string().describe("The time the ticket form was created"),
+  default: z
+    .boolean()
+    .describe("Is the form the default form for this account"),
+  display_name: z
+    .string()
+    .describe("The name of the form that is displayed to an end user"),
+  end_user_conditions: z
+    .array(z.object({}).passthrough())
+    .describe("Array of condition sets for end user products"),
+  end_user_visible: z.boolean().describe("Is the form visible to the end user"),
+  id: z.number().describe("Automatically assigned when creating ticket form"),
+  in_all_brands: z
+    .boolean()
+    .describe("Is the form available for use in all brands on this account"),
+  name: z.string().describe("The name of the form"),
+  position: z
+    .number()
+    .describe(
+      "The position of this form among other forms in the account, i.e. dropdown",
+    ),
+  raw_display_name: z
+    .string()
+    .describe(
+      'The dynamic content placeholder, if present, or the "display_name" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
+    ),
+  raw_name: z
+    .string()
+    .describe(
+      'The dynamic content placeholder, if present, or the "name" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
+    ),
+  restricted_brand_ids: z
+    .array(z.number())
+    .describe("ids of all brands that this ticket form is restricted to"),
+  ticket_field_ids: z
+    .array(z.number())
+    .describe(
+      "ids of all ticket fields which are in this ticket form. The products use the order of the ids to show the field values in the tickets",
+    ),
+  updated_at: z
+    .string()
+    .describe("The time of the last update of the ticket form"),
+  url: z.string().describe("URL of the ticket form"),
+});
+
+export const ticketFormResponseSchema: z.ZodSchema<TicketFormResponse> =
   z.object({ ticket_form: ticketFormObjectSchema });
 
-export const ticketFormsResponseSchema: zod.ZodSchema<TicketFormsResponse> =
+export const ticketFormsResponseSchema: z.ZodSchema<TicketFormsResponse> =
   z.object({ ticket_forms: z.array(ticketFormObjectSchema) });
 
-export const ticketImportInputSchema: zod.ZodSchema<TicketImportInput> =
-  z.object({
+export const ticketImportInputSchema: z.ZodSchema<TicketImportInput> = z.object(
+  {
     assignee_id: z
       .number()
       .describe("The agent currently assigned to the ticket"),
@@ -6423,35 +6417,34 @@ export const ticketImportInputSchema: zod.ZodSchema<TicketImportInput> =
     tags: z
       .array(z.string())
       .describe("The array of tags applied to this ticket"),
-  });
-
-export const ticketBulkImportRequestSchema: zod.ZodSchema<TicketBulkImportRequest> =
-  z.object({ tickets: z.array(ticketImportInputSchema) });
-
-export const ticketImportRequestSchema: zod.ZodSchema<TicketImportRequest> =
-  z.object({ ticket: ticketImportInputSchema });
-
-export const ticketMergeInputSchema: zod.ZodSchema<TicketMergeInput> = z.object(
-  {
-    ids: z
-      .array(z.unknown())
-      .describe("Ids of tickets to merge into the target ticket"),
-    source_comment: z
-      .string()
-      .describe("Private comment to add to the source ticket"),
-    source_comment_is_public: z
-      .boolean()
-      .describe("Whether comment in source tickets are public or private"),
-    target_comment: z
-      .string()
-      .describe("Private comment to add to the target ticket"),
-    target_comment_is_public: z
-      .boolean()
-      .describe("Whether comment in target ticket is public or private"),
   },
 );
 
-export const ticketMetricEventBaseObjectSchema: zod.ZodSchema<TicketMetricEventBaseObject> =
+export const ticketBulkImportRequestSchema: z.ZodSchema<TicketBulkImportRequest> =
+  z.object({ tickets: z.array(ticketImportInputSchema) });
+
+export const ticketImportRequestSchema: z.ZodSchema<TicketImportRequest> =
+  z.object({ ticket: ticketImportInputSchema });
+
+export const ticketMergeInputSchema: z.ZodSchema<TicketMergeInput> = z.object({
+  ids: z
+    .array(z.unknown())
+    .describe("Ids of tickets to merge into the target ticket"),
+  source_comment: z
+    .string()
+    .describe("Private comment to add to the source ticket"),
+  source_comment_is_public: z
+    .boolean()
+    .describe("Whether comment in source tickets are public or private"),
+  target_comment: z
+    .string()
+    .describe("Private comment to add to the target ticket"),
+  target_comment_is_public: z
+    .boolean()
+    .describe("Whether comment in target ticket is public or private"),
+});
+
+export const ticketMetricEventBaseObjectSchema: z.ZodSchema<TicketMetricEventBaseObject> =
   z.object({
     id: z
       .number()
@@ -6488,7 +6481,7 @@ export const ticketMetricEventBaseObjectSchema: zod.ZodSchema<TicketMetricEventB
       ),
   });
 
-export const exportIncrementalTicketEventsResponseSchema: zod.ZodSchema<ExportIncrementalTicketEventsResponse> =
+export const exportIncrementalTicketEventsResponseSchema: z.ZodSchema<ExportIncrementalTicketEventsResponse> =
   z.object({
     count: z.number(),
     end_of_stream: z.boolean(),
@@ -6497,7 +6490,7 @@ export const exportIncrementalTicketEventsResponseSchema: zod.ZodSchema<ExportIn
     ticket_events: z.array(ticketMetricEventBaseObjectSchema),
   });
 
-export const ticketMetricEventBreachObjectSchema: zod.ZodSchema<TicketMetricEventBreachObject> =
+export const ticketMetricEventBreachObjectSchema: z.ZodSchema<TicketMetricEventBreachObject> =
   z.intersection(
     ticketMetricEventBaseObjectSchema,
     z.object({
@@ -6509,7 +6502,7 @@ export const ticketMetricEventBreachObjectSchema: zod.ZodSchema<TicketMetricEven
     }),
   );
 
-export const ticketMetricEventGroupSlaObjectSchema: zod.ZodSchema<TicketMetricEventGroupSLAObject> =
+export const ticketMetricEventGroupSlaObjectSchema: z.ZodSchema<TicketMetricEventGroupSLAObject> =
   z.intersection(
     ticketMetricEventBaseObjectSchema,
     z.object({
@@ -6521,7 +6514,7 @@ export const ticketMetricEventGroupSlaObjectSchema: zod.ZodSchema<TicketMetricEv
     }),
   );
 
-export const ticketMetricEventSlaObjectSchema: zod.ZodSchema<TicketMetricEventSLAObject> =
+export const ticketMetricEventSlaObjectSchema: z.ZodSchema<TicketMetricEventSLAObject> =
   z.intersection(
     ticketMetricEventBaseObjectSchema,
     z.object({
@@ -6533,7 +6526,7 @@ export const ticketMetricEventSlaObjectSchema: zod.ZodSchema<TicketMetricEventSL
     }),
   );
 
-export const ticketMetricEventUpdateStatusObjectSchema: zod.ZodSchema<TicketMetricEventUpdateStatusObject> =
+export const ticketMetricEventUpdateStatusObjectSchema: z.ZodSchema<TicketMetricEventUpdateStatusObject> =
   z.intersection(
     ticketMetricEventBaseObjectSchema,
     z.object({
@@ -6545,7 +6538,7 @@ export const ticketMetricEventUpdateStatusObjectSchema: zod.ZodSchema<TicketMetr
     }),
   );
 
-export const ticketMetricEventsResponseSchema: zod.ZodSchema<TicketMetricEventsResponse> =
+export const ticketMetricEventsResponseSchema: z.ZodSchema<TicketMetricEventsResponse> =
   z.intersection(
     z.object({
       ticket_metric_events: z.array(ticketMetricEventBaseObjectSchema),
@@ -6557,13 +6550,13 @@ export const ticketMetricEventsResponseSchema: zod.ZodSchema<TicketMetricEventsR
     }),
   );
 
-export const ticketMetricTimeObjectSchema: zod.ZodSchema<TicketMetricTimeObject> =
+export const ticketMetricTimeObjectSchema: z.ZodSchema<TicketMetricTimeObject> =
   z.object({
     business: z.number().describe("Time in business hours"),
     calendar: z.number().describe("Time in calendar hours"),
   });
 
-export const ticketMetricObjectSchema: zod.ZodSchema<TicketMetricObject> =
+export const ticketMetricObjectSchema: z.ZodSchema<TicketMetricObject> =
   z.object({
     agent_wait_time_in_minutes: ticketMetricTimeObjectSchema.describe(
       "Number of minutes the agent spent waiting during calendar and business hours",
@@ -6629,13 +6622,13 @@ export const ticketMetricObjectSchema: zod.ZodSchema<TicketMetricObject> =
     url: z.string().describe("The API url of the ticket metric"),
   });
 
-export const ticketMetricsByTicketMetricIdResponseSchema: zod.ZodSchema<TicketMetricsByTicketMetricIdResponse> =
+export const ticketMetricsByTicketMetricIdResponseSchema: z.ZodSchema<TicketMetricsByTicketMetricIdResponse> =
   z.object({ ticket_metric: z.array(ticketMetricObjectSchema) });
 
-export const ticketMetricsResponseSchema: zod.ZodSchema<TicketMetricsResponse> =
+export const ticketMetricsResponseSchema: z.ZodSchema<TicketMetricsResponse> =
   z.object({ ticket_metrics: z.array(ticketMetricObjectSchema) });
 
-export const ticketObjectSchema: zod.ZodSchema<TicketObject> = z.object({
+export const ticketObjectSchema: z.ZodSchema<TicketObject> = z.object({
   allow_attachments: z
     .boolean()
     .describe(
@@ -6887,7 +6880,7 @@ export const ticketObjectSchema: zod.ZodSchema<TicketObject> = z.object({
     ),
 });
 
-export const bookmarkObjectSchema: zod.ZodSchema<BookmarkObject> = z.object({
+export const bookmarkObjectSchema: z.ZodSchema<BookmarkObject> = z.object({
   created_at: z.string().describe("The time the bookmark was created"),
   id: z
     .number()
@@ -6896,17 +6889,17 @@ export const bookmarkObjectSchema: zod.ZodSchema<BookmarkObject> = z.object({
   url: z.string().describe("The API url of this bookmark"),
 });
 
-export const bookmarkResponseSchema: zod.ZodSchema<BookmarkResponse> = z.object(
-  { bookmark: bookmarkObjectSchema },
-);
+export const bookmarkResponseSchema: z.ZodSchema<BookmarkResponse> = z.object({
+  bookmark: bookmarkObjectSchema,
+});
 
-export const bookmarksResponseSchema: zod.ZodSchema<BookmarksResponse> =
+export const bookmarksResponseSchema: z.ZodSchema<BookmarksResponse> =
   z.intersection(
     offsetPaginationObjectSchema,
     z.object({ bookmarks: z.array(bookmarkObjectSchema) }),
   );
 
-export const cursorBasedExportIncrementalTicketsResponseSchema: zod.ZodSchema<CursorBasedExportIncrementalTicketsResponse> =
+export const cursorBasedExportIncrementalTicketsResponseSchema: z.ZodSchema<CursorBasedExportIncrementalTicketsResponse> =
   z
     .object({
       after_cursor: z.string().nullable(),
@@ -6920,7 +6913,7 @@ export const cursorBasedExportIncrementalTicketsResponseSchema: zod.ZodSchema<Cu
       "See [Tickets](/api-reference/ticketing/tickets/tickets/) for a detailed example.\n",
     );
 
-export const ticketRelatedInformationSchema: zod.ZodSchema<TicketRelatedInformation> =
+export const ticketRelatedInformationSchema: z.ZodSchema<TicketRelatedInformation> =
   z.object({
     followup_source_ids: z.array(z.string().describe("Sources to follow up")),
     from_archive: z
@@ -6937,32 +6930,30 @@ export const ticketRelatedInformationSchema: zod.ZodSchema<TicketRelatedInformat
       .describe("X (formerly Twitter) information associated with the ticket"),
   });
 
-export const ticketResponseSchema: zod.ZodSchema<TicketResponse> = z.object({
+export const ticketResponseSchema: z.ZodSchema<TicketResponse> = z.object({
   ticket: ticketObjectSchema,
 });
 
-export const ticketSkipObjectSchema: zod.ZodSchema<TicketSkipObject> = z.object(
-  {
-    created_at: z.string().describe("Time the skip was created"),
-    id: z.number().describe("Automatically assigned upon creation"),
-    reason: z.string().describe("Reason for skipping the ticket"),
-    ticket: ticketObjectSchema.describe(
-      "The skipped ticket. See the [Ticket object reference](/api-reference/ticketing/tickets/tickets/#json-format)",
-    ),
-    ticket_id: z.number().describe("ID of the skipped ticket"),
-    updated_at: z.string().describe("Time the skip was last updated"),
-    user_id: z.number().describe("ID of the skipping agent"),
-  },
-);
+export const ticketSkipObjectSchema: z.ZodSchema<TicketSkipObject> = z.object({
+  created_at: z.string().describe("Time the skip was created"),
+  id: z.number().describe("Automatically assigned upon creation"),
+  reason: z.string().describe("Reason for skipping the ticket"),
+  ticket: ticketObjectSchema.describe(
+    "The skipped ticket. See the [Ticket object reference](/api-reference/ticketing/tickets/tickets/#json-format)",
+  ),
+  ticket_id: z.number().describe("ID of the skipped ticket"),
+  updated_at: z.string().describe("Time the skip was last updated"),
+  user_id: z.number().describe("ID of the skipping agent"),
+});
 
-export const ticketSkipCreationSchema: zod.ZodSchema<TicketSkipCreation> =
+export const ticketSkipCreationSchema: z.ZodSchema<TicketSkipCreation> =
   z.object({ skip: ticketSkipObjectSchema });
 
-export const ticketSkipsResponseSchema: zod.ZodSchema<TicketSkipsResponse> =
+export const ticketSkipsResponseSchema: z.ZodSchema<TicketSkipsResponse> =
   z.object({ skips: z.array(ticketSkipObjectSchema) });
 
-export const ticketUpdateInputSchema: zod.ZodSchema<TicketUpdateInput> =
-  z.object({
+export const ticketUpdateInputSchema: z.ZodSchema<TicketUpdateInput> = z.object(
+  {
     additional_collaborators: z
       .array(collaboratorObjectSchema)
       .describe(
@@ -7075,16 +7066,17 @@ export const ticketUpdateInputSchema: zod.ZodSchema<TicketUpdateInput> =
       .describe(
         "Datetime of last update received from API. See the safe_update property",
       ),
-  });
+  },
+);
 
-export const ticketUpdateRequestSchema: zod.ZodSchema<TicketUpdateRequest> =
+export const ticketUpdateRequestSchema: z.ZodSchema<TicketUpdateRequest> =
   z.object({ ticket: ticketUpdateInputSchema });
 
-export const ticketsResponseSchema: zod.ZodSchema<TicketsResponse> = z.object({
+export const ticketsResponseSchema: z.ZodSchema<TicketsResponse> = z.object({
   tickets: z.array(ticketObjectSchema),
 });
 
-export const timeBasedExportIncrementalTicketsResponseSchema: zod.ZodSchema<TimeBasedExportIncrementalTicketsResponse> =
+export const timeBasedExportIncrementalTicketsResponseSchema: z.ZodSchema<TimeBasedExportIncrementalTicketsResponse> =
   z
     .object({
       count: z.number(),
@@ -7097,17 +7089,17 @@ export const timeBasedExportIncrementalTicketsResponseSchema: zod.ZodSchema<Time
       "See [Tickets](/api-reference/ticketing/tickets/tickets/) for a detailed example.\n",
     );
 
-export const trialAccountObjectSchema: zod.ZodSchema<TrialAccountObject> =
+export const trialAccountObjectSchema: z.ZodSchema<TrialAccountObject> =
   z.object({
     name: z.string().describe("The name of the account"),
     subdomain: z.string().describe("The subdomain of the account"),
     url: z.string().describe("The URL of the account"),
   });
 
-export const trialAccountResponseSchema: zod.ZodSchema<TrialAccountResponse> =
+export const trialAccountResponseSchema: z.ZodSchema<TrialAccountResponse> =
   z.object({ account: trialAccountObjectSchema });
 
-export const triggerActionDefinitionObjectSchema: zod.ZodSchema<TriggerActionDefinitionObject> =
+export const triggerActionDefinitionObjectSchema: z.ZodSchema<TriggerActionDefinitionObject> =
   z.object({
     group: z.string(),
     nullable: z.boolean(),
@@ -7120,13 +7112,13 @@ export const triggerActionDefinitionObjectSchema: zod.ZodSchema<TriggerActionDef
     ),
   });
 
-export const triggerActionObjectSchema: zod.ZodSchema<TriggerActionObject> =
+export const triggerActionObjectSchema: z.ZodSchema<TriggerActionObject> =
   z.object({
     field: z.string(),
     value: z.union([z.string(), z.array(z.unknown()), z.number()]),
   });
 
-export const triggerBatchRequestSchema: zod.ZodSchema<TriggerBatchRequest> =
+export const triggerBatchRequestSchema: z.ZodSchema<TriggerBatchRequest> =
   z.object({
     active: z.boolean(),
     category_id: z.string(),
@@ -7134,7 +7126,7 @@ export const triggerBatchRequestSchema: zod.ZodSchema<TriggerBatchRequest> =
     position: z.number(),
   });
 
-export const triggerBulkUpdateItemSchema: zod.ZodSchema<TriggerBulkUpdateItem> =
+export const triggerBulkUpdateItemSchema: z.ZodSchema<TriggerBulkUpdateItem> =
   z.object({
     active: z
       .boolean()
@@ -7146,10 +7138,10 @@ export const triggerBulkUpdateItemSchema: zod.ZodSchema<TriggerBulkUpdateItem> =
     position: z.number().describe("The new position of the trigger"),
   });
 
-export const triggerBulkUpdateRequestSchema: zod.ZodSchema<TriggerBulkUpdateRequest> =
+export const triggerBulkUpdateRequestSchema: z.ZodSchema<TriggerBulkUpdateRequest> =
   z.object({ triggers: z.array(triggerBulkUpdateItemSchema) });
 
-export const triggerCategorySchema: zod.ZodSchema<TriggerCategory> = z.object({
+export const triggerCategorySchema: z.ZodSchema<TriggerCategory> = z.object({
   created_at: z.string(),
   id: z.string(),
   name: z.string(),
@@ -7157,10 +7149,10 @@ export const triggerCategorySchema: zod.ZodSchema<TriggerCategory> = z.object({
   updated_at: z.string(),
 });
 
-export const triggerCategoryBatchRequestSchema: zod.ZodSchema<TriggerCategoryBatchRequest> =
+export const triggerCategoryBatchRequestSchema: z.ZodSchema<TriggerCategoryBatchRequest> =
   z.object({ id: z.string(), position: z.number() });
 
-export const batchJobRequestSchema: zod.ZodSchema<BatchJobRequest> = z.object({
+export const batchJobRequestSchema: z.ZodSchema<BatchJobRequest> = z.object({
   job: z.object({
     action: z.literal("patch"),
     items: z.object({
@@ -7170,25 +7162,25 @@ export const batchJobRequestSchema: zod.ZodSchema<BatchJobRequest> = z.object({
   }),
 });
 
-export const triggerCategoryIdSchema: zod.ZodSchema<TriggerCategoryId> =
+export const triggerCategoryIdSchema: z.ZodSchema<TriggerCategoryId> =
   z.string();
 
-export const triggerCategoryRequestSchema: zod.ZodSchema<TriggerCategoryRequest> =
+export const triggerCategoryRequestSchema: z.ZodSchema<TriggerCategoryRequest> =
   z.object({ name: z.string(), position: z.number() });
 
-export const triggerCategoryRequestRequiredSchema: zod.ZodSchema<TriggerCategoryRequestRequired> =
+export const triggerCategoryRequestRequiredSchema: z.ZodSchema<TriggerCategoryRequestRequired> =
   z.object({});
 
-export const triggerCategoryResponseSchema: zod.ZodSchema<TriggerCategoryResponse> =
+export const triggerCategoryResponseSchema: z.ZodSchema<TriggerCategoryResponse> =
   z.object({ trigger_category: triggerCategorySchema });
 
-export const triggerCategoryRuleCountsSchema: zod.ZodSchema<TriggerCategoryRuleCounts> =
+export const triggerCategoryRuleCountsSchema: z.ZodSchema<TriggerCategoryRuleCounts> =
   z.object({ active_count: z.number(), inactive_count: z.number() });
 
-export const triggerCategoriesResponseSchema: zod.ZodSchema<TriggerCategoriesResponse> =
+export const triggerCategoriesResponseSchema: z.ZodSchema<TriggerCategoriesResponse> =
   z.object({ trigger_categories: z.array(triggerCategorySchema) });
 
-export const triggerChangeObjectSchema: zod.ZodSchema<TriggerChangeObject> =
+export const triggerChangeObjectSchema: z.ZodSchema<TriggerChangeObject> =
   z.object({
     change: z
       .string()
@@ -7198,7 +7190,7 @@ export const triggerChangeObjectSchema: zod.ZodSchema<TriggerChangeObject> =
       .describe("The value of the item it represents"),
   });
 
-export const triggerActionDiffObjectSchema: zod.ZodSchema<TriggerActionDiffObject> =
+export const triggerActionDiffObjectSchema: z.ZodSchema<TriggerActionDiffObject> =
   z.object({
     field: z
       .array(triggerChangeObjectSchema)
@@ -7208,7 +7200,7 @@ export const triggerActionDiffObjectSchema: zod.ZodSchema<TriggerActionDiffObjec
       .describe("An array of [change](#change) objects."),
   });
 
-export const triggerConditionDefinitionObjectAllSchema: zod.ZodSchema<TriggerConditionDefinitionObjectAll> =
+export const triggerConditionDefinitionObjectAllSchema: z.ZodSchema<TriggerConditionDefinitionObjectAll> =
   z.object({
     group: z.string(),
     nullable: z.boolean(),
@@ -7224,7 +7216,7 @@ export const triggerConditionDefinitionObjectAllSchema: zod.ZodSchema<TriggerCon
     ),
   });
 
-export const triggerConditionDefinitionObjectAnySchema: zod.ZodSchema<TriggerConditionDefinitionObjectAny> =
+export const triggerConditionDefinitionObjectAnySchema: z.ZodSchema<TriggerConditionDefinitionObjectAny> =
   z.object({
     group: z.string(),
     nullable: z.boolean(),
@@ -7237,16 +7229,16 @@ export const triggerConditionDefinitionObjectAnySchema: zod.ZodSchema<TriggerCon
     type: z.string(),
   });
 
-export const relationshipFilterDefinitionSchema: zod.ZodSchema<RelationshipFilterDefinition> =
+export const relationshipFilterDefinitionSchema: z.ZodSchema<RelationshipFilterDefinition> =
   z.object({
     conditions_all: z.array(triggerConditionDefinitionObjectAllSchema),
     conditions_any: z.array(triggerConditionDefinitionObjectAnySchema),
   });
 
-export const relationshipFilterDefinitionResponseSchema: zod.ZodSchema<RelationshipFilterDefinitionResponse> =
+export const relationshipFilterDefinitionResponseSchema: z.ZodSchema<RelationshipFilterDefinitionResponse> =
   z.object({ definitions: relationshipFilterDefinitionSchema });
 
-export const triggerConditionDiffObjectSchema: zod.ZodSchema<TriggerConditionDiffObject> =
+export const triggerConditionDiffObjectSchema: z.ZodSchema<TriggerConditionDiffObject> =
   z.object({
     field: z
       .array(triggerChangeObjectSchema)
@@ -7259,20 +7251,20 @@ export const triggerConditionDiffObjectSchema: zod.ZodSchema<TriggerConditionDif
       .describe("An array of [change](#change) objects"),
   });
 
-export const triggerConditionObjectSchema: zod.ZodSchema<TriggerConditionObject> =
+export const triggerConditionObjectSchema: z.ZodSchema<TriggerConditionObject> =
   z.object({
     field: z.string(),
     operator: z.string(),
     value: z.union([z.string(), z.array(z.unknown())]),
   });
 
-export const triggerConditionsDiffObjectSchema: zod.ZodSchema<TriggerConditionsDiffObject> =
+export const triggerConditionsDiffObjectSchema: z.ZodSchema<TriggerConditionsDiffObject> =
   z.object({
     all: z.array(triggerConditionDiffObjectSchema).nullable(),
     any: z.array(triggerConditionDiffObjectSchema).nullable(),
   });
 
-export const triggerConditionsObjectSchema: zod.ZodSchema<TriggerConditionsObject> =
+export const triggerConditionsObjectSchema: z.ZodSchema<TriggerConditionsObject> =
   z
     .object({
       all: z.array(triggerConditionObjectSchema).nullable(),
@@ -7282,17 +7274,17 @@ export const triggerConditionsObjectSchema: zod.ZodSchema<TriggerConditionsObjec
       "An object that describes the conditions under which the trigger will execute. See [Conditions reference](/documentation/ticketing/reference-guides/conditions-reference)",
     );
 
-export const triggerDefinitionObjectSchema: zod.ZodSchema<TriggerDefinitionObject> =
+export const triggerDefinitionObjectSchema: z.ZodSchema<TriggerDefinitionObject> =
   z.object({
     actions: z.array(triggerActionDefinitionObjectSchema),
     conditions_all: z.array(triggerConditionDefinitionObjectAllSchema),
     conditions_any: z.array(triggerConditionDefinitionObjectAnySchema),
   });
 
-export const triggerDefinitionResponseSchema: zod.ZodSchema<TriggerDefinitionResponse> =
+export const triggerDefinitionResponseSchema: z.ZodSchema<TriggerDefinitionResponse> =
   z.object({ definitions: triggerDefinitionObjectSchema });
 
-export const triggerObjectSchema: zod.ZodSchema<TriggerObject> = z.object({
+export const triggerObjectSchema: z.ZodSchema<TriggerObject> = z.object({
   actions: z
     .array(triggerActionObjectSchema)
     .describe(
@@ -7318,22 +7310,20 @@ export const triggerObjectSchema: zod.ZodSchema<TriggerObject> = z.object({
   url: z.string().describe("The url of the trigger"),
 });
 
-export const batchJobResponseSchema: zod.ZodSchema<BatchJobResponse> = z.object(
-  {
-    errors: z.array(batchErrorItemSchema),
-    results: z.object({
-      trigger_categories: z.array(triggerCategorySchema),
-      triggers: z.array(triggerObjectSchema),
-    }),
-    status: z.union([z.literal("complete"), z.literal("failed")]),
-  },
-);
+export const batchJobResponseSchema: z.ZodSchema<BatchJobResponse> = z.object({
+  errors: z.array(batchErrorItemSchema),
+  results: z.object({
+    trigger_categories: z.array(triggerCategorySchema),
+    triggers: z.array(triggerObjectSchema),
+  }),
+  status: z.union([z.literal("complete"), z.literal("failed")]),
+});
 
-export const triggerResponseSchema: zod.ZodSchema<TriggerResponse> = z.object({
+export const triggerResponseSchema: z.ZodSchema<TriggerResponse> = z.object({
   trigger: triggerObjectSchema,
 });
 
-export const triggerRevisionResponseSchema: zod.ZodSchema<TriggerRevisionResponse> =
+export const triggerRevisionResponseSchema: z.ZodSchema<TriggerRevisionResponse> =
   z.object({
     trigger_revision: z.object({
       author_id: z.number(),
@@ -7350,7 +7340,7 @@ export const triggerRevisionResponseSchema: zod.ZodSchema<TriggerRevisionRespons
     }),
   });
 
-export const triggerSnapshotObjectSchema: zod.ZodSchema<TriggerSnapshotObject> =
+export const triggerSnapshotObjectSchema: z.ZodSchema<TriggerSnapshotObject> =
   z.object({
     actions: z
       .array(triggerActionObjectSchema)
@@ -7366,7 +7356,7 @@ export const triggerSnapshotObjectSchema: zod.ZodSchema<TriggerSnapshotObject> =
     title: z.string().describe("The title of the trigger"),
   });
 
-export const triggerRevisionsResponseSchema: zod.ZodSchema<TriggerRevisionsResponse> =
+export const triggerRevisionsResponseSchema: z.ZodSchema<TriggerRevisionsResponse> =
   z.object({
     after_cursor: z.string(),
     after_url: z.string(),
@@ -7403,7 +7393,7 @@ export const triggerRevisionsResponseSchema: zod.ZodSchema<TriggerRevisionsRespo
     ),
   });
 
-export const triggerWithCategoryRequestSchema: zod.ZodSchema<TriggerWithCategoryRequest> =
+export const triggerWithCategoryRequestSchema: z.ZodSchema<TriggerWithCategoryRequest> =
   z.object({
     trigger: z.intersection(
       triggerObjectSchema,
@@ -7411,16 +7401,14 @@ export const triggerWithCategoryRequestSchema: zod.ZodSchema<TriggerWithCategory
     ),
   });
 
-export const triggersResponseSchema: zod.ZodSchema<TriggersResponse> = z.object(
-  {
-    count: z.number(),
-    next_page: z.string().nullable(),
-    previous_page: z.string().nullable(),
-    triggers: z.array(triggerObjectSchema),
-  },
-);
+export const triggersResponseSchema: z.ZodSchema<TriggersResponse> = z.object({
+  count: z.number(),
+  next_page: z.string().nullable(),
+  previous_page: z.string().nullable(),
+  triggers: z.array(triggerObjectSchema),
+});
 
-export const twitterChannelObjectSchema: zod.ZodSchema<TwitterChannelObject> =
+export const twitterChannelObjectSchema: z.ZodSchema<TwitterChannelObject> =
   z.object({
     allow_reply: z.boolean().describe("If replies are allowed for this handle"),
     avatar_url: z.string().describe("The profile image url of the handle"),
@@ -7436,10 +7424,10 @@ export const twitterChannelObjectSchema: zod.ZodSchema<TwitterChannelObject> =
       .describe("The time of the last update of the handle"),
   });
 
-export const twitterChannelResponseSchema: zod.ZodSchema<TwitterChannelResponse> =
+export const twitterChannelResponseSchema: z.ZodSchema<TwitterChannelResponse> =
   z.object({ monitored_twitter_handle: twitterChannelObjectSchema });
 
-export const twitterChannelTwicketStatusResponseSchema: zod.ZodSchema<TwitterChannelTwicketStatusResponse> =
+export const twitterChannelTwicketStatusResponseSchema: z.ZodSchema<TwitterChannelTwicketStatusResponse> =
   z.object({
     statuses: z.array(
       z.object({
@@ -7451,10 +7439,10 @@ export const twitterChannelTwicketStatusResponseSchema: zod.ZodSchema<TwitterCha
     ),
   });
 
-export const twitterChannelsResponseSchema: zod.ZodSchema<TwitterChannelsResponse> =
+export const twitterChannelsResponseSchema: z.ZodSchema<TwitterChannelsResponse> =
   z.object({ monitored_twitter_handles: z.array(twitterChannelObjectSchema) });
 
-export const updateResourceResultSchema: zod.ZodSchema<UpdateResourceResult> =
+export const updateResourceResultSchema: z.ZodSchema<UpdateResourceResult> =
   z.object({
     action: z
       .string()
@@ -7470,10 +7458,10 @@ export const updateResourceResultSchema: zod.ZodSchema<UpdateResourceResult> =
       ),
   });
 
-export const jobStatusResultObjectSchema: zod.ZodSchema<JobStatusResultObject> =
+export const jobStatusResultObjectSchema: z.ZodSchema<JobStatusResultObject> =
   z.union([createResourceResultSchema, updateResourceResultSchema]);
 
-export const jobStatusObjectSchema: zod.ZodSchema<JobStatusObject> = z.object({
+export const jobStatusObjectSchema: z.ZodSchema<JobStatusObject> = z.object({
   id: z.string().describe("Automatically assigned when the job is queued"),
   job_type: z.string().describe("The type of the job"),
   message: z
@@ -7508,17 +7496,18 @@ export const jobStatusObjectSchema: zod.ZodSchema<JobStatusObject> = z.object({
   url: z.string().describe("The URL to poll for status updates"),
 });
 
-export const jobStatusResponseSchema: zod.ZodSchema<JobStatusResponse> =
-  z.object({ job_status: jobStatusObjectSchema });
+export const jobStatusResponseSchema: z.ZodSchema<JobStatusResponse> = z.object(
+  { job_status: jobStatusObjectSchema },
+);
 
-export const jobStatusesResponseSchema: zod.ZodSchema<JobStatusesResponse> =
+export const jobStatusesResponseSchema: z.ZodSchema<JobStatusesResponse> =
   z.object({ job_statuses: z.array(jobStatusObjectSchema) });
 
-export const urlObjectSchema: zod.ZodSchema<UrlObject> = z.object({
+export const urlObjectSchema: z.ZodSchema<UrlObject> = z.object({
   url: z.string(),
 });
 
-export const userCreateInputSchema: zod.ZodSchema<UserCreateInput> = z.object({
+export const userCreateInputSchema: z.ZodSchema<UserCreateInput> = z.object({
   custom_role_id: z.number(),
   email: z.string(),
   external_id: z.string(),
@@ -7529,13 +7518,14 @@ export const userCreateInputSchema: zod.ZodSchema<UserCreateInput> = z.object({
   role: z.string(),
 });
 
-export const userFieldObjectSchema: zod.ZodSchema<UserFieldObject> =
+export const userFieldObjectSchema: z.ZodSchema<UserFieldObject> =
   customFieldObjectSchema;
 
-export const userFieldResponseSchema: zod.ZodSchema<UserFieldResponse> =
-  z.object({ user_field: userFieldObjectSchema });
+export const userFieldResponseSchema: z.ZodSchema<UserFieldResponse> = z.object(
+  { user_field: userFieldObjectSchema },
+);
 
-export const userFieldsResponseSchema: zod.ZodSchema<UserFieldsResponse> =
+export const userFieldsResponseSchema: z.ZodSchema<UserFieldsResponse> =
   z.object({
     count: z.number().describe("Total count of records retrieved"),
     next_page: z.string().nullable().describe("URL of the next page"),
@@ -7543,7 +7533,7 @@ export const userFieldsResponseSchema: zod.ZodSchema<UserFieldsResponse> =
     user_fields: z.array(userFieldObjectSchema),
   });
 
-export const userForAdminSchema: zod.ZodSchema<UserForAdmin> = z.object({
+export const userForAdminSchema: z.ZodSchema<UserForAdmin> = z.object({
   active: z.boolean().describe("false if the user has been deleted"),
   alias: z.string().describe("An alias displayed to end users"),
   chat_only: z
@@ -7696,7 +7686,7 @@ export const userForAdminSchema: zod.ZodSchema<UserForAdmin> = z.object({
     ),
 });
 
-export const userForEndUserSchema: zod.ZodSchema<UserForEndUser> = z.object({
+export const userForEndUserSchema: z.ZodSchema<UserForEndUser> = z.object({
   created_at: z.string().describe("The time the user was created"),
   email: z
     .string()
@@ -7744,7 +7734,7 @@ export const userForEndUserSchema: zod.ZodSchema<UserForEndUser> = z.object({
     ),
 });
 
-export const userIdentityObjectSchema: zod.ZodSchema<UserIdentityObject> =
+export const userIdentityObjectSchema: z.ZodSchema<UserIdentityObject> =
   z.object({
     created_at: z.string().describe("The time the identity was created"),
     deliverable_state: z
@@ -7785,16 +7775,16 @@ export const userIdentityObjectSchema: zod.ZodSchema<UserIdentityObject> =
     verified: z.boolean().describe("If the identity has been verified"),
   });
 
-export const userIdentitiesResponseSchema: zod.ZodSchema<UserIdentitiesResponse> =
+export const userIdentitiesResponseSchema: z.ZodSchema<UserIdentitiesResponse> =
   z.object({ identities: z.array(userIdentityObjectSchema) });
 
-export const userIdentityResponseSchema: zod.ZodSchema<UserIdentityResponse> =
+export const userIdentityResponseSchema: z.ZodSchema<UserIdentityResponse> =
   z.object({ identity: userIdentityObjectSchema });
 
-export const userMergeByIdInputSchema: zod.ZodSchema<UserMergeByIdInput> =
+export const userMergeByIdInputSchema: z.ZodSchema<UserMergeByIdInput> =
   z.object({ id: z.number() });
 
-export const userMergePropertiesInputSchema: zod.ZodSchema<UserMergePropertiesInput> =
+export const userMergePropertiesInputSchema: z.ZodSchema<UserMergePropertiesInput> =
   z.object({
     email: z.string(),
     name: z.string(),
@@ -7802,18 +7792,18 @@ export const userMergePropertiesInputSchema: zod.ZodSchema<UserMergePropertiesIn
     password: z.string(),
   });
 
-export const userInputSchema: zod.ZodSchema<UserInput> = z.union([
+export const userInputSchema: z.ZodSchema<UserInput> = z.union([
   userCreateInputSchema,
   userMergePropertiesInputSchema,
   userMergeByIdInputSchema,
 ]);
 
-export const userObjectSchema: zod.ZodSchema<UserObject> = z.union([
+export const userObjectSchema: z.ZodSchema<UserObject> = z.union([
   userForAdminSchema,
   userForEndUserSchema,
 ]);
 
-export const activityObjectSchema: zod.ZodSchema<ActivityObject> = z.object({
+export const activityObjectSchema: z.ZodSchema<ActivityObject> = z.object({
   actor: userObjectSchema.describe(
     "The full user record of the user responsible for the ticket activity. See [Users](/api-reference/ticketing/users/users/)",
   ),
@@ -7848,7 +7838,7 @@ export const activityObjectSchema: zod.ZodSchema<ActivityObject> = z.object({
     ),
 });
 
-export const activitiesResponseSchema: zod.ZodSchema<ActivitiesResponse> =
+export const activitiesResponseSchema: z.ZodSchema<ActivitiesResponse> =
   z.object({
     activities: z.array(activityObjectSchema),
     actors: z.array(z.object({}).passthrough()),
@@ -7858,11 +7848,11 @@ export const activitiesResponseSchema: zod.ZodSchema<ActivitiesResponse> =
     users: z.array(z.object({}).passthrough()),
   });
 
-export const activityResponseSchema: zod.ZodSchema<ActivityResponse> = z.object(
-  { activity: activityObjectSchema },
-);
+export const activityResponseSchema: z.ZodSchema<ActivityResponse> = z.object({
+  activity: activityObjectSchema,
+});
 
-export const currentUserResponseSchema: zod.ZodSchema<CurrentUserResponse> =
+export const currentUserResponseSchema: z.ZodSchema<CurrentUserResponse> =
   z.object({
     user: z.intersection(
       userObjectSchema,
@@ -7874,7 +7864,7 @@ export const currentUserResponseSchema: zod.ZodSchema<CurrentUserResponse> =
     ),
   });
 
-export const cursorBasedExportIncrementalUsersResponseSchema: zod.ZodSchema<CursorBasedExportIncrementalUsersResponse> =
+export const cursorBasedExportIncrementalUsersResponseSchema: z.ZodSchema<CursorBasedExportIncrementalUsersResponse> =
   z.object({
     after_cursor: z.string().nullable(),
     after_url: z.string().nullable(),
@@ -7884,7 +7874,7 @@ export const cursorBasedExportIncrementalUsersResponseSchema: zod.ZodSchema<Curs
     users: z.array(userObjectSchema),
   });
 
-export const timeBasedExportIncrementalUsersResponseSchema: zod.ZodSchema<TimeBasedExportIncrementalUsersResponse> =
+export const timeBasedExportIncrementalUsersResponseSchema: z.ZodSchema<TimeBasedExportIncrementalUsersResponse> =
   z.object({
     count: z.number(),
     end_of_stream: z.boolean(),
@@ -7893,42 +7883,43 @@ export const timeBasedExportIncrementalUsersResponseSchema: zod.ZodSchema<TimeBa
     users: z.array(userObjectSchema),
   });
 
-export const userPasswordRequirementsResponseSchema: zod.ZodSchema<UserPasswordRequirementsResponse> =
+export const userPasswordRequirementsResponseSchema: z.ZodSchema<UserPasswordRequirementsResponse> =
   z.object({ requirements: z.array(z.string()) });
 
-export const userRelatedObjectSchema: zod.ZodSchema<UserRelatedObject> =
-  z.object({
+export const userRelatedObjectSchema: z.ZodSchema<UserRelatedObject> = z.object(
+  {
     assigned_tickets: z.number().describe("Count of assigned tickets"),
     ccd_tickets: z.number().describe("Count of collaborated tickets"),
     organization_subscriptions: z
       .number()
       .describe("Count of organization subscriptions"),
     requested_tickets: z.number().describe("Count of requested tickets"),
-  });
+  },
+);
 
-export const userRelatedResponseSchema: zod.ZodSchema<UserRelatedResponse> =
+export const userRelatedResponseSchema: z.ZodSchema<UserRelatedResponse> =
   z.object({ user_related: userRelatedObjectSchema });
 
-export const userRequestSchema: zod.ZodSchema<UserRequest> = z.object({
+export const userRequestSchema: z.ZodSchema<UserRequest> = z.object({
   user: userInputSchema,
 });
 
-export const userResponseSchema: zod.ZodSchema<UserResponse> = z.object({
+export const userResponseSchema: z.ZodSchema<UserResponse> = z.object({
   user: userObjectSchema,
 });
 
-export const usersRequestSchema: zod.ZodSchema<UsersRequest> = z.object({
+export const usersRequestSchema: z.ZodSchema<UsersRequest> = z.object({
   users: z.array(userInputSchema),
 });
 
-export const usersResponseSchema: zod.ZodSchema<UsersResponse> = z.object({
+export const usersResponseSchema: z.ZodSchema<UsersResponse> = z.object({
   users: z.array(userObjectSchema),
 });
 
-export const reverseLookupResponseSchema: zod.ZodSchema<ReverseLookupResponse> =
+export const reverseLookupResponseSchema: z.ZodSchema<ReverseLookupResponse> =
   usersResponseSchema;
 
-export const viaObjectSchema: zod.ZodSchema<ViaObject> = z
+export const viaObjectSchema: z.ZodSchema<ViaObject> = z
   .object({
     channel: z
       .string()
@@ -7955,7 +7946,7 @@ export const viaObjectSchema: zod.ZodSchema<ViaObject> = z
     "An object explaining how the ticket was created. See the [Via object reference](/documentation/ticketing/reference-guides/via-object-reference)\n",
   );
 
-export const auditObjectSchema: zod.ZodSchema<AuditObject> = z.object({
+export const auditObjectSchema: z.ZodSchema<AuditObject> = z.object({
   author_id: z.number(),
   created_at: z.string(),
   events: z.array(z.unknown()),
@@ -7965,7 +7956,7 @@ export const auditObjectSchema: zod.ZodSchema<AuditObject> = z.object({
   via: viaObjectSchema,
 });
 
-export const suspendedTicketObjectSchema: zod.ZodSchema<SuspendedTicketObject> =
+export const suspendedTicketObjectSchema: z.ZodSchema<SuspendedTicketObject> =
   z.object({
     attachments: z
       .array(attachmentObjectSchema)
@@ -8013,22 +8004,22 @@ export const suspendedTicketObjectSchema: zod.ZodSchema<SuspendedTicketObject> =
     via: viaObjectSchema,
   });
 
-export const recoverSuspendedTicketResponseSchema: zod.ZodSchema<RecoverSuspendedTicketResponse> =
+export const recoverSuspendedTicketResponseSchema: z.ZodSchema<RecoverSuspendedTicketResponse> =
   z.object({ ticket: z.array(suspendedTicketObjectSchema) });
 
-export const recoverSuspendedTicketUnprocessableContentResponseSchema: zod.ZodSchema<RecoverSuspendedTicketUnprocessableContentResponse> =
+export const recoverSuspendedTicketUnprocessableContentResponseSchema: z.ZodSchema<RecoverSuspendedTicketUnprocessableContentResponse> =
   z.object({ ticket: z.array(suspendedTicketObjectSchema) });
 
-export const recoverSuspendedTicketsResponseSchema: zod.ZodSchema<RecoverSuspendedTicketsResponse> =
+export const recoverSuspendedTicketsResponseSchema: z.ZodSchema<RecoverSuspendedTicketsResponse> =
   z.object({ tickets: z.array(suspendedTicketObjectSchema) });
 
-export const suspendedTicketResponseSchema: zod.ZodSchema<SuspendedTicketResponse> =
+export const suspendedTicketResponseSchema: z.ZodSchema<SuspendedTicketResponse> =
   z.object({ suspended_ticket: z.array(suspendedTicketObjectSchema) });
 
-export const suspendedTicketsResponseSchema: zod.ZodSchema<SuspendedTicketsResponse> =
+export const suspendedTicketsResponseSchema: z.ZodSchema<SuspendedTicketsResponse> =
   z.object({ suspended_tickets: z.array(suspendedTicketObjectSchema) });
 
-export const ticketCreateInputSchema: zod.ZodSchema<TicketCreateInput> =
+export const ticketCreateInputSchema: z.ZodSchema<TicketCreateInput> =
   z.intersection(
     ticketUpdateInputSchema,
     z.object({
@@ -8084,16 +8075,16 @@ export const ticketCreateInputSchema: zod.ZodSchema<TicketCreateInput> =
     }),
   );
 
-export const ticketCreateRequestSchema: zod.ZodSchema<TicketCreateRequest> =
+export const ticketCreateRequestSchema: z.ZodSchema<TicketCreateRequest> =
   z.object({ ticket: ticketCreateInputSchema });
 
-export const ticketUpdateResponseSchema: zod.ZodSchema<TicketUpdateResponse> =
+export const ticketUpdateResponseSchema: z.ZodSchema<TicketUpdateResponse> =
   z.object({ audit: auditObjectSchema, ticket: ticketObjectSchema });
 
-export const ticketsCreateRequestSchema: zod.ZodSchema<TicketsCreateRequest> =
+export const ticketsCreateRequestSchema: z.ZodSchema<TicketsCreateRequest> =
   z.object({ tickets: z.array(ticketCreateInputSchema) });
 
-export const viewCountObjectSchema: zod.ZodSchema<ViewCountObject> = z.object({
+export const viewCountObjectSchema: z.ZodSchema<ViewCountObject> = z.object({
   active: z
     .boolean()
     .describe(
@@ -8117,16 +8108,17 @@ export const viewCountObjectSchema: zod.ZodSchema<ViewCountObject> = z.object({
   view_id: z.number().describe("The id of the view"),
 });
 
-export const viewCountResponseSchema: zod.ZodSchema<ViewCountResponse> =
-  z.object({ view_count: viewCountObjectSchema });
+export const viewCountResponseSchema: z.ZodSchema<ViewCountResponse> = z.object(
+  { view_count: viewCountObjectSchema },
+);
 
-export const viewCountsResponseSchema: zod.ZodSchema<ViewCountsResponse> =
+export const viewCountsResponseSchema: z.ZodSchema<ViewCountsResponse> =
   z.object({ view_counts: z.array(viewCountObjectSchema) });
 
-export const viewExportResponseSchema: zod.ZodSchema<ViewExportResponse> =
+export const viewExportResponseSchema: z.ZodSchema<ViewExportResponse> =
   z.object({ export: z.object({ status: z.string(), view_id: z.number() }) });
 
-export const viewObjectSchema: zod.ZodSchema<ViewObject> = z.object({
+export const viewObjectSchema: z.ZodSchema<ViewObject> = z.object({
   active: z.boolean().describe("Whether the view is active"),
   conditions: z
     .object({})
@@ -8155,26 +8147,26 @@ export const viewObjectSchema: zod.ZodSchema<ViewObject> = z.object({
   updated_at: z.string().describe("The time the view was last updated"),
 });
 
-export const viewResponseSchema: zod.ZodSchema<ViewResponse> = z.object({
+export const viewResponseSchema: z.ZodSchema<ViewResponse> = z.object({
   columns: z.array(z.object({}).passthrough()),
   groups: z.array(z.object({}).passthrough()),
   rows: z.array(z.object({}).passthrough()),
   view: viewObjectSchema,
 });
 
-export const viewsCountResponseSchema: zod.ZodSchema<ViewsCountResponse> =
+export const viewsCountResponseSchema: z.ZodSchema<ViewsCountResponse> =
   z.object({
     count: z.object({ refreshed_at: z.string(), value: z.number() }),
   });
 
-export const viewsResponseSchema: zod.ZodSchema<ViewsResponse> = z.object({
+export const viewsResponseSchema: z.ZodSchema<ViewsResponse> = z.object({
   count: z.number(),
   next_page: z.string().nullable(),
   previous_page: z.string().nullable(),
   views: z.array(viewObjectSchema),
 });
 
-export const workspaceInputSchema: zod.ZodSchema<WorkspaceInput> = z.object({
+export const workspaceInputSchema: z.ZodSchema<WorkspaceInput> = z.object({
   conditions: conditionsObjectSchema,
   description: z
     .string()
@@ -8184,7 +8176,7 @@ export const workspaceInputSchema: zod.ZodSchema<WorkspaceInput> = z.object({
   title: z.string().describe("The title of the workspace"),
 });
 
-export const workspaceObjectSchema: zod.ZodSchema<WorkspaceObject> = z.object({
+export const workspaceObjectSchema: z.ZodSchema<WorkspaceObject> = z.object({
   activated: z
     .boolean()
     .describe("If true, this workspace is available for use"),
@@ -8226,274 +8218,274 @@ export const workspaceObjectSchema: zod.ZodSchema<WorkspaceObject> = z.object({
   url: z.string().describe("The URL for this resource"),
 });
 
-export const workspaceResponseSchema: zod.ZodSchema<WorkspaceResponse> =
+export const workspaceResponseSchema: z.ZodSchema<WorkspaceResponse> =
   z.intersection(
     z.object({ workspaces: z.array(workspaceObjectSchema) }),
     offsetPaginationObjectSchema,
   );
 
-export const getApiV2ByTargetTypeByTargetIdRelationshipFieldsByFieldIdBySourceTypeResponseSchema: zod.ZodSchema<ReverseLookupResponse> =
+export const getApiV2ByTargetTypeByTargetIdRelationshipFieldsByFieldIdBySourceTypeResponseSchema: z.ZodSchema<ReverseLookupResponse> =
   reverseLookupResponseSchema;
 
-export const getApiV2AccountSettingsResponseSchema: zod.ZodSchema<AccountSettingsResponse> =
+export const getApiV2AccountSettingsResponseSchema: z.ZodSchema<AccountSettingsResponse> =
   accountSettingsResponseSchema;
 
-export const getApiV2AccountsAvailableResponseSchema: zod.ZodSchema<{
+export const getApiV2AccountsAvailableResponseSchema: z.ZodSchema<{
   success: boolean;
 }> = z.object({ success: z.boolean() });
 
-export const getApiV2ActivitiesResponseSchema: zod.ZodSchema<ActivitiesResponse> =
+export const getApiV2ActivitiesResponseSchema: z.ZodSchema<ActivitiesResponse> =
   activitiesResponseSchema;
 
-export const getApiV2ActivitiesByActivityIdResponseSchema: zod.ZodSchema<ActivityResponse> =
+export const getApiV2ActivitiesByActivityIdResponseSchema: z.ZodSchema<ActivityResponse> =
   activityResponseSchema;
 
-export const getApiV2ActivitiesCountResponseSchema: zod.ZodSchema<ActivitiesCountResponse> =
+export const getApiV2ActivitiesCountResponseSchema: z.ZodSchema<ActivitiesCountResponse> =
   activitiesCountResponseSchema;
 
-export const getApiV2AttachmentsByAttachmentIdResponseSchema: zod.ZodSchema<AttachmentResponse> =
+export const getApiV2AttachmentsByAttachmentIdResponseSchema: z.ZodSchema<AttachmentResponse> =
   attachmentResponseSchema;
 
-export const getApiV2AuditLogsResponseSchema: zod.ZodSchema<AuditLogsResponse> =
+export const getApiV2AuditLogsResponseSchema: z.ZodSchema<AuditLogsResponse> =
   auditLogsResponseSchema;
 
-export const getApiV2AuditLogsByAuditLogIdResponseSchema: zod.ZodSchema<AuditLogResponse> =
+export const getApiV2AuditLogsByAuditLogIdResponseSchema: z.ZodSchema<AuditLogResponse> =
   auditLogResponseSchema;
 
-export const getApiV2AutocompleteTagsResponseSchema: zod.ZodSchema<TagsByObjectIdResponse> =
+export const getApiV2AutocompleteTagsResponseSchema: z.ZodSchema<TagsByObjectIdResponse> =
   tagsByObjectIdResponseSchema;
 
-export const getApiV2AutomationsResponseSchema: zod.ZodSchema<AutomationsResponse> =
+export const getApiV2AutomationsResponseSchema: z.ZodSchema<AutomationsResponse> =
   automationsResponseSchema;
 
-export const getApiV2AutomationsByAutomationIdResponseSchema: zod.ZodSchema<AutomationResponse> =
+export const getApiV2AutomationsByAutomationIdResponseSchema: z.ZodSchema<AutomationResponse> =
   automationResponseSchema;
 
-export const getApiV2AutomationsActiveResponseSchema: zod.ZodSchema<AutomationsResponse> =
+export const getApiV2AutomationsActiveResponseSchema: z.ZodSchema<AutomationsResponse> =
   automationsResponseSchema;
 
-export const getApiV2AutomationsSearchResponseSchema: zod.ZodSchema<AutomationsResponse> =
+export const getApiV2AutomationsSearchResponseSchema: z.ZodSchema<AutomationsResponse> =
   automationsResponseSchema;
 
-export const getApiV2BookmarksResponseSchema: zod.ZodSchema<BookmarksResponse> =
+export const getApiV2BookmarksResponseSchema: z.ZodSchema<BookmarksResponse> =
   bookmarksResponseSchema;
 
-export const getApiV2BrandsResponseSchema: zod.ZodSchema<BrandsResponse> =
+export const getApiV2BrandsResponseSchema: z.ZodSchema<BrandsResponse> =
   brandsResponseSchema;
 
-export const getApiV2BrandsByBrandIdResponseSchema: zod.ZodSchema<BrandResponse> =
+export const getApiV2BrandsByBrandIdResponseSchema: z.ZodSchema<BrandResponse> =
   brandResponseSchema;
 
-export const getApiV2BrandsByBrandIdCheckHostMappingResponseSchema: zod.ZodSchema<HostMappingObject> =
+export const getApiV2BrandsByBrandIdCheckHostMappingResponseSchema: z.ZodSchema<HostMappingObject> =
   hostMappingObjectSchema;
 
-export const getApiV2BrandsCheckHostMappingResponseSchema: zod.ZodSchema<HostMappingObject> =
+export const getApiV2BrandsCheckHostMappingResponseSchema: z.ZodSchema<HostMappingObject> =
   hostMappingObjectSchema;
 
-export const getApiV2ChannelsTwitterMonitoredTwitterHandlesResponseSchema: zod.ZodSchema<TwitterChannelsResponse> =
+export const getApiV2ChannelsTwitterMonitoredTwitterHandlesResponseSchema: z.ZodSchema<TwitterChannelsResponse> =
   twitterChannelsResponseSchema;
 
-export const getApiV2ChannelsTwitterMonitoredTwitterHandlesByMonitoredTwitterHandleIdResponseSchema: zod.ZodSchema<TwitterChannelResponse> =
+export const getApiV2ChannelsTwitterMonitoredTwitterHandlesByMonitoredTwitterHandleIdResponseSchema: z.ZodSchema<TwitterChannelResponse> =
   twitterChannelResponseSchema;
 
-export const getApiV2ChannelsTwitterTicketsByCommentIdStatusesResponseSchema: zod.ZodSchema<TwitterChannelTwicketStatusResponse> =
+export const getApiV2ChannelsTwitterTicketsByCommentIdStatusesResponseSchema: z.ZodSchema<TwitterChannelTwicketStatusResponse> =
   twitterChannelTwicketStatusResponseSchema;
 
-export const getApiV2CustomObjectsResponseSchema: zod.ZodSchema<CustomObjectsResponse> =
+export const getApiV2CustomObjectsResponseSchema: z.ZodSchema<CustomObjectsResponse> =
   customObjectsResponseSchema;
 
-export const getApiV2CustomObjectsByCustomObjectKeyResponseSchema: zod.ZodSchema<CustomObjectResponse> =
+export const getApiV2CustomObjectsByCustomObjectKeyResponseSchema: z.ZodSchema<CustomObjectResponse> =
   customObjectResponseSchema;
 
-export const getApiV2CustomObjectsByCustomObjectKeyFieldsResponseSchema: zod.ZodSchema<CustomObjectFieldsResponse> =
+export const getApiV2CustomObjectsByCustomObjectKeyFieldsResponseSchema: z.ZodSchema<CustomObjectFieldsResponse> =
   customObjectFieldsResponseSchema;
 
-export const getApiV2CustomObjectsByCustomObjectKeyFieldsByCustomObjectFieldKeyOrIdResponseSchema: zod.ZodSchema<CustomObjectFieldResponse> =
+export const getApiV2CustomObjectsByCustomObjectKeyFieldsByCustomObjectFieldKeyOrIdResponseSchema: z.ZodSchema<CustomObjectFieldResponse> =
   customObjectFieldResponseSchema;
 
-export const getApiV2CustomObjectsByCustomObjectKeyLimitsFieldLimitResponseSchema: zod.ZodSchema<CustomObjectLimitsResponse> =
+export const getApiV2CustomObjectsByCustomObjectKeyLimitsFieldLimitResponseSchema: z.ZodSchema<CustomObjectLimitsResponse> =
   customObjectLimitsResponseSchema;
 
-export const getApiV2CustomObjectsByCustomObjectKeyRecordsResponseSchema: zod.ZodSchema<CustomObjectRecordsResponse> =
+export const getApiV2CustomObjectsByCustomObjectKeyRecordsResponseSchema: z.ZodSchema<CustomObjectRecordsResponse> =
   customObjectRecordsResponseSchema;
 
-export const getApiV2CustomObjectsByCustomObjectKeyRecordsByCustomObjectRecordIdResponseSchema: zod.ZodSchema<CustomObjectRecordResponse> =
+export const getApiV2CustomObjectsByCustomObjectKeyRecordsByCustomObjectRecordIdResponseSchema: z.ZodSchema<CustomObjectRecordResponse> =
   customObjectRecordResponseSchema;
 
-export const getApiV2CustomObjectsByCustomObjectKeyRecordsAutocompleteResponseSchema: zod.ZodSchema<CustomObjectRecordsResponse> =
+export const getApiV2CustomObjectsByCustomObjectKeyRecordsAutocompleteResponseSchema: z.ZodSchema<CustomObjectRecordsResponse> =
   customObjectRecordsResponseSchema;
 
-export const getApiV2CustomObjectsByCustomObjectKeyRecordsCountResponseSchema: zod.ZodSchema<{
+export const getApiV2CustomObjectsByCustomObjectKeyRecordsCountResponseSchema: z.ZodSchema<{
   count: Record<string, unknown>;
 }> = z.object({ count: z.object({}).passthrough() });
 
-export const getApiV2CustomObjectsByCustomObjectKeyRecordsSearchResponseSchema: zod.ZodSchema<CustomObjectRecordsResponse> =
+export const getApiV2CustomObjectsByCustomObjectKeyRecordsSearchResponseSchema: z.ZodSchema<CustomObjectRecordsResponse> =
   customObjectRecordsResponseSchema;
 
-export const getApiV2CustomObjectsLimitsObjectLimitResponseSchema: zod.ZodSchema<CustomObjectLimitsResponse> =
+export const getApiV2CustomObjectsLimitsObjectLimitResponseSchema: z.ZodSchema<CustomObjectLimitsResponse> =
   customObjectLimitsResponseSchema;
 
-export const getApiV2CustomObjectsLimitsRecordLimitResponseSchema: zod.ZodSchema<CustomObjectLimitsResponse> =
+export const getApiV2CustomObjectsLimitsRecordLimitResponseSchema: z.ZodSchema<CustomObjectLimitsResponse> =
   customObjectLimitsResponseSchema;
 
-export const getApiV2CustomRolesResponseSchema: zod.ZodSchema<CustomRolesResponse> =
+export const getApiV2CustomRolesResponseSchema: z.ZodSchema<CustomRolesResponse> =
   customRolesResponseSchema;
 
-export const getApiV2CustomRolesByCustomRoleIdResponseSchema: zod.ZodSchema<CustomRoleResponse> =
+export const getApiV2CustomRolesByCustomRoleIdResponseSchema: z.ZodSchema<CustomRoleResponse> =
   customRoleResponseSchema;
 
-export const getApiV2CustomStatusesResponseSchema: zod.ZodSchema<CustomStatusesResponse> =
+export const getApiV2CustomStatusesResponseSchema: z.ZodSchema<CustomStatusesResponse> =
   customStatusesResponseSchema;
 
-export const getApiV2CustomStatusesByCustomStatusIdResponseSchema: zod.ZodSchema<CustomStatusResponse> =
+export const getApiV2CustomStatusesByCustomStatusIdResponseSchema: z.ZodSchema<CustomStatusResponse> =
   customStatusResponseSchema;
 
-export const getApiV2DeletedTicketsResponseSchema: zod.ZodSchema<ListDeletedTicketsResponse> =
+export const getApiV2DeletedTicketsResponseSchema: z.ZodSchema<ListDeletedTicketsResponse> =
   listDeletedTicketsResponseSchema;
 
-export const getApiV2DeletedUsersResponseSchema: zod.ZodSchema<DeletedUsersResponse> =
+export const getApiV2DeletedUsersResponseSchema: z.ZodSchema<DeletedUsersResponse> =
   deletedUsersResponseSchema;
 
-export const getApiV2DeletedUsersByDeletedUserIdResponseSchema: zod.ZodSchema<DeletedUserResponse> =
+export const getApiV2DeletedUsersByDeletedUserIdResponseSchema: z.ZodSchema<DeletedUserResponse> =
   deletedUserResponseSchema;
 
-export const getApiV2DeletedUsersCountResponseSchema: zod.ZodSchema<CountResponse> =
+export const getApiV2DeletedUsersCountResponseSchema: z.ZodSchema<CountResponse> =
   countResponseSchema;
 
-export const getApiV2DynamicContentItemsResponseSchema: zod.ZodSchema<DynamicContentsResponse> =
+export const getApiV2DynamicContentItemsResponseSchema: z.ZodSchema<DynamicContentsResponse> =
   dynamicContentsResponseSchema;
 
-export const getApiV2DynamicContentItemsByDynamicContentItemIdResponseSchema: zod.ZodSchema<DynamicContentResponse> =
+export const getApiV2DynamicContentItemsByDynamicContentItemIdResponseSchema: z.ZodSchema<DynamicContentResponse> =
   dynamicContentResponseSchema;
 
-export const getApiV2DynamicContentItemsByDynamicContentItemIdVariantsResponseSchema: zod.ZodSchema<DynamicContentVariantsResponse> =
+export const getApiV2DynamicContentItemsByDynamicContentItemIdVariantsResponseSchema: z.ZodSchema<DynamicContentVariantsResponse> =
   dynamicContentVariantsResponseSchema;
 
-export const getApiV2DynamicContentItemsByDynamicContentItemIdVariantsByDynammicContentVariantIdResponseSchema: zod.ZodSchema<DynamicContentVariantResponse> =
+export const getApiV2DynamicContentItemsByDynamicContentItemIdVariantsByDynammicContentVariantIdResponseSchema: z.ZodSchema<DynamicContentVariantResponse> =
   dynamicContentVariantResponseSchema;
 
-export const getApiV2DynamicContentItemsShowManyResponseSchema: zod.ZodSchema<DynamicContentsResponse> =
+export const getApiV2DynamicContentItemsShowManyResponseSchema: z.ZodSchema<DynamicContentsResponse> =
   dynamicContentsResponseSchema;
 
-export const getApiV2GroupMembershipsResponseSchema: zod.ZodSchema<GroupMembershipsResponse> =
+export const getApiV2GroupMembershipsResponseSchema: z.ZodSchema<GroupMembershipsResponse> =
   groupMembershipsResponseSchema;
 
-export const getApiV2GroupMembershipsByGroupMembershipIdResponseSchema: zod.ZodSchema<GroupMembershipResponse> =
+export const getApiV2GroupMembershipsByGroupMembershipIdResponseSchema: z.ZodSchema<GroupMembershipResponse> =
   groupMembershipResponseSchema;
 
-export const getApiV2GroupMembershipsAssignableResponseSchema: zod.ZodSchema<GroupMembershipsResponse> =
+export const getApiV2GroupMembershipsAssignableResponseSchema: z.ZodSchema<GroupMembershipsResponse> =
   groupMembershipsResponseSchema;
 
-export const getApiV2GroupSlasPoliciesResponseSchema: zod.ZodSchema<GroupSLAPoliciesResponse> =
+export const getApiV2GroupSlasPoliciesResponseSchema: z.ZodSchema<GroupSLAPoliciesResponse> =
   groupSlaPoliciesResponseSchema;
 
-export const getApiV2GroupSlasPoliciesByGroupSlaPolicyIdResponseSchema: zod.ZodSchema<GroupSLAPolicyResponse> =
+export const getApiV2GroupSlasPoliciesByGroupSlaPolicyIdResponseSchema: z.ZodSchema<GroupSLAPolicyResponse> =
   groupSlaPolicyResponseSchema;
 
-export const getApiV2GroupSlasPoliciesDefinitionsResponseSchema: zod.ZodSchema<GroupSLAPolicyFilterDefinitionResponse> =
+export const getApiV2GroupSlasPoliciesDefinitionsResponseSchema: z.ZodSchema<GroupSLAPolicyFilterDefinitionResponse> =
   groupSlaPolicyFilterDefinitionResponseSchema;
 
-export const getApiV2GroupsResponseSchema: zod.ZodSchema<GroupsResponse> =
+export const getApiV2GroupsResponseSchema: z.ZodSchema<GroupsResponse> =
   groupsResponseSchema;
 
-export const getApiV2GroupsByGroupIdResponseSchema: zod.ZodSchema<GroupResponse> =
+export const getApiV2GroupsByGroupIdResponseSchema: z.ZodSchema<GroupResponse> =
   groupResponseSchema;
 
-export const getApiV2GroupsByGroupIdMembershipsResponseSchema: zod.ZodSchema<GroupMembershipsResponse> =
+export const getApiV2GroupsByGroupIdMembershipsResponseSchema: z.ZodSchema<GroupMembershipsResponse> =
   groupMembershipsResponseSchema;
 
-export const getApiV2GroupsAssignableResponseSchema: zod.ZodSchema<GroupsResponse> =
+export const getApiV2GroupsAssignableResponseSchema: z.ZodSchema<GroupsResponse> =
   groupsResponseSchema;
 
-export const getApiV2GroupsCountResponseSchema: zod.ZodSchema<GroupsCountObject> =
+export const getApiV2GroupsCountResponseSchema: z.ZodSchema<GroupsCountObject> =
   groupsCountObjectSchema;
 
-export const getApiV2IncrementalByIncrementalResourceSampleResponseSchema: zod.ZodSchema<TimeBasedExportIncrementalTicketsResponse> =
+export const getApiV2IncrementalByIncrementalResourceSampleResponseSchema: z.ZodSchema<TimeBasedExportIncrementalTicketsResponse> =
   timeBasedExportIncrementalTicketsResponseSchema;
 
-export const getApiV2IncrementalOrganizationsResponseSchema: zod.ZodSchema<ExportIncrementalOrganizationsResponse> =
+export const getApiV2IncrementalOrganizationsResponseSchema: z.ZodSchema<ExportIncrementalOrganizationsResponse> =
   exportIncrementalOrganizationsResponseSchema;
 
-export const getApiV2IncrementalRoutingAttributeValuesResponseSchema: zod.ZodSchema<IncrementalSkillBasedRouting> =
+export const getApiV2IncrementalRoutingAttributeValuesResponseSchema: z.ZodSchema<IncrementalSkillBasedRouting> =
   incrementalSkillBasedRoutingSchema;
 
-export const getApiV2IncrementalRoutingAttributesResponseSchema: zod.ZodSchema<IncrementalSkillBasedRouting> =
+export const getApiV2IncrementalRoutingAttributesResponseSchema: z.ZodSchema<IncrementalSkillBasedRouting> =
   incrementalSkillBasedRoutingSchema;
 
-export const getApiV2IncrementalRoutingInstanceValuesResponseSchema: zod.ZodSchema<IncrementalSkillBasedRouting> =
+export const getApiV2IncrementalRoutingInstanceValuesResponseSchema: z.ZodSchema<IncrementalSkillBasedRouting> =
   incrementalSkillBasedRoutingSchema;
 
-export const getApiV2IncrementalTicketEventsResponseSchema: zod.ZodSchema<ExportIncrementalTicketEventsResponse> =
+export const getApiV2IncrementalTicketEventsResponseSchema: z.ZodSchema<ExportIncrementalTicketEventsResponse> =
   exportIncrementalTicketEventsResponseSchema;
 
-export const getApiV2IncrementalTicketMetricEventsResponseSchema: zod.ZodSchema<TicketMetricEventsResponse> =
+export const getApiV2IncrementalTicketMetricEventsResponseSchema: z.ZodSchema<TicketMetricEventsResponse> =
   ticketMetricEventsResponseSchema;
 
-export const getApiV2IncrementalTicketsResponseSchema: zod.ZodSchema<TimeBasedExportIncrementalTicketsResponse> =
+export const getApiV2IncrementalTicketsResponseSchema: z.ZodSchema<TimeBasedExportIncrementalTicketsResponse> =
   timeBasedExportIncrementalTicketsResponseSchema;
 
-export const getApiV2IncrementalTicketsCursorResponseSchema: zod.ZodSchema<CursorBasedExportIncrementalTicketsResponse> =
+export const getApiV2IncrementalTicketsCursorResponseSchema: z.ZodSchema<CursorBasedExportIncrementalTicketsResponse> =
   cursorBasedExportIncrementalTicketsResponseSchema;
 
-export const getApiV2IncrementalUsersResponseSchema: zod.ZodSchema<TimeBasedExportIncrementalUsersResponse> =
+export const getApiV2IncrementalUsersResponseSchema: z.ZodSchema<TimeBasedExportIncrementalUsersResponse> =
   timeBasedExportIncrementalUsersResponseSchema;
 
-export const getApiV2IncrementalUsersCursorResponseSchema: zod.ZodSchema<CursorBasedExportIncrementalUsersResponse> =
+export const getApiV2IncrementalUsersCursorResponseSchema: z.ZodSchema<CursorBasedExportIncrementalUsersResponse> =
   cursorBasedExportIncrementalUsersResponseSchema;
 
-export const getApiV2JobStatusesResponseSchema: zod.ZodSchema<JobStatusesResponse> =
+export const getApiV2JobStatusesResponseSchema: z.ZodSchema<JobStatusesResponse> =
   jobStatusesResponseSchema;
 
-export const getApiV2JobStatusesByJobStatusIdResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const getApiV2JobStatusesByJobStatusIdResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const getApiV2JobStatusesShowManyResponseSchema: zod.ZodSchema<JobStatusesResponse> =
+export const getApiV2JobStatusesShowManyResponseSchema: z.ZodSchema<JobStatusesResponse> =
   jobStatusesResponseSchema;
 
-export const getApiV2LocalesResponseSchema: zod.ZodSchema<LocalesResponse> =
+export const getApiV2LocalesResponseSchema: z.ZodSchema<LocalesResponse> =
   localesResponseSchema;
 
-export const getApiV2LocalesByLocaleIdResponseSchema: zod.ZodSchema<LocaleResponse> =
+export const getApiV2LocalesByLocaleIdResponseSchema: z.ZodSchema<LocaleResponse> =
   localeResponseSchema;
 
-export const getApiV2LocalesAgentResponseSchema: zod.ZodSchema<LocalesResponse> =
+export const getApiV2LocalesAgentResponseSchema: z.ZodSchema<LocalesResponse> =
   localesResponseSchema;
 
-export const getApiV2LocalesCurrentResponseSchema: zod.ZodSchema<LocaleResponse> =
+export const getApiV2LocalesCurrentResponseSchema: z.ZodSchema<LocaleResponse> =
   localeResponseSchema;
 
-export const getApiV2LocalesDetectBestLocaleResponseSchema: zod.ZodSchema<LocaleResponse> =
+export const getApiV2LocalesDetectBestLocaleResponseSchema: z.ZodSchema<LocaleResponse> =
   localeResponseSchema;
 
-export const getApiV2LocalesPublicResponseSchema: zod.ZodSchema<LocalesResponse> =
+export const getApiV2LocalesPublicResponseSchema: z.ZodSchema<LocalesResponse> =
   localesResponseSchema;
 
-export const getApiV2MacrosResponseSchema: zod.ZodSchema<MacrosResponse> =
+export const getApiV2MacrosResponseSchema: z.ZodSchema<MacrosResponse> =
   macrosResponseSchema;
 
-export const getApiV2MacrosByMacroIdResponseSchema: zod.ZodSchema<MacroResponse> =
+export const getApiV2MacrosByMacroIdResponseSchema: z.ZodSchema<MacroResponse> =
   macroResponseSchema;
 
-export const getApiV2MacrosByMacroIdApplyResponseSchema: zod.ZodSchema<MacroApplyTicketResponse> =
+export const getApiV2MacrosByMacroIdApplyResponseSchema: z.ZodSchema<MacroApplyTicketResponse> =
   macroApplyTicketResponseSchema;
 
-export const getApiV2MacrosByMacroIdAttachmentsResponseSchema: zod.ZodSchema<MacroAttachmentsResponse> =
+export const getApiV2MacrosByMacroIdAttachmentsResponseSchema: z.ZodSchema<MacroAttachmentsResponse> =
   macroAttachmentsResponseSchema;
 
-export const getApiV2MacrosActionsResponseSchema: zod.ZodSchema<{
+export const getApiV2MacrosActionsResponseSchema: z.ZodSchema<{
   actions: Record<string, unknown>[];
 }> = z.object({ actions: z.array(z.object({}).passthrough()) });
 
-export const getApiV2MacrosActiveResponseSchema: zod.ZodSchema<MacrosResponse> =
+export const getApiV2MacrosActiveResponseSchema: z.ZodSchema<MacrosResponse> =
   macrosResponseSchema;
 
-export const getApiV2MacrosAttachmentsByAttachmentIdResponseSchema: zod.ZodSchema<MacroAttachmentResponse> =
+export const getApiV2MacrosAttachmentsByAttachmentIdResponseSchema: z.ZodSchema<MacroAttachmentResponse> =
   macroAttachmentResponseSchema;
 
-export const getApiV2MacrosCategoriesResponseSchema: zod.ZodSchema<MacroCategoriesResponse> =
+export const getApiV2MacrosCategoriesResponseSchema: z.ZodSchema<MacroCategoriesResponse> =
   macroCategoriesResponseSchema;
 
-export const getApiV2MacrosDefinitionsResponseSchema: zod.ZodSchema<{
+export const getApiV2MacrosDefinitionsResponseSchema: z.ZodSchema<{
   definitions: {
     actions: Record<string, unknown>[];
   };
@@ -8501,250 +8493,250 @@ export const getApiV2MacrosDefinitionsResponseSchema: zod.ZodSchema<{
   definitions: z.object({ actions: z.array(z.object({}).passthrough()) }),
 });
 
-export const getApiV2MacrosNewResponseSchema: zod.ZodSchema<MacroResponse> =
+export const getApiV2MacrosNewResponseSchema: z.ZodSchema<MacroResponse> =
   macroResponseSchema;
 
-export const getApiV2MacrosSearchResponseSchema: zod.ZodSchema<MacrosResponse> =
+export const getApiV2MacrosSearchResponseSchema: z.ZodSchema<MacrosResponse> =
   macrosResponseSchema;
 
-export const getApiV2OrganizationFieldsResponseSchema: zod.ZodSchema<OrganizationFieldsResponse> =
+export const getApiV2OrganizationFieldsResponseSchema: z.ZodSchema<OrganizationFieldsResponse> =
   organizationFieldsResponseSchema;
 
-export const getApiV2OrganizationFieldsByOrganizationFieldIdResponseSchema: zod.ZodSchema<OrganizationFieldResponse> =
+export const getApiV2OrganizationFieldsByOrganizationFieldIdResponseSchema: z.ZodSchema<OrganizationFieldResponse> =
   organizationFieldResponseSchema;
 
-export const getApiV2OrganizationMembershipsResponseSchema: zod.ZodSchema<OrganizationMembershipsResponse> =
+export const getApiV2OrganizationMembershipsResponseSchema: z.ZodSchema<OrganizationMembershipsResponse> =
   organizationMembershipsResponseSchema;
 
-export const getApiV2OrganizationMembershipsByOrganizationMembershipIdResponseSchema: zod.ZodSchema<OrganizationMembershipResponse> =
+export const getApiV2OrganizationMembershipsByOrganizationMembershipIdResponseSchema: z.ZodSchema<OrganizationMembershipResponse> =
   organizationMembershipResponseSchema;
 
-export const getApiV2OrganizationSubscriptionsResponseSchema: zod.ZodSchema<OrganizationSubscriptionsResponse> =
+export const getApiV2OrganizationSubscriptionsResponseSchema: z.ZodSchema<OrganizationSubscriptionsResponse> =
   organizationSubscriptionsResponseSchema;
 
-export const getApiV2OrganizationSubscriptionsByOrganizationSubscriptionIdResponseSchema: zod.ZodSchema<OrganizationSubscriptionResponse> =
+export const getApiV2OrganizationSubscriptionsByOrganizationSubscriptionIdResponseSchema: z.ZodSchema<OrganizationSubscriptionResponse> =
   organizationSubscriptionResponseSchema;
 
-export const getApiV2OrganizationsResponseSchema: zod.ZodSchema<OrganizationsResponse> =
+export const getApiV2OrganizationsResponseSchema: z.ZodSchema<OrganizationsResponse> =
   organizationsResponseSchema;
 
-export const getApiV2OrganizationsByOrganizationIdResponseSchema: zod.ZodSchema<OrganizationResponse> =
+export const getApiV2OrganizationsByOrganizationIdResponseSchema: z.ZodSchema<OrganizationResponse> =
   organizationResponseSchema;
 
-export const getApiV2OrganizationsByOrganizationIdRelatedResponseSchema: zod.ZodSchema<OrganizationsRelatedResponse> =
+export const getApiV2OrganizationsByOrganizationIdRelatedResponseSchema: z.ZodSchema<OrganizationsRelatedResponse> =
   organizationsRelatedResponseSchema;
 
-export const getApiV2OrganizationsAutocompleteResponseSchema: zod.ZodSchema<OrganizationsResponse> =
+export const getApiV2OrganizationsAutocompleteResponseSchema: z.ZodSchema<OrganizationsResponse> =
   organizationsResponseSchema;
 
-export const getApiV2OrganizationsCountResponseSchema: zod.ZodSchema<CountOrganizationResponse> =
+export const getApiV2OrganizationsCountResponseSchema: z.ZodSchema<CountOrganizationResponse> =
   countOrganizationResponseSchema;
 
-export const getApiV2OrganizationsSearchResponseSchema: zod.ZodSchema<OrganizationsResponse> =
+export const getApiV2OrganizationsSearchResponseSchema: z.ZodSchema<OrganizationsResponse> =
   organizationsResponseSchema;
 
-export const getApiV2OrganizationsShowManyResponseSchema: zod.ZodSchema<OrganizationsResponse> =
+export const getApiV2OrganizationsShowManyResponseSchema: z.ZodSchema<OrganizationsResponse> =
   organizationsResponseSchema;
 
-export const getApiV2ProblemsResponseSchema: zod.ZodSchema<ListTicketProblemsResponse> =
+export const getApiV2ProblemsResponseSchema: z.ZodSchema<ListTicketProblemsResponse> =
   listTicketProblemsResponseSchema;
 
-export const getApiV2RecipientAddressesResponseSchema: zod.ZodSchema<SupportAddressesResponse> =
+export const getApiV2RecipientAddressesResponseSchema: z.ZodSchema<SupportAddressesResponse> =
   supportAddressesResponseSchema;
 
-export const getApiV2RecipientAddressesBySupportAddressIdResponseSchema: zod.ZodSchema<SupportAddressResponse> =
+export const getApiV2RecipientAddressesBySupportAddressIdResponseSchema: z.ZodSchema<SupportAddressResponse> =
   supportAddressResponseSchema;
 
-export const getApiV2RelationshipsDefinitionsByTargetTypeResponseSchema: zod.ZodSchema<RelationshipFilterDefinitionResponse> =
+export const getApiV2RelationshipsDefinitionsByTargetTypeResponseSchema: z.ZodSchema<RelationshipFilterDefinitionResponse> =
   relationshipFilterDefinitionResponseSchema;
 
-export const getApiV2RequestsResponseSchema: zod.ZodSchema<RequestsResponse> =
+export const getApiV2RequestsResponseSchema: z.ZodSchema<RequestsResponse> =
   requestsResponseSchema;
 
-export const getApiV2RequestsByRequestIdResponseSchema: zod.ZodSchema<RequestResponse> =
+export const getApiV2RequestsByRequestIdResponseSchema: z.ZodSchema<RequestResponse> =
   requestResponseSchema;
 
-export const getApiV2RequestsByRequestIdCommentsResponseSchema: zod.ZodSchema<TicketCommentsResponse> =
+export const getApiV2RequestsByRequestIdCommentsResponseSchema: z.ZodSchema<TicketCommentsResponse> =
   ticketCommentsResponseSchema;
 
-export const getApiV2RequestsByRequestIdCommentsByTicketCommentIdResponseSchema: zod.ZodSchema<TicketCommentResponse> =
+export const getApiV2RequestsByRequestIdCommentsByTicketCommentIdResponseSchema: z.ZodSchema<TicketCommentResponse> =
   ticketCommentResponseSchema;
 
-export const getApiV2RequestsSearchResponseSchema: zod.ZodSchema<RequestsResponse> =
+export const getApiV2RequestsSearchResponseSchema: z.ZodSchema<RequestsResponse> =
   requestsResponseSchema;
 
-export const getApiV2ResourceCollectionsResponseSchema: zod.ZodSchema<ResourceCollectionsResponse> =
+export const getApiV2ResourceCollectionsResponseSchema: z.ZodSchema<ResourceCollectionsResponse> =
   resourceCollectionsResponseSchema;
 
-export const getApiV2ResourceCollectionsByResourceCollectionIdResponseSchema: zod.ZodSchema<ResourceCollectionResponse> =
+export const getApiV2ResourceCollectionsByResourceCollectionIdResponseSchema: z.ZodSchema<ResourceCollectionResponse> =
   resourceCollectionResponseSchema;
 
-export const getApiV2RoutingAgentsByUserIdInstanceValuesResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeValuesResponse> =
+export const getApiV2RoutingAgentsByUserIdInstanceValuesResponseSchema: z.ZodSchema<SkillBasedRoutingAttributeValuesResponse> =
   skillBasedRoutingAttributeValuesResponseSchema;
 
-export const getApiV2RoutingAttributesResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributesResponse> =
+export const getApiV2RoutingAttributesResponseSchema: z.ZodSchema<SkillBasedRoutingAttributesResponse> =
   skillBasedRoutingAttributesResponseSchema;
 
-export const getApiV2RoutingAttributesByAttributeIdResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeResponse> =
+export const getApiV2RoutingAttributesByAttributeIdResponseSchema: z.ZodSchema<SkillBasedRoutingAttributeResponse> =
   skillBasedRoutingAttributeResponseSchema;
 
-export const getApiV2RoutingAttributesByAttributeIdValuesResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeValuesResponse> =
+export const getApiV2RoutingAttributesByAttributeIdValuesResponseSchema: z.ZodSchema<SkillBasedRoutingAttributeValuesResponse> =
   skillBasedRoutingAttributeValuesResponseSchema;
 
-export const getApiV2RoutingAttributesByAttributeIdValuesByAttributeValueIdResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeValueResponse> =
+export const getApiV2RoutingAttributesByAttributeIdValuesByAttributeValueIdResponseSchema: z.ZodSchema<SkillBasedRoutingAttributeValueResponse> =
   skillBasedRoutingAttributeValueResponseSchema;
 
-export const getApiV2RoutingAttributesDefinitionsResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeDefinitions> =
+export const getApiV2RoutingAttributesDefinitionsResponseSchema: z.ZodSchema<SkillBasedRoutingAttributeDefinitions> =
   skillBasedRoutingAttributeDefinitionsSchema;
 
-export const getApiV2RoutingRequirementsFulfilledResponseSchema: zod.ZodSchema<SkillBasedRoutingTicketFulfilledResponse> =
+export const getApiV2RoutingRequirementsFulfilledResponseSchema: z.ZodSchema<SkillBasedRoutingTicketFulfilledResponse> =
   skillBasedRoutingTicketFulfilledResponseSchema;
 
-export const getApiV2RoutingTicketsByTicketIdInstanceValuesResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeValuesResponse> =
+export const getApiV2RoutingTicketsByTicketIdInstanceValuesResponseSchema: z.ZodSchema<SkillBasedRoutingAttributeValuesResponse> =
   skillBasedRoutingAttributeValuesResponseSchema;
 
-export const getApiV2SatisfactionRatingsResponseSchema: zod.ZodSchema<SatisfactionRatingsResponse> =
+export const getApiV2SatisfactionRatingsResponseSchema: z.ZodSchema<SatisfactionRatingsResponse> =
   satisfactionRatingsResponseSchema;
 
-export const getApiV2SatisfactionRatingsBySatisfactionRatingIdResponseSchema: zod.ZodSchema<SatisfactionRatingResponse> =
+export const getApiV2SatisfactionRatingsBySatisfactionRatingIdResponseSchema: z.ZodSchema<SatisfactionRatingResponse> =
   satisfactionRatingResponseSchema;
 
-export const getApiV2SatisfactionRatingsCountResponseSchema: zod.ZodSchema<SatisfactionRatingsCountResponse> =
+export const getApiV2SatisfactionRatingsCountResponseSchema: z.ZodSchema<SatisfactionRatingsCountResponse> =
   satisfactionRatingsCountResponseSchema;
 
-export const getApiV2SatisfactionReasonsResponseSchema: zod.ZodSchema<SatisfactionReasonsResponse> =
+export const getApiV2SatisfactionReasonsResponseSchema: z.ZodSchema<SatisfactionReasonsResponse> =
   satisfactionReasonsResponseSchema;
 
-export const getApiV2SatisfactionReasonsBySatisfactionReasonIdResponseSchema: zod.ZodSchema<SatisfactionReasonResponse> =
+export const getApiV2SatisfactionReasonsBySatisfactionReasonIdResponseSchema: z.ZodSchema<SatisfactionReasonResponse> =
   satisfactionReasonResponseSchema;
 
-export const getApiV2SearchResponseSchema: zod.ZodSchema<SearchResponse> =
+export const getApiV2SearchResponseSchema: z.ZodSchema<SearchResponse> =
   searchResponseSchema;
 
-export const getApiV2SearchCountResponseSchema: zod.ZodSchema<SearchCountResponse> =
+export const getApiV2SearchCountResponseSchema: z.ZodSchema<SearchCountResponse> =
   searchCountResponseSchema;
 
-export const getApiV2SearchExportResponseSchema: zod.ZodSchema<SearchExportResponse> =
+export const getApiV2SearchExportResponseSchema: z.ZodSchema<SearchExportResponse> =
   searchExportResponseSchema;
 
-export const getApiV2SessionsResponseSchema: zod.ZodSchema<SessionsResponse> =
+export const getApiV2SessionsResponseSchema: z.ZodSchema<SessionsResponse> =
   sessionsResponseSchema;
 
-export const getApiV2SharingAgreementsResponseSchema: zod.ZodSchema<SharingAgreementsResponse> =
+export const getApiV2SharingAgreementsResponseSchema: z.ZodSchema<SharingAgreementsResponse> =
   sharingAgreementsResponseSchema;
 
-export const getApiV2SharingAgreementsBySharingAgreementIdResponseSchema: zod.ZodSchema<SharingAgreementResponse> =
+export const getApiV2SharingAgreementsBySharingAgreementIdResponseSchema: z.ZodSchema<SharingAgreementResponse> =
   sharingAgreementResponseSchema;
 
-export const getApiV2SlasPoliciesResponseSchema: zod.ZodSchema<SLAPoliciesResponse> =
+export const getApiV2SlasPoliciesResponseSchema: z.ZodSchema<SLAPoliciesResponse> =
   slaPoliciesResponseSchema;
 
-export const getApiV2SlasPoliciesBySlaPolicyIdResponseSchema: zod.ZodSchema<SLAPolicyResponse> =
+export const getApiV2SlasPoliciesBySlaPolicyIdResponseSchema: z.ZodSchema<SLAPolicyResponse> =
   slaPolicyResponseSchema;
 
-export const getApiV2SlasPoliciesDefinitionsResponseSchema: zod.ZodSchema<SLAPolicyFilterDefinitionResponse> =
+export const getApiV2SlasPoliciesDefinitionsResponseSchema: z.ZodSchema<SLAPolicyFilterDefinitionResponse> =
   slaPolicyFilterDefinitionResponseSchema;
 
-export const getApiV2SuspendedTicketsResponseSchema: zod.ZodSchema<SuspendedTicketsResponse> =
+export const getApiV2SuspendedTicketsResponseSchema: z.ZodSchema<SuspendedTicketsResponse> =
   suspendedTicketsResponseSchema;
 
-export const getApiV2SuspendedTicketsByIdResponseSchema: zod.ZodSchema<SuspendedTicketsResponse> =
+export const getApiV2SuspendedTicketsByIdResponseSchema: z.ZodSchema<SuspendedTicketsResponse> =
   suspendedTicketsResponseSchema;
 
-export const getApiV2TagsResponseSchema: zod.ZodSchema<TagsResponse> =
+export const getApiV2TagsResponseSchema: z.ZodSchema<TagsResponse> =
   tagsResponseSchema;
 
-export const getApiV2TagsCountResponseSchema: zod.ZodSchema<TagCountResponse> =
+export const getApiV2TagsCountResponseSchema: z.ZodSchema<TagCountResponse> =
   tagCountResponseSchema;
 
-export const getApiV2TargetFailuresResponseSchema: zod.ZodSchema<TargetFailuresResponse> =
+export const getApiV2TargetFailuresResponseSchema: z.ZodSchema<TargetFailuresResponse> =
   targetFailuresResponseSchema;
 
-export const getApiV2TargetFailuresByTargetFailureIdResponseSchema: zod.ZodSchema<TargetFailureResponse> =
+export const getApiV2TargetFailuresByTargetFailureIdResponseSchema: z.ZodSchema<TargetFailureResponse> =
   targetFailureResponseSchema;
 
-export const getApiV2TargetsResponseSchema: zod.ZodSchema<TargetsResponse> =
+export const getApiV2TargetsResponseSchema: z.ZodSchema<TargetsResponse> =
   targetsResponseSchema;
 
-export const getApiV2TargetsByTargetIdResponseSchema: zod.ZodSchema<TargetResponse> =
+export const getApiV2TargetsByTargetIdResponseSchema: z.ZodSchema<TargetResponse> =
   targetResponseSchema;
 
-export const getApiV2TicketAuditsResponseSchema: zod.ZodSchema<TicketAuditsResponse> =
+export const getApiV2TicketAuditsResponseSchema: z.ZodSchema<TicketAuditsResponse> =
   ticketAuditsResponseSchema;
 
-export const getApiV2TicketFieldsResponseSchema: zod.ZodSchema<TicketFieldsResponse> =
+export const getApiV2TicketFieldsResponseSchema: z.ZodSchema<TicketFieldsResponse> =
   ticketFieldsResponseSchema;
 
-export const getApiV2TicketFieldsByTicketFieldIdResponseSchema: zod.ZodSchema<TicketFieldResponse> =
+export const getApiV2TicketFieldsByTicketFieldIdResponseSchema: z.ZodSchema<TicketFieldResponse> =
   ticketFieldResponseSchema;
 
-export const getApiV2TicketFieldsByTicketFieldIdOptionsResponseSchema: zod.ZodSchema<CustomFieldOptionsResponse> =
+export const getApiV2TicketFieldsByTicketFieldIdOptionsResponseSchema: z.ZodSchema<CustomFieldOptionsResponse> =
   customFieldOptionsResponseSchema;
 
-export const getApiV2TicketFieldsByTicketFieldIdOptionsByTicketFieldOptionIdResponseSchema: zod.ZodSchema<CustomFieldOptionResponse> =
+export const getApiV2TicketFieldsByTicketFieldIdOptionsByTicketFieldOptionIdResponseSchema: z.ZodSchema<CustomFieldOptionResponse> =
   customFieldOptionResponseSchema;
 
-export const getApiV2TicketFieldsCountResponseSchema: zod.ZodSchema<TicketFieldCountResponse> =
+export const getApiV2TicketFieldsCountResponseSchema: z.ZodSchema<TicketFieldCountResponse> =
   ticketFieldCountResponseSchema;
 
-export const getApiV2TicketFormsResponseSchema: zod.ZodSchema<TicketFormsResponse> =
+export const getApiV2TicketFormsResponseSchema: z.ZodSchema<TicketFormsResponse> =
   ticketFormsResponseSchema;
 
-export const getApiV2TicketFormsByTicketFormIdResponseSchema: zod.ZodSchema<TicketFormResponse> =
+export const getApiV2TicketFormsByTicketFormIdResponseSchema: z.ZodSchema<TicketFormResponse> =
   ticketFormResponseSchema;
 
-export const getApiV2TicketFormsShowManyResponseSchema: zod.ZodSchema<TicketFormsResponse> =
+export const getApiV2TicketFormsShowManyResponseSchema: z.ZodSchema<TicketFormsResponse> =
   ticketFormsResponseSchema;
 
-export const getApiV2TicketMetricsResponseSchema: zod.ZodSchema<TicketMetricsResponse> =
+export const getApiV2TicketMetricsResponseSchema: z.ZodSchema<TicketMetricsResponse> =
   ticketMetricsResponseSchema;
 
-export const getApiV2TicketMetricsByTicketMetricIdResponseSchema: zod.ZodSchema<TicketMetricsByTicketMetricIdResponse> =
+export const getApiV2TicketMetricsByTicketMetricIdResponseSchema: z.ZodSchema<TicketMetricsByTicketMetricIdResponse> =
   ticketMetricsByTicketMetricIdResponseSchema;
 
-export const getApiV2TicketsResponseSchema: zod.ZodSchema<TicketsResponse> =
+export const getApiV2TicketsResponseSchema: z.ZodSchema<TicketsResponse> =
   ticketsResponseSchema;
 
-export const getApiV2TicketsByTicketIdResponseSchema: zod.ZodSchema<TicketResponse> =
+export const getApiV2TicketsByTicketIdResponseSchema: z.ZodSchema<TicketResponse> =
   ticketResponseSchema;
 
-export const getApiV2TicketsByTicketIdAuditsResponseSchema: zod.ZodSchema<TicketAuditsResponseNoneCursor> =
+export const getApiV2TicketsByTicketIdAuditsResponseSchema: z.ZodSchema<TicketAuditsResponseNoneCursor> =
   ticketAuditsResponseNoneCursorSchema;
 
-export const getApiV2TicketsByTicketIdAuditsByTicketAuditIdResponseSchema: zod.ZodSchema<TicketAuditResponse> =
+export const getApiV2TicketsByTicketIdAuditsByTicketAuditIdResponseSchema: z.ZodSchema<TicketAuditResponse> =
   ticketAuditResponseSchema;
 
-export const getApiV2TicketsByTicketIdAuditsCountResponseSchema: zod.ZodSchema<TicketAuditsCountResponse> =
+export const getApiV2TicketsByTicketIdAuditsCountResponseSchema: z.ZodSchema<TicketAuditsCountResponse> =
   ticketAuditsCountResponseSchema;
 
-export const getApiV2TicketsByTicketIdCollaboratorsResponseSchema: zod.ZodSchema<ListTicketCollaboratorsResponse> =
+export const getApiV2TicketsByTicketIdCollaboratorsResponseSchema: z.ZodSchema<ListTicketCollaboratorsResponse> =
   listTicketCollaboratorsResponseSchema;
 
-export const getApiV2TicketsByTicketIdCommentsResponseSchema: zod.ZodSchema<TicketCommentsResponse> =
+export const getApiV2TicketsByTicketIdCommentsResponseSchema: z.ZodSchema<TicketCommentsResponse> =
   ticketCommentsResponseSchema;
 
-export const getApiV2TicketsByTicketIdCommentsCountResponseSchema: zod.ZodSchema<TicketCommentsCountResponse> =
+export const getApiV2TicketsByTicketIdCommentsCountResponseSchema: z.ZodSchema<TicketCommentsCountResponse> =
   ticketCommentsCountResponseSchema;
 
-export const getApiV2TicketsByTicketIdEmailCcsResponseSchema: zod.ZodSchema<ListTicketEmailCCsResponse> =
+export const getApiV2TicketsByTicketIdEmailCcsResponseSchema: z.ZodSchema<ListTicketEmailCCsResponse> =
   listTicketEmailCCsResponseSchema;
 
-export const getApiV2TicketsByTicketIdFollowersResponseSchema: zod.ZodSchema<ListTicketFollowersResponse> =
+export const getApiV2TicketsByTicketIdFollowersResponseSchema: z.ZodSchema<ListTicketFollowersResponse> =
   listTicketFollowersResponseSchema;
 
-export const getApiV2TicketsByTicketIdIncidentsResponseSchema: zod.ZodSchema<ListTicketIncidentsResponse> =
+export const getApiV2TicketsByTicketIdIncidentsResponseSchema: z.ZodSchema<ListTicketIncidentsResponse> =
   listTicketIncidentsResponseSchema;
 
-export const getApiV2TicketsByTicketIdMacrosByMacroIdApplyResponseSchema: zod.ZodSchema<MacroApplyTicketResponse> =
+export const getApiV2TicketsByTicketIdMacrosByMacroIdApplyResponseSchema: z.ZodSchema<MacroApplyTicketResponse> =
   macroApplyTicketResponseSchema;
 
-export const getApiV2TicketsByTicketIdRelatedResponseSchema: zod.ZodSchema<TicketRelatedInformation> =
+export const getApiV2TicketsByTicketIdRelatedResponseSchema: z.ZodSchema<TicketRelatedInformation> =
   ticketRelatedInformationSchema;
 
-export const getApiV2TicketsByTicketIdTagsResponseSchema: zod.ZodSchema<TagsByObjectIdResponse> =
+export const getApiV2TicketsByTicketIdTagsResponseSchema: z.ZodSchema<TagsByObjectIdResponse> =
   tagsByObjectIdResponseSchema;
 
-export const getApiV2TicketsCountResponseSchema: zod.ZodSchema<{
+export const getApiV2TicketsCountResponseSchema: z.ZodSchema<{
   count: {
     refreshed_at: string;
     value: number;
@@ -8753,495 +8745,497 @@ export const getApiV2TicketsCountResponseSchema: zod.ZodSchema<{
   count: z.object({ refreshed_at: z.string(), value: z.number() }),
 });
 
-export const getApiV2TicketsShowManyResponseSchema: zod.ZodSchema<TicketsResponse> =
+export const getApiV2TicketsShowManyResponseSchema: z.ZodSchema<TicketsResponse> =
   ticketsResponseSchema;
 
-export const getApiV2TriggerCategoriesResponseSchema: zod.ZodSchema<
+export const getApiV2TriggerCategoriesResponseSchema: z.ZodSchema<
   TriggerCategoriesResponse & Pagination
 > = z.intersection(triggerCategoriesResponseSchema, paginationSchema);
 
-export const getApiV2TriggerCategoriesByTriggerCategoryIdResponseSchema: zod.ZodSchema<TriggerCategoryResponse> =
+export const getApiV2TriggerCategoriesByTriggerCategoryIdResponseSchema: z.ZodSchema<TriggerCategoryResponse> =
   triggerCategoryResponseSchema;
 
-export const getApiV2TriggersResponseSchema: zod.ZodSchema<TriggersResponse> =
+export const getApiV2TriggersResponseSchema: z.ZodSchema<TriggersResponse> =
   triggersResponseSchema;
 
-export const getApiV2TriggersByTriggerIdResponseSchema: zod.ZodSchema<TriggerResponse> =
+export const getApiV2TriggersByTriggerIdResponseSchema: z.ZodSchema<TriggerResponse> =
   triggerResponseSchema;
 
-export const getApiV2TriggersByTriggerIdRevisionsResponseSchema: zod.ZodSchema<TriggerRevisionsResponse> =
+export const getApiV2TriggersByTriggerIdRevisionsResponseSchema: z.ZodSchema<TriggerRevisionsResponse> =
   triggerRevisionsResponseSchema;
 
-export const getApiV2TriggersByTriggerIdRevisionsByTriggerRevisionIdResponseSchema: zod.ZodSchema<TriggerRevisionResponse> =
+export const getApiV2TriggersByTriggerIdRevisionsByTriggerRevisionIdResponseSchema: z.ZodSchema<TriggerRevisionResponse> =
   triggerRevisionResponseSchema;
 
-export const getApiV2TriggersActiveResponseSchema: zod.ZodSchema<TriggersResponse> =
+export const getApiV2TriggersActiveResponseSchema: z.ZodSchema<TriggersResponse> =
   triggersResponseSchema;
 
-export const getApiV2TriggersDefinitionsResponseSchema: zod.ZodSchema<TriggerDefinitionResponse> =
+export const getApiV2TriggersDefinitionsResponseSchema: z.ZodSchema<TriggerDefinitionResponse> =
   triggerDefinitionResponseSchema;
 
-export const getApiV2TriggersSearchResponseSchema: zod.ZodSchema<TriggersResponse> =
+export const getApiV2TriggersSearchResponseSchema: z.ZodSchema<TriggersResponse> =
   triggersResponseSchema;
 
-export const getApiV2UserFieldsResponseSchema: zod.ZodSchema<UserFieldsResponse> =
+export const getApiV2UserFieldsResponseSchema: z.ZodSchema<UserFieldsResponse> =
   userFieldsResponseSchema;
 
-export const getApiV2UserFieldsByUserFieldIdResponseSchema: zod.ZodSchema<UserFieldResponse> =
+export const getApiV2UserFieldsByUserFieldIdResponseSchema: z.ZodSchema<UserFieldResponse> =
   userFieldResponseSchema;
 
-export const getApiV2UserFieldsByUserFieldIdOptionsResponseSchema: zod.ZodSchema<CustomFieldOptionsResponse> =
+export const getApiV2UserFieldsByUserFieldIdOptionsResponseSchema: z.ZodSchema<CustomFieldOptionsResponse> =
   customFieldOptionsResponseSchema;
 
-export const getApiV2UserFieldsByUserFieldIdOptionsByUserFieldOptionIdResponseSchema: zod.ZodSchema<CustomFieldOptionResponse> =
+export const getApiV2UserFieldsByUserFieldIdOptionsByUserFieldOptionIdResponseSchema: z.ZodSchema<CustomFieldOptionResponse> =
   customFieldOptionResponseSchema;
 
-export const getApiV2UsersResponseSchema: zod.ZodSchema<UsersResponse> =
+export const getApiV2UsersResponseSchema: z.ZodSchema<UsersResponse> =
   usersResponseSchema;
 
-export const getApiV2UsersByUserIdResponseSchema: zod.ZodSchema<UserResponse> =
+export const getApiV2UsersByUserIdResponseSchema: z.ZodSchema<UserResponse> =
   userResponseSchema;
 
-export const getApiV2UsersByUserIdComplianceDeletionStatusesResponseSchema: zod.ZodSchema<ComplianceDeletionStatusesResponse> =
+export const getApiV2UsersByUserIdComplianceDeletionStatusesResponseSchema: z.ZodSchema<ComplianceDeletionStatusesResponse> =
   complianceDeletionStatusesResponseSchema;
 
-export const getApiV2UsersByUserIdGroupMembershipsResponseSchema: zod.ZodSchema<GroupMembershipsResponse> =
+export const getApiV2UsersByUserIdGroupMembershipsResponseSchema: z.ZodSchema<GroupMembershipsResponse> =
   groupMembershipsResponseSchema;
 
-export const getApiV2UsersByUserIdIdentitiesResponseSchema: zod.ZodSchema<UserIdentitiesResponse> =
+export const getApiV2UsersByUserIdIdentitiesResponseSchema: z.ZodSchema<UserIdentitiesResponse> =
   userIdentitiesResponseSchema;
 
-export const getApiV2UsersByUserIdIdentitiesByUserIdentityIdResponseSchema: zod.ZodSchema<UserIdentityResponse> =
+export const getApiV2UsersByUserIdIdentitiesByUserIdentityIdResponseSchema: z.ZodSchema<UserIdentityResponse> =
   userIdentityResponseSchema;
 
-export const getApiV2UsersByUserIdPasswordRequirementsResponseSchema: zod.ZodSchema<UserPasswordRequirementsResponse> =
+export const getApiV2UsersByUserIdPasswordRequirementsResponseSchema: z.ZodSchema<UserPasswordRequirementsResponse> =
   userPasswordRequirementsResponseSchema;
 
-export const getApiV2UsersByUserIdRelatedResponseSchema: zod.ZodSchema<UserRelatedResponse> =
+export const getApiV2UsersByUserIdRelatedResponseSchema: z.ZodSchema<UserRelatedResponse> =
   userRelatedResponseSchema;
 
-export const getApiV2UsersByUserIdSessionsBySessionIdResponseSchema: zod.ZodSchema<SessionResponse> =
+export const getApiV2UsersByUserIdSessionsBySessionIdResponseSchema: z.ZodSchema<SessionResponse> =
   sessionResponseSchema;
 
-export const getApiV2UsersByUserIdSkipsResponseSchema: zod.ZodSchema<TicketSkipsResponse> =
+export const getApiV2UsersByUserIdSkipsResponseSchema: z.ZodSchema<TicketSkipsResponse> =
   ticketSkipsResponseSchema;
 
-export const getApiV2UsersAutocompleteResponseSchema: zod.ZodSchema<UsersResponse> =
+export const getApiV2UsersAutocompleteResponseSchema: z.ZodSchema<UsersResponse> =
   usersResponseSchema;
 
-export const getApiV2UsersCountResponseSchema: zod.ZodSchema<CountResponse> =
+export const getApiV2UsersCountResponseSchema: z.ZodSchema<CountResponse> =
   countResponseSchema;
 
-export const getApiV2UsersMeResponseSchema: zod.ZodSchema<CurrentUserResponse> =
+export const getApiV2UsersMeResponseSchema: z.ZodSchema<CurrentUserResponse> =
   currentUserResponseSchema;
 
-export const getApiV2UsersMeSessionResponseSchema: zod.ZodSchema<SessionResponse> =
+export const getApiV2UsersMeSessionResponseSchema: z.ZodSchema<SessionResponse> =
   sessionResponseSchema;
 
-export const getApiV2UsersMeSessionRenewResponseSchema: zod.ZodSchema<RenewSessionResponse> =
+export const getApiV2UsersMeSessionRenewResponseSchema: z.ZodSchema<RenewSessionResponse> =
   renewSessionResponseSchema;
 
-export const getApiV2UsersSearchResponseSchema: zod.ZodSchema<UsersResponse> =
+export const getApiV2UsersSearchResponseSchema: z.ZodSchema<UsersResponse> =
   usersResponseSchema;
 
-export const getApiV2UsersShowManyResponseSchema: zod.ZodSchema<UsersResponse> =
+export const getApiV2UsersShowManyResponseSchema: z.ZodSchema<UsersResponse> =
   usersResponseSchema;
 
-export const getApiV2ViewsResponseSchema: zod.ZodSchema<ViewsResponse> =
+export const getApiV2ViewsResponseSchema: z.ZodSchema<ViewsResponse> =
   viewsResponseSchema;
 
-export const getApiV2ViewsByViewIdResponseSchema: zod.ZodSchema<ViewResponse> =
+export const getApiV2ViewsByViewIdResponseSchema: z.ZodSchema<ViewResponse> =
   viewResponseSchema;
 
-export const getApiV2ViewsByViewIdCountResponseSchema: zod.ZodSchema<ViewCountResponse> =
+export const getApiV2ViewsByViewIdCountResponseSchema: z.ZodSchema<ViewCountResponse> =
   viewCountResponseSchema;
 
-export const getApiV2ViewsByViewIdExecuteResponseSchema: zod.ZodSchema<ViewResponse> =
+export const getApiV2ViewsByViewIdExecuteResponseSchema: z.ZodSchema<ViewResponse> =
   viewResponseSchema;
 
-export const getApiV2ViewsByViewIdExportResponseSchema: zod.ZodSchema<ViewExportResponse> =
+export const getApiV2ViewsByViewIdExportResponseSchema: z.ZodSchema<ViewExportResponse> =
   viewExportResponseSchema;
 
-export const getApiV2ViewsByViewIdTicketsResponseSchema: zod.ZodSchema<TicketsResponse> =
+export const getApiV2ViewsByViewIdTicketsResponseSchema: z.ZodSchema<TicketsResponse> =
   ticketsResponseSchema;
 
-export const getApiV2ViewsActiveResponseSchema: zod.ZodSchema<ViewsResponse> =
+export const getApiV2ViewsActiveResponseSchema: z.ZodSchema<ViewsResponse> =
   viewsResponseSchema;
 
-export const getApiV2ViewsCompactResponseSchema: zod.ZodSchema<ViewsResponse> =
+export const getApiV2ViewsCompactResponseSchema: z.ZodSchema<ViewsResponse> =
   viewsResponseSchema;
 
-export const getApiV2ViewsCountResponseSchema: zod.ZodSchema<ViewsCountResponse> =
+export const getApiV2ViewsCountResponseSchema: z.ZodSchema<ViewsCountResponse> =
   viewsCountResponseSchema;
 
-export const getApiV2ViewsCountManyResponseSchema: zod.ZodSchema<ViewCountsResponse> =
+export const getApiV2ViewsCountManyResponseSchema: z.ZodSchema<ViewCountsResponse> =
   viewCountsResponseSchema;
 
-export const getApiV2ViewsSearchResponseSchema: zod.ZodSchema<ViewsResponse> =
+export const getApiV2ViewsSearchResponseSchema: z.ZodSchema<ViewsResponse> =
   viewsResponseSchema;
 
-export const getApiV2ViewsShowManyResponseSchema: zod.ZodSchema<ViewsResponse> =
+export const getApiV2ViewsShowManyResponseSchema: z.ZodSchema<ViewsResponse> =
   viewsResponseSchema;
 
-export const getApiV2WorkspacesResponseSchema: zod.ZodSchema<WorkspaceResponse> =
+export const getApiV2WorkspacesResponseSchema: z.ZodSchema<WorkspaceResponse> =
   workspaceResponseSchema;
 
-export const getApiV2WorkspacesByWorkspaceIdResponseSchema: zod.ZodSchema<{
+export const getApiV2WorkspacesByWorkspaceIdResponseSchema: z.ZodSchema<{
   workspace: WorkspaceObject;
 }> = z.object({ workspace: workspaceObjectSchema });
 
-export const postApiV2AnyChannelChannelbackReportErrorResponseSchema: zod.ZodSchema<string> =
+export const postApiV2AnyChannelChannelbackReportErrorResponseSchema: z.ZodSchema<string> =
   z.string().describe("Empty response");
 
-export const postApiV2AnyChannelPushResponseSchema: zod.ZodSchema<ChannelFrameworkPushResultsResponse> =
+export const postApiV2AnyChannelPushResponseSchema: z.ZodSchema<ChannelFrameworkPushResultsResponse> =
   channelFrameworkPushResultsResponseSchema;
 
-export const postApiV2AnyChannelValidateTokenResponseSchema: zod.ZodSchema<string> =
+export const postApiV2AnyChannelValidateTokenResponseSchema: z.ZodSchema<string> =
   z.string().describe("Empty response");
 
-export const postApiV2BookmarksResponseSchema: zod.ZodSchema<BookmarkResponse> =
+export const postApiV2BookmarksResponseSchema: z.ZodSchema<BookmarkResponse> =
   bookmarkResponseSchema;
 
-export const postApiV2ChannelsVoiceAgentsByAgentIdTicketsByTicketIdDisplayResponseSchema: zod.ZodSchema<string> =
+export const postApiV2ChannelsVoiceAgentsByAgentIdTicketsByTicketIdDisplayResponseSchema: z.ZodSchema<string> =
   z.string().describe("empty");
 
-export const postApiV2ChannelsVoiceAgentsByAgentIdUsersByUserIdDisplayResponseSchema: zod.ZodSchema<string> =
+export const postApiV2ChannelsVoiceAgentsByAgentIdUsersByUserIdDisplayResponseSchema: z.ZodSchema<string> =
   z.string().describe("empty");
 
-export const postApiV2CustomRolesResponseSchema: zod.ZodSchema<CustomRoleResponse> =
+export const postApiV2CustomRolesResponseSchema: z.ZodSchema<CustomRoleResponse> =
   customRoleResponseSchema;
 
-export const postApiV2GroupMembershipsCreateManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const postApiV2GroupMembershipsCreateManyResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const postApiV2ImportsTicketsCreateManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const postApiV2ImportsTicketsCreateManyResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const postApiV2MacrosResponseSchema: zod.ZodSchema<{
+export const postApiV2MacrosResponseSchema: z.ZodSchema<{
   macro: MacroObject;
 }> = z.object({ macro: macroObjectSchema });
 
-export const postApiV2OrganizationMembershipsCreateManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const postApiV2OrganizationMembershipsCreateManyResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const postApiV2OrganizationSubscriptionsResponseSchema: zod.ZodSchema<OrganizationSubscriptionResponse> =
+export const postApiV2OrganizationSubscriptionsResponseSchema: z.ZodSchema<OrganizationSubscriptionResponse> =
   organizationSubscriptionResponseSchema;
 
-export const postApiV2OrganizationsCreateManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const postApiV2OrganizationsCreateManyResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const postApiV2OrganizationsCreateOrUpdateResponseSchema: zod.ZodSchema<OrganizationResponse> =
+export const postApiV2OrganizationsCreateOrUpdateResponseSchema: z.ZodSchema<OrganizationResponse> =
   organizationResponseSchema;
 
-export const postApiV2ProblemsAutocompleteResponseSchema: zod.ZodSchema<ListTicketProblemsResponse> =
+export const postApiV2ProblemsAutocompleteResponseSchema: z.ZodSchema<ListTicketProblemsResponse> =
   listTicketProblemsResponseSchema;
 
-export const postApiV2PushNotificationDevicesDestroyManyResponseSchema: zod.ZodSchema<string> =
+export const postApiV2PushNotificationDevicesDestroyManyResponseSchema: z.ZodSchema<string> =
   z.string().describe("empty");
 
-export const postApiV2ResourceCollectionsResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const postApiV2ResourceCollectionsResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const postApiV2RoutingAgentsByUserIdInstanceValuesResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeValuesResponse> =
+export const postApiV2RoutingAgentsByUserIdInstanceValuesResponseSchema: z.ZodSchema<SkillBasedRoutingAttributeValuesResponse> =
   skillBasedRoutingAttributeValuesResponseSchema;
 
-export const postApiV2RoutingTicketsByTicketIdInstanceValuesResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeValuesResponse> =
+export const postApiV2RoutingTicketsByTicketIdInstanceValuesResponseSchema: z.ZodSchema<SkillBasedRoutingAttributeValuesResponse> =
   skillBasedRoutingAttributeValuesResponseSchema;
 
-export const postApiV2SuspendedTicketsAttachmentsResponseSchema: zod.ZodSchema<SuspendedTicketsAttachmentsResponse> =
+export const postApiV2SuspendedTicketsAttachmentsResponseSchema: z.ZodSchema<SuspendedTicketsAttachmentsResponse> =
   suspendedTicketsAttachmentsResponseSchema;
 
-export const postApiV2SuspendedTicketsExportResponseSchema: zod.ZodSchema<SuspendedTicketsExportResponse> =
+export const postApiV2SuspendedTicketsExportResponseSchema: z.ZodSchema<SuspendedTicketsExportResponse> =
   suspendedTicketsExportResponseSchema;
 
-export const postApiV2TicketFieldsByTicketFieldIdOptionsResponseSchema: zod.ZodSchema<CustomFieldOptionResponse> =
+export const postApiV2TicketFieldsByTicketFieldIdOptionsResponseSchema: z.ZodSchema<CustomFieldOptionResponse> =
   customFieldOptionResponseSchema;
 
-export const postApiV2TicketFormsByTicketFormIdCloneResponseSchema: zod.ZodSchema<TicketFormResponse> =
+export const postApiV2TicketFormsByTicketFormIdCloneResponseSchema: z.ZodSchema<TicketFormResponse> =
   ticketFormResponseSchema;
 
-export const postApiV2TicketsByTicketIdMergeResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const postApiV2TicketsByTicketIdMergeResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const postApiV2TicketsByTicketIdSatisfactionRatingResponseSchema: zod.ZodSchema<SatisfactionRatingResponse> =
+export const postApiV2TicketsByTicketIdSatisfactionRatingResponseSchema: z.ZodSchema<SatisfactionRatingResponse> =
   satisfactionRatingResponseSchema;
 
-export const postApiV2TicketsCreateManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const postApiV2TicketsCreateManyResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const postApiV2TriggerCategoriesResponseSchema: zod.ZodSchema<TriggerCategoryResponse> =
+export const postApiV2TriggerCategoriesResponseSchema: z.ZodSchema<TriggerCategoryResponse> =
   triggerCategoryResponseSchema;
 
-export const postApiV2TriggerCategoriesJobsResponseSchema: zod.ZodSchema<BatchJobResponse> =
+export const postApiV2TriggerCategoriesJobsResponseSchema: z.ZodSchema<BatchJobResponse> =
   batchJobResponseSchema;
 
-export const postApiV2UserFieldsByUserFieldIdOptionsResponseSchema: zod.ZodSchema<CustomFieldOptionResponse> =
+export const postApiV2UserFieldsByUserFieldIdOptionsResponseSchema: z.ZodSchema<CustomFieldOptionResponse> =
   customFieldOptionResponseSchema;
 
-export const postApiV2UsersByUserIdPasswordResponseSchema: zod.ZodSchema<string> =
+export const postApiV2UsersByUserIdPasswordResponseSchema: z.ZodSchema<string> =
   z.string().describe("Empty response");
 
-export const postApiV2UsersCreateManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const postApiV2UsersCreateManyResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const postApiV2UsersCreateOrUpdateResponseSchema: zod.ZodSchema<UserResponse> =
+export const postApiV2UsersCreateOrUpdateResponseSchema: z.ZodSchema<UserResponse> =
   userResponseSchema;
 
-export const postApiV2UsersCreateOrUpdateManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const postApiV2UsersCreateOrUpdateManyResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const postApiV2UsersRequestCreateResponseSchema: zod.ZodSchema<string> =
-  z.string().describe("Empty response");
-
-export const postApiV2ViewsResponseSchema: zod.ZodSchema<ViewResponse> =
-  viewResponseSchema;
-
-export const postApiV2ViewsPreviewResponseSchema: zod.ZodSchema<ViewResponse> =
-  viewResponseSchema;
-
-export const postApiV2ViewsPreviewCountResponseSchema: zod.ZodSchema<ViewCountResponse> =
-  viewCountResponseSchema;
-
-export const putApiV2AccountSettingsResponseSchema: zod.ZodSchema<AccountSettingsResponse> =
-  accountSettingsResponseSchema;
-
-export const putApiV2AttachmentsByAttachmentIdResponseSchema: zod.ZodSchema<AttachmentResponse> =
-  attachmentResponseSchema;
-
-export const putApiV2AutomationsByAutomationIdResponseSchema: zod.ZodSchema<AutomationResponse> =
-  automationResponseSchema;
-
-export const putApiV2AutomationsUpdateManyResponseSchema: zod.ZodSchema<AutomationsResponse> =
-  automationsResponseSchema;
-
-export const putApiV2BrandsByBrandIdResponseSchema: zod.ZodSchema<BrandResponse> =
-  brandResponseSchema;
-
-export const putApiV2ChatFileRedactionsByTicketIdResponseSchema: zod.ZodSchema<TicketChatCommentRedactionResponse> =
-  ticketChatCommentRedactionResponseSchema;
-
-export const putApiV2ChatRedactionsByTicketIdResponseSchema: zod.ZodSchema<TicketChatCommentRedactionResponse> =
-  ticketChatCommentRedactionResponseSchema;
-
-export const putApiV2CommentRedactionsByTicketCommentIdResponseSchema: zod.ZodSchema<TicketCommentResponse> =
-  ticketCommentResponseSchema;
-
-export const putApiV2CustomObjectsByCustomObjectKeyFieldsReorderResponseSchema: zod.ZodSchema<string> =
-  z.string().describe("Empty response");
-
-export const putApiV2CustomRolesByCustomRoleIdResponseSchema: zod.ZodSchema<CustomRoleResponse> =
-  customRoleResponseSchema;
-
-export const putApiV2CustomStatusDefaultResponseSchema: zod.ZodSchema<BulkUpdateDefaultCustomStatusResponse> =
-  bulkUpdateDefaultCustomStatusResponseSchema;
-
-export const putApiV2CustomStatusesByCustomStatusIdResponseSchema: zod.ZodSchema<CustomStatusResponse> =
-  customStatusResponseSchema;
-
-export const putApiV2DeletedTicketsByTicketIdRestoreResponseSchema: zod.ZodSchema<string> =
-  z.string().describe("Empty response");
-
-export const putApiV2DeletedTicketsRestoreManyResponseSchema: zod.ZodSchema<string> =
-  z.string().describe("Empty response");
-
-export const putApiV2DynamicContentItemsByDynamicContentItemIdResponseSchema: zod.ZodSchema<DynamicContentResponse> =
-  dynamicContentResponseSchema;
-
-export const putApiV2DynamicContentItemsByDynamicContentItemIdVariantsByDynammicContentVariantIdResponseSchema: zod.ZodSchema<DynamicContentVariantResponse> =
-  dynamicContentVariantResponseSchema;
-
-export const putApiV2DynamicContentItemsByDynamicContentItemIdVariantsUpdateManyResponseSchema: zod.ZodSchema<DynamicContentVariantsResponse> =
-  dynamicContentVariantsResponseSchema;
-
-export const putApiV2GroupSlasPoliciesByGroupSlaPolicyIdResponseSchema: zod.ZodSchema<GroupSLAPolicyResponse> =
-  groupSlaPolicyResponseSchema;
-
-export const putApiV2GroupSlasPoliciesReorderResponseSchema: zod.ZodSchema<string> =
-  z.string().describe("Empty response");
-
-export const putApiV2GroupsByGroupIdResponseSchema: zod.ZodSchema<GroupResponse> =
-  groupResponseSchema;
-
-export const putApiV2MacrosByMacroIdResponseSchema: zod.ZodSchema<{
-  macro: MacroObject;
-}> = z.object({ macro: macroObjectSchema });
-
-export const putApiV2MacrosUpdateManyResponseSchema: zod.ZodSchema<MacrosResponse> =
-  macrosResponseSchema;
-
-export const putApiV2OrganizationFieldsByOrganizationFieldIdResponseSchema: zod.ZodSchema<OrganizationFieldResponse> =
-  organizationFieldResponseSchema;
-
-export const putApiV2OrganizationFieldsReorderResponseSchema: zod.ZodSchema<string> =
-  z.string().describe("Empty response");
-
-export const putApiV2OrganizationsByOrganizationIdResponseSchema: zod.ZodSchema<OrganizationResponse> =
-  organizationResponseSchema;
-
-export const putApiV2OrganizationsUpdateManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
-  jobStatusResponseSchema;
-
-export const putApiV2RecipientAddressesBySupportAddressIdResponseSchema: zod.ZodSchema<SupportAddressResponse> =
-  supportAddressResponseSchema;
-
-export const putApiV2RecipientAddressesBySupportAddressIdVerifyResponseSchema: zod.ZodSchema<string> =
-  z.string().describe("Empty response");
-
-export const putApiV2RequestsByRequestIdResponseSchema: zod.ZodSchema<RequestResponse> =
-  requestResponseSchema;
-
-export const putApiV2ResourceCollectionsByResourceCollectionIdResponseSchema: zod.ZodSchema<JobStatusResponse> =
-  jobStatusResponseSchema;
-
-export const putApiV2RoutingAttributesByAttributeIdResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeResponse> =
-  skillBasedRoutingAttributeResponseSchema;
-
-export const putApiV2SharingAgreementsBySharingAgreementIdResponseSchema: zod.ZodSchema<SharingAgreementResponse> =
-  sharingAgreementResponseSchema;
-
-export const putApiV2SlasPoliciesBySlaPolicyIdResponseSchema: zod.ZodSchema<SLAPolicyResponse> =
-  slaPolicyResponseSchema;
-
-export const putApiV2SlasPoliciesReorderResponseSchema: zod.ZodSchema<string> =
-  z.string().describe("Empty response");
-
-export const putApiV2SuspendedTicketsByIdRecoverResponseSchema: zod.ZodSchema<RecoverSuspendedTicketResponse> =
-  recoverSuspendedTicketResponseSchema;
-
-export const putApiV2SuspendedTicketsRecoverManyResponseSchema: zod.ZodSchema<RecoverSuspendedTicketsResponse> =
-  recoverSuspendedTicketsResponseSchema;
-
-export const putApiV2TargetsByTargetIdResponseSchema: zod.ZodSchema<TargetResponse> =
-  targetResponseSchema;
-
-export const putApiV2TicketFieldsByTicketFieldIdResponseSchema: zod.ZodSchema<TicketFieldResponse> =
-  ticketFieldResponseSchema;
-
-export const putApiV2TicketFormsByTicketFormIdResponseSchema: zod.ZodSchema<TicketFormResponse> =
-  ticketFormResponseSchema;
-
-export const putApiV2TicketFormsReorderResponseSchema: zod.ZodSchema<TicketFormsResponse> =
-  ticketFormsResponseSchema;
-
-export const putApiV2TicketsByTicketIdResponseSchema: zod.ZodSchema<TicketUpdateResponse> =
-  ticketUpdateResponseSchema;
-
-export const putApiV2TicketsByTicketIdAuditsByTicketAuditIdMakePrivateResponseSchema: zod.ZodSchema<string> =
-  z.string().describe("Empty response");
-
-export const putApiV2TicketsByTicketIdCommentsByCommentIdAttachmentsByAttachmentIdRedactResponseSchema: zod.ZodSchema<AttachmentResponse> =
-  attachmentResponseSchema;
-
-export const putApiV2TicketsByTicketIdCommentsByTicketCommentIdMakePrivateResponseSchema: zod.ZodSchema<string> =
-  z.string().describe("Empty response");
-
-export const putApiV2TicketsByTicketIdCommentsByTicketCommentIdRedactResponseSchema: zod.ZodSchema<TicketCommentResponse> =
-  ticketCommentResponseSchema;
-
-export const putApiV2TicketsByTicketIdMarkAsSpamResponseSchema: zod.ZodSchema<string> =
-  z.string();
-
-export const putApiV2TicketsByTicketIdTagsResponseSchema: zod.ZodSchema<TagsByObjectIdResponse> =
-  tagsByObjectIdResponseSchema;
-
-export const putApiV2TicketsMarkManyAsSpamResponseSchema: zod.ZodSchema<JobStatusResponse> =
-  jobStatusResponseSchema;
-
-export const putApiV2TicketsUpdateManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
-  jobStatusResponseSchema;
-
-export const putApiV2TriggersByTriggerIdResponseSchema: zod.ZodSchema<TriggerResponse> =
-  triggerResponseSchema;
-
-export const putApiV2TriggersReorderResponseSchema: zod.ZodSchema<TriggerResponse> =
-  triggerResponseSchema;
-
-export const putApiV2TriggersUpdateManyResponseSchema: zod.ZodSchema<TriggersResponse> =
-  triggersResponseSchema;
-
-export const putApiV2UserFieldsByUserFieldIdResponseSchema: zod.ZodSchema<UserFieldResponse> =
-  userFieldResponseSchema;
-
-export const putApiV2UserFieldsReorderResponseSchema: zod.ZodSchema<string> = z
+export const postApiV2UsersRequestCreateResponseSchema: z.ZodSchema<string> = z
   .string()
   .describe("Empty response");
 
-export const putApiV2UsersByUserIdResponseSchema: zod.ZodSchema<UserResponse> =
-  userResponseSchema;
-
-export const putApiV2UsersByUserIdGroupMembershipsByGroupMembershipIdMakeDefaultResponseSchema: zod.ZodSchema<GroupMembershipsResponse> =
-  groupMembershipsResponseSchema;
-
-export const putApiV2UsersByUserIdIdentitiesByUserIdentityIdResponseSchema: zod.ZodSchema<UserIdentityResponse> =
-  userIdentityResponseSchema;
-
-export const putApiV2UsersByUserIdIdentitiesByUserIdentityIdMakePrimaryResponseSchema: zod.ZodSchema<UserIdentitiesResponse> =
-  userIdentitiesResponseSchema;
-
-export const putApiV2UsersByUserIdIdentitiesByUserIdentityIdRequestVerificationResponseSchema: zod.ZodSchema<string> =
-  z.string().describe("Empty response");
-
-export const putApiV2UsersByUserIdIdentitiesByUserIdentityIdVerifyResponseSchema: zod.ZodSchema<UserIdentityResponse> =
-  userIdentityResponseSchema;
-
-export const putApiV2UsersByUserIdMergeResponseSchema: zod.ZodSchema<UserResponse> =
-  userResponseSchema;
-
-export const putApiV2UsersByUserIdOrganizationMembershipsByOrganizationMembershipIdMakeDefaultResponseSchema: zod.ZodSchema<OrganizationMembershipsResponse> =
-  organizationMembershipsResponseSchema;
-
-export const putApiV2UsersByUserIdOrganizationsByOrganizationIdMakeDefaultResponseSchema: zod.ZodSchema<OrganizationMembershipResponse> =
-  organizationMembershipResponseSchema;
-
-export const putApiV2UsersByUserIdPasswordResponseSchema: zod.ZodSchema<string> =
-  z.string().describe("Empty response");
-
-export const putApiV2UsersUpdateManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
-  jobStatusResponseSchema;
-
-export const putApiV2ViewsByViewIdResponseSchema: zod.ZodSchema<ViewResponse> =
+export const postApiV2ViewsResponseSchema: z.ZodSchema<ViewResponse> =
   viewResponseSchema;
 
-export const putApiV2ViewsUpdateManyResponseSchema: zod.ZodSchema<ViewsResponse> =
+export const postApiV2ViewsPreviewResponseSchema: z.ZodSchema<ViewResponse> =
+  viewResponseSchema;
+
+export const postApiV2ViewsPreviewCountResponseSchema: z.ZodSchema<ViewCountResponse> =
+  viewCountResponseSchema;
+
+export const putApiV2AccountSettingsResponseSchema: z.ZodSchema<AccountSettingsResponse> =
+  accountSettingsResponseSchema;
+
+export const putApiV2AttachmentsByAttachmentIdResponseSchema: z.ZodSchema<AttachmentResponse> =
+  attachmentResponseSchema;
+
+export const putApiV2AutomationsByAutomationIdResponseSchema: z.ZodSchema<AutomationResponse> =
+  automationResponseSchema;
+
+export const putApiV2AutomationsUpdateManyResponseSchema: z.ZodSchema<AutomationsResponse> =
+  automationsResponseSchema;
+
+export const putApiV2BrandsByBrandIdResponseSchema: z.ZodSchema<BrandResponse> =
+  brandResponseSchema;
+
+export const putApiV2ChatFileRedactionsByTicketIdResponseSchema: z.ZodSchema<TicketChatCommentRedactionResponse> =
+  ticketChatCommentRedactionResponseSchema;
+
+export const putApiV2ChatRedactionsByTicketIdResponseSchema: z.ZodSchema<TicketChatCommentRedactionResponse> =
+  ticketChatCommentRedactionResponseSchema;
+
+export const putApiV2CommentRedactionsByTicketCommentIdResponseSchema: z.ZodSchema<TicketCommentResponse> =
+  ticketCommentResponseSchema;
+
+export const putApiV2CustomObjectsByCustomObjectKeyFieldsReorderResponseSchema: z.ZodSchema<string> =
+  z.string().describe("Empty response");
+
+export const putApiV2CustomRolesByCustomRoleIdResponseSchema: z.ZodSchema<CustomRoleResponse> =
+  customRoleResponseSchema;
+
+export const putApiV2CustomStatusDefaultResponseSchema: z.ZodSchema<BulkUpdateDefaultCustomStatusResponse> =
+  bulkUpdateDefaultCustomStatusResponseSchema;
+
+export const putApiV2CustomStatusesByCustomStatusIdResponseSchema: z.ZodSchema<CustomStatusResponse> =
+  customStatusResponseSchema;
+
+export const putApiV2DeletedTicketsByTicketIdRestoreResponseSchema: z.ZodSchema<string> =
+  z.string().describe("Empty response");
+
+export const putApiV2DeletedTicketsRestoreManyResponseSchema: z.ZodSchema<string> =
+  z.string().describe("Empty response");
+
+export const putApiV2DynamicContentItemsByDynamicContentItemIdResponseSchema: z.ZodSchema<DynamicContentResponse> =
+  dynamicContentResponseSchema;
+
+export const putApiV2DynamicContentItemsByDynamicContentItemIdVariantsByDynammicContentVariantIdResponseSchema: z.ZodSchema<DynamicContentVariantResponse> =
+  dynamicContentVariantResponseSchema;
+
+export const putApiV2DynamicContentItemsByDynamicContentItemIdVariantsUpdateManyResponseSchema: z.ZodSchema<DynamicContentVariantsResponse> =
+  dynamicContentVariantsResponseSchema;
+
+export const putApiV2GroupSlasPoliciesByGroupSlaPolicyIdResponseSchema: z.ZodSchema<GroupSLAPolicyResponse> =
+  groupSlaPolicyResponseSchema;
+
+export const putApiV2GroupSlasPoliciesReorderResponseSchema: z.ZodSchema<string> =
+  z.string().describe("Empty response");
+
+export const putApiV2GroupsByGroupIdResponseSchema: z.ZodSchema<GroupResponse> =
+  groupResponseSchema;
+
+export const putApiV2MacrosByMacroIdResponseSchema: z.ZodSchema<{
+  macro: MacroObject;
+}> = z.object({ macro: macroObjectSchema });
+
+export const putApiV2MacrosUpdateManyResponseSchema: z.ZodSchema<MacrosResponse> =
+  macrosResponseSchema;
+
+export const putApiV2OrganizationFieldsByOrganizationFieldIdResponseSchema: z.ZodSchema<OrganizationFieldResponse> =
+  organizationFieldResponseSchema;
+
+export const putApiV2OrganizationFieldsReorderResponseSchema: z.ZodSchema<string> =
+  z.string().describe("Empty response");
+
+export const putApiV2OrganizationsByOrganizationIdResponseSchema: z.ZodSchema<OrganizationResponse> =
+  organizationResponseSchema;
+
+export const putApiV2OrganizationsUpdateManyResponseSchema: z.ZodSchema<JobStatusResponse> =
+  jobStatusResponseSchema;
+
+export const putApiV2RecipientAddressesBySupportAddressIdResponseSchema: z.ZodSchema<SupportAddressResponse> =
+  supportAddressResponseSchema;
+
+export const putApiV2RecipientAddressesBySupportAddressIdVerifyResponseSchema: z.ZodSchema<string> =
+  z.string().describe("Empty response");
+
+export const putApiV2RequestsByRequestIdResponseSchema: z.ZodSchema<RequestResponse> =
+  requestResponseSchema;
+
+export const putApiV2ResourceCollectionsByResourceCollectionIdResponseSchema: z.ZodSchema<JobStatusResponse> =
+  jobStatusResponseSchema;
+
+export const putApiV2RoutingAttributesByAttributeIdResponseSchema: z.ZodSchema<SkillBasedRoutingAttributeResponse> =
+  skillBasedRoutingAttributeResponseSchema;
+
+export const putApiV2SharingAgreementsBySharingAgreementIdResponseSchema: z.ZodSchema<SharingAgreementResponse> =
+  sharingAgreementResponseSchema;
+
+export const putApiV2SlasPoliciesBySlaPolicyIdResponseSchema: z.ZodSchema<SLAPolicyResponse> =
+  slaPolicyResponseSchema;
+
+export const putApiV2SlasPoliciesReorderResponseSchema: z.ZodSchema<string> = z
+  .string()
+  .describe("Empty response");
+
+export const putApiV2SuspendedTicketsByIdRecoverResponseSchema: z.ZodSchema<RecoverSuspendedTicketResponse> =
+  recoverSuspendedTicketResponseSchema;
+
+export const putApiV2SuspendedTicketsRecoverManyResponseSchema: z.ZodSchema<RecoverSuspendedTicketsResponse> =
+  recoverSuspendedTicketsResponseSchema;
+
+export const putApiV2TargetsByTargetIdResponseSchema: z.ZodSchema<TargetResponse> =
+  targetResponseSchema;
+
+export const putApiV2TicketFieldsByTicketFieldIdResponseSchema: z.ZodSchema<TicketFieldResponse> =
+  ticketFieldResponseSchema;
+
+export const putApiV2TicketFormsByTicketFormIdResponseSchema: z.ZodSchema<TicketFormResponse> =
+  ticketFormResponseSchema;
+
+export const putApiV2TicketFormsReorderResponseSchema: z.ZodSchema<TicketFormsResponse> =
+  ticketFormsResponseSchema;
+
+export const putApiV2TicketsByTicketIdResponseSchema: z.ZodSchema<TicketUpdateResponse> =
+  ticketUpdateResponseSchema;
+
+export const putApiV2TicketsByTicketIdAuditsByTicketAuditIdMakePrivateResponseSchema: z.ZodSchema<string> =
+  z.string().describe("Empty response");
+
+export const putApiV2TicketsByTicketIdCommentsByCommentIdAttachmentsByAttachmentIdRedactResponseSchema: z.ZodSchema<AttachmentResponse> =
+  attachmentResponseSchema;
+
+export const putApiV2TicketsByTicketIdCommentsByTicketCommentIdMakePrivateResponseSchema: z.ZodSchema<string> =
+  z.string().describe("Empty response");
+
+export const putApiV2TicketsByTicketIdCommentsByTicketCommentIdRedactResponseSchema: z.ZodSchema<TicketCommentResponse> =
+  ticketCommentResponseSchema;
+
+export const putApiV2TicketsByTicketIdMarkAsSpamResponseSchema: z.ZodSchema<string> =
+  z.string();
+
+export const putApiV2TicketsByTicketIdTagsResponseSchema: z.ZodSchema<TagsByObjectIdResponse> =
+  tagsByObjectIdResponseSchema;
+
+export const putApiV2TicketsMarkManyAsSpamResponseSchema: z.ZodSchema<JobStatusResponse> =
+  jobStatusResponseSchema;
+
+export const putApiV2TicketsUpdateManyResponseSchema: z.ZodSchema<JobStatusResponse> =
+  jobStatusResponseSchema;
+
+export const putApiV2TriggersByTriggerIdResponseSchema: z.ZodSchema<TriggerResponse> =
+  triggerResponseSchema;
+
+export const putApiV2TriggersReorderResponseSchema: z.ZodSchema<TriggerResponse> =
+  triggerResponseSchema;
+
+export const putApiV2TriggersUpdateManyResponseSchema: z.ZodSchema<TriggersResponse> =
+  triggersResponseSchema;
+
+export const putApiV2UserFieldsByUserFieldIdResponseSchema: z.ZodSchema<UserFieldResponse> =
+  userFieldResponseSchema;
+
+export const putApiV2UserFieldsReorderResponseSchema: z.ZodSchema<string> = z
+  .string()
+  .describe("Empty response");
+
+export const putApiV2UsersByUserIdResponseSchema: z.ZodSchema<UserResponse> =
+  userResponseSchema;
+
+export const putApiV2UsersByUserIdGroupMembershipsByGroupMembershipIdMakeDefaultResponseSchema: z.ZodSchema<GroupMembershipsResponse> =
+  groupMembershipsResponseSchema;
+
+export const putApiV2UsersByUserIdIdentitiesByUserIdentityIdResponseSchema: z.ZodSchema<UserIdentityResponse> =
+  userIdentityResponseSchema;
+
+export const putApiV2UsersByUserIdIdentitiesByUserIdentityIdMakePrimaryResponseSchema: z.ZodSchema<UserIdentitiesResponse> =
+  userIdentitiesResponseSchema;
+
+export const putApiV2UsersByUserIdIdentitiesByUserIdentityIdRequestVerificationResponseSchema: z.ZodSchema<string> =
+  z.string().describe("Empty response");
+
+export const putApiV2UsersByUserIdIdentitiesByUserIdentityIdVerifyResponseSchema: z.ZodSchema<UserIdentityResponse> =
+  userIdentityResponseSchema;
+
+export const putApiV2UsersByUserIdMergeResponseSchema: z.ZodSchema<UserResponse> =
+  userResponseSchema;
+
+export const putApiV2UsersByUserIdOrganizationMembershipsByOrganizationMembershipIdMakeDefaultResponseSchema: z.ZodSchema<OrganizationMembershipsResponse> =
+  organizationMembershipsResponseSchema;
+
+export const putApiV2UsersByUserIdOrganizationsByOrganizationIdMakeDefaultResponseSchema: z.ZodSchema<OrganizationMembershipResponse> =
+  organizationMembershipResponseSchema;
+
+export const putApiV2UsersByUserIdPasswordResponseSchema: z.ZodSchema<string> =
+  z.string().describe("Empty response");
+
+export const putApiV2UsersUpdateManyResponseSchema: z.ZodSchema<JobStatusResponse> =
+  jobStatusResponseSchema;
+
+export const putApiV2ViewsByViewIdResponseSchema: z.ZodSchema<ViewResponse> =
+  viewResponseSchema;
+
+export const putApiV2ViewsUpdateManyResponseSchema: z.ZodSchema<ViewsResponse> =
   viewsResponseSchema;
 
-export const putApiV2WorkspacesByWorkspaceIdResponseSchema: zod.ZodSchema<{
+export const putApiV2WorkspacesByWorkspaceIdResponseSchema: z.ZodSchema<{
   workspace: WorkspaceObject;
 }> = z.object({ workspace: workspaceObjectSchema });
 
-export const putApiV2WorkspacesReorderResponseSchema: zod.ZodSchema<string> = z
+export const putApiV2WorkspacesReorderResponseSchema: z.ZodSchema<string> = z
   .string()
   .describe("Empty response");
 
-export const deleteApiV2DeletedTicketsByTicketIdResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const deleteApiV2DeletedTicketsByTicketIdResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const deleteApiV2DeletedTicketsDestroyManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const deleteApiV2DeletedTicketsDestroyManyResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const deleteApiV2DeletedUsersByDeletedUserIdResponseSchema: zod.ZodSchema<DeletedUserResponse> =
+export const deleteApiV2DeletedUsersByDeletedUserIdResponseSchema: z.ZodSchema<DeletedUserResponse> =
   deletedUserResponseSchema;
 
-export const deleteApiV2GroupMembershipsDestroyManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const deleteApiV2GroupMembershipsDestroyManyResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const deleteApiV2OrganizationMembershipsDestroyManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const deleteApiV2OrganizationMembershipsDestroyManyResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const deleteApiV2OrganizationsDestroyManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const deleteApiV2OrganizationsDestroyManyResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const deleteApiV2ResourceCollectionsByResourceCollectionIdResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const deleteApiV2ResourceCollectionsByResourceCollectionIdResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const deleteApiV2TicketsDestroyManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const deleteApiV2TicketsDestroyManyResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const deleteApiV2UsersByUserIdResponseSchema: zod.ZodSchema<UserResponse> =
+export const deleteApiV2UsersByUserIdResponseSchema: z.ZodSchema<UserResponse> =
   userResponseSchema;
 
-export const deleteApiV2UsersDestroyManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
+export const deleteApiV2UsersDestroyManyResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
 
-export const deleteApiV2WorkspacesDestroyManyResponseSchema: zod.ZodSchema<string> =
+export const deleteApiV2WorkspacesDestroyManyResponseSchema: z.ZodSchema<string> =
   z.string().describe("Empty response");

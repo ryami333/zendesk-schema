@@ -26,7 +26,7 @@ module.exports.convertOpenApiSchemaToZodSchemaExport = (
         factory.createVariableDeclaration(
           createZodSchemaIdentifier(exportName),
           undefined,
-          factory.createTypeReferenceNode("zod.ZodSchema", [typeNode]),
+          factory.createTypeReferenceNode("z.ZodSchema", [typeNode]),
           convertOpenApiSchemaToZodSchema(openApiSchema),
         ),
       ],
