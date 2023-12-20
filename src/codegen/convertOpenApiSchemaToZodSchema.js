@@ -41,8 +41,6 @@ const createDescriptionCallExpression = (expression, description) => {
  */
 function convertOpenApiSchemaToZodSchema(openApiSchema) {
   if ("allOf" in openApiSchema) {
-    const [firstSchema, ...restSchema] = openApiSchema.allOf ?? [];
-
     return pipe(
       openApiSchema.allOf?.map((childSchema) =>
         convertOpenApiSchemaToZodSchema(childSchema),
@@ -84,8 +82,6 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
     );
   }
   if ("anyOf" in openApiSchema) {
-    const [firstSchema, ...restSchema] = openApiSchema.anyOf ?? [];
-
     return pipe(
       openApiSchema.anyOf?.map((childSchema) =>
         convertOpenApiSchemaToZodSchema(childSchema),
@@ -131,8 +127,6 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
     );
   }
   if ("oneOf" in openApiSchema) {
-    const [firstSchema, ...restSchema] = openApiSchema.oneOf ?? [];
-
     return pipe(
       openApiSchema.oneOf?.map((childSchema) =>
         convertOpenApiSchemaToZodSchema(childSchema),
