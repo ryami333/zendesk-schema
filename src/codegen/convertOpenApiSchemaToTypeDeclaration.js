@@ -112,23 +112,17 @@ function convertOpenApiSchemaToTypeDeclaration(name, schema) {
     }
     case "integer":
     case "string": {
-      if (schema.enum) {
-        return factory.createTypeAliasDeclaration(
-          [exportModifier],
-          nameIdentifier,
-          undefined,
-          factory.createUnionTypeNode(
-            schema.enum.map((enumVal) => {
-              return factory.createTypeReferenceNode(JSON.stringify(enumVal));
-            }),
-          ),
-        );
-      }
       return factory.createTypeAliasDeclaration(
         [exportModifier],
         nameIdentifier,
         undefined,
-        factory.createTypeReferenceNode(schema.type),
+        schema.enum
+          ? factory.createUnionTypeNode(
+              schema.enum.map((enumVal) => {
+                return factory.createTypeReferenceNode(JSON.stringify(enumVal));
+              }),
+            )
+          : factory.createTypeReferenceNode(schema.type),
       );
     }
 
