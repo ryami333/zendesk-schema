@@ -1,3 +1,4 @@
+const { pipe } = require("fp-ts/lib/function");
 const ts = require("typescript");
 
 const { factory } = ts;
@@ -81,89 +82,80 @@ function convertOpenApiSchemaToTypeNode(openApiSchema) {
   switch (openApiSchema.type) {
     case "object": {
       const propertyEntries = Object.entries(openApiSchema.properties || {});
-      /**
-       * Special-case: don't return `{}`, instead return
-       * `Record<string, unknown>`.
-       */
-      if (propertyEntries.length === 0) {
-        const innerTypeNode = factory.createTypeReferenceNode(
-          factory.createIdentifier("Record"),
-          [
-            factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
-            factory.createKeywordTypeNode(ts.SyntaxKind.UnknownKeyword),
-          ],
-        );
-        return openApiSchema.nullable
-          ? createMaybeTypedTypeNode(innerTypeNode)
-          : innerTypeNode;
-      }
 
-      const innerTypeNode = factory.createTypeLiteralNode(
-        propertyEntries.map(([propertyName, property]) => {
-          return factory.createPropertySignature(
-            undefined,
-            factory.createIdentifier(propertyName),
-            undefined,
-            convertOpenApiSchemaToTypeNode(property),
-          );
-        }),
+      return pipe(
+        propertyEntries.length === 0
+          ? /**
+             * Special-case: don't return `{}`, instead return
+             * `Record<string, unknown>`.
+             */
+            factory.createTypeReferenceNode(
+              factory.createIdentifier("Record"),
+              [
+                factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
+                factory.createKeywordTypeNode(ts.SyntaxKind.UnknownKeyword),
+              ],
+            )
+          : factory.createTypeLiteralNode(
+              propertyEntries.map(([propertyName, property]) => {
+                return factory.createPropertySignature(
+                  undefined,
+                  factory.createIdentifier(propertyName),
+                  undefined,
+                  convertOpenApiSchemaToTypeNode(property),
+                );
+              }),
+            ),
+        (carry) =>
+          openApiSchema.nullable ? createMaybeTypedTypeNode(carry) : carry,
       );
-      return openApiSchema.nullable
-        ? createMaybeTypedTypeNode(innerTypeNode)
-        : innerTypeNode;
     }
     case "integer": {
-      if (openApiSchema.enum) {
-        const innerTypeNode = factory.createUnionTypeNode(
-          openApiSchema.enum.map((item) => {
-            return factory.createTypeReferenceNode(JSON.stringify(item));
-          }),
-        );
-        return openApiSchema.nullable
-          ? createMaybeTypedTypeNode(innerTypeNode)
-          : innerTypeNode;
-      }
-      const innerTypeNode = factory.createTypeReferenceNode("number");
-      return openApiSchema.nullable
-        ? createMaybeTypedTypeNode(innerTypeNode)
-        : innerTypeNode;
+      return pipe(
+        openApiSchema.enum
+          ? factory.createUnionTypeNode(
+              openApiSchema.enum.map((item) => {
+                return factory.createTypeReferenceNode(JSON.stringify(item));
+              }),
+            )
+          : factory.createTypeReferenceNode("number"),
+        (carry) =>
+          openApiSchema.nullable ? createMaybeTypedTypeNode(carry) : carry,
+      );
     }
     case "array": {
       if (!openApiSchema) {
         console.warn(`Schema has no items: ${JSON.stringify(openApiSchema)}`);
       }
 
-      const innerTypeNode = factory.createArrayTypeNode(
-        convertOpenApiSchemaToTypeNode(openApiSchema.items),
+      return pipe(
+        factory.createArrayTypeNode(
+          convertOpenApiSchemaToTypeNode(openApiSchema.items),
+        ),
+        (carry) =>
+          openApiSchema.nullable ? createMaybeTypedTypeNode(carry) : carry,
       );
-      return openApiSchema.nullable
-        ? createMaybeTypedTypeNode(innerTypeNode)
-        : innerTypeNode;
     }
     case "string": {
-      if (openApiSchema.enum) {
-        const innerTypeNode = factory.createUnionTypeNode(
-          openApiSchema.enum.map((item) => {
-            return factory.createTypeReferenceNode(JSON.stringify(item));
-          }),
-        );
-        return openApiSchema.nullable
-          ? createMaybeTypedTypeNode(innerTypeNode)
-          : innerTypeNode;
-      }
-      const innerTypeNode = factory.createTypeReferenceNode(openApiSchema.type);
-
-      return openApiSchema.nullable
-        ? createMaybeTypedTypeNode(innerTypeNode)
-        : innerTypeNode;
+      return pipe(
+        openApiSchema.enum
+          ? factory.createUnionTypeNode(
+              openApiSchema.enum.map((item) => {
+                return factory.createTypeReferenceNode(JSON.stringify(item));
+              }),
+            )
+          : factory.createTypeReferenceNode(openApiSchema.type),
+        (carry) =>
+          openApiSchema.nullable ? createMaybeTypedTypeNode(carry) : carry,
+      );
     }
     case "boolean":
     case "number": {
-      const innerTypeNode = factory.createTypeReferenceNode(openApiSchema.type);
-
-      return openApiSchema.nullable
-        ? createMaybeTypedTypeNode(innerTypeNode)
-        : innerTypeNode;
+      return pipe(
+        factory.createTypeReferenceNode(openApiSchema.type),
+        (carry) =>
+          openApiSchema.nullable ? createMaybeTypedTypeNode(carry) : carry,
+      );
     }
     default: {
       throw new Error(
