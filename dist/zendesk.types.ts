@@ -1,4 +1,4 @@
-import { z as zod } from "zod";
+import { z } from "zod";
 
 export type Maybe<T> = T | null;
 
@@ -3069,320 +3069,320 @@ export type WorkspaceResponse = {
 } & OffsetPaginationObject;
 
 export const accountSettingsActiveFeaturesObjectSchema: zod.ZodSchema<AccountSettingsActiveFeaturesObject> =
-  zod
+  z
     .object({
-      advanced_analytics: zod.boolean(),
-      agent_forwarding: zod.boolean(),
-      allow_ccs: zod.boolean(),
-      allow_email_template_customization: zod.boolean(),
-      automatic_answers: zod.boolean(),
-      bcc_archiving: zod.boolean(),
-      benchmark_opt_out: zod.boolean(),
-      business_hours: zod.boolean(),
-      chat: zod.boolean(),
-      chat_about_my_ticket: zod.boolean(),
-      csat_reason_code: zod.boolean(),
-      custom_dkim_domain: zod.boolean(),
-      customer_context_as_default: zod.boolean(),
-      customer_satisfaction: zod.boolean(),
-      dynamic_contents: zod.boolean(),
-      explore: zod.boolean(),
-      explore_on_support_ent_plan: zod.boolean(),
-      explore_on_support_pro_plan: zod.boolean(),
-      facebook: zod.boolean(),
-      facebook_login: zod.boolean(),
-      fallback_composer: zod.boolean(),
-      forum_analytics: zod.boolean(),
-      good_data_and_explore: zod.boolean(),
-      google_login: zod.boolean(),
-      insights: zod.boolean(),
-      is_abusive: zod.boolean(),
-      light_agents: zod.boolean(),
-      markdown: zod.boolean(),
-      on_hold_status: zod.boolean(),
-      rich_content_in_emails: zod.boolean(),
-      sandbox: zod.boolean(),
-      satisfaction_prediction: zod.boolean(),
-      suspended_ticket_notification: zod.boolean(),
-      ticket_forms: zod.boolean(),
-      ticket_tagging: zod.boolean(),
-      topic_suggestion: zod.boolean(),
-      twitter: zod.boolean(),
-      twitter_login: zod.boolean(),
-      user_org_fields: zod.boolean(),
-      user_tagging: zod.boolean(),
-      voice: zod.boolean(),
+      advanced_analytics: z.boolean(),
+      agent_forwarding: z.boolean(),
+      allow_ccs: z.boolean(),
+      allow_email_template_customization: z.boolean(),
+      automatic_answers: z.boolean(),
+      bcc_archiving: z.boolean(),
+      benchmark_opt_out: z.boolean(),
+      business_hours: z.boolean(),
+      chat: z.boolean(),
+      chat_about_my_ticket: z.boolean(),
+      csat_reason_code: z.boolean(),
+      custom_dkim_domain: z.boolean(),
+      customer_context_as_default: z.boolean(),
+      customer_satisfaction: z.boolean(),
+      dynamic_contents: z.boolean(),
+      explore: z.boolean(),
+      explore_on_support_ent_plan: z.boolean(),
+      explore_on_support_pro_plan: z.boolean(),
+      facebook: z.boolean(),
+      facebook_login: z.boolean(),
+      fallback_composer: z.boolean(),
+      forum_analytics: z.boolean(),
+      good_data_and_explore: z.boolean(),
+      google_login: z.boolean(),
+      insights: z.boolean(),
+      is_abusive: z.boolean(),
+      light_agents: z.boolean(),
+      markdown: z.boolean(),
+      on_hold_status: z.boolean(),
+      rich_content_in_emails: z.boolean(),
+      sandbox: z.boolean(),
+      satisfaction_prediction: z.boolean(),
+      suspended_ticket_notification: z.boolean(),
+      ticket_forms: z.boolean(),
+      ticket_tagging: z.boolean(),
+      topic_suggestion: z.boolean(),
+      twitter: z.boolean(),
+      twitter_login: z.boolean(),
+      user_org_fields: z.boolean(),
+      user_tagging: z.boolean(),
+      voice: z.boolean(),
     })
     .describe(
       "The active features for an account. See [Active Features](#active-features)",
     );
 
 export const accountSettingsAgentObjectSchema: zod.ZodSchema<AccountSettingsAgentObject> =
-  zod
+  z
     .object({
-      agent_home: zod.boolean(),
-      agent_workspace: zod.boolean(),
-      aw_self_serve_migration_enabled: zod.boolean(),
-      focus_mode: zod.boolean(),
-      idle_timeout_enabled: zod.boolean(),
-      unified_agent_statuses: zod.boolean(),
+      agent_home: z.boolean(),
+      agent_workspace: z.boolean(),
+      aw_self_serve_migration_enabled: z.boolean(),
+      focus_mode: z.boolean(),
+      idle_timeout_enabled: z.boolean(),
+      unified_agent_statuses: z.boolean(),
     })
     .describe("Configuration for the agent workspace. See [Agents](#agents)");
 
 export const accountSettingsApiObjectSchema: zod.ZodSchema<AccountSettingsApiObject> =
-  zod
+  z
     .object({
-      accepted_api_agreement: zod.boolean(),
-      api_password_access: zod.string(),
-      api_token_access: zod.string(),
+      accepted_api_agreement: z.boolean(),
+      api_password_access: z.string(),
+      api_token_access: z.string(),
     })
     .describe("API configuration options. See [API](#api)");
 
 export const accountSettingsAppsObjectSchema: zod.ZodSchema<AccountSettingsAppsObject> =
-  zod
+  z
     .object({
-      create_private: zod.boolean(),
-      create_public: zod.boolean(),
-      use: zod.boolean(),
+      create_private: z.boolean(),
+      create_public: z.boolean(),
+      use: z.boolean(),
     })
     .describe("Apps configuration options. See [Apps](#apps)");
 
 export const accountSettingsBillingObjectSchema: zod.ZodSchema<AccountSettingsBillingObject> =
-  zod
-    .object({ backend: zod.string() })
+  z
+    .object({ backend: z.string() })
     .describe("Billing configuration options. See [Billing](#billing)");
 
 export const accountSettingsBrandingObjectSchema: zod.ZodSchema<AccountSettingsBrandingObject> =
-  zod
+  z
     .object({
-      favicon_url: zod.string().nullable(),
-      header_color: zod.string(),
-      header_logo_url: zod.string().nullable(),
-      page_background_color: zod.string(),
-      tab_background_color: zod.string(),
-      text_color: zod.string(),
+      favicon_url: z.string().nullable(),
+      header_color: z.string(),
+      header_logo_url: z.string().nullable(),
+      page_background_color: z.string(),
+      tab_background_color: z.string(),
+      text_color: z.string(),
     })
     .describe("Branding settings. See [Branding](#branding)");
 
 export const accountSettingsBrandsObjectSchema: zod.ZodSchema<AccountSettingsBrandsObject> =
-  zod
+  z
     .object({
-      default_brand_id: zod.number(),
-      require_brand_on_new_tickets: zod.boolean(),
+      default_brand_id: z.number(),
+      require_brand_on_new_tickets: z.boolean(),
     })
     .describe("Brand settings. See [Brands](#brands)");
 
 export const accountSettingsCdnObjectSchema: zod.ZodSchema<AccountSettingsCdnObject> =
-  zod
+  z
     .object({
-      cdn_provider: zod.string(),
-      fallback_cdn_provider: zod.string(),
-      hosts: zod.array(zod.object({ name: zod.string(), url: zod.string() })),
+      cdn_provider: z.string(),
+      fallback_cdn_provider: z.string(),
+      hosts: z.array(z.object({ name: z.string(), url: z.string() })),
     })
     .describe("CDN settings");
 
 export const accountSettingsChatObjectSchema: zod.ZodSchema<AccountSettingsChatObject> =
-  zod
+  z
     .object({
-      available: zod.boolean(),
-      enabled: zod.boolean(),
-      integrated: zod.boolean(),
-      maximum_request_count: zod.number(),
-      welcome_message: zod.string(),
+      available: z.boolean(),
+      enabled: z.boolean(),
+      integrated: z.boolean(),
+      maximum_request_count: z.number(),
+      welcome_message: z.string(),
     })
     .describe("Zendesk Chat settings. See [Chat](#chat)");
 
 export const accountSettingsCrossSellObjectSchema: zod.ZodSchema<AccountSettingsCrossSellObject> =
-  zod
+  z
     .object({
-      show_chat_tooltip: zod.boolean(),
-      xsell_source: zod.string().nullable(),
+      show_chat_tooltip: z.boolean(),
+      xsell_source: z.string().nullable(),
     })
     .describe("Cross Sell settings");
 
 export const accountSettingsGooddataAdvancedAnalyticsObjectSchema: zod.ZodSchema<AccountSettingsGooddataAdvancedAnalyticsObject> =
-  zod
-    .object({ enabled: zod.boolean() })
+  z
+    .object({ enabled: z.boolean() })
     .describe(
       "GoodData settings, used for insights. Legacy configuration prior to Zendesk Explore. See [GoodData Advanced Analytics](#gooddata-advanced-analytics)",
     );
 
 export const accountSettingsGoogleAppsObjectSchema: zod.ZodSchema<AccountSettingsGoogleAppsObject> =
-  zod
+  z
     .object({
-      has_google_apps: zod.boolean(),
-      has_google_apps_admin: zod.boolean(),
+      has_google_apps: z.boolean(),
+      has_google_apps_admin: z.boolean(),
     })
     .describe("Google Apps configuration. See [G Suite](#g-suite)");
 
 export const accountSettingsGroupObjectSchema: zod.ZodSchema<AccountSettingsGroupObject> =
-  zod
-    .object({ check_group_name_uniqueness: zod.boolean() })
+  z
+    .object({ check_group_name_uniqueness: z.boolean() })
     .describe("Group configuration");
 
 export const accountSettingsLimitsObjectSchema: zod.ZodSchema<AccountSettingsLimitsObject> =
-  zod
-    .object({ attachment_size: zod.number() })
+  z
+    .object({ attachment_size: z.number() })
     .describe("Account limits configuration. See [Limits](#limits)");
 
 export const accountSettingsLocalizationObjectSchema: zod.ZodSchema<AccountSettingsLocalizationObject> =
-  zod
-    .object({ locale_ids: zod.array(zod.number()) })
+  z
+    .object({ locale_ids: z.array(z.number()) })
     .describe(
       "Internationalization configuration settings. See [Localization](#localization)",
     );
 
 export const accountSettingsLotusObjectSchema: zod.ZodSchema<AccountSettingsLotusObject> =
-  zod
+  z
     .object({
-      pod_id: zod.number(),
-      prefer_lotus: zod.boolean(),
-      reporting: zod.boolean(),
+      pod_id: z.number(),
+      prefer_lotus: z.boolean(),
+      reporting: z.boolean(),
     })
     .describe("Support UI settings. See [Lotus](#lotus)");
 
 export const accountSettingsMetricsObjectSchema: zod.ZodSchema<AccountSettingsMetricsObject> =
-  zod
-    .object({ account_size: zod.string() })
+  z
+    .object({ account_size: z.string() })
     .describe("Account metrics settings. See [Metrics](#metrics)");
 
 export const accountSettingsOnboardingObjectSchema: zod.ZodSchema<AccountSettingsOnboardingObject> =
-  zod
+  z
     .object({
-      checklist_onboarding_version: zod.number(),
-      onboarding_segments: zod.string().nullable(),
-      product_sign_up: zod.string().nullable(),
+      checklist_onboarding_version: z.number(),
+      onboarding_segments: z.string().nullable(),
+      product_sign_up: z.string().nullable(),
     })
     .describe("Onboarding settings");
 
 export const accountSettingsRoutingObjectSchema: zod.ZodSchema<AccountSettingsRoutingObject> =
-  zod
+  z
     .object({
-      autorouting_tag: zod.string(),
-      enabled: zod.boolean(),
-      max_email_capacity: zod.number(),
-      max_messaging_capacity: zod.number(),
-      reassignment_messaging_enabled: zod.boolean(),
-      reassignment_messaging_timeout: zod.number(),
-      reassignment_talk_timeout: zod.number(),
+      autorouting_tag: z.string(),
+      enabled: z.boolean(),
+      max_email_capacity: z.number(),
+      max_messaging_capacity: z.number(),
+      reassignment_messaging_enabled: z.boolean(),
+      reassignment_messaging_timeout: z.number(),
+      reassignment_talk_timeout: z.number(),
     })
     .describe("Configuration for routing. See [Routing](#routing)");
 
 export const accountSettingsRuleObjectSchema: zod.ZodSchema<AccountSettingsRuleObject> =
-  zod
+  z
     .object({
-      macro_most_used: zod.boolean(),
-      macro_order: zod.string(),
-      skill_based_filtered_views: zod.array(zod.object({}).passthrough()),
-      using_skill_based_routing: zod.boolean(),
+      macro_most_used: z.boolean(),
+      macro_order: z.string(),
+      skill_based_filtered_views: z.array(z.object({}).passthrough()),
+      using_skill_based_routing: z.boolean(),
     })
     .describe(
       "Rules settings for triggers, macros, views, and automations. See [Rules](#rules)",
     );
 
 export const accountSettingsSideConversationsObjectSchema: zod.ZodSchema<AccountSettingsSideConversationsObject> =
-  zod
+  z
     .object({
-      email_channel: zod.boolean(),
-      msteams_channel: zod.boolean(),
-      show_in_context_panel: zod.boolean(),
-      slack_channel: zod.boolean(),
-      tickets_channel: zod.boolean(),
+      email_channel: z.boolean(),
+      msteams_channel: z.boolean(),
+      show_in_context_panel: z.boolean(),
+      slack_channel: z.boolean(),
+      tickets_channel: z.boolean(),
     })
     .describe("Side conversations settings");
 
 export const accountSettingsStatisticsObjectSchema: zod.ZodSchema<AccountSettingsStatisticsObject> =
-  zod
+  z
     .object({
-      forum: zod.boolean(),
-      rule_usage: zod.boolean(),
-      search: zod.boolean(),
+      forum: z.boolean(),
+      rule_usage: z.boolean(),
+      search: z.boolean(),
     })
     .describe("Account statistics settings. See [Statistics](#statistics)");
 
 export const accountSettingsTicketFormObjectSchema: zod.ZodSchema<AccountSettingsTicketFormObject> =
-  zod
+  z
     .object({
-      raw_ticket_forms_instructions: zod.string(),
-      ticket_forms_instructions: zod.string(),
+      raw_ticket_forms_instructions: z.string(),
+      ticket_forms_instructions: z.string(),
     })
     .describe("Ticket form settings. See [Ticket Form](#ticket-form)");
 
 export const accountSettingsTicketObjectSchema: zod.ZodSchema<AccountSettingsTicketObject> =
-  zod
+  z
     .object({
-      accepted_new_collaboration_tos: zod.boolean(),
-      agent_collision: zod.boolean(),
-      agent_invitation_enabled: zod.boolean(),
-      agent_ticket_deletion: zod.boolean(),
-      allow_group_reset: zod.boolean(),
-      assign_default_organization: zod.boolean(),
-      assign_tickets_upon_solve: zod.boolean(),
-      auto_translation_enabled: zod.boolean(),
-      auto_updated_ccs_followers_rules: zod.boolean(),
-      collaboration: zod.boolean(),
-      comments_public_by_default: zod.boolean(),
-      email_attachments: zod.boolean(),
-      emoji_autocompletion: zod.boolean(),
-      follower_and_email_cc_collaborations: zod.boolean(),
-      has_color_text: zod.boolean(),
-      is_first_comment_private_enabled: zod.boolean(),
-      light_agent_email_ccs_allowed: zod.boolean(),
-      list_empty_views: zod.boolean(),
-      list_newest_comments_first: zod.boolean(),
-      markdown_ticket_comments: zod.boolean(),
-      maximum_personal_views_to_list: zod.number(),
-      private_attachments: zod.boolean(),
-      rich_text_comments: zod.boolean(),
-      status_hold: zod.boolean(),
-      tagging: zod.boolean(),
-      using_skill_based_routing: zod.boolean(),
+      accepted_new_collaboration_tos: z.boolean(),
+      agent_collision: z.boolean(),
+      agent_invitation_enabled: z.boolean(),
+      agent_ticket_deletion: z.boolean(),
+      allow_group_reset: z.boolean(),
+      assign_default_organization: z.boolean(),
+      assign_tickets_upon_solve: z.boolean(),
+      auto_translation_enabled: z.boolean(),
+      auto_updated_ccs_followers_rules: z.boolean(),
+      collaboration: z.boolean(),
+      comments_public_by_default: z.boolean(),
+      email_attachments: z.boolean(),
+      emoji_autocompletion: z.boolean(),
+      follower_and_email_cc_collaborations: z.boolean(),
+      has_color_text: z.boolean(),
+      is_first_comment_private_enabled: z.boolean(),
+      light_agent_email_ccs_allowed: z.boolean(),
+      list_empty_views: z.boolean(),
+      list_newest_comments_first: z.boolean(),
+      markdown_ticket_comments: z.boolean(),
+      maximum_personal_views_to_list: z.number(),
+      private_attachments: z.boolean(),
+      rich_text_comments: z.boolean(),
+      status_hold: z.boolean(),
+      tagging: z.boolean(),
+      using_skill_based_routing: z.boolean(),
     })
     .describe("Ticket settings. See [Tickets](#tickets)");
 
 export const accountSettingsTicketSharingPartnersObjectSchema: zod.ZodSchema<AccountSettingsTicketSharingPartnersObject> =
-  zod
-    .object({ support_addresses: zod.array(zod.string()) })
+  z
+    .object({ support_addresses: z.array(z.string()) })
     .describe(
       "Ticket sharing partners settings. See [Ticket Sharing Partners](#ticket-sharing-partners)",
     );
 
 export const accountSettingsTwitterObjectSchema: zod.ZodSchema<AccountSettingsTwitterObject> =
-  zod
-    .object({ shorten_url: zod.string() })
+  z
+    .object({ shorten_url: z.string() })
     .describe("X (formerly Twitter) settings. See [X](#x-formerly-twitter)");
 
 export const accountSettingsUserObjectSchema: zod.ZodSchema<AccountSettingsUserObject> =
-  zod
+  z
     .object({
-      agent_created_welcome_emails: zod.boolean(),
-      end_user_phone_number_validation: zod.boolean(),
-      have_gravatars_enabled: zod.boolean(),
-      language_selection: zod.boolean(),
-      multiple_organizations: zod.boolean(),
-      tagging: zod.boolean(),
-      time_zone_selection: zod.boolean(),
+      agent_created_welcome_emails: z.boolean(),
+      end_user_phone_number_validation: z.boolean(),
+      have_gravatars_enabled: z.boolean(),
+      language_selection: z.boolean(),
+      multiple_organizations: z.boolean(),
+      tagging: z.boolean(),
+      time_zone_selection: z.boolean(),
     })
     .describe("User settings. See [Users](#users)");
 
 export const accountSettingsVoiceObjectSchema: zod.ZodSchema<AccountSettingsVoiceObject> =
-  zod
+  z
     .object({
-      agent_confirmation_when_forwarding: zod.boolean(),
-      agent_wrap_up_after_calls: zod.boolean(),
-      enabled: zod.boolean(),
-      logging: zod.boolean(),
-      maximum_queue_size: zod.number(),
-      maximum_queue_wait_time: zod.number(),
-      only_during_business_hours: zod.boolean(),
-      outbound_enabled: zod.boolean(),
-      recordings_public: zod.boolean(),
-      uk_mobile_forwarding: zod.boolean(),
+      agent_confirmation_when_forwarding: z.boolean(),
+      agent_wrap_up_after_calls: z.boolean(),
+      enabled: z.boolean(),
+      logging: z.boolean(),
+      maximum_queue_size: z.number(),
+      maximum_queue_wait_time: z.number(),
+      only_during_business_hours: z.boolean(),
+      outbound_enabled: z.boolean(),
+      recordings_public: z.boolean(),
+      uk_mobile_forwarding: z.boolean(),
     })
     .describe("Zendesk Talk settings. See [Voice](#voice)");
 
 export const accountSettingsObjectSchema: zod.ZodSchema<AccountSettingsObject> =
-  zod.object({
+  z.object({
     active_features: accountSettingsActiveFeaturesObjectSchema,
     agents: accountSettingsAgentObjectSchema,
     api: accountSettingsApiObjectSchema,
@@ -3415,119 +3415,115 @@ export const accountSettingsObjectSchema: zod.ZodSchema<AccountSettingsObject> =
   });
 
 export const accountSettingsResponseSchema: zod.ZodSchema<AccountSettingsResponse> =
-  zod.object({ settings: accountSettingsObjectSchema });
+  z.object({ settings: accountSettingsObjectSchema });
 
-export const actionObjectSchema: zod.ZodSchema<ActionObject> = zod.object({
-  field: zod.string().describe("The name of a ticket field to modify"),
-  value: zod.string().describe("The new value of the field"),
+export const actionObjectSchema: zod.ZodSchema<ActionObject> = z.object({
+  field: z.string().describe("The name of a ticket field to modify"),
+  value: z.string().describe("The new value of the field"),
 });
 
-export const actionsObjectSchema: zod.ZodSchema<ActionsObject> = zod.object({
-  actions: zod.array(actionObjectSchema),
+export const actionsObjectSchema: zod.ZodSchema<ActionsObject> = z.object({
+  actions: z.array(actionObjectSchema),
 });
 
 export const activitiesCountResponseSchema: zod.ZodSchema<ActivitiesCountResponse> =
-  zod.object({
-    count: zod.object({ refreshed_at: zod.string(), value: zod.number() }),
+  z.object({
+    count: z.object({ refreshed_at: z.string(), value: z.number() }),
   });
 
 export const assigneeFieldAssignableAgentObjectSchema: zod.ZodSchema<AssigneeFieldAssignableAgentObject> =
-  zod.object({
-    avatar_url: zod.string().nullable().describe("URL of Agent's avatar"),
-    id: zod.number().describe("Agent Support ID"),
-    name: zod.string().describe("Name of the agent"),
+  z.object({
+    avatar_url: z.string().nullable().describe("URL of Agent's avatar"),
+    id: z.number().describe("Agent Support ID"),
+    name: z.string().describe("Name of the agent"),
   });
 
 export const assigneeFieldAssignableGroupAgentsResponseSchema: zod.ZodSchema<AssigneeFieldAssignableGroupAgentsResponse> =
-  zod.object({
-    agents: zod.array(assigneeFieldAssignableAgentObjectSchema),
-    count: zod
-      .number()
-      .describe("Number of agents listed in `agents` property."),
-    next_page: zod.string().nullable(),
-    previous_page: zod.string().nullable(),
+  z.object({
+    agents: z.array(assigneeFieldAssignableAgentObjectSchema),
+    count: z.number().describe("Number of agents listed in `agents` property."),
+    next_page: z.string().nullable(),
+    previous_page: z.string().nullable(),
   });
 
 export const assigneeFieldAssignableGroupObjectSchema: zod.ZodSchema<AssigneeFieldAssignableGroupObject> =
-  zod.object({
-    description: zod.string().describe("Description of the group"),
-    id: zod.number().describe("Group ID"),
-    name: zod.string().describe("Name of the group"),
+  z.object({
+    description: z.string().describe("Description of the group"),
+    id: z.number().describe("Group ID"),
+    name: z.string().describe("Name of the group"),
   });
 
 export const assigneeFieldAssignableGroupsResponseSchema: zod.ZodSchema<AssigneeFieldAssignableGroupsResponse> =
-  zod.object({
-    count: zod
-      .number()
-      .describe("Number of groups listed in `groups` property."),
-    groups: zod.array(assigneeFieldAssignableGroupObjectSchema),
-    next_page: zod.string().nullable(),
-    previous_page: zod.string().nullable(),
+  z.object({
+    count: z.number().describe("Number of groups listed in `groups` property."),
+    groups: z.array(assigneeFieldAssignableGroupObjectSchema),
+    next_page: z.string().nullable(),
+    previous_page: z.string().nullable(),
   });
 
 export const assigneeFieldAssignableSearchAgentObjectSchema: zod.ZodSchema<AssigneeFieldAssignableSearchAgentObject> =
-  zod.object({
-    group: zod.string().describe("Name of the agent's group"),
-    group_id: zod.number().describe("Agent's Group ID"),
-    id: zod.number().describe("Agent ID"),
-    name: zod.string().describe("Name of the agent"),
-    photo_url: zod.string().nullable().describe("URL of Avatar"),
+  z.object({
+    group: z.string().describe("Name of the agent's group"),
+    group_id: z.number().describe("Agent's Group ID"),
+    id: z.number().describe("Agent ID"),
+    name: z.string().describe("Name of the agent"),
+    photo_url: z.string().nullable().describe("URL of Avatar"),
   });
 
 export const assigneeFieldAssignableSearchGroupObjectSchema: zod.ZodSchema<AssigneeFieldAssignableSearchGroupObject> =
-  zod.object({
-    id: zod.number().describe("Group ID"),
-    name: zod.string().describe("Name of the group"),
+  z.object({
+    id: z.number().describe("Group ID"),
+    name: z.string().describe("Name of the group"),
   });
 
 export const assigneeFieldAssignableGroupsAndAgentsSearchResponseSchema: zod.ZodSchema<AssigneeFieldAssignableGroupsAndAgentsSearchResponse> =
-  zod.object({
-    agents: zod.array(assigneeFieldAssignableSearchAgentObjectSchema),
-    count: zod
+  z.object({
+    agents: z.array(assigneeFieldAssignableSearchAgentObjectSchema),
+    count: z
       .number()
       .describe("Number of agents + groups listed from search result."),
-    groups: zod.array(assigneeFieldAssignableSearchGroupObjectSchema),
+    groups: z.array(assigneeFieldAssignableSearchGroupObjectSchema),
   });
 
 export const attachmentBaseObjectSchema: zod.ZodSchema<AttachmentBaseObject> =
-  zod.object({
-    content_type: zod
+  z.object({
+    content_type: z
       .string()
       .describe('The content type of the image. Example value: "image/png"'),
-    content_url: zod
+    content_url: z
       .string()
       .describe(
         "A full URL where the attachment image file can be downloaded. The file may be hosted externally so take care not to inadvertently send Zendesk authentication credentials. See [Working with url properties](/documentation/ticketing/managing-tickets/working-with-url-properties)",
       ),
-    deleted: zod.boolean().describe("If true, the attachment has been deleted"),
-    file_name: zod.string().describe("The name of the image file"),
-    height: zod
+    deleted: z.boolean().describe("If true, the attachment has been deleted"),
+    file_name: z.string().describe("The name of the image file"),
+    height: z
       .string()
       .describe(
         "The height of the image file in pixels. If height is unknown, returns null",
       ),
-    id: zod.number().describe("Automatically assigned when created"),
-    inline: zod
+    id: z.number().describe("Automatically assigned when created"),
+    inline: z
       .boolean()
       .describe(
         "If true, the attachment is excluded from the attachment list and the attachment's URL\ncan be referenced within the comment of a ticket. Default is false\n",
       ),
-    malware_access_override: zod
+    malware_access_override: z
       .boolean()
       .describe(
         "If true, you can download an attachment flagged as malware. If false, you can't download such an attachment.",
       ),
-    malware_scan_result: zod
+    malware_scan_result: z
       .string()
       .describe(
         'The result of the malware scan. There is a delay between the time the attachment is uploaded and when the malware scan is completed. Usually the scan is done within a few seconds, but high load conditions can delay the scan results. Possible values: "malware_found", "malware_not_found", "failed_to_scan", "not_scanned"',
       ),
-    mapped_content_url: zod
+    mapped_content_url: z
       .string()
       .describe("The URL the attachment image file has been mapped to"),
-    size: zod.number().describe("The size of the image file in bytes"),
-    url: zod.string().describe("A URL to access the attachment details"),
-    width: zod
+    size: z.number().describe("The size of the image file in bytes"),
+    url: z.string().describe("A URL to access the attachment details"),
+    width: z
       .string()
       .describe(
         "The width of the image file in pixels. If width is unknown, returns null",
@@ -3535,142 +3531,139 @@ export const attachmentBaseObjectSchema: zod.ZodSchema<AttachmentBaseObject> =
   });
 
 export const attachmentThumbnailsSchema: zod.ZodSchema<AttachmentThumbnails> =
-  zod.object({
-    thumbnails: zod
+  z.object({
+    thumbnails: z
       .array(attachmentBaseObjectSchema)
       .describe(
         "An array of attachment objects. Note that photo thumbnails do not have thumbnails",
       ),
   });
 
-export const attachmentObjectSchema: zod.ZodSchema<AttachmentObject> = zod
+export const attachmentObjectSchema: zod.ZodSchema<AttachmentObject> = z
   .intersection(attachmentBaseObjectSchema, attachmentThumbnailsSchema)
   .describe(
     "A file represented as an [Attachment](/api-reference/ticketing/tickets/ticket-attachments/) object",
   );
 
 export const attachmentResponseSchema: zod.ZodSchema<AttachmentResponse> =
-  zod.object({ attachment: attachmentObjectSchema });
+  z.object({ attachment: attachmentObjectSchema });
 
 export const attachmentUpdateInputSchema: zod.ZodSchema<AttachmentUpdateInput> =
-  zod.object({
-    malware_access_override: zod
+  z.object({
+    malware_access_override: z
       .boolean()
       .describe("If true, allows access to attachments with detected malware."),
   });
 
 export const attachmentUpdateRequestSchema: zod.ZodSchema<AttachmentUpdateRequest> =
-  zod.object({ attachment: attachmentUpdateInputSchema });
+  z.object({ attachment: attachmentUpdateInputSchema });
 
 export const attachmentUploadResponseSchema: zod.ZodSchema<AttachmentUploadResponse> =
-  zod.object({
-    upload: zod.object({
+  z.object({
+    upload: z.object({
       attachment: attachmentObjectSchema,
-      attachments: zod.array(attachmentObjectSchema),
-      token: zod.string().describe("Token for subsequent request"),
+      attachments: z.array(attachmentObjectSchema),
+      token: z.string().describe("Token for subsequent request"),
     }),
   });
 
-export const auditLogObjectSchema: zod.ZodSchema<AuditLogObject> = zod.object({
-  action: zod
+export const auditLogObjectSchema: zod.ZodSchema<AuditLogObject> = z.object({
+  action: z
     .string()
     .describe(
       'Type of change made. Possible values are "create", "destroy", "exported", "login", and "update"\n',
     ),
-  action_label: zod.string().describe("Localized string of action field"),
-  actor_id: zod
+  action_label: z.string().describe("Localized string of action field"),
+  actor_id: z
     .number()
     .describe("id of the user or system that initiated the change"),
-  actor_name: zod
+  actor_name: z
     .string()
     .describe("Name of the user or system that initiated the change"),
-  change_description: zod
+  change_description: z
     .string()
     .describe("The description of the change that occurred"),
-  created_at: zod.string().describe("The time the audit got created"),
-  id: zod.number().describe("The id automatically assigned upon creation"),
-  ip_address: zod
-    .string()
-    .describe("The IP address of the user doing the audit"),
-  source_id: zod.number().describe("The id of the item being audited"),
-  source_label: zod.string().describe("The name of the item being audited"),
-  source_type: zod
+  created_at: z.string().describe("The time the audit got created"),
+  id: z.number().describe("The id automatically assigned upon creation"),
+  ip_address: z.string().describe("The IP address of the user doing the audit"),
+  source_id: z.number().describe("The id of the item being audited"),
+  source_label: z.string().describe("The name of the item being audited"),
+  source_type: z
     .string()
     .describe(
       'Item type being audited. Typically describes the system where the change\nwas initiated. Possible values vary based on your account\'s Zendesk\nproducts and activity. Common values include "apitoken", "rule", "ticket",\n"user", and "zendesk/app_market/app". The "rule" value is used for\n[automations](https://support.zendesk.com/hc/en-us/articles/4408832701850),\n[macros](https://support.zendesk.com/hc/en-us/articles/4408844187034),\n[triggers](https://support.zendesk.com/hc/en-us/articles/4408822236058),\n[views](https://support.zendesk.com/hc/en-us/articles/4408888828570),\nand other automated business rules\n',
     ),
-  url: zod.string().describe("The URL to access the audit log"),
+  url: z.string().describe("The URL to access the audit log"),
 });
 
-export const auditLogResponseSchema: zod.ZodSchema<AuditLogResponse> =
-  zod.object({ audit_log: auditLogObjectSchema });
+export const auditLogResponseSchema: zod.ZodSchema<AuditLogResponse> = z.object(
+  { audit_log: auditLogObjectSchema },
+);
 
 export const auditLogsResponseSchema: zod.ZodSchema<AuditLogsResponse> =
-  zod.object({ audit_logs: zod.array(auditLogObjectSchema) });
+  z.object({ audit_logs: z.array(auditLogObjectSchema) });
 
-export const authorObjectSchema: zod.ZodSchema<AuthorObject> = zod.object({
-  email: zod.string().describe("The author email"),
-  id: zod.number().describe("The author id"),
-  name: zod.string().describe("The author name"),
+export const authorObjectSchema: zod.ZodSchema<AuthorObject> = z.object({
+  email: z.string().describe("The author email"),
+  id: z.number().describe("The author id"),
+  name: z.string().describe("The author name"),
 });
 
-export const bookmarkInputSchema: zod.ZodSchema<BookmarkInput> = zod.object({
-  ticket_id: zod.number().describe("The id of the ticket the bookmark is for."),
+export const bookmarkInputSchema: zod.ZodSchema<BookmarkInput> = z.object({
+  ticket_id: z.number().describe("The id of the ticket the bookmark is for."),
 });
 
 export const bookmarkCreateRequestSchema: zod.ZodSchema<BookmarkCreateRequest> =
-  zod.object({ bookmark: bookmarkInputSchema });
+  z.object({ bookmark: bookmarkInputSchema });
 
-export const brandObjectSchema: zod.ZodSchema<BrandObject> = zod.object({
-  active: zod.boolean().describe("If the brand is set as active"),
-  brand_url: zod.string().describe("The url of the brand"),
-  created_at: zod.string().describe("The time the brand was created"),
-  default: zod
+export const brandObjectSchema: zod.ZodSchema<BrandObject> = z.object({
+  active: z.boolean().describe("If the brand is set as active"),
+  brand_url: z.string().describe("The url of the brand"),
+  created_at: z.string().describe("The time the brand was created"),
+  default: z
     .boolean()
     .describe("Is the brand the default brand for this account"),
-  has_help_center: zod.boolean().describe("If the brand has a Help Center"),
-  help_center_state: zod
+  has_help_center: z.boolean().describe("If the brand has a Help Center"),
+  help_center_state: z
     .union([
-      zod.literal("enabled"),
-      zod.literal("disabled"),
-      zod.literal("restricted"),
+      z.literal("enabled"),
+      z.literal("disabled"),
+      z.literal("restricted"),
     ])
     .describe("The state of the Help Center"),
-  host_mapping: zod
+  host_mapping: z
     .string()
     .describe(
       "The hostmapping to this brand, if any. Only admins view this property.",
     ),
-  id: zod
+  id: z
     .number()
     .describe("The ID automatically assigned when the brand is created"),
-  is_deleted: zod.boolean().describe("If the brand object is deleted or not"),
+  is_deleted: z.boolean().describe("If the brand object is deleted or not"),
   logo: attachmentObjectSchema,
-  name: zod.string().describe("The name of the brand"),
-  signature_template: zod
-    .string()
-    .describe("The signature template for a brand"),
-  subdomain: zod.string().describe("The subdomain of the brand"),
-  ticket_form_ids: zod
-    .array(zod.unknown())
+  name: z.string().describe("The name of the brand"),
+  signature_template: z.string().describe("The signature template for a brand"),
+  subdomain: z.string().describe("The subdomain of the brand"),
+  ticket_form_ids: z
+    .array(z.unknown())
     .describe("The ids of ticket forms that are available for use by a brand"),
-  updated_at: zod.string().describe("The time of the last update of the brand"),
-  url: zod.string().describe("The API url of this brand"),
+  updated_at: z.string().describe("The time of the last update of the brand"),
+  url: z.string().describe("The API url of this brand"),
 });
 
 export const brandCreateRequestSchema: zod.ZodSchema<BrandCreateRequest> =
-  zod.object({ brand: brandObjectSchema });
+  z.object({ brand: brandObjectSchema });
 
-export const brandResponseSchema: zod.ZodSchema<BrandResponse> = zod.object({
+export const brandResponseSchema: zod.ZodSchema<BrandResponse> = z.object({
   brand: brandObjectSchema,
 });
 
 export const brandUpdateRequestSchema: zod.ZodSchema<BrandUpdateRequest> =
-  zod.object({ brand: brandObjectSchema });
+  z.object({ brand: brandObjectSchema });
 
 export const bulkUpdateDefaultCustomStatusRequestSchema: zod.ZodSchema<BulkUpdateDefaultCustomStatusRequest> =
-  zod.object({
-    ids: zod
+  z.object({
+    ids: z
       .string()
       .describe(
         "The comma-separated list of custom ticket status ids to be set as default for their status categories",
@@ -3678,17 +3671,17 @@ export const bulkUpdateDefaultCustomStatusRequestSchema: zod.ZodSchema<BulkUpdat
   });
 
 export const bulkUpdateDefaultCustomStatusResponseSchema: zod.ZodSchema<BulkUpdateDefaultCustomStatusResponse> =
-  zod.object({});
+  z.object({});
 
 export const channelFrameworkResultStatusObjectSchema: zod.ZodSchema<ChannelFrameworkResultStatusObject> =
-  zod
+  z
     .object({
-      code: zod
+      code: z
         .string()
         .describe(
           "A code indicating the status of the import of the resource, as described in [status codes](#status-codes)",
         ),
-      description: zod
+      description: z
         .string()
         .describe(
           "In the case of an exception, a description of the exception. Otherwise, not present.",
@@ -3697,58 +3690,54 @@ export const channelFrameworkResultStatusObjectSchema: zod.ZodSchema<ChannelFram
     .describe("The status of the import for the indicated resource");
 
 export const channelFrameworkResultObjectSchema: zod.ZodSchema<ChannelFrameworkResultObject> =
-  zod.object({
-    external_resource_id: zod
+  z.object({
+    external_resource_id: z
       .string()
       .describe("The external ID of the resource, as passed in"),
     status: channelFrameworkResultStatusObjectSchema,
   });
 
 export const channelFrameworkPushResultsResponseSchema: zod.ZodSchema<ChannelFrameworkPushResultsResponse> =
-  zod.object({
-    results: zod
+  z.object({
+    results: z
       .array(channelFrameworkResultObjectSchema)
       .describe("An array of [result objects](#result-object)"),
   });
 
 export const collaboratorObjectSchema: zod.ZodSchema<CollaboratorObject> =
-  zod.object({ email: zod.string(), name: zod.string() });
+  z.object({ email: z.string(), name: z.string() });
 
 export const complianceDeletionStatusObjectSchema: zod.ZodSchema<ComplianceDeletionStatusObject> =
-  zod.object({
-    account_subdomain: zod.string(),
-    action: zod.string(),
-    application: zod.string(),
-    created_at: zod.string(),
-    executer_id: zod.number().nullable(),
-    user_id: zod.number(),
+  z.object({
+    account_subdomain: z.string(),
+    action: z.string(),
+    application: z.string(),
+    created_at: z.string(),
+    executer_id: z.number().nullable(),
+    user_id: z.number(),
   });
 
 export const complianceDeletionStatusesResponseSchema: zod.ZodSchema<ComplianceDeletionStatusesResponse> =
-  zod.object({
-    compliance_deletion_statuses: zod.array(
-      complianceDeletionStatusObjectSchema,
-    ),
+  z.object({
+    compliance_deletion_statuses: z.array(complianceDeletionStatusObjectSchema),
   });
 
-export const conditionObjectSchema: zod.ZodSchema<ConditionObject> = zod.object(
-  {
-    field: zod.string().describe("The name of a ticket field"),
-    operator: zod.string().describe("A comparison operator"),
-    value: zod
-      .union([zod.string(), zod.array(zod.unknown())])
-      .describe("The value of a ticket field"),
-  },
-);
+export const conditionObjectSchema: zod.ZodSchema<ConditionObject> = z.object({
+  field: z.string().describe("The name of a ticket field"),
+  operator: z.string().describe("A comparison operator"),
+  value: z
+    .union([z.string(), z.array(z.unknown())])
+    .describe("The value of a ticket field"),
+});
 
-export const conditionsObjectSchema: zod.ZodSchema<ConditionsObject> = zod
+export const conditionsObjectSchema: zod.ZodSchema<ConditionsObject> = z
   .object({
-    all: zod
+    all: z
       .array(conditionObjectSchema)
       .describe(
         "Logical AND. Tickets must fulfill all of the conditions to be considered matching",
       ),
-    any: zod
+    any: z
       .array(conditionObjectSchema)
       .describe(
         "Logical OR. Tickets may satisfy any of the conditions to be considered matching",
@@ -3758,195 +3747,194 @@ export const conditionsObjectSchema: zod.ZodSchema<ConditionsObject> = zod
     "An object that describes the conditions under which the automation will execute. See [Conditions reference](/documentation/ticketing/reference-guides/conditions-reference)",
   );
 
-export const automationObjectSchema: zod.ZodSchema<AutomationObject> =
-  zod.object({
-    actions: zod
+export const automationObjectSchema: zod.ZodSchema<AutomationObject> = z.object(
+  {
+    actions: z
       .array(actionObjectSchema)
       .describe(
         "An object describing what the automation will do. See [Actions reference](/documentation/ticketing/reference-guides/actions-reference)",
       ),
-    active: zod.boolean().describe("Whether the automation is active"),
+    active: z.boolean().describe("Whether the automation is active"),
     conditions: conditionsObjectSchema,
-    created_at: zod.string().describe("The time the automation was created"),
-    default: zod
+    created_at: z.string().describe("The time the automation was created"),
+    default: z
       .boolean()
       .describe("If true, the automation is a default automation"),
-    id: zod.number().describe("Automatically assigned when created"),
-    position: zod
+    id: z.number().describe("Automatically assigned when created"),
+    position: z
       .number()
       .describe(
         "The position of the automation which specifies the order it will be executed",
       ),
-    raw_title: zod.string().describe("The raw title of the automation"),
-    title: zod.string().describe("The title of the automation"),
-    updated_at: zod
+    raw_title: z.string().describe("The raw title of the automation"),
+    title: z.string().describe("The title of the automation"),
+    updated_at: z
       .string()
       .describe("The time of the last update of the automation"),
-  });
+  },
+);
 
 export const automationResponseSchema: zod.ZodSchema<AutomationResponse> =
-  zod.object({ automation: automationObjectSchema });
+  z.object({ automation: automationObjectSchema });
 
 export const automationsResponseSchema: zod.ZodSchema<AutomationsResponse> =
-  zod.object({
-    automations: zod.array(automationObjectSchema),
-    count: zod.number(),
-    next_page: zod.string().nullable(),
-    previous_page: zod.string().nullable(),
+  z.object({
+    automations: z.array(automationObjectSchema),
+    count: z.number(),
+    next_page: z.string().nullable(),
+    previous_page: z.string().nullable(),
   });
 
 export const countOrganizationObjectSchema: zod.ZodSchema<CountOrganizationObject> =
-  zod.object({ refreshed_at: zod.string(), value: zod.number() });
+  z.object({ refreshed_at: z.string(), value: z.number() });
 
 export const countOrganizationResponseSchema: zod.ZodSchema<CountOrganizationResponse> =
-  zod.object({ count: countOrganizationObjectSchema });
+  z.object({ count: countOrganizationObjectSchema });
 
-export const countResponseSchema: zod.ZodSchema<CountResponse> = zod.object({
-  count: zod.object({ refreshed_at: zod.string(), value: zod.number() }),
+export const countResponseSchema: zod.ZodSchema<CountResponse> = z.object({
+  count: z.object({ refreshed_at: z.string(), value: z.number() }),
 });
 
 export const createResourceResultSchema: zod.ZodSchema<CreateResourceResult> =
-  zod.object({
-    id: zod.number().describe("the id of the new resource"),
-    index: zod.number().describe("the index number of the resul"),
+  z.object({
+    id: z.number().describe("the id of the new resource"),
+    index: z.number().describe("the index number of the resul"),
   });
 
 export const customFieldOptionObjectSchema: zod.ZodSchema<CustomFieldOptionObject> =
-  zod.object({
-    id: zod.number().describe("Automatically assigned upon creation"),
-    name: zod.string().describe("Name of the dropdown option"),
-    position: zod.number().describe("Position of the dropdown option"),
-    raw_name: zod.string().describe("Raw name of the dropdown option"),
-    url: zod.string().describe("URL of the dropdown option"),
-    value: zod.string().describe("Value of the dropdown option"),
+  z.object({
+    id: z.number().describe("Automatically assigned upon creation"),
+    name: z.string().describe("Name of the dropdown option"),
+    position: z.number().describe("Position of the dropdown option"),
+    raw_name: z.string().describe("Raw name of the dropdown option"),
+    url: z.string().describe("URL of the dropdown option"),
+    value: z.string().describe("Value of the dropdown option"),
   });
 
 export const customFieldObjectSchema: zod.ZodSchema<CustomFieldObject> =
-  zod.object({
-    active: zod.boolean().describe("If true, this field is available for use"),
-    created_at: zod
+  z.object({
+    active: z.boolean().describe("If true, this field is available for use"),
+    created_at: z
       .string()
       .describe("The time of the last update of the ticket field"),
-    custom_field_options: zod
+    custom_field_options: z
       .array(customFieldOptionObjectSchema)
       .describe(
         'Required and presented for a custom field of type "dropdown". Each option is represented by an object with a `name` and `value` property',
       ),
-    description: zod
+    description: z
       .string()
       .describe("User-defined description of this field's purpose"),
-    id: zod.number().describe("Automatically assigned upon creation"),
-    key: zod
+    id: z.number().describe("Automatically assigned upon creation"),
+    key: z
       .string()
       .describe(
         "A unique key that identifies this custom field. This is used for updating the field and referencing in placeholders. Cannot be reused if deleted.",
       ),
-    position: zod
+    position: z
       .number()
       .describe("Ordering of the field relative to other fields"),
-    raw_description: zod
+    raw_description: z
       .string()
       .describe(
         "The dynamic content placeholder, if present, or the `description` value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)",
       ),
-    raw_title: zod
+    raw_title: z
       .string()
       .describe(
         "The dynamic content placeholder, if present, or the `title` value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)",
       ),
-    regexp_for_validation: zod
+    regexp_for_validation: z
       .string()
       .nullable()
       .describe(
         "Regular expression field only. The validation pattern for a field value to be deemed valid",
       ),
-    relationship_filter: zod
+    relationship_filter: z
       .object({})
       .describe(
         "A filter definition that allows your autocomplete to filter down results",
       ),
-    relationship_target_type: zod
+    relationship_target_type: z
       .string()
       .describe(
         'A representation of what type of object the field references. Options are "zen:user", "zen:organization", "zen:ticket", and "zen:custom_object:CUSTOM_OBJECT_KEY". For example "zen:custom_object:apartment".',
       ),
-    system: zod
+    system: z
       .boolean()
       .describe(
         "If true, only active and position values of this field can be changed",
       ),
-    tag: zod
+    tag: z
       .string()
       .describe(
         'Optional for custom field of type "checkbox"; not presented otherwise.',
       ),
-    title: zod.string().describe("The title of the custom field"),
-    type: zod
+    title: z.string().describe("The title of the custom field"),
+    type: z
       .string()
       .describe(
         'The custom field type: "checkbox", "date", "decimal", "dropdown", "integer", ["lookup"](/api-reference/ticketing/lookup_relationships/lookup_relationships/), "regexp", "text", or "textarea"',
       ),
-    updated_at: zod
+    updated_at: z
       .string()
       .describe("The time of the last update of the ticket field"),
-    url: zod.string().describe("The URL for this resource"),
+    url: z.string().describe("The URL for this resource"),
   });
 
 export const customFieldOptionResponseSchema: zod.ZodSchema<CustomFieldOptionResponse> =
-  zod.object({ custom_field_option: customFieldOptionObjectSchema });
+  z.object({ custom_field_option: customFieldOptionObjectSchema });
 
 export const customFieldOptionsResponseSchema: zod.ZodSchema<CustomFieldOptionsResponse> =
-  zod.object({
-    count: zod.number().describe("Total count of records retrieved"),
-    custom_field_options: zod.array(customFieldOptionObjectSchema),
-    next_page: zod.string().nullable().describe("URL of the next page"),
-    previous_page: zod.string().nullable().describe("URL of the previous page"),
+  z.object({
+    count: z.number().describe("Total count of records retrieved"),
+    custom_field_options: z.array(customFieldOptionObjectSchema),
+    next_page: z.string().nullable().describe("URL of the next page"),
+    previous_page: z.string().nullable().describe("URL of the previous page"),
   });
 
-export const customObjectSchema: zod.ZodSchema<CustomObject> = zod.object({
-  created_at: zod.string().describe("The time the object type was created"),
-  created_by_user_id: zod
+export const customObjectSchema: zod.ZodSchema<CustomObject> = z.object({
+  created_at: z.string().describe("The time the object type was created"),
+  created_by_user_id: z
     .string()
     .describe("Id of a user who created the object"),
-  description: zod.string().describe("User-defined description of the object"),
-  key: zod
+  description: z.string().describe("User-defined description of the object"),
+  key: z
     .string()
     .describe(
       "A user-defined unique identifier. Writable on create only. Cannot be reused if deleted.",
     ),
-  raw_description: zod
+  raw_description: z
     .string()
     .describe(
       'The dynamic content placeholder, if present, or the "raw_description" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
     ),
-  raw_title: zod
+  raw_title: z
     .string()
     .describe(
       'The dynamic content placeholder, if present, or the "title" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
     ),
-  raw_title_pluralized: zod
+  raw_title_pluralized: z
     .string()
     .describe(
       'The dynamic content placeholder, if present, or the "raw_title_pluralized" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
     ),
-  title: zod.string().describe("User-defined display name for the object"),
-  title_pluralized: zod
+  title: z.string().describe("User-defined display name for the object"),
+  title_pluralized: z
     .string()
     .describe("User-defined pluralized version of the object's title"),
-  updated_at: zod
-    .string()
-    .describe("The time of the last update of the object"),
-  updated_by_user_id: zod
+  updated_at: z.string().describe("The time of the last update of the object"),
+  updated_by_user_id: z
     .string()
     .describe("Id of the last user who updated the object"),
-  url: zod.string().describe("Direct link to the specific custom object"),
+  url: z.string().describe("Direct link to the specific custom object"),
 });
 
 export const customObjectCreateInputSchema: zod.ZodSchema<CustomObjectCreateInput> =
-  zod.object({
-    key: zod.string().describe("Unique identifier. Writable on create only"),
-    title: zod.string().describe("Display name for the object"),
-    title_pluralized: zod
+  z.object({
+    key: z.string().describe("Unique identifier. Writable on create only"),
+    title: z.string().describe("Display name for the object"),
+    title_pluralized: z
       .string()
       .describe("Pluralized version of the object's title"),
   });
@@ -3955,59 +3943,55 @@ export const customObjectFieldSchema: zod.ZodSchema<CustomObjectField> =
   customFieldObjectSchema;
 
 export const customObjectFieldResponseSchema: zod.ZodSchema<CustomObjectFieldResponse> =
-  zod.object({ custom_object_field: customObjectFieldSchema });
+  z.object({ custom_object_field: customObjectFieldSchema });
 
 export const customObjectFieldsCreateRequestSchema: zod.ZodSchema<CustomObjectFieldsCreateRequest> =
-  zod.object({ custom_object_field: customObjectFieldSchema });
+  z.object({ custom_object_field: customObjectFieldSchema });
 
 export const customObjectFieldsResponseSchema: zod.ZodSchema<CustomObjectFieldsResponse> =
-  zod.object({ custom_object_fields: zod.array(customObjectFieldSchema) });
+  z.object({ custom_object_fields: z.array(customObjectFieldSchema) });
 
 export const customObjectLimitsResponseSchema: zod.ZodSchema<CustomObjectLimitsResponse> =
-  zod.object({
-    count: zod
-      .number()
-      .describe("The current numnber of the requested resource"),
-    limit: zod
+  z.object({
+    count: z.number().describe("The current numnber of the requested resource"),
+    limit: z
       .number()
       .describe("The maximum allowed number for the requested resource"),
   });
 
 export const customObjectRecordSchema: zod.ZodSchema<CustomObjectRecord> =
-  zod.object({
-    created_at: zod.string().describe("The time the object was created"),
-    created_by_user_id: zod
+  z.object({
+    created_at: z.string().describe("The time the object was created"),
+    created_by_user_id: z
       .string()
       .describe("Id of a user who created the object"),
-    custom_object_fields: zod.object({}).passthrough(),
-    custom_object_key: zod
-      .string()
-      .describe("A user-defined unique identifier"),
-    external_id: zod
+    custom_object_fields: z.object({}).passthrough(),
+    custom_object_key: z.string().describe("A user-defined unique identifier"),
+    external_id: z
       .string()
       .nullable()
       .describe(
         "An id you can use to link custom object records to external data",
       ),
-    id: zod.string().describe("Automatically assigned upon creation"),
-    name: zod.string().describe("User-defined display name for the object"),
-    updated_at: zod
+    id: z.string().describe("Automatically assigned upon creation"),
+    name: z.string().describe("User-defined display name for the object"),
+    updated_at: z
       .string()
       .describe("The time of the last update of the object"),
-    updated_by_user_id: zod
+    updated_by_user_id: z
       .string()
       .describe("Id of the last user who updated the object"),
-    url: zod.string().describe("Direct link to the specific custom object"),
+    url: z.string().describe("Direct link to the specific custom object"),
   });
 
 export const customObjectRecordResponseSchema: zod.ZodSchema<CustomObjectRecordResponse> =
-  zod.object({ custom_object_record: customObjectRecordSchema });
+  z.object({ custom_object_record: customObjectRecordSchema });
 
 export const customObjectRecordsBulkCreateRequestSchema: zod.ZodSchema<CustomObjectRecordsBulkCreateRequest> =
-  zod.object({
-    job: zod.object({
-      action: zod.string(),
-      items: zod
+  z.object({
+    job: z.object({
+      action: z.string(),
+      items: z
         .array(customObjectRecordSchema)
         .describe(
           "An array of record objects for creation jobs, or an array of strings for deletion jobs.",
@@ -4016,185 +4000,185 @@ export const customObjectRecordsBulkCreateRequestSchema: zod.ZodSchema<CustomObj
   });
 
 export const customObjectRecordsCreateRequestSchema: zod.ZodSchema<CustomObjectRecordsCreateRequest> =
-  zod.object({ custom_object_record: customObjectRecordSchema });
+  z.object({ custom_object_record: customObjectRecordSchema });
 
 export const customObjectRecordsJobsResponseSchema: zod.ZodSchema<CustomObjectRecordsJobsResponse> =
-  zod.object({
-    job_status: zod.object({
-      id: zod.string(),
-      message: zod.string().nullable(),
-      progress: zod.number().nullable(),
-      results: zod.array(customObjectRecordSchema).nullable(),
-      status: zod.string(),
-      total: zod.number(),
-      url: zod.string(),
+  z.object({
+    job_status: z.object({
+      id: z.string(),
+      message: z.string().nullable(),
+      progress: z.number().nullable(),
+      results: z.array(customObjectRecordSchema).nullable(),
+      status: z.string(),
+      total: z.number(),
+      url: z.string(),
     }),
   });
 
 export const customObjectRecordsResponseSchema: zod.ZodSchema<CustomObjectRecordsResponse> =
-  zod.object({
-    count: zod
+  z.object({
+    count: z
       .number()
       .describe("The number of results returned for the current request"),
-    custom_object_records: zod.array(customObjectRecordSchema),
-    links: zod.object({
-      next: zod.string().nullable(),
-      prev: zod.string().nullable(),
+    custom_object_records: z.array(customObjectRecordSchema),
+    links: z.object({
+      next: z.string().nullable(),
+      prev: z.string().nullable(),
     }),
-    meta: zod.object({
-      after_cursor: zod.string().nullable(),
-      before_cursor: zod.string().nullable(),
-      has_more: zod.boolean(),
+    meta: z.object({
+      after_cursor: z.string().nullable(),
+      before_cursor: z.string().nullable(),
+      has_more: z.boolean(),
     }),
   });
 
 export const customObjectRecordsUpsertRequestSchema: zod.ZodSchema<CustomObjectRecordsUpsertRequest> =
-  zod.object({ custom_object_record: customObjectRecordSchema });
+  z.object({ custom_object_record: customObjectRecordSchema });
 
 export const customObjectResponseSchema: zod.ZodSchema<CustomObjectResponse> =
-  zod.object({ custom_object: customObjectSchema });
+  z.object({ custom_object: customObjectSchema });
 
 export const customObjectsCreateRequestSchema: zod.ZodSchema<CustomObjectsCreateRequest> =
-  zod.object({ custom_object: customObjectCreateInputSchema });
+  z.object({ custom_object: customObjectCreateInputSchema });
 
 export const customObjectsResponseSchema: zod.ZodSchema<CustomObjectsResponse> =
-  zod.object({ custom_objects: zod.array(customObjectSchema) });
+  z.object({ custom_objects: z.array(customObjectSchema) });
 
 export const customRoleConfigurationObjectSchema: zod.ZodSchema<CustomRoleConfigurationObject> =
-  zod
+  z
     .object({
-      assign_tickets_to_any_group: zod
+      assign_tickets_to_any_group: z
         .boolean()
         .describe("Whether or not the agent can assign tickets to any group"),
-      chat_access: zod
+      chat_access: z
         .boolean()
         .describe("Whether or not the agent has access to Chat"),
-      end_user_list_access: zod
+      end_user_list_access: z
         .string()
         .describe(
           'Whether or not the agent can view lists of user profiles. Allowed values: "full", "none"',
         ),
-      end_user_profile_access: zod
+      end_user_profile_access: z
         .string()
         .describe(
           'What the agent can do with end-user profiles. Allowed values: "edit", "edit-within-org", "full", "readonly"',
         ),
-      explore_access: zod
+      explore_access: z
         .string()
         .describe('Allowed values: "edit", "full", "none", "readonly"'),
-      forum_access: zod
+      forum_access: z
         .string()
         .describe(
           'The kind of access the agent has to Guide. Allowed values: "edit-topics", "full", "readonly"',
         ),
-      forum_access_restricted_content: zod.boolean(),
-      group_access: zod
+      forum_access_restricted_content: z.boolean(),
+      group_access: z
         .boolean()
         .describe("Whether or not the agent can add or modify groups"),
-      light_agent: zod.boolean(),
-      macro_access: zod
+      light_agent: z.boolean(),
+      macro_access: z
         .string()
         .describe(
           'What the agent can do with macros. Allowed values: "full", "manage-group", "manage-personal", "readonly"',
         ),
-      manage_business_rules: zod
+      manage_business_rules: z
         .boolean()
         .describe("Whether or not the agent can manage business rules"),
-      manage_contextual_workspaces: zod
+      manage_contextual_workspaces: z
         .boolean()
         .describe(
           "Whether or not the agent can view, add, and edit contextual workspaces",
         ),
-      manage_dynamic_content: zod
+      manage_dynamic_content: z
         .boolean()
         .describe("Whether or not the agent can access dynamic content"),
-      manage_extensions_and_channels: zod
+      manage_extensions_and_channels: z
         .boolean()
         .describe(
           "Whether or not the agent can manage channels and extensions",
         ),
-      manage_facebook: zod
+      manage_facebook: z
         .boolean()
         .describe("Whether or not the agent can manage Facebook pages"),
-      manage_organization_fields: zod
+      manage_organization_fields: z
         .boolean()
         .describe(
           "Whether or not the agent can create and manage organization fields",
         ),
-      manage_ticket_fields: zod
+      manage_ticket_fields: z
         .boolean()
         .describe(
           "Whether or not the agent can create and manage ticket fields",
         ),
-      manage_ticket_forms: zod
+      manage_ticket_forms: z
         .boolean()
         .describe(
           "Whether or not the agent can create and manage ticket forms",
         ),
-      manage_user_fields: zod
+      manage_user_fields: z
         .boolean()
         .describe("Whether or not the agent can create and manage user fields"),
-      moderate_forums: zod.boolean(),
-      organization_editing: zod
+      moderate_forums: z.boolean(),
+      organization_editing: z
         .boolean()
         .describe("Whether or not the agent can add or modify organizations"),
-      organization_notes_editing: zod
+      organization_notes_editing: z
         .boolean()
         .describe(
           "Whether or not the agent can add or modify organization notes",
         ),
-      report_access: zod
+      report_access: z
         .string()
         .describe(
           'What the agent can do with reports. Allowed values: "full", "none", "readonly"',
         ),
-      side_conversation_create: zod
+      side_conversation_create: z
         .boolean()
         .describe(
           "Whether or not the agent can contribute to side conversations",
         ),
-      ticket_access: zod
+      ticket_access: z
         .string()
         .describe(
           'What kind of tickets the agent can access. Allowed values: "all", "assigned-only", "within-groups", "within-groups-and-public-groups", "within-organization"',
         ),
-      ticket_comment_access: zod
+      ticket_comment_access: z
         .string()
         .describe(
           'What type of comments the agent can make. Allowed values: "public", "none"',
         ),
-      ticket_deletion: zod
+      ticket_deletion: z
         .boolean()
         .describe("Whether or not the agent can delete tickets"),
-      ticket_editing: zod
+      ticket_editing: z
         .boolean()
         .describe("Whether or not the agent can edit ticket properties"),
-      ticket_merge: zod
+      ticket_merge: z
         .boolean()
         .describe("Whether or not the agent can merge tickets"),
-      ticket_tag_editing: zod
+      ticket_tag_editing: z
         .boolean()
         .describe("Whether or not the agent can edit ticket tags"),
-      twitter_search_access: zod.boolean(),
-      user_view_access: zod
+      twitter_search_access: z.boolean(),
+      user_view_access: z
         .string()
         .describe(
           'What the agent can do with customer lists. Allowed values: "full", "manage-group", "manage-personal", "none", "readonly"',
         ),
-      view_access: zod
+      view_access: z
         .string()
         .describe(
           'What the agent can do with views. Allowed values: "full", "manage-group", "manage-personal", "playonly", "readonly"',
         ),
-      view_deleted_tickets: zod
+      view_deleted_tickets: z
         .boolean()
         .describe("Whether or not the agent can view deleted tickets"),
-      voice_access: zod
+      voice_access: z
         .boolean()
         .describe(
           "Whether or not the agent can answer and place calls to end users",
         ),
-      voice_dashboard_access: zod
+      voice_dashboard_access: z
         .boolean()
         .describe(
           "Whether or not the agent can view details about calls on the Talk dashboard",
@@ -4204,128 +4188,129 @@ export const customRoleConfigurationObjectSchema: zod.ZodSchema<CustomRoleConfig
       "Configuration settings for the role. See [Configuration](#configuration)",
     );
 
-export const customRoleObjectSchema: zod.ZodSchema<CustomRoleObject> =
-  zod.object({
+export const customRoleObjectSchema: zod.ZodSchema<CustomRoleObject> = z.object(
+  {
     configuration: customRoleConfigurationObjectSchema,
-    created_at: zod.string().describe("The time the record was created"),
-    description: zod.string().describe("A description of the role"),
-    id: zod.number().describe("Automatically assigned on creation"),
-    name: zod.string().describe("Name of the custom role"),
-    role_type: zod
+    created_at: z.string().describe("The time the record was created"),
+    description: z.string().describe("A description of the role"),
+    id: z.number().describe("Automatically assigned on creation"),
+    name: z.string().describe("Name of the custom role"),
+    role_type: z
       .number()
       .describe(
         "The user's role. 0 stands for a custom agent, 1 for a light agent, 2 for a chat agent, 3 for a contributor, 4 for an admin and 5 for a billing admin. See [Understanding standard agent roles in Zendesk Support](https://support.zendesk.com/hc/en-us/articles/4409155971354-Understanding-standard-agent-roles-in-Zendesk-Support) in Zendesk help",
       ),
-    team_member_count: zod
+    team_member_count: z
       .number()
       .describe("The number of team members assigned to this role"),
-    updated_at: zod.string().describe("The time the record was last updated"),
-  });
+    updated_at: z.string().describe("The time the record was last updated"),
+  },
+);
 
 export const customRoleResponseSchema: zod.ZodSchema<CustomRoleResponse> =
-  zod.object({ custom_role: customRoleObjectSchema });
+  z.object({ custom_role: customRoleObjectSchema });
 
 export const customRolesResponseSchema: zod.ZodSchema<CustomRolesResponse> =
-  zod.object({ custom_roles: zod.array(customRoleObjectSchema) });
+  z.object({ custom_roles: z.array(customRoleObjectSchema) });
 
 export const customStatusObjectSchema: zod.ZodSchema<CustomStatusObject> =
-  zod.object({
-    active: zod
+  z.object({
+    active: z
       .boolean()
       .describe(
         "If true, the custom status is set to active, If false, the custom status is set to inactive",
       ),
-    agent_label: zod
+    agent_label: z
       .string()
       .describe(
         "The label displayed to agents. Maximum length is 48 characters",
       ),
-    created_at: zod
+    created_at: z
       .string()
       .describe("The date and time the custom ticket status was created"),
-    default: zod
+    default: z
       .boolean()
       .describe(
         "If true, the custom status is set to default. If false, the custom status is set to non-default",
       ),
-    description: zod
+    description: z
       .string()
       .describe(
         "The description of when the user should select this custom ticket status",
       ),
-    end_user_description: zod
+    end_user_description: z
       .string()
       .describe("The description displayed to end users"),
-    end_user_label: zod
+    end_user_label: z
       .string()
       .describe(
         "The label displayed to end users. Maximum length is 48 characters",
       ),
-    id: zod
+    id: z
       .number()
       .describe(
         "Automatically assigned when the custom ticket status is created",
       ),
-    raw_agent_label: zod
+    raw_agent_label: z
       .string()
       .describe(
         'The dynamic content placeholder. If the dynamic content placeholder is not available, this is the "agent_label" value. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
       ),
-    raw_description: zod
+    raw_description: z
       .string()
       .describe(
         'The dynamic content placeholder. If the dynamic content placeholder is not available, this is the "description" value. [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
       ),
-    raw_end_user_description: zod
+    raw_end_user_description: z
       .string()
       .describe(
         'The dynamic content placeholder. If the dynamic content placeholder is not available, this is the "end_user_description" value. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
       ),
-    raw_end_user_label: zod
+    raw_end_user_label: z
       .string()
       .describe(
         'The dynamic content placeholder. If the dynamic content placeholder is not available, this is the "end_user_label" value. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
       ),
-    status_category: zod
+    status_category: z
       .union([
-        zod.literal("new"),
-        zod.literal("open"),
-        zod.literal("pending"),
-        zod.literal("hold"),
-        zod.literal("solved"),
+        z.literal("new"),
+        z.literal("open"),
+        z.literal("pending"),
+        z.literal("hold"),
+        z.literal("solved"),
       ])
       .describe("The status category the custom ticket status belongs to"),
-    updated_at: zod
+    updated_at: z
       .string()
       .describe("The date and time the custom ticket status was last updated"),
   });
 
 export const customStatusResponseSchema: zod.ZodSchema<CustomStatusResponse> =
-  zod.object({ custom_status: customStatusObjectSchema });
+  z.object({ custom_status: customStatusObjectSchema });
 
 export const customStatusUpdateInputSchema: zod.ZodSchema<CustomStatusUpdateInput> =
-  zod.object({
-    active: zod
+  z.object({
+    active: z
       .boolean()
       .describe(
         "True if the custom status is set as active; inactive if false",
       ),
-    agent_label: zod
+    agent_label: z
       .string()
       .describe(
         'The dynamic content placeholder, if present, or the "agent_label" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
       ),
-    description: zod
+    description: z
       .string()
       .describe(
         'The dynamic content placeholder, if present, or the "description" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
       ),
-    end_user_description: zod
+    end_user_description: z
       .string()
       .describe(
         'The dynamic content placeholder, if present, or the "end_user_description" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
       ),
-    end_user_label: zod
+    end_user_label: z
       .string()
       .describe(
         'The dynamic content placeholder, if present, or the "end_user_label" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
@@ -4333,93 +4318,93 @@ export const customStatusUpdateInputSchema: zod.ZodSchema<CustomStatusUpdateInpu
   });
 
 export const customStatusCreateInputSchema: zod.ZodSchema<CustomStatusCreateInput> =
-  zod.intersection(
+  z.intersection(
     customStatusUpdateInputSchema,
-    zod.object({
-      status_category: zod
+    z.object({
+      status_category: z
         .union([
-          zod.literal("new"),
-          zod.literal("open"),
-          zod.literal("pending"),
-          zod.literal("hold"),
-          zod.literal("solved"),
+          z.literal("new"),
+          z.literal("open"),
+          z.literal("pending"),
+          z.literal("hold"),
+          z.literal("solved"),
         ])
         .describe("The status category the custom ticket status belongs to"),
     }),
   );
 
 export const customStatusCreateRequestSchema: zod.ZodSchema<CustomStatusCreateRequest> =
-  zod.object({ custom_status: customStatusCreateInputSchema });
+  z.object({ custom_status: customStatusCreateInputSchema });
 
 export const customStatusUpdateRequestSchema: zod.ZodSchema<CustomStatusUpdateRequest> =
-  zod.object({ custom_status: customStatusUpdateInputSchema });
+  z.object({ custom_status: customStatusUpdateInputSchema });
 
 export const customStatusesResponseSchema: zod.ZodSchema<CustomStatusesResponse> =
-  zod.object({ custom_statuses: zod.array(customStatusObjectSchema) });
+  z.object({ custom_statuses: z.array(customStatusObjectSchema) });
 
 export const deletedUserObjectSchema: zod.ZodSchema<DeletedUserObject> =
-  zod.object({
-    active: zod.boolean(),
-    created_at: zod.string(),
-    email: zod.string(),
-    id: zod.number(),
-    locale: zod.string(),
-    locale_id: zod.number(),
-    name: zod.string(),
-    organization_id: zod.number(),
-    phone: zod.string().nullable(),
-    photo: zod.object({}).nullable(),
-    role: zod.string(),
-    shared_phone_number: zod.string().nullable(),
-    time_zone: zod.string(),
-    updated_at: zod.string(),
-    url: zod.string(),
+  z.object({
+    active: z.boolean(),
+    created_at: z.string(),
+    email: z.string(),
+    id: z.number(),
+    locale: z.string(),
+    locale_id: z.number(),
+    name: z.string(),
+    organization_id: z.number(),
+    phone: z.string().nullable(),
+    photo: z.object({}).nullable(),
+    role: z.string(),
+    shared_phone_number: z.string().nullable(),
+    time_zone: z.string(),
+    updated_at: z.string(),
+    url: z.string(),
   });
 
 export const deletedUserResponseSchema: zod.ZodSchema<DeletedUserResponse> =
-  zod.object({ deleted_user: deletedUserObjectSchema });
+  z.object({ deleted_user: deletedUserObjectSchema });
 
 export const deletedUsersResponseSchema: zod.ZodSchema<DeletedUsersResponse> =
-  zod.object({ deleted_users: zod.array(deletedUserObjectSchema) });
+  z.object({ deleted_users: z.array(deletedUserObjectSchema) });
 
 export const dynamicContentVariantObjectSchema: zod.ZodSchema<DynamicContentVariantObject> =
-  zod.object({
-    active: zod.boolean().describe("If the variant is active and useable"),
-    content: zod.string().describe("The content of the variant"),
-    created_at: zod.string().describe("When the variant was created"),
-    default: zod
+  z.object({
+    active: z.boolean().describe("If the variant is active and useable"),
+    content: z.string().describe("The content of the variant"),
+    created_at: z.string().describe("When the variant was created"),
+    default: z
       .boolean()
       .describe("If the variant is the default for the item it belongs to"),
-    id: zod
+    id: z
       .number()
       .describe("Automatically assigned when the variant is created"),
-    locale_id: zod.number().describe("An active locale"),
-    outdated: zod.boolean().describe("If the variant is outdated"),
-    updated_at: zod.string().describe("When the variant was last updated"),
-    url: zod.string().describe("The API url of the variant"),
+    locale_id: z.number().describe("An active locale"),
+    outdated: z.boolean().describe("If the variant is outdated"),
+    updated_at: z.string().describe("When the variant was last updated"),
+    url: z.string().describe("The API url of the variant"),
   });
 
 export const dynamicContentObjectSchema: zod.ZodSchema<DynamicContentObject> =
-  zod.object({
-    created_at: zod.string().describe("When this record was created"),
-    default_locale_id: zod
+  z.object({
+    created_at: z.string().describe("When this record was created"),
+    default_locale_id: z
       .number()
       .describe(
         "The default locale for the item. Must be one of the [locales the account has active](/api-reference/ticketing/account-configuration/locales/#list-locales).",
       ),
-    id: zod.number().describe("Automatically assigned when creating items"),
-    name: zod.string().describe("The unique name of the item"),
-    outdated: zod
+    id: z.number().describe("Automatically assigned when creating items"),
+    name: z.string().describe("The unique name of the item"),
+    outdated: z
       .boolean()
       .describe("Indicates the item has outdated variants within it"),
-    placeholder: zod
+    placeholder: z
       .string()
       .describe(
         "Automatically generated placeholder for the item, derived from name",
       ),
-    updated_at: zod.string().describe("When this record was last updated"),
-    url: zod.string().describe("The API url of this item"),
-    variants: zod
+    updated_at: z.string().describe("When this record was last updated"),
+    url: z.string().describe("The API url of this item"),
+    variants: z
       .array(dynamicContentVariantObjectSchema)
       .describe(
         "All variants within this item. See [Dynamic Content Item Variants](/api-reference/ticketing/ticket-management/dynamic_content_item_variants/)",
@@ -4427,156 +4412,150 @@ export const dynamicContentObjectSchema: zod.ZodSchema<DynamicContentObject> =
   });
 
 export const dynamicContentResponseSchema: zod.ZodSchema<DynamicContentResponse> =
-  zod.object({ item: dynamicContentObjectSchema });
+  z.object({ item: dynamicContentObjectSchema });
 
 export const dynamicContentVariantResponseSchema: zod.ZodSchema<DynamicContentVariantResponse> =
-  zod.object({ variant: dynamicContentVariantObjectSchema });
+  z.object({ variant: dynamicContentVariantObjectSchema });
 
 export const dynamicContentVariantsResponseSchema: zod.ZodSchema<DynamicContentVariantsResponse> =
-  zod.object({ variants: zod.array(dynamicContentVariantObjectSchema) });
+  z.object({ variants: z.array(dynamicContentVariantObjectSchema) });
 
 export const dynamicContentsResponseSchema: zod.ZodSchema<DynamicContentsResponse> =
-  zod.object({ items: zod.array(dynamicContentObjectSchema) });
+  z.object({ items: z.array(dynamicContentObjectSchema) });
 
-export const errorSchema: zod.ZodSchema<Error> = zod.object({
-  code: zod.string(),
-  detail: zod.string(),
-  id: zod.string(),
-  links: zod.object({}),
-  source: zod.object({}),
-  status: zod.string(),
-  title: zod.string(),
+export const errorSchema: zod.ZodSchema<Error> = z.object({
+  code: z.string(),
+  detail: z.string(),
+  id: z.string(),
+  links: z.object({}),
+  source: z.object({}),
+  status: z.string(),
+  title: z.string(),
 });
 
 export const batchErrorItemSchema: zod.ZodSchema<BatchErrorItem> =
-  zod.intersection(errorSchema, zod.object({ trigger_id: zod.string() }));
+  z.intersection(errorSchema, z.object({ trigger_id: z.string() }));
 
-export const errorsSchema: zod.ZodSchema<Errors> = zod.object({
-  errors: zod.array(errorSchema),
+export const errorsSchema: zod.ZodSchema<Errors> = z.object({
+  errors: z.array(errorSchema),
 });
 
 export const essentialsCardObjectSchema: zod.ZodSchema<EssentialsCardObject> =
-  zod.object({
-    created_at: zod
+  z.object({
+    created_at: z
       .string()
       .describe("Date and time the key details were created"),
-    default: zod
+    default: z
       .boolean()
       .describe(
         "If true, the system has used the first twenty fields for the custom object type as the key details.",
       ),
-    fields: zod
-      .array(zod.object({}).passthrough())
+    fields: z
+      .array(z.object({}).passthrough())
       .describe(
         "Fields that are displayed in the essential card details. The order is defined by the order of the fields in the array",
       ),
-    id: zod.string().nullable().describe("id of the essential card\n"),
-    key: zod
+    id: z.string().nullable().describe("id of the essential card\n"),
+    key: z
       .string()
       .describe("Object type. Example: `zen:user` refers to `User` type\n"),
-    layout: zod.string().describe("layout type\n"),
-    max_count: zod
+    layout: z.string().describe("layout type\n"),
+    max_count: z
       .number()
       .describe("Maximum number of fields allowed in the key details"),
-    updated_at: zod
+    updated_at: z
       .string()
       .describe("Date and time the key details were last updated"),
   });
 
 export const essentialsCardResponseSchema: zod.ZodSchema<EssentialsCardResponse> =
-  zod.object({ object_layout: essentialsCardObjectSchema });
+  z.object({ object_layout: essentialsCardObjectSchema });
 
 export const essentialsCardsResponseSchema: zod.ZodSchema<EssentialsCardsResponse> =
-  zod.object({ object_layouts: zod.array(essentialsCardObjectSchema) });
+  z.object({ object_layouts: z.array(essentialsCardObjectSchema) });
 
-export const followerObjectSchema: zod.ZodSchema<FollowerObject> = zod.object({
-  action: zod.union([zod.literal("put"), zod.literal("delete")]),
-  user_email: zod.string(),
-  user_id: zod.string(),
+export const followerObjectSchema: zod.ZodSchema<FollowerObject> = z.object({
+  action: z.union([z.literal("put"), z.literal("delete")]),
+  user_email: z.string(),
+  user_id: z.string(),
 });
 
-export const emailCcObjectSchema: zod.ZodSchema<EmailCCObject> =
-  zod.intersection(
-    followerObjectSchema,
-    zod.object({
-      action: zod.union([zod.literal("put"), zod.literal("delete")]),
-      user_email: zod.string(),
-      user_id: zod.string(),
-      user_name: zod.string(),
-    }),
-  );
+export const emailCcObjectSchema: zod.ZodSchema<EmailCCObject> = z.intersection(
+  followerObjectSchema,
+  z.object({
+    action: z.union([z.literal("put"), z.literal("delete")]),
+    user_email: z.string(),
+    user_id: z.string(),
+    user_name: z.string(),
+  }),
+);
 
 export const groupMembershipObjectSchema: zod.ZodSchema<GroupMembershipObject> =
-  zod.object({
-    created_at: zod.string().describe("The time the group was created"),
-    default: zod
+  z.object({
+    created_at: z.string().describe("The time the group was created"),
+    default: z
       .boolean()
       .describe(
         "If true, tickets assigned directly to the agent will assume this membership's group",
       ),
-    group_id: zod.number().describe("The id of a group"),
-    id: zod.number().describe("Automatically assigned upon creation"),
-    updated_at: zod
-      .string()
-      .describe("The time of the last update of the group"),
-    url: zod.string().describe("The API url of this record"),
-    user_id: zod.number().describe("The id of an agent"),
+    group_id: z.number().describe("The id of a group"),
+    id: z.number().describe("Automatically assigned upon creation"),
+    updated_at: z.string().describe("The time of the last update of the group"),
+    url: z.string().describe("The API url of this record"),
+    user_id: z.number().describe("The id of an agent"),
   });
 
 export const groupMembershipResponseSchema: zod.ZodSchema<GroupMembershipResponse> =
-  zod.object({ group_membership: groupMembershipObjectSchema });
+  z.object({ group_membership: groupMembershipObjectSchema });
 
 export const groupMembershipsResponseSchema: zod.ZodSchema<GroupMembershipsResponse> =
-  zod.object({ group_memberships: zod.array(groupMembershipObjectSchema) });
+  z.object({ group_memberships: z.array(groupMembershipObjectSchema) });
 
-export const groupObjectSchema: zod.ZodSchema<GroupObject> = zod.object({
-  created_at: zod.string().describe("The time the group was created"),
-  default: zod
+export const groupObjectSchema: zod.ZodSchema<GroupObject> = z.object({
+  created_at: z.string().describe("The time the group was created"),
+  default: z
     .boolean()
     .describe("If the group is the default one for the account"),
-  deleted: zod.boolean().describe("Deleted groups get marked as such"),
-  description: zod.string().describe("The description of the group"),
-  id: zod.number().describe("Automatically assigned when creating groups"),
-  is_public: zod
+  deleted: z.boolean().describe("Deleted groups get marked as such"),
+  description: z.string().describe("The description of the group"),
+  id: z.number().describe("Automatically assigned when creating groups"),
+  is_public: z
     .boolean()
     .describe(
       "If true, the group is public.\nIf false, the group is private.\nYou can't change a private group to a public group\n",
     ),
-  name: zod.string().describe("The name of the group"),
-  updated_at: zod.string().describe("The time of the last update of the group"),
-  url: zod.string().describe("The API url of the group"),
+  name: z.string().describe("The name of the group"),
+  updated_at: z.string().describe("The time of the last update of the group"),
+  url: z.string().describe("The API url of the group"),
 });
 
-export const groupResponseSchema: zod.ZodSchema<GroupResponse> = zod.object({
+export const groupResponseSchema: zod.ZodSchema<GroupResponse> = z.object({
   group: groupObjectSchema,
 });
 
 export const groupSlaPolicyFilterConditionObjectSchema: zod.ZodSchema<GroupSLAPolicyFilterConditionObject> =
-  zod.object({
-    field: zod.string().describe("The name of a ticket field"),
-    operator: zod.string().describe("A comparison operator"),
-    value: zod.array(zod.unknown()).describe("The value of a ticket field"),
+  z.object({
+    field: z.string().describe("The name of a ticket field"),
+    operator: z.string().describe("A comparison operator"),
+    value: z.array(z.unknown()).describe("The value of a ticket field"),
   });
 
 export const groupSlaPolicyFilterDefinitionResponseSchema: zod.ZodSchema<GroupSLAPolicyFilterDefinitionResponse> =
-  zod.object({
-    definitions: zod.object({
-      all: zod.array(
-        zod.object({
-          group: zod.string(),
-          operators: zod.array(
-            zod.object({ title: zod.string(), value: zod.string() }),
+  z.object({
+    definitions: z.object({
+      all: z.array(
+        z.object({
+          group: z.string(),
+          operators: z.array(
+            z.object({ title: z.string(), value: z.string() }),
           ),
-          title: zod.string(),
-          value: zod.string(),
-          values: zod.object({
-            list: zod.array(
-              zod.object({
-                title: zod.string(),
-                value: zod.number().nullable(),
-              }),
+          title: z.string(),
+          value: z.string(),
+          values: z.object({
+            list: z.array(
+              z.object({ title: z.string(), value: z.number().nullable() }),
             ),
-            type: zod.string(),
+            type: z.string(),
           }),
         }),
       ),
@@ -4584,24 +4563,24 @@ export const groupSlaPolicyFilterDefinitionResponseSchema: zod.ZodSchema<GroupSL
   });
 
 export const groupSlaPolicyFilterObjectSchema: zod.ZodSchema<GroupSLAPolicyFilterObject> =
-  zod
-    .object({ all: zod.array(groupSlaPolicyFilterConditionObjectSchema) })
+  z
+    .object({ all: z.array(groupSlaPolicyFilterConditionObjectSchema) })
     .describe(
       "An object that describes the conditions a ticket must match for a Group SLA policy to be applied to the ticket. See [Filter](#filter).",
     );
 
 export const groupSlaPolicyMetricObjectSchema: zod.ZodSchema<GroupSLAPolicyMetricObject> =
-  zod.object({
-    business_hours: zod
+  z.object({
+    business_hours: z
       .boolean()
       .describe(
         "Whether the metric targets are being measured in business hours or calendar hours",
       ),
-    metric: zod
+    metric: z
       .string()
       .describe("The definition of the time that is being measured"),
-    priority: zod.string().describe("Priority that a ticket must match"),
-    target: zod
+    priority: z.string().describe("Priority that a ticket must match"),
+    target: z
       .number()
       .describe(
         "The time within which the end-state for a metric should be met",
@@ -4609,111 +4588,107 @@ export const groupSlaPolicyMetricObjectSchema: zod.ZodSchema<GroupSLAPolicyMetri
   });
 
 export const groupSlaPolicyObjectSchema: zod.ZodSchema<GroupSLAPolicyObject> =
-  zod.object({
-    created_at: zod
+  z.object({
+    created_at: z
       .string()
       .describe("The time the Group SLA policy was created"),
-    description: zod
-      .string()
-      .describe("The description of the Group SLA policy"),
+    description: z.string().describe("The description of the Group SLA policy"),
     filter: groupSlaPolicyFilterObjectSchema,
-    id: zod.string().describe("Automatically assigned when created"),
-    policy_metrics: zod
+    id: z.string().describe("Automatically assigned when created"),
+    policy_metrics: z
       .array(groupSlaPolicyMetricObjectSchema)
       .describe("Array of [policy metric](#policy-metric) objects"),
-    position: zod
+    position: z
       .number()
       .describe(
         "Position of the Group SLA policy. This position determines the order in which policies are matched to tickets. If not specified, the Group SLA policy is added at the last position",
       ),
-    title: zod.string().describe("The title of the Group SLA policy"),
-    updated_at: zod
+    title: z.string().describe("The title of the Group SLA policy"),
+    updated_at: z
       .string()
       .describe("The time of the last update of the Group SLA policy"),
-    url: zod.string().describe("URL of the Group SLA policy record"),
+    url: z.string().describe("URL of the Group SLA policy record"),
   });
 
 export const groupSlaPoliciesResponseSchema: zod.ZodSchema<GroupSLAPoliciesResponse> =
-  zod.object({
-    count: zod.number(),
-    group_sla_policies: zod.array(groupSlaPolicyObjectSchema),
-    next_page: zod.string().nullable(),
-    previous_page: zod.string().nullable(),
+  z.object({
+    count: z.number(),
+    group_sla_policies: z.array(groupSlaPolicyObjectSchema),
+    next_page: z.string().nullable(),
+    previous_page: z.string().nullable(),
   });
 
 export const groupSlaPolicyResponseSchema: zod.ZodSchema<GroupSLAPolicyResponse> =
-  zod.object({ group_sla_policy: groupSlaPolicyObjectSchema });
+  z.object({ group_sla_policy: groupSlaPolicyObjectSchema });
 
 export const groupsCountObjectSchema: zod.ZodSchema<GroupsCountObject> =
-  zod.object({
-    count: zod.object({
-      refreshed_at: zod
+  z.object({
+    count: z.object({
+      refreshed_at: z
         .string()
         .describe("Timestamp that indicates when the count was last updated"),
-      value: zod.number().describe("Approximate count of groups"),
+      value: z.number().describe("Approximate count of groups"),
     }),
   });
 
-export const groupsResponseSchema: zod.ZodSchema<GroupsResponse> = zod.object({
-  groups: zod.array(groupObjectSchema),
+export const groupsResponseSchema: zod.ZodSchema<GroupsResponse> = z.object({
+  groups: z.array(groupObjectSchema),
 });
 
 export const hostMappingObjectSchema: zod.ZodSchema<HostMappingObject> =
-  zod.object({
-    cname: zod
-      .string()
-      .describe("The canonical name record for a host mapping"),
-    expected_cnames: zod
-      .array(zod.string())
+  z.object({
+    cname: z.string().describe("The canonical name record for a host mapping"),
+    expected_cnames: z
+      .array(z.string())
       .describe(
         "Array of expected CNAME records for host mapping(s) of a given brand",
       ),
-    is_valid: zod
+    is_valid: z
       .boolean()
       .describe("Whether a host mapping is valid or not for a given brand"),
-    reason: zod.string().describe("Reason why a host mapping is valid or not"),
+    reason: z.string().describe("Reason why a host mapping is valid or not"),
   });
 
 export const incrementalSkillBasedRoutingAttributeSchema: zod.ZodSchema<IncrementalSkillBasedRoutingAttribute> =
-  zod.object({
-    id: zod
+  z.object({
+    id: z
       .string()
       .describe("Automatically assigned when an attribute is created"),
-    name: zod.string().describe("The name of the attribute"),
-    time: zod
+    name: z.string().describe("The name of the attribute"),
+    time: z
       .string()
       .describe("The time the attribute was created, updated, or deleted"),
-    type: zod.string().describe('One of "create", "update", or "delete"'),
+    type: z.string().describe('One of "create", "update", or "delete"'),
   });
 
 export const incrementalSkillBasedRoutingAttributeValueSchema: zod.ZodSchema<IncrementalSkillBasedRoutingAttributeValue> =
-  zod.object({
-    attribute_id: zod.string().describe("Id of the associated attribute"),
-    id: zod
+  z.object({
+    attribute_id: z.string().describe("Id of the associated attribute"),
+    id: z
       .string()
       .describe("Automatically assigned when an attribute value is created"),
-    name: zod.string().describe("The name of the attribute value"),
-    time: zod
+    name: z.string().describe("The name of the attribute value"),
+    time: z
       .string()
       .describe(
         "The time the attribute value was created, updated, or deleted",
       ),
-    type: zod.string().describe('One of "create", "update", or "delete"'),
+    type: z.string().describe('One of "create", "update", or "delete"'),
   });
 
 export const incrementalSkillBasedRoutingInstanceValueSchema: zod.ZodSchema<IncrementalSkillBasedRoutingInstanceValue> =
-  zod.object({
-    attribute_value_id: zod
+  z.object({
+    attribute_value_id: z
       .string()
       .describe("Id of the associated attribute value"),
-    id: zod
+    id: z
       .string()
       .describe("Automatically assigned when an instance value is created"),
-    instance_id: zod.string().describe("Id of the associated agent or ticket"),
-    time: zod
+    instance_id: z.string().describe("Id of the associated agent or ticket"),
+    time: z
       .string()
       .describe("The time the instance value was created or deleted"),
-    type: zod
+    type: z
       .string()
       .describe(
         'One of "associate_agent", "unassociate_agent", "associate_ticket", or "unassociate_ticket"',
@@ -4721,220 +4696,211 @@ export const incrementalSkillBasedRoutingInstanceValueSchema: zod.ZodSchema<Incr
   });
 
 export const incrementalSkillBasedRoutingSchema: zod.ZodSchema<IncrementalSkillBasedRouting> =
-  zod.object({
-    attribute_values: zod
+  z.object({
+    attribute_values: z
       .array(incrementalSkillBasedRoutingAttributeValueSchema)
       .describe("Routing attribute values"),
-    attributes: zod
+    attributes: z
       .array(incrementalSkillBasedRoutingAttributeSchema)
       .describe("Routing attributes"),
-    count: zod
+    count: z
       .number()
       .describe("The number of results returned for the current request"),
-    end_time: zod
+    end_time: z
       .number()
       .describe(
         "The most recent resource creation time present in this result set in Unix epoch time",
       ),
-    instance_values: zod
+    instance_values: z
       .array(incrementalSkillBasedRoutingInstanceValueSchema)
       .describe("Routing instance values"),
-    next_page: zod
+    next_page: z
       .string()
       .describe("The URL that should be called to get the next set of results"),
   });
 
-export const keyDetailObjectSchema: zod.ZodSchema<KeyDetailObject> = zod.object(
-  {
-    created_at: zod
-      .string()
-      .describe("Date and time the key details were created"),
-    default: zod
-      .boolean()
-      .describe(
-        "If true, the system has used the first eight fields for the custom object type as the key details.",
-      ),
-    fields: zod
-      .array(zod.object({}).passthrough())
-      .describe(
-        "Fields that are displayed in the key details. The order is defined by the order of the fields in the array",
-      ),
-    key: zod
-      .string()
-      .describe(
-        "Custom object type. Example: `zen:custom_object:car` refers to a custom object type with the \n`car` key\n",
-      ),
-    max_count: zod
-      .number()
-      .describe("Maximum number of fields allowed in the key details"),
-    updated_at: zod
-      .string()
-      .describe("Date and time the key details were last updated"),
-  },
-);
+export const keyDetailObjectSchema: zod.ZodSchema<KeyDetailObject> = z.object({
+  created_at: z.string().describe("Date and time the key details were created"),
+  default: z
+    .boolean()
+    .describe(
+      "If true, the system has used the first eight fields for the custom object type as the key details.",
+    ),
+  fields: z
+    .array(z.object({}).passthrough())
+    .describe(
+      "Fields that are displayed in the key details. The order is defined by the order of the fields in the array",
+    ),
+  key: z
+    .string()
+    .describe(
+      "Custom object type. Example: `zen:custom_object:car` refers to a custom object type with the \n`car` key\n",
+    ),
+  max_count: z
+    .number()
+    .describe("Maximum number of fields allowed in the key details"),
+  updated_at: z
+    .string()
+    .describe("Date and time the key details were last updated"),
+});
 
 export const keyDetailsResponseSchema: zod.ZodSchema<KeyDetailsResponse> =
-  zod.object({ key_detail: keyDetailObjectSchema });
+  z.object({ key_detail: keyDetailObjectSchema });
 
 export const listTicketCollaboratorsResponseSchema: zod.ZodSchema<ListTicketCollaboratorsResponse> =
-  zod.object({}).passthrough();
+  z.object({}).passthrough();
 
 export const listTicketEmailCCsResponseSchema: zod.ZodSchema<ListTicketEmailCCsResponse> =
-  zod.object({}).passthrough();
+  z.object({}).passthrough();
 
 export const listTicketFollowersResponseSchema: zod.ZodSchema<ListTicketFollowersResponse> =
-  zod.object({}).passthrough();
+  z.object({}).passthrough();
 
 export const listTicketIncidentsResponseSchema: zod.ZodSchema<ListTicketIncidentsResponse> =
-  zod.object({}).passthrough();
+  z.object({}).passthrough();
 
 export const listTicketProblemsResponseSchema: zod.ZodSchema<ListTicketProblemsResponse> =
-  zod.object({}).passthrough();
+  z.object({}).passthrough();
 
-export const localeObjectSchema: zod.ZodSchema<LocaleObject> = zod.object({
-  created_at: zod
+export const localeObjectSchema: zod.ZodSchema<LocaleObject> = z.object({
+  created_at: z
     .string()
     .describe("The ISO 8601 formatted date-time the locale was created"),
-  id: zod.number().describe("The unique ID of the locale"),
-  locale: zod.string().describe("The name of the locale"),
-  name: zod.string().describe("The name of the language"),
-  updated_at: zod
+  id: z.number().describe("The unique ID of the locale"),
+  locale: z.string().describe("The name of the locale"),
+  name: z.string().describe("The name of the language"),
+  updated_at: z
     .string()
     .describe(
       "The ISO 8601 formatted date-time when the locale was last updated",
     ),
-  url: zod.string().describe("The URL of the locale record"),
+  url: z.string().describe("The URL of the locale record"),
 });
 
-export const localeResponseSchema: zod.ZodSchema<LocaleResponse> = zod.object({
+export const localeResponseSchema: zod.ZodSchema<LocaleResponse> = z.object({
   locale: localeObjectSchema,
 });
 
-export const localesResponseSchema: zod.ZodSchema<LocalesResponse> = zod.object(
-  { locales: zod.array(localeObjectSchema) },
-);
+export const localesResponseSchema: zod.ZodSchema<LocalesResponse> = z.object({
+  locales: z.array(localeObjectSchema),
+});
 
 export const macroApplyTicketResponseSchema: zod.ZodSchema<MacroApplyTicketResponse> =
-  zod.object({
-    result: zod.object({
-      ticket: zod.object({
-        assignee_id: zod.number(),
-        comment: zod.object({
-          body: zod.string(),
-          public: zod.boolean(),
-          scoped_body: zod.array(zod.array(zod.string())),
+  z.object({
+    result: z.object({
+      ticket: z.object({
+        assignee_id: z.number(),
+        comment: z.object({
+          body: z.string(),
+          public: z.boolean(),
+          scoped_body: z.array(z.array(z.string())),
         }),
-        fields: zod.object({ id: zod.number(), value: zod.string() }),
-        group_id: zod.number(),
-        id: zod.number(),
-        url: zod.string(),
+        fields: z.object({ id: z.number(), value: z.string() }),
+        group_id: z.number(),
+        id: z.number(),
+        url: z.string(),
       }),
     }),
   });
 
 export const macroAttachmentObjectSchema: zod.ZodSchema<MacroAttachmentObject> =
-  zod.object({
-    content_type: zod
+  z.object({
+    content_type: z
       .string()
       .describe('The content type of the image. Example value: "image/png"'),
-    content_url: zod
+    content_url: z
       .string()
       .describe("A full URL where the attachment image file can be downloaded"),
-    created_at: zod
+    created_at: z
       .string()
       .describe("The time when this attachment was created"),
-    filename: zod.string().describe("The name of the image file"),
-    id: zod.number().describe("Automatically assigned when created"),
-    size: zod.number().describe("The size of the image file in bytes"),
+    filename: z.string().describe("The name of the image file"),
+    id: z.number().describe("Automatically assigned when created"),
+    size: z.number().describe("The size of the image file in bytes"),
   });
 
 export const macroAttachmentResponseSchema: zod.ZodSchema<MacroAttachmentResponse> =
-  zod.object({ macro_attachment: macroAttachmentObjectSchema });
+  z.object({ macro_attachment: macroAttachmentObjectSchema });
 
 export const macroAttachmentsResponseSchema: zod.ZodSchema<MacroAttachmentsResponse> =
-  zod.object({ macro_attachments: zod.array(macroAttachmentObjectSchema) });
+  z.object({ macro_attachments: z.array(macroAttachmentObjectSchema) });
 
 export const macroCategoriesResponseSchema: zod.ZodSchema<MacroCategoriesResponse> =
-  zod.object({ categories: zod.array(zod.string()) });
+  z.object({ categories: z.array(z.string()) });
 
 export const macroCommonObjectSchema: zod.ZodSchema<MacroCommonObject> =
-  zod.object({
-    actions: zod
+  z.object({
+    actions: z
       .array(actionObjectSchema)
       .describe(
         "Each action describes what the macro will do. See [Actions reference](/documentation/ticketing/reference-guides/actions-reference)",
       ),
-    active: zod
+    active: z
       .boolean()
       .describe("Useful for determining if the macro should be displayed"),
-    created_at: zod.string().describe("The time the macro was created"),
-    default: zod.boolean().describe("If true, the macro is a default macro"),
-    description: zod
-      .string()
-      .nullable()
-      .describe("The description of the macro"),
-    id: zod
+    created_at: z.string().describe("The time the macro was created"),
+    default: z.boolean().describe("If true, the macro is a default macro"),
+    description: z.string().nullable().describe("The description of the macro"),
+    id: z
       .number()
       .describe("The ID automatically assigned when a macro is created"),
-    position: zod.number().describe("The position of the macro"),
-    restriction: zod
+    position: z.number().describe("The position of the macro"),
+    restriction: z
       .object({})
       .passthrough()
       .nullable()
       .describe(
         "Access to this macro. A null value allows unrestricted access for all users in the account",
       ),
-    title: zod.string().describe("The title of the macro"),
-    updated_at: zod
-      .string()
-      .describe("The time of the last update of the macro"),
-    url: zod.string().describe("A URL to access the macro's details"),
+    title: z.string().describe("The title of the macro"),
+    updated_at: z.string().describe("The time of the last update of the macro"),
+    url: z.string().describe("A URL to access the macro's details"),
   });
 
-export const macroInputSchema: zod.ZodSchema<MacroInput> = zod.object({
-  actions: zod
+export const macroInputSchema: zod.ZodSchema<MacroInput> = z.object({
+  actions: z
     .array(actionObjectSchema)
     .describe("Each action describes what the macro will do"),
-  active: zod
+  active: z
     .boolean()
     .describe("Useful for determining if the macro should be displayed"),
-  description: zod.string().nullable().describe("The description of the macro"),
-  restriction: zod
+  description: z.string().nullable().describe("The description of the macro"),
+  restriction: z
     .object({
-      id: zod.number().describe("The numeric ID of the group or user"),
-      ids: zod.array(zod.number()).describe("The numeric IDs of the groups"),
-      type: zod.string().describe("Allowed values are Group or User"),
+      id: z.number().describe("The numeric ID of the group or user"),
+      ids: z.array(z.number()).describe("The numeric IDs of the groups"),
+      type: z.string().describe("Allowed values are Group or User"),
     })
     .passthrough()
     .describe(
       "Who may access this macro. Will be null when everyone in the account can access it",
     ),
-  title: zod.string().describe("The title of the macro"),
+  title: z.string().describe("The title of the macro"),
 });
 
-export const macroObjectSchema: zod.ZodSchema<MacroObject> = zod.intersection(
+export const macroObjectSchema: zod.ZodSchema<MacroObject> = z.intersection(
   macroCommonObjectSchema,
-  zod.object({
-    app_installation: zod
+  z.object({
+    app_installation: z
       .string()
       .nullable()
       .describe("The app installation that requires each macro, if present"),
-    categories: zod.string().nullable().describe("The macro categories"),
-    permissions: zod.string().nullable().describe("Permissions for each macro"),
-    usage_1h: zod
+    categories: z.string().nullable().describe("The macro categories"),
+    permissions: z.string().nullable().describe("Permissions for each macro"),
+    usage_1h: z
       .number()
       .describe(
         "The number of times each macro has been used in the past hour",
       ),
-    usage_7d: zod
+    usage_7d: z
       .number()
       .describe(
         "The number of times each macro has been used in the past week",
       ),
-    usage_24h: zod
+    usage_24h: z
       .number()
       .describe("The number of times each macro has been used in the past day"),
-    usage_30d: zod
+    usage_30d: z
       .number()
       .describe(
         "The number of times each macro has been used in the past thirty days",
@@ -4942,51 +4908,51 @@ export const macroObjectSchema: zod.ZodSchema<MacroObject> = zod.intersection(
   }),
 );
 
-export const macroResponseSchema: zod.ZodSchema<MacroResponse> = zod.object({
+export const macroResponseSchema: zod.ZodSchema<MacroResponse> = z.object({
   macro: macroObjectSchema,
 });
 
 export const macroUpdateManyInputSchema: zod.ZodSchema<MacroUpdateManyInput> =
-  zod.object({
-    macros: zod.array(
-      zod.object({
-        active: zod
+  z.object({
+    macros: z.array(
+      z.object({
+        active: z
           .boolean()
           .describe("The active status of the macro (true or false)"),
-        id: zod.number().describe("The ID of the macro to update"),
-        position: zod.number().describe("The new position of the macro"),
+        id: z.number().describe("The ID of the macro to update"),
+        position: z.number().describe("The new position of the macro"),
       }),
     ),
   });
 
 export const offsetPaginationObjectSchema: zod.ZodSchema<OffsetPaginationObject> =
-  zod.object({
-    count: zod.number().describe("the total record count"),
-    next_page: zod.string().nullable().describe("the URL of the next page"),
-    previous_page: zod
+  z.object({
+    count: z.number().describe("the total record count"),
+    next_page: z.string().nullable().describe("the URL of the next page"),
+    previous_page: z
       .string()
       .nullable()
       .describe("the URL of the previous page"),
   });
 
 export const brandsResponseSchema: zod.ZodSchema<BrandsResponse> =
-  zod.intersection(
+  z.intersection(
     offsetPaginationObjectSchema,
-    zod.object({
-      brands: zod.array(brandObjectSchema).describe("Array of brands"),
+    z.object({
+      brands: z.array(brandObjectSchema).describe("Array of brands"),
     }),
   );
 
 export const listDeletedTicketsResponseSchema: zod.ZodSchema<ListDeletedTicketsResponse> =
-  zod.intersection(
-    zod.object({
-      deleted_tickets: zod.array(
-        zod.object({
-          actor: zod.object({ id: zod.number(), name: zod.string() }),
-          deleted_at: zod.string(),
-          id: zod.number(),
-          previous_state: zod.string(),
-          subject: zod.string(),
+  z.intersection(
+    z.object({
+      deleted_tickets: z.array(
+        z.object({
+          actor: z.object({ id: z.number(), name: z.string() }),
+          deleted_at: z.string(),
+          id: z.number(),
+          previous_state: z.string(),
+          subject: z.string(),
         }),
       ),
     }),
@@ -4994,8 +4960,8 @@ export const listDeletedTicketsResponseSchema: zod.ZodSchema<ListDeletedTicketsR
   );
 
 export const macrosResponseSchema: zod.ZodSchema<MacrosResponse> =
-  zod.intersection(
-    zod.object({ macros: zod.array(macroObjectSchema) }),
+  z.intersection(
+    z.object({ macros: z.array(macroObjectSchema) }),
     offsetPaginationObjectSchema,
   );
 
@@ -5003,44 +4969,44 @@ export const organizationFieldObjectSchema: zod.ZodSchema<OrganizationFieldObjec
   customFieldObjectSchema;
 
 export const organizationFieldResponseSchema: zod.ZodSchema<OrganizationFieldResponse> =
-  zod.object({ organization_field: organizationFieldObjectSchema });
+  z.object({ organization_field: organizationFieldObjectSchema });
 
 export const organizationFieldsResponseSchema: zod.ZodSchema<OrganizationFieldsResponse> =
-  zod.object({
-    count: zod.number().describe("Total count of records retrieved"),
-    next_page: zod.string().nullable().describe("URL of the next page"),
-    organization_fields: zod.array(organizationFieldObjectSchema),
-    previous_page: zod.string().nullable().describe("URL of the previous page"),
+  z.object({
+    count: z.number().describe("Total count of records retrieved"),
+    next_page: z.string().nullable().describe("URL of the next page"),
+    organization_fields: z.array(organizationFieldObjectSchema),
+    previous_page: z.string().nullable().describe("URL of the previous page"),
   });
 
 export const organizationMembershipObjectSchema: zod.ZodSchema<OrganizationMembershipObject> =
-  zod.object({
-    created_at: zod.string().describe("When this record was created"),
-    default: zod
+  z.object({
+    created_at: z.string().describe("When this record was created"),
+    default: z
       .boolean()
       .nullable()
       .describe(
         "Denotes whether this is the default organization membership for the user. If false, returns `null`",
       ),
-    id: zod
+    id: z
       .number()
       .describe("Automatically assigned when the membership is created"),
-    organization_id: zod
+    organization_id: z
       .number()
       .describe(
         "The ID of the organization associated with this user, in this membership",
       ),
-    organization_name: zod
+    organization_name: z
       .string()
       .describe(
         "The name of the organization associated with this user, in this membership",
       ),
-    updated_at: zod.string().describe("When this record last got updated"),
-    url: zod.string().describe("The API url of this membership"),
-    user_id: zod
+    updated_at: z.string().describe("When this record last got updated"),
+    url: z.string().describe("The API url of this membership"),
+    user_id: z
       .number()
       .describe("The ID of the user for whom this memberships belongs"),
-    view_tickets: zod
+    view_tickets: z
       .boolean()
       .describe(
         "Denotes whether the user can or cannot have access to all organization's tickets.",
@@ -5048,240 +5014,228 @@ export const organizationMembershipObjectSchema: zod.ZodSchema<OrganizationMembe
   });
 
 export const organizationMembershipResponseSchema: zod.ZodSchema<OrganizationMembershipResponse> =
-  zod.object({ organization_membership: organizationMembershipObjectSchema });
+  z.object({ organization_membership: organizationMembershipObjectSchema });
 
 export const organizationMembershipsResponseSchema: zod.ZodSchema<OrganizationMembershipsResponse> =
-  zod.object({
-    organization_memberships: zod.array(organizationMembershipObjectSchema),
+  z.object({
+    organization_memberships: z.array(organizationMembershipObjectSchema),
   });
 
 export const organizationMetadataObjectSchema: zod.ZodSchema<OrganizationMetadataObject> =
-  zod.object({
-    tickets_count: zod
+  z.object({
+    tickets_count: z
       .number()
       .describe("The number of tickets for the organization"),
-    users_count: zod
+    users_count: z
       .number()
       .describe("The number of users for the organization"),
   });
 
 export const organizationObjectSchema: zod.ZodSchema<OrganizationObject> =
-  zod.object({
-    created_at: zod.string().describe("The time the organization was created"),
-    details: zod
+  z.object({
+    created_at: z.string().describe("The time the organization was created"),
+    details: z
       .string()
       .nullable()
       .describe("Any details obout the organization, such as the address"),
-    domain_names: zod
-      .array(zod.string())
+    domain_names: z
+      .array(z.string())
       .describe("An array of domain names associated with this organization"),
-    external_id: zod
+    external_id: z
       .string()
       .nullable()
       .describe(
         'A unique external id to associate organizations to an external record. The id is case-insensitive. For example, "company1" and "Company1" are considered the same',
       ),
-    group_id: zod
+    group_id: z
       .number()
       .nullable()
       .describe(
         "New tickets from users in this organization are automatically put in this group",
       ),
-    id: zod
+    id: z
       .number()
       .describe("Automatically assigned when the organization is created"),
-    name: zod.string().describe("A unique name for the organization"),
-    notes: zod
+    name: z.string().describe("A unique name for the organization"),
+    notes: z
       .string()
       .nullable()
       .describe("Any notes you have about the organization"),
-    organization_fields: zod
+    organization_fields: z
       .object({})
       .passthrough()
       .nullable()
       .describe(
         "Custom fields for this organization. See [Custom organization fields](/api-reference/ticketing/organizations/organizations/#custom-organization-fields)",
       ),
-    shared_comments: zod
+    shared_comments: z
       .boolean()
       .describe(
         "End users in this organization are able to see each other's comments on tickets",
       ),
-    shared_tickets: zod
+    shared_tickets: z
       .boolean()
       .describe(
         "End users in this organization are able to see each other's tickets",
       ),
-    tags: zod.array(zod.string()).describe("The tags of the organization"),
-    updated_at: zod
+    tags: z.array(z.string()).describe("The tags of the organization"),
+    updated_at: z
       .string()
       .describe("The time of the last update of the organization"),
-    url: zod.string().describe("The API url of this organization"),
+    url: z.string().describe("The API url of this organization"),
   });
 
 export const exportIncrementalOrganizationsResponseSchema: zod.ZodSchema<ExportIncrementalOrganizationsResponse> =
-  zod.object({
-    count: zod.number(),
-    end_of_stream: zod.boolean(),
-    end_time: zod.number(),
-    next_page: zod.string().nullable(),
-    organizations: zod.array(organizationObjectSchema),
+  z.object({
+    count: z.number(),
+    end_of_stream: z.boolean(),
+    end_time: z.number(),
+    next_page: z.string().nullable(),
+    organizations: z.array(organizationObjectSchema),
   });
 
 export const organizationResponseSchema: zod.ZodSchema<OrganizationResponse> =
-  zod.object({ organization: organizationObjectSchema });
+  z.object({ organization: organizationObjectSchema });
 
 export const organizationSubscriptionInputSchema: zod.ZodSchema<OrganizationSubscriptionInput> =
-  zod.object({
-    organization_id: zod.number().describe("The ID of the organization"),
-    user_id: zod.number().describe("The ID of the user"),
+  z.object({
+    organization_id: z.number().describe("The ID of the organization"),
+    user_id: z.number().describe("The ID of the user"),
   });
 
 export const organizationSubscriptionCreateRequestSchema: zod.ZodSchema<OrganizationSubscriptionCreateRequest> =
-  zod.object({
-    organization_subscription: organizationSubscriptionInputSchema,
-  });
+  z.object({ organization_subscription: organizationSubscriptionInputSchema });
 
 export const organizationSubscriptionObjectSchema: zod.ZodSchema<OrganizationSubscriptionObject> =
-  zod.object({
-    created_at: zod
+  z.object({
+    created_at: z
       .string()
       .describe("The date the organization subscription was created"),
-    id: zod.number().describe("The ID of the organization subscription"),
-    organization_id: zod.number().describe("The ID of the organization"),
-    user_id: zod.number().describe("The ID of the user"),
+    id: z.number().describe("The ID of the organization subscription"),
+    organization_id: z.number().describe("The ID of the organization"),
+    user_id: z.number().describe("The ID of the user"),
   });
 
 export const organizationSubscriptionResponseSchema: zod.ZodSchema<OrganizationSubscriptionResponse> =
-  zod.object({
-    organization_subscription: organizationSubscriptionObjectSchema,
-  });
+  z.object({ organization_subscription: organizationSubscriptionObjectSchema });
 
 export const organizationSubscriptionsResponseSchema: zod.ZodSchema<OrganizationSubscriptionsResponse> =
-  zod.intersection(
+  z.intersection(
     offsetPaginationObjectSchema,
-    zod.object({
-      organization_subscriptions: zod
+    z.object({
+      organization_subscriptions: z
         .array(organizationSubscriptionObjectSchema)
         .describe("An array of organization subscriptions"),
     }),
   );
 
 export const organizationsRelatedResponseSchema: zod.ZodSchema<OrganizationsRelatedResponse> =
-  zod.object({ organization_related: organizationMetadataObjectSchema });
+  z.object({ organization_related: organizationMetadataObjectSchema });
 
 export const organizationsResponseSchema: zod.ZodSchema<OrganizationsResponse> =
-  zod.object({
-    count: zod.number(),
-    next_page: zod.string().nullable(),
-    organizations: zod.array(organizationObjectSchema),
-    previous_page: zod.string().nullable(),
+  z.object({
+    count: z.number(),
+    next_page: z.string().nullable(),
+    organizations: z.array(organizationObjectSchema),
+    previous_page: z.string().nullable(),
   });
 
-export const paginationSchema: zod.ZodSchema<Pagination> = zod.object({
-  links: zod.object({ next: zod.string(), prev: zod.string() }),
-  meta: zod.object({
-    after_cursor: zod.string(),
-    before_cursor: zod.string(),
-    has_more: zod.boolean(),
+export const paginationSchema: zod.ZodSchema<Pagination> = z.object({
+  links: z.object({ next: z.string(), prev: z.string() }),
+  meta: z.object({
+    after_cursor: z.string(),
+    before_cursor: z.string(),
+    has_more: z.boolean(),
   }),
 });
 
 export const pushNotificationDevicesInputYamlSchema: zod.ZodSchema<PushNotificationDevicesInput> =
-  zod.array(zod.unknown());
+  z.array(z.unknown());
 
 export const pushNotificationDevicesRequestYamlSchema: zod.ZodSchema<PushNotificationDevicesRequest> =
-  zod.object({
+  z.object({
     push_notification_devices: pushNotificationDevicesInputYamlSchema,
   });
 
 export const renewSessionResponseSchema: zod.ZodSchema<RenewSessionResponse> =
-  zod.object({
-    authenticity_token: zod
+  z.object({
+    authenticity_token: z
       .string()
       .describe("A token of authenticity for the request"),
   });
 
 export const resourceCollectionObjectSchema: zod.ZodSchema<ResourceCollectionObject> =
-  zod.object({
-    created_at: zod
-      .string()
-      .describe("When the resource collection was created"),
-    id: zod
+  z.object({
+    created_at: z.string().describe("When the resource collection was created"),
+    id: z
       .number()
       .describe(
         "id for the resource collection. Automatically assigned upon creation",
       ),
-    resources: zod
-      .array(zod.unknown())
+    resources: z
+      .array(z.unknown())
       .describe(
         "Array of resource metadata objects. See [Resource objects](#resource-objects)",
       ),
-    updated_at: zod
+    updated_at: z
       .string()
       .describe("Last time the resource collection was updated"),
   });
 
 export const resourceCollectionResponseSchema: zod.ZodSchema<ResourceCollectionResponse> =
-  zod.object({ resource_collection: resourceCollectionObjectSchema });
+  z.object({ resource_collection: resourceCollectionObjectSchema });
 
 export const resourceCollectionsResponseSchema: zod.ZodSchema<ResourceCollectionsResponse> =
-  zod.object({
-    count: zod.number(),
-    next_page: zod.string().nullable(),
-    previous_page: zod.string().nullable(),
-    resource_collections: zod.array(resourceCollectionObjectSchema),
+  z.object({
+    count: z.number(),
+    next_page: z.string().nullable(),
+    previous_page: z.string().nullable(),
+    resource_collections: z.array(resourceCollectionObjectSchema),
   });
 
 export const slaPolicyFilterConditionObjectSchema: zod.ZodSchema<SLAPolicyFilterConditionObject> =
-  zod.object({
-    field: zod.string().describe("The name of a ticket field"),
-    operator: zod.string().describe("A comparison operator"),
-    value: zod
-      .union([zod.string(), zod.array(zod.unknown())])
+  z.object({
+    field: z.string().describe("The name of a ticket field"),
+    operator: z.string().describe("A comparison operator"),
+    value: z
+      .union([z.string(), z.array(z.unknown())])
       .describe("The value of a ticket field"),
   });
 
 export const slaPolicyFilterDefinitionResponseSchema: zod.ZodSchema<SLAPolicyFilterDefinitionResponse> =
-  zod.object({
-    definitions: zod.object({
-      all: zod.array(
-        zod.object({
-          group: zod.string(),
-          operators: zod.array(
-            zod.object({ title: zod.string(), value: zod.string() }),
+  z.object({
+    definitions: z.object({
+      all: z.array(
+        z.object({
+          group: z.string(),
+          operators: z.array(
+            z.object({ title: z.string(), value: z.string() }),
           ),
-          target: zod.string().nullable(),
-          title: zod.string(),
-          value: zod.string(),
-          values: zod.object({
-            list: zod.array(
-              zod.object({
-                title: zod.string(),
-                value: zod.string().nullable(),
-              }),
+          target: z.string().nullable(),
+          title: z.string(),
+          value: z.string(),
+          values: z.object({
+            list: z.array(
+              z.object({ title: z.string(), value: z.string().nullable() }),
             ),
-            type: zod.string(),
+            type: z.string(),
           }),
         }),
       ),
-      any: zod.array(
-        zod.object({
-          group: zod.string(),
-          operators: zod.array(
-            zod.object({ title: zod.string(), value: zod.string() }),
+      any: z.array(
+        z.object({
+          group: z.string(),
+          operators: z.array(
+            z.object({ title: z.string(), value: z.string() }),
           ),
-          target: zod.string().nullable(),
-          title: zod.string(),
-          value: zod.string(),
-          values: zod.object({
-            list: zod.array(
-              zod.object({
-                title: zod.string(),
-                value: zod.string().nullable(),
-              }),
+          target: z.string().nullable(),
+          title: z.string(),
+          value: z.string(),
+          values: z.object({
+            list: z.array(
+              z.object({ title: z.string(), value: z.string().nullable() }),
             ),
-            type: zod.string(),
+            type: z.string(),
           }),
         }),
       ),
@@ -5289,185 +5243,179 @@ export const slaPolicyFilterDefinitionResponseSchema: zod.ZodSchema<SLAPolicyFil
   });
 
 export const slaPolicyFilterObjectSchema: zod.ZodSchema<SLAPolicyFilterObject> =
-  zod
+  z
     .object({
-      all: zod.array(slaPolicyFilterConditionObjectSchema),
-      any: zod.array(slaPolicyFilterConditionObjectSchema),
+      all: z.array(slaPolicyFilterConditionObjectSchema),
+      any: z.array(slaPolicyFilterConditionObjectSchema),
     })
     .describe(
       "An object that describes the conditions that a ticket must match in order for an SLA policy to be applied to that ticket. See [Filter](#filter).",
     );
 
 export const slaPolicyMetricObjectSchema: zod.ZodSchema<SLAPolicyMetricObject> =
-  zod.object({
-    business_hours: zod
+  z.object({
+    business_hours: z
       .boolean()
       .describe(
         "Whether the metric targets are being measured in business hours or calendar hours",
       ),
-    metric: zod
+    metric: z
       .string()
       .describe("The definition of the time that is being measured"),
-    priority: zod.string().describe("Priority that a ticket must match"),
-    target: zod
+    priority: z.string().describe("Priority that a ticket must match"),
+    target: z
       .number()
       .describe(
         "The time within which the end-state for a metric should be met",
       ),
   });
 
-export const slaPolicyObjectSchema: zod.ZodSchema<SLAPolicyObject> = zod.object(
-  {
-    created_at: zod.string().describe("The time the SLA policy was created"),
-    description: zod.string().describe("The description of the SLA policy"),
-    filter: slaPolicyFilterObjectSchema,
-    id: zod.number().describe("Automatically assigned when created"),
-    policy_metrics: zod
-      .array(slaPolicyMetricObjectSchema)
-      .describe("Array of [Policy Metric](#policy-metric) objects"),
-    position: zod
-      .number()
-      .describe(
-        "Position of the SLA policy that determines the order they will be matched. If not specified, the SLA policy is added as the last position",
-      ),
-    title: zod.string().describe("The title of the SLA policy"),
-    updated_at: zod
-      .string()
-      .describe("The time of the last update of the SLA policy"),
-    url: zod.string().describe("URL of the SLA Policy reacord"),
-  },
-);
+export const slaPolicyObjectSchema: zod.ZodSchema<SLAPolicyObject> = z.object({
+  created_at: z.string().describe("The time the SLA policy was created"),
+  description: z.string().describe("The description of the SLA policy"),
+  filter: slaPolicyFilterObjectSchema,
+  id: z.number().describe("Automatically assigned when created"),
+  policy_metrics: z
+    .array(slaPolicyMetricObjectSchema)
+    .describe("Array of [Policy Metric](#policy-metric) objects"),
+  position: z
+    .number()
+    .describe(
+      "Position of the SLA policy that determines the order they will be matched. If not specified, the SLA policy is added as the last position",
+    ),
+  title: z.string().describe("The title of the SLA policy"),
+  updated_at: z
+    .string()
+    .describe("The time of the last update of the SLA policy"),
+  url: z.string().describe("URL of the SLA Policy reacord"),
+});
 
 export const slaPoliciesResponseSchema: zod.ZodSchema<SLAPoliciesResponse> =
-  zod.object({
-    count: zod.number(),
-    next_page: zod.string().nullable(),
-    previous_page: zod.string().nullable(),
-    sla_policies: zod.array(slaPolicyObjectSchema),
+  z.object({
+    count: z.number(),
+    next_page: z.string().nullable(),
+    previous_page: z.string().nullable(),
+    sla_policies: z.array(slaPolicyObjectSchema),
   });
 
 export const slaPolicyResponseSchema: zod.ZodSchema<SLAPolicyResponse> =
-  zod.object({ sla_policy: slaPolicyObjectSchema });
+  z.object({ sla_policy: slaPolicyObjectSchema });
 
 export const satisfactionRatingObjectSchema: zod.ZodSchema<SatisfactionRatingObject> =
-  zod.object({
-    assignee_id: zod
+  z.object({
+    assignee_id: z
       .number()
       .describe("The id of agent assigned to at the time of rating"),
-    comment: zod
+    comment: z
       .string()
       .describe("The comment received with this rating, if available"),
-    created_at: zod
+    created_at: z
       .string()
       .describe("The time the satisfaction rating got created"),
-    group_id: zod
+    group_id: z
       .number()
       .describe("The id of group assigned to at the time of rating"),
-    id: zod.number().describe("Automatically assigned upon creation"),
-    reason: zod
+    id: z.number().describe("Automatically assigned upon creation"),
+    reason: z
       .string()
       .describe(
         "The reason for a bad rating given by the requester in a follow-up question. Satisfaction reasons must be [enabled](https://support.zendesk.com/hc/en-us/articles/223152967)",
       ),
-    reason_code: zod
+    reason_code: z
       .number()
       .describe(
         'The default reasons the user can select from a list menu for giving a negative rating. See [Reason codes](/api-reference/ticketing/ticket-management/satisfaction_reasons/#reason-codes) in the Satisfaction Reasons API. Can only be set on ratings with a `score` of "bad". Responses don\'t include this property',
       ),
-    reason_id: zod
+    reason_id: z
       .number()
       .describe(
         'id for the reason the user gave a negative rating. Can only be set on ratings with a `score` of "bad". To get a descriptive value for the id, use the [Show Reason for Satisfaction Rating](/api-reference/ticketing/ticket-management/satisfaction_reasons/#show-reason-for-satisfaction-rating) endpoint',
       ),
-    requester_id: zod
+    requester_id: z
       .number()
       .describe("The id of ticket requester submitting the rating"),
-    score: zod
+    score: z
       .string()
       .describe('The rating "offered", "unoffered", "good" or "bad"'),
-    ticket_id: zod.number().describe("The id of ticket being rated"),
-    updated_at: zod
+    ticket_id: z.number().describe("The id of ticket being rated"),
+    updated_at: z
       .string()
       .describe("The time the satisfaction rating got updated"),
-    url: zod.string().describe("The API url of this rating"),
+    url: z.string().describe("The API url of this rating"),
   });
 
 export const satisfactionRatingResponseSchema: zod.ZodSchema<SatisfactionRatingResponse> =
-  zod.object({
-    satisfaction_rating: zod.array(satisfactionRatingObjectSchema),
-  });
+  z.object({ satisfaction_rating: z.array(satisfactionRatingObjectSchema) });
 
 export const satisfactionRatingsCountResponseSchema: zod.ZodSchema<SatisfactionRatingsCountResponse> =
-  zod.object({
-    count: zod.object({ refreshed_at: zod.string(), value: zod.number() }),
+  z.object({
+    count: z.object({ refreshed_at: z.string(), value: z.number() }),
   });
 
 export const satisfactionRatingsResponseSchema: zod.ZodSchema<SatisfactionRatingsResponse> =
-  zod.object({
-    satisfaction_ratings: zod.array(satisfactionRatingObjectSchema),
-  });
+  z.object({ satisfaction_ratings: z.array(satisfactionRatingObjectSchema) });
 
 export const satisfactionReasonObjectSchema: zod.ZodSchema<SatisfactionReasonObject> =
-  zod.object({
-    created_at: zod.string().describe("The time the reason was created"),
-    deleted_at: zod.string().describe("The time the reason was deleted"),
-    id: zod.number().describe("Automatically assigned upon creation"),
-    raw_value: zod
+  z.object({
+    created_at: z.string().describe("The time the reason was created"),
+    deleted_at: z.string().describe("The time the reason was deleted"),
+    id: z.number().describe("Automatically assigned upon creation"),
+    raw_value: z
       .string()
       .describe(
         'The dynamic content placeholder, if present, or the current "value", if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
       ),
-    reason_code: zod
+    reason_code: z
       .number()
       .describe(
         "An account-level code for referencing the reason. Custom reasons are assigned an auto-incrementing integer (non-system reason codes begin at 1000). See [Reason codes](#reason-codes)",
       ),
-    updated_at: zod.string().describe("The time the reason was updated"),
-    url: zod.string().describe("API URL for the resource"),
-    value: zod
+    updated_at: z.string().describe("The time the reason was updated"),
+    url: z.string().describe("API URL for the resource"),
+    value: z
       .string()
       .describe("Translated value of the reason in the account locale"),
   });
 
 export const satisfactionReasonResponseSchema: zod.ZodSchema<SatisfactionReasonResponse> =
-  zod.object({ reason: zod.array(satisfactionReasonObjectSchema) });
+  z.object({ reason: z.array(satisfactionReasonObjectSchema) });
 
 export const satisfactionReasonsResponseSchema: zod.ZodSchema<SatisfactionReasonsResponse> =
-  zod.object({ reasons: zod.array(satisfactionReasonObjectSchema) });
+  z.object({ reasons: z.array(satisfactionReasonObjectSchema) });
 
 export const searchCountResponseSchema: zod.ZodSchema<SearchCountResponse> =
-  zod.object({ count: zod.number() });
+  z.object({ count: z.number() });
 
 export const searchResultObjectSchema: zod.ZodSchema<SearchResultObject> =
-  zod.object({
-    created_at: zod.string().describe("When the resource was created"),
-    default: zod
+  z.object({
+    created_at: z.string().describe("When the resource was created"),
+    default: z
       .boolean()
       .describe("Flag to indicate whether this is the default resource"),
-    deleted: zod
+    deleted: z
       .boolean()
       .describe("Flag to indicate whether or not resource has been deleted"),
-    description: zod.string().describe("The description of the resource"),
-    id: zod.number().describe("The ID of the resource"),
-    name: zod.string().describe("The name of the resource"),
-    result_type: zod.string().describe("The type of the resource"),
-    updated_at: zod.string().describe("When the resource was last updated"),
-    url: zod.string().describe("The url of the resource"),
+    description: z.string().describe("The description of the resource"),
+    id: z.number().describe("The ID of the resource"),
+    name: z.string().describe("The name of the resource"),
+    result_type: z.string().describe("The type of the resource"),
+    updated_at: z.string().describe("When the resource was last updated"),
+    url: z.string().describe("The url of the resource"),
   });
 
 export const searchExportResponseSchema: zod.ZodSchema<SearchExportResponse> =
-  zod.object({
-    facets: zod
+  z.object({
+    facets: z
       .string()
       .nullable()
       .describe("The facets corresponding to the search query"),
-    links: zod
+    links: z
       .object({
-        next: zod
+        next: z
           .string()
           .nullable()
           .describe("The url to the next entry via the cursor."),
-        prev: zod
+        prev: z
           .string()
           .nullable()
           .describe("The url to the previous entry via the cursor."),
@@ -5475,448 +5423,427 @@ export const searchExportResponseSchema: zod.ZodSchema<SearchExportResponse> =
       .describe(
         "The links to the previous and next entries via the cursor ids in the metadata.",
       ),
-    meta: zod
+    meta: z
       .object({
-        after_cursor: zod
+        after_cursor: z
           .string()
           .nullable()
           .describe("The cursor id for the next object."),
-        before_cursor: zod
+        before_cursor: z
           .string()
           .nullable()
           .describe("The cursor id for the previous object."),
-        has_more: zod
+        has_more: z
           .boolean()
           .describe(
             "Whether there are more items yet to be returned by the cursor.",
           ),
       })
       .describe("Metadata for the export query response."),
-    results: zod
+    results: z
       .array(searchResultObjectSchema)
       .describe(
         "May consist of tickets, users, groups, or organizations, as specified by the `result_type` property in each result object",
       ),
   });
 
-export const searchResponseSchema: zod.ZodSchema<SearchResponse> = zod.object({
-  count: zod
+export const searchResponseSchema: zod.ZodSchema<SearchResponse> = z.object({
+  count: z
     .number()
     .describe(
       "The number of resources returned by the query corresponding to this page of results in the paginated response",
     ),
-  facets: zod
+  facets: z
     .string()
     .nullable()
     .describe("The facets corresponding to the search query"),
-  next_page: zod
-    .string()
-    .nullable()
-    .describe("URL to the next page of results"),
-  previous_page: zod
+  next_page: z.string().nullable().describe("URL to the next page of results"),
+  previous_page: z
     .string()
     .nullable()
     .describe("URL to the previous page of results"),
-  results: zod
+  results: z
     .array(searchResultObjectSchema)
     .describe(
       "May consist of tickets, users, groups, or organizations, as specified by the `result_type` property in each result object",
     ),
 });
 
-export const sessionObjectSchema: zod.ZodSchema<SessionObject> = zod.object({
-  authenticated_at: zod
+export const sessionObjectSchema: zod.ZodSchema<SessionObject> = z.object({
+  authenticated_at: z
     .string()
     .nullable()
     .describe("When the session was created"),
-  id: zod
-    .number()
-    .describe("Automatically assigned when the session is created"),
-  last_seen_at: zod
+  id: z.number().describe("Automatically assigned when the session is created"),
+  last_seen_at: z
     .string()
     .nullable()
     .describe(
       "The last approximate time this session was seen. This does not update on every request.",
     ),
-  url: zod.string().nullable().describe("The API URL of this session"),
-  user_id: zod.number().nullable().describe("The id of the user"),
+  url: z.string().nullable().describe("The API URL of this session"),
+  user_id: z.number().nullable().describe("The id of the user"),
 });
 
-export const sessionResponseSchema: zod.ZodSchema<SessionResponse> = zod.object(
-  { session: zod.array(sessionObjectSchema) },
+export const sessionResponseSchema: zod.ZodSchema<SessionResponse> = z.object({
+  session: z.array(sessionObjectSchema),
+});
+
+export const sessionsResponseSchema: zod.ZodSchema<SessionsResponse> = z.object(
+  { sessions: z.array(sessionObjectSchema) },
 );
 
-export const sessionsResponseSchema: zod.ZodSchema<SessionsResponse> =
-  zod.object({ sessions: zod.array(sessionObjectSchema) });
-
 export const sharingAgreementObjectSchema: zod.ZodSchema<SharingAgreementObject> =
-  zod.object({
-    created_at: zod.string().describe("The time the record was created"),
-    id: zod.number().describe("Automatically assigned upon creation"),
-    name: zod.string().describe("Name of this sharing agreement"),
-    partner_name: zod
+  z.object({
+    created_at: z.string().describe("The time the record was created"),
+    id: z.number().describe("Automatically assigned upon creation"),
+    name: z.string().describe("Name of this sharing agreement"),
+    partner_name: z
       .string()
       .nullable()
       .describe('Can be one of the following: "jira", null'),
-    remote_subdomain: zod
+    remote_subdomain: z
       .string()
       .describe(
         "Subdomain of the remote account or null if not associated with an account",
       ),
-    status: zod
+    status: z
       .string()
       .describe(
         'Can be one of the following: "accepted", "declined", "pending", "inactive", "failed", "ssl_error", "configuration_error"',
       ),
-    type: zod
+    type: z
       .string()
       .describe('Can be one of the following: "inbound", "outbound"'),
-    url: zod.string().describe("URL of the sharing agreement record"),
+    url: z.string().describe("URL of the sharing agreement record"),
   });
 
 export const sharingAgreementResponseSchema: zod.ZodSchema<SharingAgreementResponse> =
-  zod.object({ sharing_agreement: sharingAgreementObjectSchema });
+  z.object({ sharing_agreement: sharingAgreementObjectSchema });
 
 export const sharingAgreementsResponseSchema: zod.ZodSchema<SharingAgreementsResponse> =
-  zod.object({ sharing_agreements: zod.array(sharingAgreementObjectSchema) });
+  z.object({ sharing_agreements: z.array(sharingAgreementObjectSchema) });
 
 export const skillBasedRoutingAttributeDefinitionsSchema: zod.ZodSchema<SkillBasedRoutingAttributeDefinitions> =
-  zod.object({
-    definitions: zod.object({
-      conditions_all: zod.array(
-        zod.object({ subject: zod.string(), title: zod.string() }),
+  z.object({
+    definitions: z.object({
+      conditions_all: z.array(
+        z.object({ subject: z.string(), title: z.string() }),
       ),
-      conditions_any: zod.array(
-        zod.object({ subject: zod.string(), title: zod.string() }),
+      conditions_any: z.array(
+        z.object({ subject: z.string(), title: z.string() }),
       ),
     }),
   });
 
 export const skillBasedRoutingAttributeObjectSchema: zod.ZodSchema<SkillBasedRoutingAttributeObject> =
-  zod.object({
-    created_at: zod.string().describe("When this record was created"),
-    id: zod
+  z.object({
+    created_at: z.string().describe("When this record was created"),
+    id: z
       .string()
       .describe("Automatically assigned when an attribute is created"),
-    name: zod.string().describe("The name of the attribute"),
-    updated_at: zod.string().describe("When this record was last updated"),
-    url: zod.string().describe("URL of the attribute"),
+    name: z.string().describe("The name of the attribute"),
+    updated_at: z.string().describe("When this record was last updated"),
+    url: z.string().describe("URL of the attribute"),
   });
 
 export const skillBasedRoutingAttributeResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeResponse> =
-  zod.object({ attribute: skillBasedRoutingAttributeObjectSchema });
+  z.object({ attribute: skillBasedRoutingAttributeObjectSchema });
 
 export const skillBasedRoutingAttributeValueObjectSchema: zod.ZodSchema<SkillBasedRoutingAttributeValueObject> =
-  zod.object({
-    attribute_id: zod.string().describe("Id of the associated attribute"),
-    created_at: zod.string().describe("When this record was created"),
-    id: zod
+  z.object({
+    attribute_id: z.string().describe("Id of the associated attribute"),
+    created_at: z.string().describe("When this record was created"),
+    id: z
       .string()
       .describe("Automatically assigned when an attribute value is created"),
-    name: zod.string().describe("The name of the attribute value"),
-    updated_at: zod.string().describe("When this record was last updated"),
-    url: zod.string().describe("URL of the attribute value"),
+    name: z.string().describe("The name of the attribute value"),
+    updated_at: z.string().describe("When this record was last updated"),
+    url: z.string().describe("URL of the attribute value"),
   });
 
 export const skillBasedRoutingAttributeValueResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeValueResponse> =
-  zod.object({ attribute_value: skillBasedRoutingAttributeValueObjectSchema });
+  z.object({ attribute_value: skillBasedRoutingAttributeValueObjectSchema });
 
 export const skillBasedRoutingAttributeValuesResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributeValuesResponse> =
-  zod.object({
-    attribute_values: zod.array(skillBasedRoutingAttributeValueObjectSchema),
+  z.object({
+    attribute_values: z.array(skillBasedRoutingAttributeValueObjectSchema),
   });
 
 export const skillBasedRoutingAttributesResponseSchema: zod.ZodSchema<SkillBasedRoutingAttributesResponse> =
-  zod.object({
-    attributes: zod.array(skillBasedRoutingAttributeObjectSchema),
-    count: zod.number(),
-    next_page: zod.string().nullable(),
-    previous_page: zod.string().nullable(),
+  z.object({
+    attributes: z.array(skillBasedRoutingAttributeObjectSchema),
+    count: z.number(),
+    next_page: z.string().nullable(),
+    previous_page: z.string().nullable(),
   });
 
 export const skillBasedRoutingTicketFulfilledResponseSchema: zod.ZodSchema<SkillBasedRoutingTicketFulfilledResponse> =
-  zod.object({ fulfilled_ticket_ids: zod.array(zod.number()) });
+  z.object({ fulfilled_ticket_ids: z.array(z.number()) });
 
 export const supportAddressObjectSchema: zod.ZodSchema<SupportAddressObject> =
-  zod.object({
-    brand_id: zod
+  z.object({
+    brand_id: z
       .number()
       .describe(
         "The ID of the [brand](/api-reference/ticketing/account-configuration/brands/)",
       ),
-    cname_status: zod
-      .union([
-        zod.literal("unknown"),
-        zod.literal("verified"),
-        zod.literal("failed"),
-      ])
+    cname_status: z
+      .union([z.literal("unknown"), z.literal("verified"), z.literal("failed")])
       .describe(
         'Whether all of the required CNAME records are set. Possible values: "unknown", "verified", "failed"',
       ),
-    created_at: zod.string().describe("When the address was created"),
-    default: zod
+    created_at: z.string().describe("When the address was created"),
+    default: z
       .boolean()
       .describe("Whether the address is the account's default support address"),
-    dns_results: zod
-      .union([zod.literal("verified"), zod.literal("failed")])
+    dns_results: z
+      .union([z.literal("verified"), z.literal("failed")])
       .describe(
         'Verification statuses for the domain and CNAME records. Possible types: "verified", "failed"',
       ),
-    domain_verification_code: zod
+    domain_verification_code: z
       .string()
       .describe(
         "Verification string to be added as a TXT record to the domain. Possible types: string or null.",
       ),
-    domain_verification_status: zod
-      .union([
-        zod.literal("unknown"),
-        zod.literal("verified"),
-        zod.literal("failed"),
-      ])
+    domain_verification_status: z
+      .union([z.literal("unknown"), z.literal("verified"), z.literal("failed")])
       .describe(
         'Whether the domain verification record is valid. Possible values: "unknown", "verified", "failed"',
       ),
-    email: zod
+    email: z
       .string()
       .describe(
         "The email address. You can't change the email address of an existing support address.",
       ),
-    forwarding_status: zod
+    forwarding_status: z
       .union([
-        zod.literal("unknown"),
-        zod.literal("waiting"),
-        zod.literal("verified"),
-        zod.literal("failed"),
+        z.literal("unknown"),
+        z.literal("waiting"),
+        z.literal("verified"),
+        z.literal("failed"),
       ])
       .describe(
         'Status of email forwarding. Possible values: "unknown", "waiting", "verified", or "failed"',
       ),
-    id: zod.number().describe("Automatically assigned when created"),
-    name: zod.string().describe("The name for the address"),
-    spf_status: zod
-      .union([
-        zod.literal("unknown"),
-        zod.literal("verified"),
-        zod.literal("failed"),
-      ])
+    id: z.number().describe("Automatically assigned when created"),
+    name: z.string().describe("The name for the address"),
+    spf_status: z
+      .union([z.literal("unknown"), z.literal("verified"), z.literal("failed")])
       .describe(
         'Whether the SPF record is set up correctly. Possible values: "unknown", "verified", "failed"',
       ),
-    updated_at: zod.string().describe("When the address was updated"),
+    updated_at: z.string().describe("When the address was updated"),
   });
 
 export const supportAddressResponseSchema: zod.ZodSchema<SupportAddressResponse> =
-  zod.object({ recipient_address: supportAddressObjectSchema });
+  z.object({ recipient_address: supportAddressObjectSchema });
 
 export const supportAddressesResponseSchema: zod.ZodSchema<SupportAddressesResponse> =
-  zod.object({ recipient_addresses: zod.array(supportAddressObjectSchema) });
+  z.object({ recipient_addresses: z.array(supportAddressObjectSchema) });
 
 export const suspendedTicketsAttachmentsResponseSchema: zod.ZodSchema<SuspendedTicketsAttachmentsResponse> =
-  zod.object({
-    upload: zod.object({
-      attachments: zod.array(attachmentObjectSchema),
-      token: zod.string().describe("Token for subsequent request"),
+  z.object({
+    upload: z.object({
+      attachments: z.array(attachmentObjectSchema),
+      token: z.string().describe("Token for subsequent request"),
     }),
   });
 
 export const suspendedTicketsExportResponseSchema: zod.ZodSchema<SuspendedTicketsExportResponse> =
-  zod.object({
-    export: zod.object({ status: zod.string(), view_id: zod.string() }),
-  });
+  z.object({ export: z.object({ status: z.string(), view_id: z.string() }) });
 
 export const systemFieldOptionObjectSchema: zod.ZodSchema<SystemFieldOptionObject> =
-  zod.object({
-    name: zod.string().describe("Name of the system field option"),
-    value: zod.string().describe("Value of the system field option"),
+  z.object({
+    name: z.string().describe("Name of the system field option"),
+    value: z.string().describe("Value of the system field option"),
   });
 
-export const tagCountObjectSchema: zod.ZodSchema<TagCountObject> = zod.object({
-  refreshed_at: zod
+export const tagCountObjectSchema: zod.ZodSchema<TagCountObject> = z.object({
+  refreshed_at: z
     .string()
     .describe("The time that the count value was last refreshed"),
-  value: zod
-    .number()
-    .describe("The count of tags created in the last 24 hours"),
+  value: z.number().describe("The count of tags created in the last 24 hours"),
 });
 
-export const tagCountResponseSchema: zod.ZodSchema<TagCountResponse> =
-  zod.object({ count: tagCountObjectSchema });
+export const tagCountResponseSchema: zod.ZodSchema<TagCountResponse> = z.object(
+  { count: tagCountObjectSchema },
+);
 
-export const tagListTagObjectSchema: zod.ZodSchema<TagListTagObject> =
-  zod.object({
-    count: zod.number().describe("The number of tags"),
-    name: zod.string().describe("A name for the tag"),
-  });
+export const tagListTagObjectSchema: zod.ZodSchema<TagListTagObject> = z.object(
+  {
+    count: z.number().describe("The number of tags"),
+    name: z.string().describe("A name for the tag"),
+  },
+);
 
-export const tagUrlObjectSchema: zod.ZodSchema<TagUrlObject> = zod.object({
-  url: zod.string().describe("The url associated to the api request"),
+export const tagUrlObjectSchema: zod.ZodSchema<TagUrlObject> = z.object({
+  url: z.string().describe("The url associated to the api request"),
 });
 
 export const tagsByObjectIdResponseSchema: zod.ZodSchema<TagsByObjectIdResponse> =
-  zod.object({ tags: zod.array(zod.string()).describe("An array of strings") });
+  z.object({ tags: z.array(z.string()).describe("An array of strings") });
 
-export const tagsResponseSchema: zod.ZodSchema<TagsResponse> = zod.object({
-  count: zod.number().describe("The number of pages"),
-  next_page: zod.string().nullable().describe("The url of the previous page"),
-  previous_page: zod.string().nullable().describe("The url of the next page"),
-  tags: zod.array(tagListTagObjectSchema),
+export const tagsResponseSchema: zod.ZodSchema<TagsResponse> = z.object({
+  count: z.number().describe("The number of pages"),
+  next_page: z.string().nullable().describe("The url of the previous page"),
+  previous_page: z.string().nullable().describe("The url of the next page"),
+  tags: z.array(tagListTagObjectSchema),
 });
 
-export const targetBasecampSchema: zod.ZodSchema<TargetBasecamp> = zod.object({
-  message_id: zod
+export const targetBasecampSchema: zod.ZodSchema<TargetBasecamp> = z.object({
+  message_id: z
     .string()
     .describe('Can be filled if it is a "message" resource'),
-  password: zod
+  password: z
     .string()
     .describe(
       "The 37Signals password for the Basecamp account (only writable)",
     ),
-  project_id: zod
+  project_id: z
     .string()
     .describe(
       "The ID of the project in Basecamp where updates should be pushed",
     ),
-  resource: zod.string().describe('"todo" or "message"'),
-  target_url: zod
+  resource: z.string().describe('"todo" or "message"'),
+  target_url: z
     .string()
     .describe("The URL of your Basecamp account, including protocol and path"),
-  todo_list_id: zod
-    .string()
-    .describe('Can be filled if it is a "todo" resource'),
-  token: zod
+  todo_list_id: z.string().describe('Can be filled if it is a "todo" resource'),
+  token: z
     .string()
     .describe(
       "Get the API token from My info > Show your tokens > Token for feed readers or the Basecamp API in your Basecamp account",
     ),
-  username: zod
+  username: z
     .string()
     .describe(
       "The 37Signals username of the account you use to log in to Basecamp",
     ),
 });
 
-export const targetCampfireSchema: zod.ZodSchema<TargetCampfire> = zod.object({
-  preserve_format: zod.boolean(),
-  room: zod.string(),
-  ssl: zod.boolean(),
-  subdomain: zod.string(),
-  token: zod.string(),
+export const targetCampfireSchema: zod.ZodSchema<TargetCampfire> = z.object({
+  preserve_format: z.boolean(),
+  room: z.string(),
+  ssl: z.boolean(),
+  subdomain: z.string(),
+  token: z.string(),
 });
 
-export const targetClickatellSchema: zod.ZodSchema<TargetClickatell> =
-  zod.object({
-    api_id: zod.string(),
-    attribute: zod.string().describe("Read-only"),
-    from: zod.string(),
-    method: zod.string().describe("Read-only"),
-    password: zod.string().describe("only writable"),
-    target_url: zod.string().describe("Read-only"),
-    to: zod.string(),
-    us_small_business_account: zod.string(),
-    username: zod.string(),
-  });
+export const targetClickatellSchema: zod.ZodSchema<TargetClickatell> = z.object(
+  {
+    api_id: z.string(),
+    attribute: z.string().describe("Read-only"),
+    from: z.string(),
+    method: z.string().describe("Read-only"),
+    password: z.string().describe("only writable"),
+    target_url: z.string().describe("Read-only"),
+    to: z.string(),
+    us_small_business_account: z.string(),
+    username: z.string(),
+  },
+);
 
 export const targetCommonFieldsSchema: zod.ZodSchema<TargetCommonFields> =
-  zod.object({
-    active: zod.boolean().describe("Whether or not the target is activated"),
-    created_at: zod.string().describe("The time the target was created"),
-    id: zod.number().describe("Automatically assigned when created"),
-    title: zod.string().describe("A name for the target"),
-    type: zod
+  z.object({
+    active: z.boolean().describe("Whether or not the target is activated"),
+    created_at: z.string().describe("The time the target was created"),
+    id: z.number().describe("Automatically assigned when created"),
+    title: z.string().describe("A name for the target"),
+    type: z
       .string()
       .describe(
         'A pre-defined target, such as "basecamp_target". See the additional attributes for the type that follow',
       ),
   });
 
-export const targetEmailSchema: zod.ZodSchema<TargetEmail> = zod.object({
-  email: zod.string(),
-  subject: zod.string(),
+export const targetEmailSchema: zod.ZodSchema<TargetEmail> = z.object({
+  email: z.string(),
+  subject: z.string(),
 });
 
 export const targetFailureObjectSchema: zod.ZodSchema<TargetFailureObject> =
-  zod.object({
-    consecutive_failure_count: zod
+  z.object({
+    consecutive_failure_count: z
       .number()
       .describe("Number of times the target failed consecutively"),
-    created_at: zod.string().describe("Time of the failure"),
-    id: zod.number().describe("The ID of the target failure"),
-    raw_request: zod.string().describe("The raw message of the target request"),
-    raw_response: zod.string().describe("The raw response of the failure"),
-    status_code: zod
-      .number()
-      .describe("HTTP status code of the target failure"),
-    target_name: zod.string().describe("Name of the target failure"),
-    url: zod.string().describe("The API url of the failure record"),
+    created_at: z.string().describe("Time of the failure"),
+    id: z.number().describe("The ID of the target failure"),
+    raw_request: z.string().describe("The raw message of the target request"),
+    raw_response: z.string().describe("The raw response of the failure"),
+    status_code: z.number().describe("HTTP status code of the target failure"),
+    target_name: z.string().describe("Name of the target failure"),
+    url: z.string().describe("The API url of the failure record"),
   });
 
 export const targetFailureResponseSchema: zod.ZodSchema<TargetFailureResponse> =
-  zod.object({ target_failure: targetFailureObjectSchema });
+  z.object({ target_failure: targetFailureObjectSchema });
 
 export const targetFailuresResponseSchema: zod.ZodSchema<TargetFailuresResponse> =
-  zod.object({ target_failures: zod.array(targetFailureObjectSchema) });
+  z.object({ target_failures: z.array(targetFailureObjectSchema) });
 
-export const targetFlowdockSchema: zod.ZodSchema<TargetFlowdock> = zod.object({
-  api_token: zod.string(),
+export const targetFlowdockSchema: zod.ZodSchema<TargetFlowdock> = z.object({
+  api_token: z.string(),
 });
 
 export const targetGetSatisfactionSchema: zod.ZodSchema<TargetGetSatisfaction> =
-  zod.object({
-    account_name: zod.string(),
-    email: zod.string(),
-    password: zod.string().describe("only writable"),
-    target_url: zod.string(),
+  z.object({
+    account_name: z.string(),
+    email: z.string(),
+    password: z.string().describe("only writable"),
+    target_url: z.string(),
   });
 
-export const targetHttpSchema: zod.ZodSchema<TargetHTTP> = zod.object({
-  content_type: zod
+export const targetHttpSchema: zod.ZodSchema<TargetHTTP> = z.object({
+  content_type: z
     .string()
     .describe(
       '"application/json", "application/xml", or "application/x-www-form-urlencoded"',
     ),
-  method: zod.string().describe('"get", "patch", "put", "post", or "delete"'),
-  password: zod.string().describe("only writable"),
-  target_url: zod.string(),
-  username: zod.string(),
+  method: z.string().describe('"get", "patch", "put", "post", or "delete"'),
+  password: z.string().describe("only writable"),
+  target_url: z.string(),
+  username: z.string(),
 });
 
-export const targetJiraSchema: zod.ZodSchema<TargetJira> = zod.object({
-  password: zod.string().describe("only writable"),
-  target_url: zod.string(),
-  username: zod.string(),
+export const targetJiraSchema: zod.ZodSchema<TargetJira> = z.object({
+  password: z.string().describe("only writable"),
+  target_url: z.string(),
+  username: z.string(),
 });
 
-export const targetPivotalSchema: zod.ZodSchema<TargetPivotal> = zod.object({
-  owner_by: zod.string(),
-  project_id: zod.string(),
-  requested_by: zod.string(),
-  story_labels: zod.string(),
-  story_title: zod.string(),
-  story_type: zod.string(),
-  token: zod.string(),
+export const targetPivotalSchema: zod.ZodSchema<TargetPivotal> = z.object({
+  owner_by: z.string(),
+  project_id: z.string(),
+  requested_by: z.string(),
+  story_labels: z.string(),
+  story_title: z.string(),
+  story_type: z.string(),
+  token: z.string(),
 });
 
-export const targetTwitterSchema: zod.ZodSchema<TargetTwitter> = zod.object({
-  secret: zod.string().describe("only writable"),
-  token: zod.string(),
+export const targetTwitterSchema: zod.ZodSchema<TargetTwitter> = z.object({
+  secret: z.string().describe("only writable"),
+  token: z.string(),
 });
 
-export const targetUrlSchema: zod.ZodSchema<TargetURL> = zod.object({
-  attribute: zod.string(),
-  method: zod.string().describe('"get"'),
-  password: zod.string().describe("only writable"),
-  target_url: zod.string(),
-  username: zod.string(),
+export const targetUrlSchema: zod.ZodSchema<TargetURL> = z.object({
+  attribute: z.string(),
+  method: z.string().describe('"get"'),
+  password: z.string().describe("only writable"),
+  target_url: z.string(),
+  username: z.string(),
 });
 
-export const targetYammerSchema: zod.ZodSchema<TargetYammer> = zod.object({
-  group_id: zod.string(),
-  token: zod.string(),
+export const targetYammerSchema: zod.ZodSchema<TargetYammer> = z.object({
+  group_id: z.string(),
+  token: z.string(),
 });
 
-export const targetObjectSchema: zod.ZodSchema<TargetObject> = zod.intersection(
+export const targetObjectSchema: zod.ZodSchema<TargetObject> = z.intersection(
   targetCommonFieldsSchema,
-  zod.union([
+  z.union([
     targetBasecampSchema,
     targetCampfireSchema,
     targetClickatellSchema,
@@ -5932,182 +5859,182 @@ export const targetObjectSchema: zod.ZodSchema<TargetObject> = zod.intersection(
   ]),
 );
 
-export const targetResponseSchema: zod.ZodSchema<TargetResponse> = zod.object({
+export const targetResponseSchema: zod.ZodSchema<TargetResponse> = z.object({
   target: targetObjectSchema,
 });
 
-export const targetsResponseSchema: zod.ZodSchema<TargetsResponse> = zod.object(
-  { targets: zod.array(targetObjectSchema) },
-);
+export const targetsResponseSchema: zod.ZodSchema<TargetsResponse> = z.object({
+  targets: z.array(targetObjectSchema),
+});
 
-export const ticketAuditViaObjectSchema: zod.ZodSchema<TicketAuditViaObject> =
-  zod
-    .object({
-      channel: zod
-        .string()
-        .describe(
-          'This tells you how the ticket or event was created. Examples: "web", "mobile", "rule", "system"',
-        ),
-      source: zod
-        .object({})
-        .passthrough()
-        .describe(
-          "For some channels a source object gives more information about how or why the ticket or event was created",
-        ),
-    })
-    .describe(
-      "Describes how the object was created. See the [Via object reference](/documentation/ticketing/reference-guides/via-object-reference)",
-    );
+export const ticketAuditViaObjectSchema: zod.ZodSchema<TicketAuditViaObject> = z
+  .object({
+    channel: z
+      .string()
+      .describe(
+        'This tells you how the ticket or event was created. Examples: "web", "mobile", "rule", "system"',
+      ),
+    source: z
+      .object({})
+      .passthrough()
+      .describe(
+        "For some channels a source object gives more information about how or why the ticket or event was created",
+      ),
+  })
+  .describe(
+    "Describes how the object was created. See the [Via object reference](/documentation/ticketing/reference-guides/via-object-reference)",
+  );
 
-export const requestObjectSchema: zod.ZodSchema<RequestObject> = zod.object({
-  assignee_id: zod
+export const requestObjectSchema: zod.ZodSchema<RequestObject> = z.object({
+  assignee_id: z
     .number()
     .describe("The id of the assignee if the field is visible to end users"),
-  can_be_solved_by_me: zod
+  can_be_solved_by_me: z
     .boolean()
     .describe("If true, end user can mark request as solved."),
-  collaborator_ids: zod
-    .array(zod.number())
+  collaborator_ids: z
+    .array(z.number())
     .describe("The ids of users currently CC'ed on the ticket"),
-  created_at: zod.string().describe("When this record was created"),
-  custom_fields: zod
-    .array(zod.object({ id: zod.number(), value: zod.string() }))
+  created_at: z.string().describe("When this record was created"),
+  custom_fields: z
+    .array(z.object({ id: z.number(), value: z.string() }))
     .describe(
       "Custom fields for the request. See [Setting custom field values](/api-reference/ticketing/tickets/tickets/#setting-custom-field-values) in the Tickets doc",
     ),
-  custom_status_id: zod
+  custom_status_id: z
     .number()
     .describe("The custom ticket status id of the ticket"),
-  description: zod
+  description: z
     .string()
     .describe(
       "Read-only first comment on the request. When [creating a request](#create-request), use `comment` to set the description",
     ),
-  due_at: zod
+  due_at: z
     .string()
     .describe(
       'When the task is due (only applies if the request is of type "task")',
     ),
-  email_cc_ids: zod
-    .array(zod.number())
+  email_cc_ids: z
+    .array(z.number())
     .describe(
       "The ids of users who are currently email CCs on the ticket. See [CCs and followers resources](https://support.zendesk.com/hc/en-us/articles/360020585233) in the Support Help Center",
     ),
-  followup_source_id: zod
+  followup_source_id: z
     .number()
     .describe(
       "The id of the original ticket if this request is a follow-up ticket. See [Create Request](#create-request)",
     ),
-  group_id: zod
+  group_id: z
     .number()
     .describe(
       "The id of the assigned group if the field is visible to end users",
     ),
-  id: zod.number().describe("Automatically assigned when creating requests"),
-  is_public: zod
+  id: z.number().describe("Automatically assigned when creating requests"),
+  is_public: z
     .boolean()
     .describe("Is true if any comments are public, false otherwise"),
-  organization_id: zod.number().describe("The organization of the requester"),
-  priority: zod
+  organization_id: z.number().describe("The organization of the requester"),
+  priority: z
     .string()
     .describe('The priority of the request, "low", "normal", "high", "urgent"'),
-  recipient: zod
+  recipient: z
     .string()
     .describe("The original recipient e-mail address of the request"),
-  requester_id: zod.number().describe("The id of the requester"),
-  solved: zod
+  requester_id: z.number().describe("The id of the requester"),
+  solved: z
     .boolean()
     .describe(
       'Whether or not request is solved (an end user can set this if "can_be_solved_by_me", above, is true for that user)',
     ),
-  status: zod
+  status: z
     .string()
     .describe(
       'The state of the request, "new", "open", "pending", "hold", "solved", "closed"',
     ),
-  subject: zod
+  subject: z
     .string()
     .describe(
       "The value of the subject field for this request if the subject field is visible to end users; a truncated version of the description otherwise",
     ),
-  ticket_form_id: zod
+  ticket_form_id: z
     .number()
     .describe(
       "The numeric id of the ticket form associated with this request if the form is visible to end users - only applicable for enterprise accounts",
     ),
-  type: zod
+  type: z
     .string()
     .describe(
       'The type of the request, "question", "incident", "problem", "task"',
     ),
-  updated_at: zod.string().describe("When this record last got updated"),
-  url: zod.string().describe("The API url of this request"),
+  updated_at: z.string().describe("When this record last got updated"),
+  url: z.string().describe("The API url of this request"),
   via: ticketAuditViaObjectSchema,
 });
 
-export const requestResponseSchema: zod.ZodSchema<RequestResponse> = zod.object(
-  { request: requestObjectSchema },
+export const requestResponseSchema: zod.ZodSchema<RequestResponse> = z.object({
+  request: requestObjectSchema,
+});
+
+export const requestsResponseSchema: zod.ZodSchema<RequestsResponse> = z.object(
+  { requests: z.array(requestObjectSchema) },
 );
 
-export const requestsResponseSchema: zod.ZodSchema<RequestsResponse> =
-  zod.object({ requests: zod.array(requestObjectSchema) });
-
 export const ticketAuditObjectSchema: zod.ZodSchema<TicketAuditObject> =
-  zod.object({
-    author_id: zod.number().describe("The user who created the audit"),
-    created_at: zod.string().describe("The time the audit was created"),
-    events: zod
-      .array(zod.object({}).passthrough())
+  z.object({
+    author_id: z.number().describe("The user who created the audit"),
+    created_at: z.string().describe("The time the audit was created"),
+    events: z
+      .array(z.object({}).passthrough())
       .describe(
         "An array of the events that happened in this audit. See the [Ticket Audit events reference](/documentation/ticketing/reference-guides/ticket-audit-events-reference)",
       ),
-    id: zod.number().describe("Automatically assigned when creating audits"),
-    metadata: zod
+    id: z.number().describe("Automatically assigned when creating audits"),
+    metadata: z
       .object({})
       .passthrough()
       .describe("Metadata for the audit, custom and system data"),
-    ticket_id: zod.number().describe("The ID of the associated ticket"),
+    ticket_id: z.number().describe("The ID of the associated ticket"),
     via: ticketAuditViaObjectSchema,
   });
 
 export const ticketAuditResponseSchema: zod.ZodSchema<TicketAuditResponse> =
-  zod.object({ audit: ticketAuditObjectSchema });
+  z.object({ audit: ticketAuditObjectSchema });
 
 export const ticketAuditsCountResponseSchema: zod.ZodSchema<TicketAuditsCountResponse> =
-  zod.object({
-    count: zod.object({ refreshed_at: zod.string(), value: zod.number() }),
+  z.object({
+    count: z.object({ refreshed_at: z.string(), value: z.number() }),
   });
 
 export const ticketAuditsResponseSchema: zod.ZodSchema<TicketAuditsResponse> =
-  zod.object({
-    after_cursor: zod.string(),
-    after_url: zod.string(),
-    audits: zod.array(ticketAuditObjectSchema),
-    before_cursor: zod.string(),
-    before_url: zod.string(),
+  z.object({
+    after_cursor: z.string(),
+    after_url: z.string(),
+    audits: z.array(ticketAuditObjectSchema),
+    before_cursor: z.string(),
+    before_url: z.string(),
   });
 
 export const ticketAuditsResponseNoneCursorSchema: zod.ZodSchema<TicketAuditsResponseNoneCursor> =
-  zod.object({
-    audits: zod.array(ticketAuditObjectSchema),
-    count: zod.number(),
-    next_page: zod.string().nullable(),
-    previous_page: zod.string().nullable(),
+  z.object({
+    audits: z.array(ticketAuditObjectSchema),
+    count: z.number(),
+    next_page: z.string().nullable(),
+    previous_page: z.string().nullable(),
   });
 
 export const ticketChatCommentRedactionResponseSchema: zod.ZodSchema<TicketChatCommentRedactionResponse> =
-  zod.object({
-    chat_event: zod
+  z.object({
+    chat_event: z
       .object({
-        id: zod.number().describe("Id assigned to the chat event object"),
-        type: zod.string().describe("Type of chat event"),
-        value: zod
+        id: z.number().describe("Id assigned to the chat event object"),
+        type: z.string().describe("Type of chat event"),
+        value: z
           .object({
-            chat_id: zod.string().describe("Id of the chat session"),
-            history: zod
-              .array(zod.object({}).passthrough())
+            chat_id: z.string().describe("Id of the chat session"),
+            history: z
+              .array(z.object({}).passthrough())
               .describe("Chat events within the chat session"),
-            visitor_id: zod.string().describe("Id assigned to the visitor"),
+            visitor_id: z.string().describe("Id assigned to the visitor"),
           })
           .describe("The value of the chat event object"),
       })
@@ -6115,49 +6042,49 @@ export const ticketChatCommentRedactionResponseSchema: zod.ZodSchema<TicketChatC
   });
 
 export const ticketCommentObjectSchema: zod.ZodSchema<TicketCommentObject> =
-  zod.object({
-    attachments: zod
+  z.object({
+    attachments: z
       .array(attachmentObjectSchema)
       .describe(
         "Attachments, if any. See [Attachment](/api-reference/ticketing/tickets/ticket-attachments/)",
       ),
-    audit_id: zod
+    audit_id: z
       .number()
       .describe(
         "The id of the ticket audit record. See [Show Audit](/api-reference/ticketing/tickets/ticket_audits/#show-audit)",
       ),
-    author_id: zod
+    author_id: z
       .number()
       .describe("The id of the comment author. See [Author id](#author-id)"),
-    body: zod.string().describe("The comment string. See [Bodies](#bodies)"),
-    created_at: zod.string().describe("The time the comment was created"),
-    html_body: zod
+    body: z.string().describe("The comment string. See [Bodies](#bodies)"),
+    created_at: z.string().describe("The time the comment was created"),
+    html_body: z
       .string()
       .describe("The comment formatted as HTML. See [Bodies](#bodies)"),
-    id: zod
+    id: z
       .number()
       .describe("Automatically assigned when the comment is created"),
-    metadata: zod
+    metadata: z
       .object({})
       .passthrough()
       .describe(
         "System information (web client, IP address, etc.) and comment flags, if any. See [Comment flags](#comment-flags)",
       ),
-    plain_body: zod
+    plain_body: z
       .string()
       .describe("The comment presented as plain text. See [Bodies](#bodies)"),
-    public: zod
+    public: z
       .boolean()
       .describe(
         "true if a public comment; false if an internal note. The initial value set on ticket creation persists for any additional comment unless you change it",
       ),
-    type: zod
+    type: z
       .string()
       .describe(
         "`Comment` or `VoiceComment`. The JSON object for adding voice comments to tickets is different. See [Adding voice comments to tickets](/documentation/ticketing/managing-tickets/adding-voice-comments-to-tickets)",
       ),
-    uploads: zod
-      .array(zod.string())
+    uploads: z
+      .array(z.string())
       .describe(
         "List of tokens received from [uploading files](/api-reference/ticketing/tickets/ticket-attachments/#upload-files) for comment attachments. The files are attached by creating or updating tickets with the tokens. See [Attaching files](/api-reference/ticketing/tickets/tickets/#attaching-files) in Tickets",
       ),
@@ -6165,47 +6092,47 @@ export const ticketCommentObjectSchema: zod.ZodSchema<TicketCommentObject> =
   });
 
 export const ticketCommentResponseSchema: zod.ZodSchema<TicketCommentResponse> =
-  zod.object({ comment: ticketCommentObjectSchema });
+  z.object({ comment: ticketCommentObjectSchema });
 
 export const ticketCommentsCountResponseSchema: zod.ZodSchema<TicketCommentsCountResponse> =
-  zod.object({
-    count: zod.object({ refreshed_at: zod.string(), value: zod.number() }),
+  z.object({
+    count: z.object({ refreshed_at: z.string(), value: z.number() }),
   });
 
 export const ticketCommentsResponseSchema: zod.ZodSchema<TicketCommentsResponse> =
-  zod.object({ comments: zod.array(ticketCommentObjectSchema) });
+  z.object({ comments: z.array(ticketCommentObjectSchema) });
 
 export const ticketCreateVoicemailTicketVoiceCommentInputSchema: zod.ZodSchema<TicketCreateVoicemailTicketVoiceCommentInput> =
-  zod.object({
-    answered_by_id: zod.number().describe("The agent who answered the call"),
-    call_duration: zod.number().describe("Duration in seconds of the call"),
-    from: zod.string().describe("Incoming phone number"),
-    location: zod.string().describe("Location of the caller (optional)"),
-    recording_url: zod.string().describe("Incoming phone number"),
-    started_at: zod
+  z.object({
+    answered_by_id: z.number().describe("The agent who answered the call"),
+    call_duration: z.number().describe("Duration in seconds of the call"),
+    from: z.string().describe("Incoming phone number"),
+    location: z.string().describe("Location of the caller (optional)"),
+    recording_url: z.string().describe("Incoming phone number"),
+    started_at: z
       .string()
       .describe(
         "[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp of the call starting time",
       ),
-    to: zod.string().describe("Dialed phone number"),
-    transcription_text: zod
+    to: z.string().describe("Dialed phone number"),
+    transcription_text: z
       .string()
       .describe("Transcription of the call (optional)"),
   });
 
 export const ticketCreateVoicemailTicketInputSchema: zod.ZodSchema<TicketCreateVoicemailTicketInput> =
-  zod.object({
+  z.object({
     comment: ticketCommentObjectSchema,
-    priority: zod
+    priority: z
       .union([
-        zod.literal("urgent"),
-        zod.literal("high"),
-        zod.literal("normal"),
-        zod.literal("low"),
+        z.literal("urgent"),
+        z.literal("high"),
+        z.literal("normal"),
+        z.literal("low"),
       ])
       .describe("The urgency with which the ticket should be addressed."),
-    via_id: zod
-      .union([zod.literal(44), zod.literal(45), zod.literal(46)])
+    via_id: z
+      .union([z.literal(44), z.literal(45), z.literal(46)])
       .describe("Required for Create Ticket operation"),
     voice_comment: ticketCreateVoicemailTicketVoiceCommentInputSchema.describe(
       "Required if creating voicemail ticket",
@@ -6213,8 +6140,8 @@ export const ticketCreateVoicemailTicketInputSchema: zod.ZodSchema<TicketCreateV
   });
 
 export const ticketCreateVoicemailTicketRequestSchema: zod.ZodSchema<TicketCreateVoicemailTicketRequest> =
-  zod.object({
-    display_to_agent: zod
+  z.object({
+    display_to_agent: z
       .number()
       .describe(
         "Optional value such as the ID of the agent that will see the newly created ticket.",
@@ -6225,52 +6152,52 @@ export const ticketCreateVoicemailTicketRequestSchema: zod.ZodSchema<TicketCreat
   });
 
 export const ticketFieldCountResponseSchema: zod.ZodSchema<TicketFieldCountResponse> =
-  zod.object({
-    count: zod.object({ refreshed_at: zod.string(), value: zod.number() }),
+  z.object({
+    count: z.object({ refreshed_at: z.string(), value: z.number() }),
   });
 
 export const ticketFieldCustomStatusObjectSchema: zod.ZodSchema<TicketFieldCustomStatusObject> =
-  zod.object({
-    active: zod
+  z.object({
+    active: z
       .boolean()
       .describe(
         "If true, if the custom status is set to active. If false, the custom status is set to inactive",
       ),
-    agent_label: zod.string().describe("The label displayed to agents"),
-    created_at: zod
+    agent_label: z.string().describe("The label displayed to agents"),
+    created_at: z
       .string()
       .describe(
         "The date and time at which the custom ticket status was created",
       ),
-    default: zod
+    default: z
       .boolean()
       .describe(
         "If true, the custom status is set to default. If false, the custom status is set to non-default",
       ),
-    description: zod
+    description: z
       .string()
       .describe(
         "The description of when the user should select this custom ticket status",
       ),
-    end_user_description: zod
+    end_user_description: z
       .string()
       .describe("The description displayed to end users"),
-    end_user_label: zod.string().describe("The label displayed to end users"),
-    id: zod
+    end_user_label: z.string().describe("The label displayed to end users"),
+    id: z
       .number()
       .describe(
         "Automatically assigned when the custom ticket status is created",
       ),
-    status_category: zod
+    status_category: z
       .union([
-        zod.literal("new"),
-        zod.literal("open"),
-        zod.literal("pending"),
-        zod.literal("hold"),
-        zod.literal("solved"),
+        z.literal("new"),
+        z.literal("open"),
+        z.literal("pending"),
+        z.literal("hold"),
+        z.literal("solved"),
       ])
       .describe("The status category the custom ticket status belongs to"),
-    updated_at: zod
+    updated_at: z
       .string()
       .describe(
         "The date and time at which the custom ticket status was last updated",
@@ -6278,285 +6205,283 @@ export const ticketFieldCustomStatusObjectSchema: zod.ZodSchema<TicketFieldCusto
   });
 
 export const ticketFieldObjectSchema: zod.ZodSchema<TicketFieldObject> =
-  zod.object({
-    active: zod.boolean().describe("Whether this field is available"),
-    agent_description: zod
+  z.object({
+    active: z.boolean().describe("Whether this field is available"),
+    agent_description: z
       .string()
       .describe("A description of the ticket field that only agents can see"),
-    collapsed_for_agents: zod
+    collapsed_for_agents: z
       .boolean()
       .describe(
         "If true, the field is shown to agents by default. If false, the field is hidden alongside infrequently used fields. Classic interface only",
       ),
-    created_at: zod
+    created_at: z
       .string()
       .describe("The time the custom ticket field was created"),
-    creator_app_name: zod
+    creator_app_name: z
       .string()
       .describe(
         "Name of the app that created the ticket field, or a null value if no app created the ticket field",
       ),
-    creator_user_id: zod
+    creator_user_id: z
       .number()
       .describe(
         'The id of the user that created the ticket field, or a value of "-1" if an app created the ticket field',
       ),
-    custom_field_options: zod
+    custom_field_options: z
       .array(customFieldOptionObjectSchema)
       .describe(
         'Required and presented for a custom ticket field of type "multiselect" or "tagger"',
       ),
-    custom_statuses: zod
+    custom_statuses: z
       .array(ticketFieldCustomStatusObjectSchema)
       .describe(
         'List of customized ticket statuses. Only presented for a system ticket field of type "custom_status"',
       ),
-    description: zod
+    description: z
       .string()
       .describe("Describes the purpose of the ticket field to users"),
-    editable_in_portal: zod
+    editable_in_portal: z
       .boolean()
       .describe("Whether this field is editable by end users in Help Center"),
-    id: zod.number().describe("Automatically assigned when created"),
-    position: zod
+    id: z.number().describe("Automatically assigned when created"),
+    position: z
       .number()
       .describe(
         "The relative position of the ticket field on a ticket. Note that for accounts with ticket forms, positions are controlled by the different forms",
       ),
-    raw_description: zod
+    raw_description: z
       .string()
       .describe(
         "The dynamic content placeholder if present, or the `description` value if not. See [Dynamic Content](/api-reference/ticketing/ticket-management/dynamic_content/)",
       ),
-    raw_title: zod
+    raw_title: z
       .string()
       .describe(
         "The dynamic content placeholder if present, or the `title` value if not. See [Dynamic Content](/api-reference/ticketing/ticket-management/dynamic_content/)",
       ),
-    raw_title_in_portal: zod
+    raw_title_in_portal: z
       .string()
       .describe(
         'The dynamic content placeholder if present, or the "title_in_portal" value if not. See [Dynamic Content](/api-reference/ticketing/ticket-management/dynamic_content/)',
       ),
-    regexp_for_validation: zod
+    regexp_for_validation: z
       .string()
       .nullable()
       .describe(
         'For "regexp" fields only. The validation pattern for a field value to be deemed valid',
       ),
-    relationship_filter: zod
+    relationship_filter: z
       .object({})
       .describe(
         "A filter definition that allows your autocomplete to filter down results",
       ),
-    relationship_target_type: zod
+    relationship_target_type: z
       .string()
       .describe(
         'A representation of what type of object the field references. Options are "zen:user", "zen:organization", "zen:ticket", or "zen:custom_object:CUSTOM_OBJECT_KEY". For example "zen:custom_object:apartment".',
       ),
-    removable: zod
+    removable: z
       .boolean()
       .describe(
         "If false, this field is a system field that must be present on all tickets",
       ),
-    required: zod
+    required: z
       .boolean()
       .describe(
         "If true, agents must enter a value in the field to change the ticket status to solved",
       ),
-    required_in_portal: zod
+    required_in_portal: z
       .boolean()
       .describe(
         "If true, end users must enter a value in the field to create the request",
       ),
-    sub_type_id: zod
+    sub_type_id: z
       .number()
       .describe(
         'For system ticket fields of type "priority" and "status". Defaults to 0. A "priority" sub type of 1 removes the "Low" and "Urgent" options. A "status" sub type of 1 adds the "On-Hold" option',
       ),
-    system_field_options: zod
+    system_field_options: z
       .array(systemFieldOptionObjectSchema)
       .describe(
         'Presented for a system ticket field of type "tickettype", "priority" or "status"',
       ),
-    tag: zod
+    tag: z
       .string()
       .nullable()
       .describe(
         'For "checkbox" fields only. A tag added to tickets when the checkbox field is selected',
       ),
-    title: zod.string().describe("The title of the ticket field"),
-    title_in_portal: zod
+    title: z.string().describe("The title of the ticket field"),
+    title_in_portal: z
       .string()
       .describe("The title of the ticket field for end users in Help Center"),
-    type: zod
+    type: z
       .string()
       .describe(
         "System or custom field type. Editable for custom field types and only on creation. See [Create Ticket Field](#create-ticket-field)",
       ),
-    updated_at: zod
+    updated_at: z
       .string()
       .describe("The time the custom ticket field was last updated"),
-    url: zod.string().describe("The URL for this resource"),
-    visible_in_portal: zod
+    url: z.string().describe("The URL for this resource"),
+    visible_in_portal: z
       .boolean()
       .describe("Whether this field is visible to end users in Help Center"),
   });
 
 export const ticketFieldResponseSchema: zod.ZodSchema<TicketFieldResponse> =
-  zod.object({ ticket_field: ticketFieldObjectSchema });
+  z.object({ ticket_field: ticketFieldObjectSchema });
 
 export const ticketFieldsResponseSchema: zod.ZodSchema<TicketFieldsResponse> =
-  zod.object({ ticket_fields: zod.array(ticketFieldObjectSchema) });
+  z.object({ ticket_fields: z.array(ticketFieldObjectSchema) });
 
-export const ticketFormObjectSchema: zod.ZodSchema<TicketFormObject> =
-  zod.object({
-    active: zod.boolean().describe("If the form is set as active"),
-    agent_conditions: zod
-      .array(zod.object({}).passthrough())
+export const ticketFormObjectSchema: zod.ZodSchema<TicketFormObject> = z.object(
+  {
+    active: z.boolean().describe("If the form is set as active"),
+    agent_conditions: z
+      .array(z.object({}).passthrough())
       .describe("Array of condition sets for agent workspaces"),
-    created_at: zod.string().describe("The time the ticket form was created"),
-    default: zod
+    created_at: z.string().describe("The time the ticket form was created"),
+    default: z
       .boolean()
       .describe("Is the form the default form for this account"),
-    display_name: zod
+    display_name: z
       .string()
       .describe("The name of the form that is displayed to an end user"),
-    end_user_conditions: zod
-      .array(zod.object({}).passthrough())
+    end_user_conditions: z
+      .array(z.object({}).passthrough())
       .describe("Array of condition sets for end user products"),
-    end_user_visible: zod
+    end_user_visible: z
       .boolean()
       .describe("Is the form visible to the end user"),
-    id: zod
-      .number()
-      .describe("Automatically assigned when creating ticket form"),
-    in_all_brands: zod
+    id: z.number().describe("Automatically assigned when creating ticket form"),
+    in_all_brands: z
       .boolean()
       .describe("Is the form available for use in all brands on this account"),
-    name: zod.string().describe("The name of the form"),
-    position: zod
+    name: z.string().describe("The name of the form"),
+    position: z
       .number()
       .describe(
         "The position of this form among other forms in the account, i.e. dropdown",
       ),
-    raw_display_name: zod
+    raw_display_name: z
       .string()
       .describe(
         'The dynamic content placeholder, if present, or the "display_name" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
       ),
-    raw_name: zod
+    raw_name: z
       .string()
       .describe(
         'The dynamic content placeholder, if present, or the "name" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)',
       ),
-    restricted_brand_ids: zod
-      .array(zod.number())
+    restricted_brand_ids: z
+      .array(z.number())
       .describe("ids of all brands that this ticket form is restricted to"),
-    ticket_field_ids: zod
-      .array(zod.number())
+    ticket_field_ids: z
+      .array(z.number())
       .describe(
         "ids of all ticket fields which are in this ticket form. The products use the order of the ids to show the field values in the tickets",
       ),
-    updated_at: zod
+    updated_at: z
       .string()
       .describe("The time of the last update of the ticket form"),
-    url: zod.string().describe("URL of the ticket form"),
-  });
+    url: z.string().describe("URL of the ticket form"),
+  },
+);
 
 export const ticketFormResponseSchema: zod.ZodSchema<TicketFormResponse> =
-  zod.object({ ticket_form: ticketFormObjectSchema });
+  z.object({ ticket_form: ticketFormObjectSchema });
 
 export const ticketFormsResponseSchema: zod.ZodSchema<TicketFormsResponse> =
-  zod.object({ ticket_forms: zod.array(ticketFormObjectSchema) });
+  z.object({ ticket_forms: z.array(ticketFormObjectSchema) });
 
 export const ticketImportInputSchema: zod.ZodSchema<TicketImportInput> =
-  zod.object({
-    assignee_id: zod
+  z.object({
+    assignee_id: z
       .number()
       .describe("The agent currently assigned to the ticket"),
-    comments: zod
+    comments: z
       .array(
-        zod.intersection(
-          zod.object({
-            value: zod.string().describe("The comment string value"),
-          }),
+        z.intersection(
+          z.object({ value: z.string().describe("The comment string value") }),
           ticketCommentObjectSchema,
         ),
       )
       .describe(
         "The conversation between requesters, collaborators, and agents",
       ),
-    description: zod
+    description: z
       .string()
       .describe(
         "Read-only first comment on the ticket. When [creating a ticket](#create-ticket), use `comment` to set the description. See [Description and first comment](#description-and-first-comment)",
       ),
-    requester_id: zod.number().describe("The user who requested this ticket"),
-    subject: zod
+    requester_id: z.number().describe("The user who requested this ticket"),
+    subject: z
       .string()
       .describe("The value of the subject field for this ticket"),
-    tags: zod
-      .array(zod.string())
+    tags: z
+      .array(z.string())
       .describe("The array of tags applied to this ticket"),
   });
 
 export const ticketBulkImportRequestSchema: zod.ZodSchema<TicketBulkImportRequest> =
-  zod.object({ tickets: zod.array(ticketImportInputSchema) });
+  z.object({ tickets: z.array(ticketImportInputSchema) });
 
 export const ticketImportRequestSchema: zod.ZodSchema<TicketImportRequest> =
-  zod.object({ ticket: ticketImportInputSchema });
+  z.object({ ticket: ticketImportInputSchema });
 
-export const ticketMergeInputSchema: zod.ZodSchema<TicketMergeInput> =
-  zod.object({
-    ids: zod
-      .array(zod.unknown())
+export const ticketMergeInputSchema: zod.ZodSchema<TicketMergeInput> = z.object(
+  {
+    ids: z
+      .array(z.unknown())
       .describe("Ids of tickets to merge into the target ticket"),
-    source_comment: zod
+    source_comment: z
       .string()
       .describe("Private comment to add to the source ticket"),
-    source_comment_is_public: zod
+    source_comment_is_public: z
       .boolean()
       .describe("Whether comment in source tickets are public or private"),
-    target_comment: zod
+    target_comment: z
       .string()
       .describe("Private comment to add to the target ticket"),
-    target_comment_is_public: zod
+    target_comment_is_public: z
       .boolean()
       .describe("Whether comment in target ticket is public or private"),
-  });
+  },
+);
 
 export const ticketMetricEventBaseObjectSchema: zod.ZodSchema<TicketMetricEventBaseObject> =
-  zod.object({
-    id: zod
+  z.object({
+    id: z
       .number()
       .describe("Automatically assigned when the record is created"),
-    instance_id: zod
+    instance_id: z
       .number()
       .describe(
         "The instance of the metric associated with the event. See [instance_id](#instance_id)",
       ),
-    metric: zod
+    metric: z
       .union([
-        zod.literal("agent_work_time"),
-        zod.literal("pausable_update_time"),
-        zod.literal("periodic_update_time"),
-        zod.literal("reply_time"),
-        zod.literal("requester_wait_time"),
-        zod.literal("resolution_time"),
+        z.literal("agent_work_time"),
+        z.literal("pausable_update_time"),
+        z.literal("periodic_update_time"),
+        z.literal("reply_time"),
+        z.literal("requester_wait_time"),
+        z.literal("resolution_time"),
       ])
       .describe("The metric being tracked"),
-    ticket_id: zod.number().describe("Id of the associated ticket"),
-    time: zod.string().describe("The time the event occurred"),
-    type: zod
+    ticket_id: z.number().describe("Id of the associated ticket"),
+    time: z.string().describe("The time the event occurred"),
+    type: z
       .union([
-        zod.literal("activate"),
-        zod.literal("pause"),
-        zod.literal("fulfill"),
-        zod.literal("apply_sla"),
-        zod.literal("breach"),
-        zod.literal("update_status"),
-        zod.literal("measure"),
+        z.literal("activate"),
+        z.literal("pause"),
+        z.literal("fulfill"),
+        z.literal("apply_sla"),
+        z.literal("breach"),
+        z.literal("update_status"),
+        z.literal("measure"),
       ])
       .describe(
         "The type of the metric event. See [Ticket metric event types reference](/documentation/ticketing/reference-guides/ticket-metric-event-types-reference)",
@@ -6564,19 +6489,19 @@ export const ticketMetricEventBaseObjectSchema: zod.ZodSchema<TicketMetricEventB
   });
 
 export const exportIncrementalTicketEventsResponseSchema: zod.ZodSchema<ExportIncrementalTicketEventsResponse> =
-  zod.object({
-    count: zod.number(),
-    end_of_stream: zod.boolean(),
-    end_time: zod.number(),
-    next_page: zod.string().nullable(),
-    ticket_events: zod.array(ticketMetricEventBaseObjectSchema),
+  z.object({
+    count: z.number(),
+    end_of_stream: z.boolean(),
+    end_time: z.number(),
+    next_page: z.string().nullable(),
+    ticket_events: z.array(ticketMetricEventBaseObjectSchema),
   });
 
 export const ticketMetricEventBreachObjectSchema: zod.ZodSchema<TicketMetricEventBreachObject> =
-  zod.intersection(
+  z.intersection(
     ticketMetricEventBaseObjectSchema,
-    zod.object({
-      deleted: zod
+    z.object({
+      deleted: z
         .boolean()
         .describe(
           "Available if `type` is `breach`. In general, you can ignore any breach event when `deleted` is true. See [deleted](#deleted)",
@@ -6585,10 +6510,10 @@ export const ticketMetricEventBreachObjectSchema: zod.ZodSchema<TicketMetricEven
   );
 
 export const ticketMetricEventGroupSlaObjectSchema: zod.ZodSchema<TicketMetricEventGroupSLAObject> =
-  zod.intersection(
+  z.intersection(
     ticketMetricEventBaseObjectSchema,
-    zod.object({
-      group_sla: zod
+    z.object({
+      group_sla: z
         .object({})
         .describe(
           'Available if `type` is "apply_group_sla". The Group SLA policy and target being enforced on the ticket and metric in question, if any. See [group_sla](#group_sla)',
@@ -6597,10 +6522,10 @@ export const ticketMetricEventGroupSlaObjectSchema: zod.ZodSchema<TicketMetricEv
   );
 
 export const ticketMetricEventSlaObjectSchema: zod.ZodSchema<TicketMetricEventSLAObject> =
-  zod.intersection(
+  z.intersection(
     ticketMetricEventBaseObjectSchema,
-    zod.object({
-      sla: zod
+    z.object({
+      sla: z
         .object({})
         .describe(
           "Available if `type` is `apply_sla`. The SLA policy and target being enforced on the ticket and metric in question, if any. See [sla](#sla)",
@@ -6609,10 +6534,10 @@ export const ticketMetricEventSlaObjectSchema: zod.ZodSchema<TicketMetricEventSL
   );
 
 export const ticketMetricEventUpdateStatusObjectSchema: zod.ZodSchema<TicketMetricEventUpdateStatusObject> =
-  zod.intersection(
+  z.intersection(
     ticketMetricEventBaseObjectSchema,
-    zod.object({
-      status: zod
+    z.object({
+      status: z
         .object({})
         .describe(
           "Available if `type` is `update_status`. Minutes since the metric has been open. See [status](#status)",
@@ -6621,37 +6546,37 @@ export const ticketMetricEventUpdateStatusObjectSchema: zod.ZodSchema<TicketMetr
   );
 
 export const ticketMetricEventsResponseSchema: zod.ZodSchema<TicketMetricEventsResponse> =
-  zod.intersection(
-    zod.object({
-      ticket_metric_events: zod.array(ticketMetricEventBaseObjectSchema),
+  z.intersection(
+    z.object({
+      ticket_metric_events: z.array(ticketMetricEventBaseObjectSchema),
     }),
-    zod.object({
-      count: zod.number(),
-      end_time: zod.number(),
-      next_page: zod.string(),
+    z.object({
+      count: z.number(),
+      end_time: z.number(),
+      next_page: z.string(),
     }),
   );
 
 export const ticketMetricTimeObjectSchema: zod.ZodSchema<TicketMetricTimeObject> =
-  zod.object({
-    business: zod.number().describe("Time in business hours"),
-    calendar: zod.number().describe("Time in calendar hours"),
+  z.object({
+    business: z.number().describe("Time in business hours"),
+    calendar: z.number().describe("Time in calendar hours"),
   });
 
 export const ticketMetricObjectSchema: zod.ZodSchema<TicketMetricObject> =
-  zod.object({
+  z.object({
     agent_wait_time_in_minutes: ticketMetricTimeObjectSchema.describe(
       "Number of minutes the agent spent waiting during calendar and business hours",
     ),
-    assigned_at: zod.string().describe("When the ticket was assigned"),
-    assignee_stations: zod
+    assigned_at: z.string().describe("When the ticket was assigned"),
+    assignee_stations: z
       .number()
       .describe("Number of assignees the ticket had"),
-    assignee_updated_at: zod
+    assignee_updated_at: z
       .string()
       .describe("When the assignee last updated the ticket"),
-    created_at: zod.string().describe("When the record was created"),
-    custom_status_updated_at: zod
+    created_at: z.string().describe("When the record was created"),
+    custom_status_updated_at: z
       .string()
       .describe(
         "The date and time the ticket's custom status was last updated",
@@ -6662,25 +6587,25 @@ export const ticketMetricObjectSchema: zod.ZodSchema<TicketMetricObject> =
     full_resolution_time_in_minutes: ticketMetricTimeObjectSchema.describe(
       "Number of minutes to the full resolution during calendar and business hours",
     ),
-    group_stations: zod
+    group_stations: z
       .number()
       .describe("Number of groups the ticket passed through"),
-    id: zod
+    id: z
       .number()
       .describe("Automatically assigned when the client is created"),
-    initially_assigned_at: zod
+    initially_assigned_at: z
       .string()
       .describe("When the ticket was initially assigned"),
-    latest_comment_added_at: zod
+    latest_comment_added_at: z
       .string()
       .describe("When the latest comment was added"),
     on_hold_time_in_minutes: ticketMetricTimeObjectSchema.describe(
       "Number of minutes on hold",
     ),
-    reopens: zod
+    reopens: z
       .number()
       .describe("Total number of times the ticket was reopened"),
-    replies: zod
+    replies: z
       .number()
       .describe("The number of public replies added to a ticket by an agent"),
     reply_time_in_minutes: ticketMetricTimeObjectSchema.describe(
@@ -6689,255 +6614,253 @@ export const ticketMetricObjectSchema: zod.ZodSchema<TicketMetricObject> =
     reply_time_in_seconds: ticketMetricTimeObjectSchema.describe(
       "Number of seconds to the first reply during calendar hours, only available for Messaging tickets",
     ),
-    requester_updated_at: zod
+    requester_updated_at: z
       .string()
       .describe("When the requester last updated the ticket"),
     requester_wait_time_in_minutes: ticketMetricTimeObjectSchema.describe(
       "Number of minutes the requester spent waiting during calendar and business hours",
     ),
-    solved_at: zod.string().describe("When the ticket was solved"),
-    status_updated_at: zod
+    solved_at: z.string().describe("When the ticket was solved"),
+    status_updated_at: z
       .string()
       .describe("When the status of the ticket was last updated"),
-    ticket_id: zod.number().describe("Id of the associated ticket"),
-    updated_at: zod.string().describe("When the record was last updated"),
-    url: zod.string().describe("The API url of the ticket metric"),
+    ticket_id: z.number().describe("Id of the associated ticket"),
+    updated_at: z.string().describe("When the record was last updated"),
+    url: z.string().describe("The API url of the ticket metric"),
   });
 
 export const ticketMetricsByTicketMetricIdResponseSchema: zod.ZodSchema<TicketMetricsByTicketMetricIdResponse> =
-  zod.object({ ticket_metric: zod.array(ticketMetricObjectSchema) });
+  z.object({ ticket_metric: z.array(ticketMetricObjectSchema) });
 
 export const ticketMetricsResponseSchema: zod.ZodSchema<TicketMetricsResponse> =
-  zod.object({ ticket_metrics: zod.array(ticketMetricObjectSchema) });
+  z.object({ ticket_metrics: z.array(ticketMetricObjectSchema) });
 
-export const ticketObjectSchema: zod.ZodSchema<TicketObject> = zod.object({
-  allow_attachments: zod
+export const ticketObjectSchema: zod.ZodSchema<TicketObject> = z.object({
+  allow_attachments: z
     .boolean()
     .describe(
       "Permission for agents to add add attachments to a comment. Defaults to true",
     ),
-  allow_channelback: zod
+  allow_channelback: z
     .boolean()
     .describe(
       "Is false if channelback is disabled, true otherwise. Only applicable for channels framework ticket",
     ),
-  assignee_email: zod
+  assignee_email: z
     .string()
     .describe(
       "Write only. The email address of the agent to assign the ticket to",
     ),
-  assignee_id: zod
+  assignee_id: z
     .number()
     .describe("The agent currently assigned to the ticket"),
-  attribute_value_ids: zod
-    .array(zod.unknown())
+  attribute_value_ids: z
+    .array(z.unknown())
     .describe(
       "Write only. An array of the IDs of attribute values to be associated with the ticket",
     ),
-  brand_id: zod
+  brand_id: z
     .number()
     .describe(
       "Enterprise only. The id of the brand this ticket is associated with",
     ),
-  collaborator_ids: zod
-    .array(zod.unknown())
+  collaborator_ids: z
+    .array(z.unknown())
     .describe("The ids of users currently CC'ed on the ticket"),
-  collaborators: zod
+  collaborators: z
     .array(collaboratorObjectSchema)
     .describe(
       "POST requests only. Users to add as cc's when creating a ticket. See [Setting Collaborators](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-collaborators)",
     ),
-  comment: zod
+  comment: z
     .object({})
     .describe(
       "Write only. An object that adds a comment to the ticket. See [Ticket comments](/api-reference/ticketing/tickets/ticket_comments/). To include an attachment with the comment, see [Attaching files](/documentation/ticketing/managing-tickets/creating-and-updating-tickets/#attaching-files)",
     ),
-  created_at: zod.string().describe("When this record was created"),
-  custom_fields: zod
-    .array(zod.unknown())
+  created_at: z.string().describe("When this record was created"),
+  custom_fields: z
+    .array(z.unknown())
     .describe(
       "Custom fields for the ticket. See [Setting custom field values](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-custom-field-values)",
     ),
-  custom_status_id: zod
+  custom_status_id: z
     .number()
     .describe(
       "The custom ticket status id of the ticket. See [custom ticket statuses](#custom-ticket-statuses)",
     ),
-  description: zod
+  description: z
     .string()
     .describe(
       "Read-only first comment on the ticket. When [creating a ticket](#create-ticket), use `comment` to set the description. See [Description and first comment](#description-and-first-comment)\n",
     ),
-  due_at: zod
+  due_at: z
     .string()
     .nullable()
     .describe(
       'If this is a ticket of type "task" it has a due date.  Due date format uses [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format.',
     ),
-  email_cc_ids: zod
-    .array(zod.unknown())
+  email_cc_ids: z
+    .array(z.unknown())
     .describe(
       "The ids of agents or end users currently CC'ed on the ticket. See [CCs and followers resources](https://support.zendesk.com/hc/en-us/articles/360020585233) in the Support Help Center",
     ),
-  email_ccs: zod
+  email_ccs: z
     .object({})
     .describe(
       "Write only. An array of objects that represent agent or end users email CCs to add or delete from the ticket. See [Setting email CCs](/documentation/ticketing/managing-tickets/creating-and-updating-tickets/#setting-email-ccs)",
     ),
-  external_id: zod
+  external_id: z
     .string()
     .describe(
       "An id you can use to link Zendesk Support tickets to local records",
     ),
-  follower_ids: zod
-    .array(zod.unknown())
+  follower_ids: z
+    .array(z.unknown())
     .describe(
       "The ids of agents currently following the ticket. See [CCs and followers resources](https://support.zendesk.com/hc/en-us/articles/360020585233)",
     ),
-  followers: zod
+  followers: z
     .object({})
     .describe(
       "Write only. An array of objects that represent agent followers to add or delete from the ticket. See [Setting followers](/documentation/ticketing/managing-tickets/creating-and-updating-tickets/#setting-followers)",
     ),
-  followup_ids: zod
-    .array(zod.unknown())
+  followup_ids: z
+    .array(z.unknown())
     .describe(
       "The ids of the followups created from this ticket. Ids are only visible once the ticket is closed",
     ),
-  forum_topic_id: zod
+  forum_topic_id: z
     .number()
     .describe(
       "The topic in the Zendesk Web portal this ticket originated from, if any. The Web portal is deprecated",
     ),
-  from_messaging_channel: zod
+  from_messaging_channel: z
     .boolean()
     .describe(
       "If true, the ticket's [via type](/documentation/ticketing/reference-guides/via-object-reference/) is a messaging channel.",
     ),
-  group_id: zod.number().describe("The group this ticket is assigned to"),
-  has_incidents: zod
+  group_id: z.number().describe("The group this ticket is assigned to"),
+  has_incidents: z
     .boolean()
     .describe(
       "Is true if a ticket is a problem type and has one or more incidents linked to it. Otherwise, the value is false.",
     ),
-  id: zod
-    .number()
-    .describe("Automatically assigned when the ticket is created"),
-  is_public: zod
+  id: z.number().describe("Automatically assigned when the ticket is created"),
+  is_public: z
     .boolean()
     .describe("Is true if any comments are public, false otherwise"),
-  macro_id: zod
+  macro_id: z
     .number()
     .describe("Write only. A macro ID to be recorded in the ticket audit"),
-  macro_ids: zod
-    .array(zod.unknown())
+  macro_ids: z
+    .array(z.unknown())
     .describe(
       "POST requests only. List of macro IDs to be recorded in the ticket audit",
     ),
-  metadata: zod
+  metadata: z
     .object({})
     .describe(
       "Write only. Metadata for the audit. In the `audit` object, the data is specified in the `custom` property of the `metadata` object. See [Setting Metadata](/documentation/ticketing/managing-tickets/creating-and-updating-tickets/#setting-metadata)",
     ),
-  organization_id: zod
+  organization_id: z
     .number()
     .describe(
       "The organization of the requester. You can only specify the ID of an organization associated with the requester. See [Organization Memberships](/api-reference/ticketing/organizations/organization_memberships/)",
     ),
-  priority: zod
+  priority: z
     .union([
-      zod.literal("urgent"),
-      zod.literal("high"),
-      zod.literal("normal"),
-      zod.literal("low"),
+      z.literal("urgent"),
+      z.literal("high"),
+      z.literal("normal"),
+      z.literal("low"),
     ])
     .describe("The urgency with which the ticket should be addressed."),
-  problem_id: zod
+  problem_id: z
     .number()
     .describe(
       'For tickets of type "incident", the ID of the problem the incident is linked to',
     ),
-  raw_subject: zod
+  raw_subject: z
     .string()
     .describe(
       'The dynamic content placeholder, if present, or the "subject" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)\n',
     ),
-  recipient: zod
+  recipient: z
     .string()
     .describe(
       "The original recipient e-mail address of the ticket. Notification emails for the ticket are sent from this address",
     ),
-  requester: zod
+  requester: z
     .object({})
     .describe(
       "Write only. See [Creating a ticket with a new requester](/documentation/ticketing/managing-tickets/creating-and-updating-tickets/#creating-a-ticket-with-a-new-requester)",
     ),
-  requester_id: zod.number().describe("The user who requested this ticket"),
-  safe_update: zod
+  requester_id: z.number().describe("The user who requested this ticket"),
+  safe_update: z
     .boolean()
     .describe(
       "Write only. Optional boolean. When true and an `update_stamp` date is included, protects against ticket update collisions and returns a message to let you know if one occurs. See [Protecting against ticket update collisions](/documentation/ticketing/managing-tickets/creating-and-updating-tickets/#protecting-against-ticket-update-collisions). A value of false has the same effect as true. Omit the property to force the updates to not be safe",
     ),
-  satisfaction_rating: zod
+  satisfaction_rating: z
     .object({})
     .passthrough()
     .describe(
       'The satisfaction rating of the ticket, if it exists, or the state of satisfaction, "offered" or "unoffered". The value is null for plan types that don\'t support CSAT',
     ),
-  sharing_agreement_ids: zod
-    .array(zod.unknown())
+  sharing_agreement_ids: z
+    .array(z.unknown())
     .describe("The ids of the sharing agreements used for this ticket"),
-  status: zod
+  status: z
     .union([
-      zod.literal("new"),
-      zod.literal("open"),
-      zod.literal("pending"),
-      zod.literal("hold"),
-      zod.literal("solved"),
-      zod.literal("closed"),
+      z.literal("new"),
+      z.literal("open"),
+      z.literal("pending"),
+      z.literal("hold"),
+      z.literal("solved"),
+      z.literal("closed"),
     ])
     .describe(
       "The state of the ticket.\n\nIf your account has activated custom ticket statuses, this is the ticket's\nstatus category. See [custom ticket statuses](#custom-ticket-statuses).\n",
     ),
-  subject: zod
+  subject: z
     .string()
     .describe("The value of the subject field for this ticket"),
-  submitter_id: zod
+  submitter_id: z
     .number()
     .describe(
       "The user who submitted the ticket. The submitter always becomes the author of the first comment on the ticket",
     ),
-  tags: zod
-    .array(zod.unknown())
+  tags: z
+    .array(z.unknown())
     .describe("The array of tags applied to this ticket"),
-  ticket_form_id: zod
+  ticket_form_id: z
     .number()
     .describe(
       "Enterprise only. The id of the ticket form to render for the ticket",
     ),
-  type: zod
+  type: z
     .union([
-      zod.literal("problem"),
-      zod.literal("incident"),
-      zod.literal("question"),
-      zod.literal("task"),
+      z.literal("problem"),
+      z.literal("incident"),
+      z.literal("question"),
+      z.literal("task"),
     ])
     .describe("The type of this ticket."),
-  updated_at: zod.string().describe("When this record last got updated"),
-  updated_stamp: zod
+  updated_at: z.string().describe("When this record last got updated"),
+  updated_stamp: z
     .string()
     .describe(
       "Write only. Datetime of last update received from API. See the `safe_update` property",
     ),
-  url: zod.string().describe("The API url of this ticket"),
-  via: zod
+  url: z.string().describe("The API url of this ticket"),
+  via: z
     .object({
-      channel: zod
+      channel: z
         .string()
         .describe(
           'This tells you how the ticket or event was created. Examples: "web", "mobile", "rule", "system"\n',
         ),
-      source: zod
+      source: z
         .object({})
         .passthrough()
         .describe(
@@ -6947,207 +6870,207 @@ export const ticketObjectSchema: zod.ZodSchema<TicketObject> = zod.object({
     .describe(
       "For more information, see the [Via object reference](/documentation/ticketing/reference-guides/via-object-reference)",
     ),
-  via_followup_source_id: zod
+  via_followup_source_id: z
     .number()
     .describe(
       "POST requests only. The id of a closed ticket when creating a follow-up ticket. See [Creating a follow-up ticket](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#creating-a-follow-up-ticket)",
     ),
-  via_id: zod
+  via_id: z
     .number()
     .describe(
       "Write only. For more information, see the [Via object reference](/documentation/ticketing/reference-guides/via-object-reference/)",
     ),
-  voice_comment: zod
+  voice_comment: z
     .object({})
     .describe(
       "Write only. See [Creating voicemail ticket](/api-reference/voice/talk-partner-edition-api/reference/#creating-voicemail-tickets)",
     ),
 });
 
-export const bookmarkObjectSchema: zod.ZodSchema<BookmarkObject> = zod.object({
-  created_at: zod.string().describe("The time the bookmark was created"),
-  id: zod
+export const bookmarkObjectSchema: zod.ZodSchema<BookmarkObject> = z.object({
+  created_at: z.string().describe("The time the bookmark was created"),
+  id: z
     .number()
     .describe("Automatically assigned when the bookmark is created"),
   ticket: ticketObjectSchema,
-  url: zod.string().describe("The API url of this bookmark"),
+  url: z.string().describe("The API url of this bookmark"),
 });
 
-export const bookmarkResponseSchema: zod.ZodSchema<BookmarkResponse> =
-  zod.object({ bookmark: bookmarkObjectSchema });
+export const bookmarkResponseSchema: zod.ZodSchema<BookmarkResponse> = z.object(
+  { bookmark: bookmarkObjectSchema },
+);
 
 export const bookmarksResponseSchema: zod.ZodSchema<BookmarksResponse> =
-  zod.intersection(
+  z.intersection(
     offsetPaginationObjectSchema,
-    zod.object({ bookmarks: zod.array(bookmarkObjectSchema) }),
+    z.object({ bookmarks: z.array(bookmarkObjectSchema) }),
   );
 
 export const cursorBasedExportIncrementalTicketsResponseSchema: zod.ZodSchema<CursorBasedExportIncrementalTicketsResponse> =
-  zod
+  z
     .object({
-      after_cursor: zod.string().nullable(),
-      after_url: zod.string().nullable(),
-      before_cursor: zod.string().nullable(),
-      before_url: zod.string().nullable(),
-      end_of_stream: zod.boolean(),
-      tickets: zod.array(ticketObjectSchema),
+      after_cursor: z.string().nullable(),
+      after_url: z.string().nullable(),
+      before_cursor: z.string().nullable(),
+      before_url: z.string().nullable(),
+      end_of_stream: z.boolean(),
+      tickets: z.array(ticketObjectSchema),
     })
     .describe(
       "See [Tickets](/api-reference/ticketing/tickets/tickets/) for a detailed example.\n",
     );
 
 export const ticketRelatedInformationSchema: zod.ZodSchema<TicketRelatedInformation> =
-  zod.object({
-    followup_source_ids: zod.array(
-      zod.string().describe("Sources to follow up"),
-    ),
-    from_archive: zod
+  z.object({
+    followup_source_ids: z.array(z.string().describe("Sources to follow up")),
+    from_archive: z
       .boolean()
       .describe("Is true if the current ticket is archived"),
-    incidents: zod.number().describe("A count of related incident occurrences"),
-    topic_id: zod
+    incidents: z.number().describe("A count of related incident occurrences"),
+    topic_id: z
       .string()
       .nullable()
       .describe("Related topic in the Web portal (deprecated feature)"),
-    twitter: zod
+    twitter: z
       .object({})
       .passthrough()
       .describe("X (formerly Twitter) information associated with the ticket"),
   });
 
-export const ticketResponseSchema: zod.ZodSchema<TicketResponse> = zod.object({
+export const ticketResponseSchema: zod.ZodSchema<TicketResponse> = z.object({
   ticket: ticketObjectSchema,
 });
 
-export const ticketSkipObjectSchema: zod.ZodSchema<TicketSkipObject> =
-  zod.object({
-    created_at: zod.string().describe("Time the skip was created"),
-    id: zod.number().describe("Automatically assigned upon creation"),
-    reason: zod.string().describe("Reason for skipping the ticket"),
+export const ticketSkipObjectSchema: zod.ZodSchema<TicketSkipObject> = z.object(
+  {
+    created_at: z.string().describe("Time the skip was created"),
+    id: z.number().describe("Automatically assigned upon creation"),
+    reason: z.string().describe("Reason for skipping the ticket"),
     ticket: ticketObjectSchema.describe(
       "The skipped ticket. See the [Ticket object reference](/api-reference/ticketing/tickets/tickets/#json-format)",
     ),
-    ticket_id: zod.number().describe("ID of the skipped ticket"),
-    updated_at: zod.string().describe("Time the skip was last updated"),
-    user_id: zod.number().describe("ID of the skipping agent"),
-  });
+    ticket_id: z.number().describe("ID of the skipped ticket"),
+    updated_at: z.string().describe("Time the skip was last updated"),
+    user_id: z.number().describe("ID of the skipping agent"),
+  },
+);
 
 export const ticketSkipCreationSchema: zod.ZodSchema<TicketSkipCreation> =
-  zod.object({ skip: ticketSkipObjectSchema });
+  z.object({ skip: ticketSkipObjectSchema });
 
 export const ticketSkipsResponseSchema: zod.ZodSchema<TicketSkipsResponse> =
-  zod.object({ skips: zod.array(ticketSkipObjectSchema) });
+  z.object({ skips: z.array(ticketSkipObjectSchema) });
 
 export const ticketUpdateInputSchema: zod.ZodSchema<TicketUpdateInput> =
-  zod.object({
-    additional_collaborators: zod
+  z.object({
+    additional_collaborators: z
       .array(collaboratorObjectSchema)
       .describe(
         "An array of numeric IDs, emails, or objects containing name and email properties. See [Setting Collaborators](/api-reference/ticketing/tickets/tickets/#setting-collaborators). An email notification is sent to them when the ticket is updated",
       ),
-    assignee_email: zod
+    assignee_email: z
       .string()
       .describe("The email address of the agent to assign the ticket to"),
-    assignee_id: zod
+    assignee_id: z
       .number()
       .describe("The agent currently assigned to the ticket"),
-    attribute_value_ids: zod
-      .array(zod.number())
+    attribute_value_ids: z
+      .array(z.number())
       .describe(
         "An array of the IDs of attribute values to be associated with the ticket",
       ),
-    collaborator_ids: zod
-      .array(zod.unknown())
+    collaborator_ids: z
+      .array(z.unknown())
       .describe("The ids of users currently CC'ed on the ticket"),
     comment: ticketCommentObjectSchema,
-    custom_fields: zod
-      .array(zod.unknown())
+    custom_fields: z
+      .array(z.unknown())
       .describe(
         "Custom fields for the ticket. See [Setting custom field values](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-custom-field-values)",
       ),
-    custom_status_id: zod
+    custom_status_id: z
       .number()
       .describe(
         "The custom ticket status id of the ticket. See [custom ticket statuses](#custom-ticket-statuses)",
       ),
-    due_at: zod
+    due_at: z
       .string()
       .nullable()
       .describe(
         'If this is a ticket of type "task" it has a due date.  Due date format uses [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format.',
       ),
-    email_ccs: zod
+    email_ccs: z
       .array(emailCcObjectSchema)
       .describe(
         "An array of objects that represent agent or end users email CCs to add or delete from the ticket. See [Setting email CCs](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-email-ccs)",
       ),
-    external_id: zod
+    external_id: z
       .string()
       .describe(
         "An id you can use to link Zendesk Support tickets to local records",
       ),
-    followers: zod
+    followers: z
       .array(followerObjectSchema)
       .describe(
         "An array of objects that represent agent followers to add or delete from the ticket. See [Setting followers](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-followers)",
       ),
-    group_id: zod.number().describe("The group this ticket is assigned to"),
-    organization_id: zod
+    group_id: z.number().describe("The group this ticket is assigned to"),
+    organization_id: z
       .number()
       .describe(
         "The organization of the requester. You can only specify the ID of an organization associated with the requester. See [Organization Memberships](/api-reference/ticketing/organizations/organization_memberships/)",
       ),
-    priority: zod
+    priority: z
       .union([
-        zod.literal("urgent"),
-        zod.literal("high"),
-        zod.literal("normal"),
-        zod.literal("low"),
+        z.literal("urgent"),
+        z.literal("high"),
+        z.literal("normal"),
+        z.literal("low"),
       ])
       .describe("The urgency with which the ticket should be addressed."),
-    problem_id: zod
+    problem_id: z
       .number()
       .describe(
         'For tickets of type "incident", the ID of the problem the incident is linked to',
       ),
-    requester_id: zod.number().describe("The user who requested this ticket"),
-    safe_update: zod
+    requester_id: z.number().describe("The user who requested this ticket"),
+    safe_update: z
       .boolean()
       .describe(
         "Optional boolean. Prevents updates with outdated ticket data (`updated_stamp` property required when true)",
       ),
-    sharing_agreement_ids: zod
-      .array(zod.number())
+    sharing_agreement_ids: z
+      .array(z.number())
       .describe(
         "An array of the numeric IDs of sharing agreements. Note that this replaces any existing agreements",
       ),
-    status: zod
+    status: z
       .union([
-        zod.literal("new"),
-        zod.literal("open"),
-        zod.literal("pending"),
-        zod.literal("hold"),
-        zod.literal("solved"),
-        zod.literal("closed"),
+        z.literal("new"),
+        z.literal("open"),
+        z.literal("pending"),
+        z.literal("hold"),
+        z.literal("solved"),
+        z.literal("closed"),
       ])
       .describe(
         "The state of the ticket.\n\nIf your account has activated custom ticket statuses, this is the ticket's\nstatus category. See [custom ticket statuses](#custom-ticket-statuses).\n",
       ),
-    subject: zod
+    subject: z
       .string()
       .describe("The value of the subject field for this ticket"),
-    tags: zod
-      .array(zod.unknown())
+    tags: z
+      .array(z.unknown())
       .describe("The array of tags applied to this ticket"),
-    type: zod
+    type: z
       .union([
-        zod.literal("problem"),
-        zod.literal("incident"),
-        zod.literal("question"),
-        zod.literal("task"),
+        z.literal("problem"),
+        z.literal("incident"),
+        z.literal("question"),
+        z.literal("task"),
       ])
       .describe("The type of this ticket."),
-    updated_stamp: zod
+    updated_stamp: z
       .string()
       .describe(
         "Datetime of last update received from API. See the safe_update property",
@@ -7155,423 +7078,392 @@ export const ticketUpdateInputSchema: zod.ZodSchema<TicketUpdateInput> =
   });
 
 export const ticketUpdateRequestSchema: zod.ZodSchema<TicketUpdateRequest> =
-  zod.object({ ticket: ticketUpdateInputSchema });
+  z.object({ ticket: ticketUpdateInputSchema });
 
-export const ticketsResponseSchema: zod.ZodSchema<TicketsResponse> = zod.object(
-  { tickets: zod.array(ticketObjectSchema) },
-);
+export const ticketsResponseSchema: zod.ZodSchema<TicketsResponse> = z.object({
+  tickets: z.array(ticketObjectSchema),
+});
 
 export const timeBasedExportIncrementalTicketsResponseSchema: zod.ZodSchema<TimeBasedExportIncrementalTicketsResponse> =
-  zod
+  z
     .object({
-      count: zod.number(),
-      end_of_stream: zod.boolean(),
-      end_time: zod.number(),
-      next_page: zod.string().nullable(),
-      tickets: zod.array(ticketObjectSchema),
+      count: z.number(),
+      end_of_stream: z.boolean(),
+      end_time: z.number(),
+      next_page: z.string().nullable(),
+      tickets: z.array(ticketObjectSchema),
     })
     .describe(
       "See [Tickets](/api-reference/ticketing/tickets/tickets/) for a detailed example.\n",
     );
 
 export const trialAccountObjectSchema: zod.ZodSchema<TrialAccountObject> =
-  zod.object({
-    name: zod.string().describe("The name of the account"),
-    subdomain: zod.string().describe("The subdomain of the account"),
-    url: zod.string().describe("The URL of the account"),
+  z.object({
+    name: z.string().describe("The name of the account"),
+    subdomain: z.string().describe("The subdomain of the account"),
+    url: z.string().describe("The URL of the account"),
   });
 
 export const trialAccountResponseSchema: zod.ZodSchema<TrialAccountResponse> =
-  zod.object({ account: trialAccountObjectSchema });
+  z.object({ account: trialAccountObjectSchema });
 
 export const triggerActionDefinitionObjectSchema: zod.ZodSchema<TriggerActionDefinitionObject> =
-  zod.object({
-    group: zod.string(),
-    nullable: zod.boolean(),
-    repeatable: zod.boolean(),
-    subject: zod.string(),
-    title: zod.string(),
-    type: zod.string(),
-    values: zod.array(
-      zod.object({
-        enabled: zod.boolean(),
-        title: zod.string(),
-        value: zod.string(),
-      }),
+  z.object({
+    group: z.string(),
+    nullable: z.boolean(),
+    repeatable: z.boolean(),
+    subject: z.string(),
+    title: z.string(),
+    type: z.string(),
+    values: z.array(
+      z.object({ enabled: z.boolean(), title: z.string(), value: z.string() }),
     ),
   });
 
 export const triggerActionObjectSchema: zod.ZodSchema<TriggerActionObject> =
-  zod.object({
-    field: zod.string(),
-    value: zod.union([zod.string(), zod.array(zod.unknown()), zod.number()]),
+  z.object({
+    field: z.string(),
+    value: z.union([z.string(), z.array(z.unknown()), z.number()]),
   });
 
 export const triggerBatchRequestSchema: zod.ZodSchema<TriggerBatchRequest> =
-  zod.object({
-    active: zod.boolean(),
-    category_id: zod.string(),
-    id: zod.string(),
-    position: zod.number(),
+  z.object({
+    active: z.boolean(),
+    category_id: z.string(),
+    id: z.string(),
+    position: z.number(),
   });
 
 export const triggerBulkUpdateItemSchema: zod.ZodSchema<TriggerBulkUpdateItem> =
-  zod.object({
-    active: zod
+  z.object({
+    active: z
       .boolean()
       .describe("The active status of the trigger (true or false)"),
-    category_id: zod
+    category_id: z
       .string()
       .describe("The ID of the new category the trigger is to be moved to"),
-    id: zod.number().describe("The ID of the trigger to update"),
-    position: zod.number().describe("The new position of the trigger"),
+    id: z.number().describe("The ID of the trigger to update"),
+    position: z.number().describe("The new position of the trigger"),
   });
 
 export const triggerBulkUpdateRequestSchema: zod.ZodSchema<TriggerBulkUpdateRequest> =
-  zod.object({ triggers: zod.array(triggerBulkUpdateItemSchema) });
+  z.object({ triggers: z.array(triggerBulkUpdateItemSchema) });
 
-export const triggerCategorySchema: zod.ZodSchema<TriggerCategory> = zod.object(
-  {
-    created_at: zod.string(),
-    id: zod.string(),
-    name: zod.string(),
-    position: zod.number(),
-    updated_at: zod.string(),
-  },
-);
+export const triggerCategorySchema: zod.ZodSchema<TriggerCategory> = z.object({
+  created_at: z.string(),
+  id: z.string(),
+  name: z.string(),
+  position: z.number(),
+  updated_at: z.string(),
+});
 
 export const triggerCategoryBatchRequestSchema: zod.ZodSchema<TriggerCategoryBatchRequest> =
-  zod.object({ id: zod.string(), position: zod.number() });
+  z.object({ id: z.string(), position: z.number() });
 
-export const batchJobRequestSchema: zod.ZodSchema<BatchJobRequest> = zod.object(
-  {
-    job: zod.object({
-      action: zod.literal("patch"),
-      items: zod.object({
-        trigger_categories: zod.array(triggerCategoryBatchRequestSchema),
-        triggers: zod.array(triggerBatchRequestSchema),
-      }),
+export const batchJobRequestSchema: zod.ZodSchema<BatchJobRequest> = z.object({
+  job: z.object({
+    action: z.literal("patch"),
+    items: z.object({
+      trigger_categories: z.array(triggerCategoryBatchRequestSchema),
+      triggers: z.array(triggerBatchRequestSchema),
     }),
-  },
-);
+  }),
+});
 
 export const triggerCategoryIdSchema: zod.ZodSchema<TriggerCategoryId> =
-  zod.string();
+  z.string();
 
 export const triggerCategoryRequestSchema: zod.ZodSchema<TriggerCategoryRequest> =
-  zod.object({ name: zod.string(), position: zod.number() });
+  z.object({ name: z.string(), position: z.number() });
 
 export const triggerCategoryRequestRequiredSchema: zod.ZodSchema<TriggerCategoryRequestRequired> =
-  zod.object({});
+  z.object({});
 
 export const triggerCategoryResponseSchema: zod.ZodSchema<TriggerCategoryResponse> =
-  zod.object({ trigger_category: triggerCategorySchema });
+  z.object({ trigger_category: triggerCategorySchema });
 
 export const triggerCategoryRuleCountsSchema: zod.ZodSchema<TriggerCategoryRuleCounts> =
-  zod.object({ active_count: zod.number(), inactive_count: zod.number() });
+  z.object({ active_count: z.number(), inactive_count: z.number() });
 
 export const triggerCategoriesResponseSchema: zod.ZodSchema<TriggerCategoriesResponse> =
-  zod.object({ trigger_categories: zod.array(triggerCategorySchema) });
+  z.object({ trigger_categories: z.array(triggerCategorySchema) });
 
 export const triggerChangeObjectSchema: zod.ZodSchema<TriggerChangeObject> =
-  zod.object({
-    change: zod
+  z.object({
+    change: z
       .string()
       .describe("One of `-`, `+`, `=` representing the type of change"),
-    content: zod
-      .union([
-        zod.boolean(),
-        zod.string(),
-        zod.number(),
-        zod.array(zod.unknown()),
-      ])
+    content: z
+      .union([z.boolean(), z.string(), z.number(), z.array(z.unknown())])
       .describe("The value of the item it represents"),
   });
 
 export const triggerActionDiffObjectSchema: zod.ZodSchema<TriggerActionDiffObject> =
-  zod.object({
-    field: zod
+  z.object({
+    field: z
       .array(triggerChangeObjectSchema)
       .describe("An array of [change](#change) objects."),
-    value: zod
+    value: z
       .array(triggerChangeObjectSchema)
       .describe("An array of [change](#change) objects."),
   });
 
 export const triggerConditionDefinitionObjectAllSchema: zod.ZodSchema<TriggerConditionDefinitionObjectAll> =
-  zod.object({
-    group: zod.string(),
-    nullable: zod.boolean(),
-    operators: zod.array(
-      zod.object({
-        terminal: zod.boolean(),
-        title: zod.string(),
-        value: zod.string(),
-      }),
+  z.object({
+    group: z.string(),
+    nullable: z.boolean(),
+    operators: z.array(
+      z.object({ terminal: z.boolean(), title: z.string(), value: z.string() }),
     ),
-    repeatable: zod.boolean(),
-    subject: zod.string(),
-    title: zod.string(),
-    type: zod.string(),
-    values: zod.array(
-      zod.object({
-        enabled: zod.boolean(),
-        title: zod.string(),
-        value: zod.string(),
-      }),
+    repeatable: z.boolean(),
+    subject: z.string(),
+    title: z.string(),
+    type: z.string(),
+    values: z.array(
+      z.object({ enabled: z.boolean(), title: z.string(), value: z.string() }),
     ),
   });
 
 export const triggerConditionDefinitionObjectAnySchema: zod.ZodSchema<TriggerConditionDefinitionObjectAny> =
-  zod.object({
-    group: zod.string(),
-    nullable: zod.boolean(),
-    operators: zod.array(
-      zod.object({
-        terminal: zod.boolean(),
-        title: zod.string(),
-        value: zod.string(),
-      }),
+  z.object({
+    group: z.string(),
+    nullable: z.boolean(),
+    operators: z.array(
+      z.object({ terminal: z.boolean(), title: z.string(), value: z.string() }),
     ),
-    repeatable: zod.boolean(),
-    subject: zod.string(),
-    title: zod.string(),
-    type: zod.string(),
+    repeatable: z.boolean(),
+    subject: z.string(),
+    title: z.string(),
+    type: z.string(),
   });
 
 export const relationshipFilterDefinitionSchema: zod.ZodSchema<RelationshipFilterDefinition> =
-  zod.object({
-    conditions_all: zod.array(triggerConditionDefinitionObjectAllSchema),
-    conditions_any: zod.array(triggerConditionDefinitionObjectAnySchema),
+  z.object({
+    conditions_all: z.array(triggerConditionDefinitionObjectAllSchema),
+    conditions_any: z.array(triggerConditionDefinitionObjectAnySchema),
   });
 
 export const relationshipFilterDefinitionResponseSchema: zod.ZodSchema<RelationshipFilterDefinitionResponse> =
-  zod.object({ definitions: relationshipFilterDefinitionSchema });
+  z.object({ definitions: relationshipFilterDefinitionSchema });
 
 export const triggerConditionDiffObjectSchema: zod.ZodSchema<TriggerConditionDiffObject> =
-  zod.object({
-    field: zod
+  z.object({
+    field: z
       .array(triggerChangeObjectSchema)
       .describe("An array of [change](#change) objects"),
-    operator: zod
+    operator: z
       .array(triggerChangeObjectSchema)
       .describe("An array of [change](#change) objects"),
-    value: zod
+    value: z
       .array(triggerChangeObjectSchema)
       .describe("An array of [change](#change) objects"),
   });
 
 export const triggerConditionObjectSchema: zod.ZodSchema<TriggerConditionObject> =
-  zod.object({
-    field: zod.string(),
-    operator: zod.string(),
-    value: zod.union([zod.string(), zod.array(zod.unknown())]),
+  z.object({
+    field: z.string(),
+    operator: z.string(),
+    value: z.union([z.string(), z.array(z.unknown())]),
   });
 
 export const triggerConditionsDiffObjectSchema: zod.ZodSchema<TriggerConditionsDiffObject> =
-  zod.object({
-    all: zod.array(triggerConditionDiffObjectSchema).nullable(),
-    any: zod.array(triggerConditionDiffObjectSchema).nullable(),
+  z.object({
+    all: z.array(triggerConditionDiffObjectSchema).nullable(),
+    any: z.array(triggerConditionDiffObjectSchema).nullable(),
   });
 
 export const triggerConditionsObjectSchema: zod.ZodSchema<TriggerConditionsObject> =
-  zod
+  z
     .object({
-      all: zod.array(triggerConditionObjectSchema).nullable(),
-      any: zod.array(triggerConditionObjectSchema).nullable(),
+      all: z.array(triggerConditionObjectSchema).nullable(),
+      any: z.array(triggerConditionObjectSchema).nullable(),
     })
     .describe(
       "An object that describes the conditions under which the trigger will execute. See [Conditions reference](/documentation/ticketing/reference-guides/conditions-reference)",
     );
 
 export const triggerDefinitionObjectSchema: zod.ZodSchema<TriggerDefinitionObject> =
-  zod.object({
-    actions: zod.array(triggerActionDefinitionObjectSchema),
-    conditions_all: zod.array(triggerConditionDefinitionObjectAllSchema),
-    conditions_any: zod.array(triggerConditionDefinitionObjectAnySchema),
+  z.object({
+    actions: z.array(triggerActionDefinitionObjectSchema),
+    conditions_all: z.array(triggerConditionDefinitionObjectAllSchema),
+    conditions_any: z.array(triggerConditionDefinitionObjectAnySchema),
   });
 
 export const triggerDefinitionResponseSchema: zod.ZodSchema<TriggerDefinitionResponse> =
-  zod.object({ definitions: triggerDefinitionObjectSchema });
+  z.object({ definitions: triggerDefinitionObjectSchema });
 
-export const triggerObjectSchema: zod.ZodSchema<TriggerObject> = zod.object({
-  actions: zod
+export const triggerObjectSchema: zod.ZodSchema<TriggerObject> = z.object({
+  actions: z
     .array(triggerActionObjectSchema)
     .describe(
       "An array of actions describing what the trigger will do. See [Actions reference](/documentation/ticketing/reference-guides/actions-reference)",
     ),
-  active: zod.boolean().describe("Whether the trigger is active"),
-  category_id: zod
+  active: z.boolean().describe("Whether the trigger is active"),
+  category_id: z
     .string()
     .describe("The ID of the category the trigger belongs to"),
   conditions: triggerConditionsObjectSchema,
-  created_at: zod.string().describe("The time the trigger was created"),
-  default: zod.boolean().describe("If true, the trigger is a default trigger"),
-  description: zod.string().describe("The description of the trigger"),
-  id: zod.number().describe("Automatically assigned when created"),
-  position: zod
+  created_at: z.string().describe("The time the trigger was created"),
+  default: z.boolean().describe("If true, the trigger is a default trigger"),
+  description: z.string().describe("The description of the trigger"),
+  id: z.number().describe("Automatically assigned when created"),
+  position: z
     .number()
     .describe(
       "Position of the trigger, determines the order they will execute in",
     ),
-  raw_title: zod
-    .string()
-    .describe("The raw format of the title of the trigger"),
-  title: zod.string().describe("The title of the trigger"),
-  updated_at: zod
-    .string()
-    .describe("The time of the last update of the trigger"),
-  url: zod.string().describe("The url of the trigger"),
+  raw_title: z.string().describe("The raw format of the title of the trigger"),
+  title: z.string().describe("The title of the trigger"),
+  updated_at: z.string().describe("The time of the last update of the trigger"),
+  url: z.string().describe("The url of the trigger"),
 });
 
-export const batchJobResponseSchema: zod.ZodSchema<BatchJobResponse> =
-  zod.object({
-    errors: zod.array(batchErrorItemSchema),
-    results: zod.object({
-      trigger_categories: zod.array(triggerCategorySchema),
-      triggers: zod.array(triggerObjectSchema),
+export const batchJobResponseSchema: zod.ZodSchema<BatchJobResponse> = z.object(
+  {
+    errors: z.array(batchErrorItemSchema),
+    results: z.object({
+      trigger_categories: z.array(triggerCategorySchema),
+      triggers: z.array(triggerObjectSchema),
     }),
-    status: zod.union([zod.literal("complete"), zod.literal("failed")]),
-  });
-
-export const triggerResponseSchema: zod.ZodSchema<TriggerResponse> = zod.object(
-  { trigger: triggerObjectSchema },
+    status: z.union([z.literal("complete"), z.literal("failed")]),
+  },
 );
 
+export const triggerResponseSchema: zod.ZodSchema<TriggerResponse> = z.object({
+  trigger: triggerObjectSchema,
+});
+
 export const triggerRevisionResponseSchema: zod.ZodSchema<TriggerRevisionResponse> =
-  zod.object({
-    trigger_revision: zod.object({
-      author_id: zod.number(),
-      created_at: zod.string(),
-      id: zod.number(),
-      snapshot: zod.object({
-        actions: zod.array(triggerActionObjectSchema),
-        active: zod.boolean(),
+  z.object({
+    trigger_revision: z.object({
+      author_id: z.number(),
+      created_at: z.string(),
+      id: z.number(),
+      snapshot: z.object({
+        actions: z.array(triggerActionObjectSchema),
+        active: z.boolean(),
         conditions: triggerConditionsObjectSchema,
-        description: zod.string().nullable(),
-        title: zod.string(),
+        description: z.string().nullable(),
+        title: z.string(),
       }),
-      url: zod.string(),
+      url: z.string(),
     }),
   });
 
 export const triggerSnapshotObjectSchema: zod.ZodSchema<TriggerSnapshotObject> =
-  zod.object({
-    actions: zod
+  z.object({
+    actions: z
       .array(triggerActionObjectSchema)
       .describe(
         "An array of [Actions](#actions) describing what the trigger will do",
       ),
-    active: zod.boolean().describe("Whether the trigger is active"),
+    active: z.boolean().describe("Whether the trigger is active"),
     conditions: triggerConditionsObjectSchema,
-    description: zod
+    description: z
       .string()
       .nullable()
       .describe("The description of the trigger"),
-    title: zod.string().describe("The title of the trigger"),
+    title: z.string().describe("The title of the trigger"),
   });
 
 export const triggerRevisionsResponseSchema: zod.ZodSchema<TriggerRevisionsResponse> =
-  zod.object({
-    after_cursor: zod.string(),
-    after_url: zod.string(),
-    before_cursor: zod.string(),
-    before_url: zod.string(),
-    count: zod.number(),
-    trigger_revisions: zod.array(
-      zod.object({
-        author_id: zod.number(),
-        created_at: zod.string(),
-        diff: zod.object({
-          actions: zod
+  z.object({
+    after_cursor: z.string(),
+    after_url: z.string(),
+    before_cursor: z.string(),
+    before_url: z.string(),
+    count: z.number(),
+    trigger_revisions: z.array(
+      z.object({
+        author_id: z.number(),
+        created_at: z.string(),
+        diff: z.object({
+          actions: z
             .array(triggerActionDiffObjectSchema)
             .describe(
               "An array that contain [action diff objects](#Action Diffs)",
             ),
-          active: zod
+          active: z
             .array(triggerChangeObjectSchema)
             .describe("An array of [change](#change) objects"),
           conditions: triggerConditionDiffObjectSchema,
-          description: zod
+          description: z
             .array(triggerChangeObjectSchema)
             .describe("An array of [change](#change) objects"),
-          source_id: zod.number().describe("ID of the source revision"),
-          target_id: zod.number().describe("ID of the target revision"),
-          title: zod
+          source_id: z.number().describe("ID of the source revision"),
+          target_id: z.number().describe("ID of the target revision"),
+          title: z
             .array(triggerChangeObjectSchema)
             .describe("An array of [change](#change) objects"),
         }),
-        id: zod.number(),
+        id: z.number(),
         snapshot: triggerSnapshotObjectSchema,
-        url: zod.string(),
+        url: z.string(),
       }),
     ),
   });
 
 export const triggerWithCategoryRequestSchema: zod.ZodSchema<TriggerWithCategoryRequest> =
-  zod.object({
-    trigger: zod.intersection(
+  z.object({
+    trigger: z.intersection(
       triggerObjectSchema,
-      zod.union([triggerCategorySchema, triggerCategoryIdSchema]),
+      z.union([triggerCategorySchema, triggerCategoryIdSchema]),
     ),
   });
 
-export const triggersResponseSchema: zod.ZodSchema<TriggersResponse> =
-  zod.object({
-    count: zod.number(),
-    next_page: zod.string().nullable(),
-    previous_page: zod.string().nullable(),
-    triggers: zod.array(triggerObjectSchema),
-  });
+export const triggersResponseSchema: zod.ZodSchema<TriggersResponse> = z.object(
+  {
+    count: z.number(),
+    next_page: z.string().nullable(),
+    previous_page: z.string().nullable(),
+    triggers: z.array(triggerObjectSchema),
+  },
+);
 
 export const twitterChannelObjectSchema: zod.ZodSchema<TwitterChannelObject> =
-  zod.object({
-    allow_reply: zod
-      .boolean()
-      .describe("If replies are allowed for this handle"),
-    avatar_url: zod.string().describe("The profile image url of the handle"),
-    brand_id: zod.number().describe("What brand the handle is associated with"),
-    can_reply: zod.boolean().describe("If replies are allowed for this handle"),
-    created_at: zod.string().describe("The time the handle was created"),
-    id: zod.number().describe("Automatically assigned upon creation"),
-    name: zod.string().describe("The profile name of the handle"),
-    screen_name: zod.string().describe("The Twitter handle"),
-    twitter_user_id: zod.number().describe("The country's code"),
-    updated_at: zod
+  z.object({
+    allow_reply: z.boolean().describe("If replies are allowed for this handle"),
+    avatar_url: z.string().describe("The profile image url of the handle"),
+    brand_id: z.number().describe("What brand the handle is associated with"),
+    can_reply: z.boolean().describe("If replies are allowed for this handle"),
+    created_at: z.string().describe("The time the handle was created"),
+    id: z.number().describe("Automatically assigned upon creation"),
+    name: z.string().describe("The profile name of the handle"),
+    screen_name: z.string().describe("The Twitter handle"),
+    twitter_user_id: z.number().describe("The country's code"),
+    updated_at: z
       .string()
       .describe("The time of the last update of the handle"),
   });
 
 export const twitterChannelResponseSchema: zod.ZodSchema<TwitterChannelResponse> =
-  zod.object({ monitored_twitter_handle: twitterChannelObjectSchema });
+  z.object({ monitored_twitter_handle: twitterChannelObjectSchema });
 
 export const twitterChannelTwicketStatusResponseSchema: zod.ZodSchema<TwitterChannelTwicketStatusResponse> =
-  zod.object({
-    statuses: zod.array(
-      zod.object({
-        favorited: zod.boolean(),
-        id: zod.number(),
-        retweeted: zod.boolean(),
-        user_followed: zod.boolean(),
+  z.object({
+    statuses: z.array(
+      z.object({
+        favorited: z.boolean(),
+        id: z.number(),
+        retweeted: z.boolean(),
+        user_followed: z.boolean(),
       }),
     ),
   });
 
 export const twitterChannelsResponseSchema: zod.ZodSchema<TwitterChannelsResponse> =
-  zod.object({
-    monitored_twitter_handles: zod.array(twitterChannelObjectSchema),
-  });
+  z.object({ monitored_twitter_handles: z.array(twitterChannelObjectSchema) });
 
 export const updateResourceResultSchema: zod.ZodSchema<UpdateResourceResult> =
-  zod.object({
-    action: zod
+  z.object({
+    action: z
       .string()
       .describe('the action the job attempted (`"action": "update"`)\n'),
-    id: zod
+    id: z
       .number()
       .describe("the id of the resource the job attempted to update"),
-    status: zod.string().describe('the status (`"status": "Updated"`)\n'),
-    success: zod
+    status: z.string().describe('the status (`"status": "Updated"`)\n'),
+    success: z
       .boolean()
       .describe(
         'whether the action was successful or not (`"success": true`)\n',
@@ -7579,279 +7471,273 @@ export const updateResourceResultSchema: zod.ZodSchema<UpdateResourceResult> =
   });
 
 export const jobStatusResultObjectSchema: zod.ZodSchema<JobStatusResultObject> =
-  zod.union([createResourceResultSchema, updateResourceResultSchema]);
+  z.union([createResourceResultSchema, updateResourceResultSchema]);
 
-export const jobStatusObjectSchema: zod.ZodSchema<JobStatusObject> = zod.object(
-  {
-    id: zod.string().describe("Automatically assigned when the job is queued"),
-    job_type: zod.string().describe("The type of the job"),
-    message: zod
-      .string()
-      .nullable()
-      .describe("Message from the job worker, if any"),
-    progress: zod
-      .number()
-      .nullable()
-      .describe("Number of tasks that have already been completed"),
-    results: zod
-      .union([
-        zod.array(jobStatusResultObjectSchema).nullable(),
-        zod.object({
-          success: zod
-            .boolean()
-            .describe("Whether the action was successful or not"),
-        }),
-      ])
-      .describe(
-        "Result data from processed tasks. See [Results](#results) below",
-      ),
-    status: zod
-      .string()
-      .describe(
-        'The current status. One of the following: "queued", "working", "failed", "completed"',
-      ),
-    total: zod
-      .number()
-      .nullable()
-      .describe("The total number of tasks this job is batching through"),
-    url: zod.string().describe("The URL to poll for status updates"),
-  },
-);
-
-export const jobStatusResponseSchema: zod.ZodSchema<JobStatusResponse> =
-  zod.object({ job_status: jobStatusObjectSchema });
-
-export const jobStatusesResponseSchema: zod.ZodSchema<JobStatusesResponse> =
-  zod.object({ job_statuses: zod.array(jobStatusObjectSchema) });
-
-export const urlObjectSchema: zod.ZodSchema<UrlObject> = zod.object({
-  url: zod.string(),
+export const jobStatusObjectSchema: zod.ZodSchema<JobStatusObject> = z.object({
+  id: z.string().describe("Automatically assigned when the job is queued"),
+  job_type: z.string().describe("The type of the job"),
+  message: z
+    .string()
+    .nullable()
+    .describe("Message from the job worker, if any"),
+  progress: z
+    .number()
+    .nullable()
+    .describe("Number of tasks that have already been completed"),
+  results: z
+    .union([
+      z.array(jobStatusResultObjectSchema).nullable(),
+      z.object({
+        success: z
+          .boolean()
+          .describe("Whether the action was successful or not"),
+      }),
+    ])
+    .describe(
+      "Result data from processed tasks. See [Results](#results) below",
+    ),
+  status: z
+    .string()
+    .describe(
+      'The current status. One of the following: "queued", "working", "failed", "completed"',
+    ),
+  total: z
+    .number()
+    .nullable()
+    .describe("The total number of tasks this job is batching through"),
+  url: z.string().describe("The URL to poll for status updates"),
 });
 
-export const userCreateInputSchema: zod.ZodSchema<UserCreateInput> = zod.object(
-  {
-    custom_role_id: zod.number(),
-    email: zod.string(),
-    external_id: zod.string(),
-    identities: zod.array(
-      zod.object({ type: zod.string(), value: zod.string() }),
-    ),
-    name: zod.string(),
-    organization: zod.object({ name: zod.string() }),
-    organization_id: zod.number(),
-    role: zod.string(),
-  },
-);
+export const jobStatusResponseSchema: zod.ZodSchema<JobStatusResponse> =
+  z.object({ job_status: jobStatusObjectSchema });
+
+export const jobStatusesResponseSchema: zod.ZodSchema<JobStatusesResponse> =
+  z.object({ job_statuses: z.array(jobStatusObjectSchema) });
+
+export const urlObjectSchema: zod.ZodSchema<UrlObject> = z.object({
+  url: z.string(),
+});
+
+export const userCreateInputSchema: zod.ZodSchema<UserCreateInput> = z.object({
+  custom_role_id: z.number(),
+  email: z.string(),
+  external_id: z.string(),
+  identities: z.array(z.object({ type: z.string(), value: z.string() })),
+  name: z.string(),
+  organization: z.object({ name: z.string() }),
+  organization_id: z.number(),
+  role: z.string(),
+});
 
 export const userFieldObjectSchema: zod.ZodSchema<UserFieldObject> =
   customFieldObjectSchema;
 
 export const userFieldResponseSchema: zod.ZodSchema<UserFieldResponse> =
-  zod.object({ user_field: userFieldObjectSchema });
+  z.object({ user_field: userFieldObjectSchema });
 
 export const userFieldsResponseSchema: zod.ZodSchema<UserFieldsResponse> =
-  zod.object({
-    count: zod.number().describe("Total count of records retrieved"),
-    next_page: zod.string().nullable().describe("URL of the next page"),
-    previous_page: zod.string().nullable().describe("URL of the previous page"),
-    user_fields: zod.array(userFieldObjectSchema),
+  z.object({
+    count: z.number().describe("Total count of records retrieved"),
+    next_page: z.string().nullable().describe("URL of the next page"),
+    previous_page: z.string().nullable().describe("URL of the previous page"),
+    user_fields: z.array(userFieldObjectSchema),
   });
 
-export const userForAdminSchema: zod.ZodSchema<UserForAdmin> = zod.object({
-  active: zod.boolean().describe("false if the user has been deleted"),
-  alias: zod.string().describe("An alias displayed to end users"),
-  chat_only: zod
+export const userForAdminSchema: zod.ZodSchema<UserForAdmin> = z.object({
+  active: z.boolean().describe("false if the user has been deleted"),
+  alias: z.string().describe("An alias displayed to end users"),
+  chat_only: z
     .boolean()
     .describe("Whether or not the user is a chat-only agent"),
-  created_at: zod.string().describe("The time the user was created"),
-  custom_role_id: zod
+  created_at: z.string().describe("The time the user was created"),
+  custom_role_id: z
     .number()
     .nullable()
     .describe(
       "A custom role if the user is an agent on the Enterprise plan or above",
     ),
-  default_group_id: zod.number().describe("The id of the user's default group"),
-  details: zod
+  default_group_id: z.number().describe("The id of the user's default group"),
+  details: z
     .string()
     .describe(
       "Any details you want to store about the user, such as an address",
     ),
-  email: zod
+  email: z
     .string()
     .describe(
       "The user's primary email address. *Writeable on create only. On update, a secondary email is added. See [Email Address](#email-address)",
     ),
-  external_id: zod
+  external_id: z
     .string()
     .nullable()
     .describe(
       'A unique identifier from another system. The API treats the id as case insensitive. Example: "ian1" and "IAN1" are the same value.',
     ),
-  iana_time_zone: zod.string().describe("The time zone for the user"),
-  id: zod.number().describe("Automatically assigned when the user is created"),
-  last_login_at: zod
+  iana_time_zone: z.string().describe("The time zone for the user"),
+  id: z.number().describe("Automatically assigned when the user is created"),
+  last_login_at: z
     .string()
     .describe(
       "Last time the user signed in to Zendesk Support or made an API request\nusing an API token or basic authentication\n",
     ),
-  locale: zod
+  locale: z
     .string()
     .describe(
       'The user\'s locale. A BCP-47 compliant tag for the locale. If both "locale" and "locale_id" are present on create or update, "locale_id" is ignored and only "locale" is used.',
     ),
-  locale_id: zod.number().describe("The user's language identifier"),
-  moderator: zod
+  locale_id: z.number().describe("The user's language identifier"),
+  moderator: z
     .boolean()
     .describe("Designates whether the user has forum moderation capabilities"),
-  name: zod.string().describe("The user's name"),
-  notes: zod.string().describe("Any notes you want to store about the user"),
-  only_private_comments: zod
+  name: z.string().describe("The user's name"),
+  notes: z.string().describe("Any notes you want to store about the user"),
+  only_private_comments: z
     .boolean()
     .describe("true if the user can only create private comments"),
-  organization_id: zod
+  organization_id: z
     .number()
     .nullable()
     .describe(
       "The id of the user's organization. If the user has more than one [organization memberships](/api-reference/ticketing/organizations/organization_memberships/), the id of the user's default organization. If updating, see [Organization ID](#organization-id)",
     ),
-  phone: zod
+  phone: z
     .string()
     .nullable()
     .describe(
       "The user's primary phone number. See [Phone Number](#phone-number) below",
     ),
-  photo: zod
+  photo: z
     .object({})
     .passthrough()
     .nullable()
     .describe(
       "The user's profile picture represented as an [Attachment](/api-reference/ticketing/tickets/ticket-attachments/) object",
     ),
-  remote_photo_url: zod
+  remote_photo_url: z
     .string()
     .describe("A URL pointing to the user's profile picture."),
-  report_csv: zod
+  report_csv: z
     .boolean()
     .describe(
       "This parameter is inert and has no effect. It may be deprecated in the\nfuture.\n\nPreviously, this parameter determined whether a user could access a CSV\nreport in a legacy Guide dashboard. This dashboard has been removed. See\n[Announcing Guide legacy reporting upgrade to\nExplore](https://support.zendesk.com/hc/en-us/articles/4762263171610-Announcing-Guide-legacy-reporting-upgrade-to-Explore-)\n",
     ),
-  restricted_agent: zod
+  restricted_agent: z
     .boolean()
     .describe(
       "If the agent has any restrictions; false for admins and unrestricted agents, true for other agents",
     ),
-  role: zod
+  role: z
     .string()
     .describe(
       'The user\'s role. Possible values are "end-user", "agent", or "admin"',
     ),
-  role_type: zod
+  role_type: z
     .number()
     .nullable()
     .describe(
       "The user's role id. 0 for a custom agent, 1 for a light agent, 2 for a chat agent, 3 for a chat agent added to the Support account as a contributor ([Chat Phase 4](https://support.zendesk.com/hc/en-us/articles/360022365373#topic_djh_1zk_4fb)), 4 for an admin, and 5 for a billing admin",
     ),
-  shared: zod
+  shared: z
     .boolean()
     .describe(
       "If the user is shared from a different Zendesk Support instance. Ticket sharing accounts only",
     ),
-  shared_agent: zod
+  shared_agent: z
     .boolean()
     .describe(
       "If the user is a shared agent from a different Zendesk Support instance. Ticket sharing accounts only",
     ),
-  shared_phone_number: zod
+  shared_phone_number: z
     .boolean()
     .nullable()
     .describe(
       "Whether the `phone` number is shared or not. See [Phone Number](#phone-number) below",
     ),
-  signature: zod
+  signature: z
     .string()
     .describe(
       "The user's signature. Only agents and admins can have signatures",
     ),
-  suspended: zod
+  suspended: z
     .boolean()
     .describe(
       "If the agent is suspended. Tickets from suspended users are also suspended, and these users cannot sign in to the end user portal",
     ),
-  tags: zod
-    .array(zod.unknown())
+  tags: z
+    .array(z.unknown())
     .describe(
       "The user's tags. Only present if your account has user tagging enabled",
     ),
-  ticket_restriction: zod
+  ticket_restriction: z
     .string()
     .nullable()
     .describe(
       'Specifies which tickets the user has access to. Possible values are: "organization", "groups", "assigned", "requested", null. "groups" and "assigned" are valid only for agents. If you pass an invalid value to an end user (for example, "groups"), they will be assigned to "requested", regardless of their previous access',
     ),
-  time_zone: zod
+  time_zone: z
     .string()
     .describe("The user's time zone. See [Time Zone](#time-zone)"),
-  two_factor_auth_enabled: zod
+  two_factor_auth_enabled: z
     .boolean()
     .nullable()
     .describe("If two factor authentication is enabled"),
-  updated_at: zod.string().describe("The time the user was last updated"),
-  url: zod.string().describe("The user's API url"),
-  user_fields: zod
+  updated_at: z.string().describe("The time the user was last updated"),
+  url: z.string().describe("The user's API url"),
+  user_fields: z
     .object({})
     .passthrough()
     .describe(
       "Values of custom fields in the user's profile. See [User Fields](#user-fields)",
     ),
-  verified: zod
+  verified: z
     .boolean()
     .describe(
       "Any of the user's identities is verified. See [User Identities](/api-reference/ticketing/users/user_identities)",
     ),
 });
 
-export const userForEndUserSchema: zod.ZodSchema<UserForEndUser> = zod.object({
-  created_at: zod.string().describe("The time the user was created"),
-  email: zod
+export const userForEndUserSchema: zod.ZodSchema<UserForEndUser> = z.object({
+  created_at: z.string().describe("The time the user was created"),
+  email: z
     .string()
     .describe(
       "The primary email address of this user. If the primary email address is not [verified](https://support.zendesk.com/hc/en-us/articles/4408886752410), the secondary email address is used",
     ),
-  iana_time_zone: zod.string().describe("The time zone for the user"),
-  id: zod.number().describe("Automatically assigned when creating users"),
-  locale: zod.string().describe("The locale for this user"),
-  locale_id: zod.number().describe("The language identifier for this user"),
-  name: zod.string().describe("The name of the user"),
-  organization_id: zod
+  iana_time_zone: z.string().describe("The time zone for the user"),
+  id: z.number().describe("Automatically assigned when creating users"),
+  locale: z.string().describe("The locale for this user"),
+  locale_id: z.number().describe("The language identifier for this user"),
+  name: z.string().describe("The name of the user"),
+  organization_id: z
     .number()
     .describe(
       "The id of the user's organization. If the user has more than one [organization memberships](/api-reference/ticketing/organizations/organization_memberships/), the id of the user's default organization. If updating, see [Organization ID](/api-reference/ticketing/users/users/#organization-id)",
     ),
-  phone: zod
+  phone: z
     .string()
     .describe(
       "The primary phone number of this user. See [Phone Number](/api-reference/ticketing/users/users/#phone-number) in the Users API",
     ),
-  photo: zod
+  photo: z
     .object({})
     .passthrough()
     .describe(
       "The user's profile picture represented as an [Attachment](/api-reference/ticketing/tickets/ticket-attachments/) object",
     ),
-  role: zod
+  role: z
     .string()
     .describe(
       'The role of the user. Possible values: `"end-user"`, `"agent"`, `"admin"`',
     ),
-  shared_phone_number: zod
+  shared_phone_number: z
     .boolean()
     .describe(
       "Whether the `phone` number is shared or not. See [Phone Number](/api-reference/ticketing/users/users/#phone-number) in the Users API",
     ),
-  time_zone: zod.string().describe("The time-zone of this user"),
-  updated_at: zod.string().describe("The time of the last update of the user"),
-  url: zod.string().describe("The API url of this user"),
-  verified: zod
+  time_zone: z.string().describe("The time-zone of this user"),
+  updated_at: z.string().describe("The time of the last update of the user"),
+  url: z.string().describe("The API url of this user"),
+  verified: z
     .boolean()
     .describe(
       "Any of the user's identities is verified. See [User Identities](/api-reference/ticketing/users/user_identities)",
@@ -7859,103 +7745,103 @@ export const userForEndUserSchema: zod.ZodSchema<UserForEndUser> = zod.object({
 });
 
 export const userIdentityObjectSchema: zod.ZodSchema<UserIdentityObject> =
-  zod.object({
-    created_at: zod.string().describe("The time the identity was created"),
-    deliverable_state: zod
+  z.object({
+    created_at: z.string().describe("The time the identity was created"),
+    deliverable_state: z
       .string()
       .describe(
         "Email identity type only. Indicates if Zendesk sends notifications to the email address. See [Deliverable state](#deliverable-state)",
       ),
-    id: zod.number().describe("Automatically assigned on creation"),
-    primary: zod
+    id: z.number().describe("Automatically assigned on creation"),
+    primary: z
       .boolean()
       .describe(
         "If the identity is the primary identity. *Writable only when creating, not when updating. Use the [Make Identity Primary](#make-identity-primary) endpoint instead",
       ),
-    type: zod
+    type: z
       .union([
-        zod.literal("email"),
-        zod.literal("twitter"),
-        zod.literal("facebook"),
-        zod.literal("google"),
-        zod.literal("phone_number"),
-        zod.literal("agent_forwarding"),
-        zod.literal("any_channel"),
-        zod.literal("foreign"),
-        zod.literal("sdk"),
+        z.literal("email"),
+        z.literal("twitter"),
+        z.literal("facebook"),
+        z.literal("google"),
+        z.literal("phone_number"),
+        z.literal("agent_forwarding"),
+        z.literal("any_channel"),
+        z.literal("foreign"),
+        z.literal("sdk"),
       ])
       .describe("The type of this identity"),
-    undeliverable_count: zod
+    undeliverable_count: z
       .number()
       .describe(
         "The number of times a soft-bounce response was received at that address",
       ),
-    updated_at: zod.string().describe("The time the identity was updated"),
-    url: zod.string().describe("The API url of this identity"),
-    user_id: zod.number().describe("The id of the user"),
-    value: zod
+    updated_at: z.string().describe("The time the identity was updated"),
+    url: z.string().describe("The API url of this identity"),
+    user_id: z.number().describe("The id of the user"),
+    value: z
       .string()
       .describe("The identifier for this identity, such as an email address"),
-    verified: zod.boolean().describe("If the identity has been verified"),
+    verified: z.boolean().describe("If the identity has been verified"),
   });
 
 export const userIdentitiesResponseSchema: zod.ZodSchema<UserIdentitiesResponse> =
-  zod.object({ identities: zod.array(userIdentityObjectSchema) });
+  z.object({ identities: z.array(userIdentityObjectSchema) });
 
 export const userIdentityResponseSchema: zod.ZodSchema<UserIdentityResponse> =
-  zod.object({ identity: userIdentityObjectSchema });
+  z.object({ identity: userIdentityObjectSchema });
 
 export const userMergeByIdInputSchema: zod.ZodSchema<UserMergeByIdInput> =
-  zod.object({ id: zod.number() });
+  z.object({ id: z.number() });
 
 export const userMergePropertiesInputSchema: zod.ZodSchema<UserMergePropertiesInput> =
-  zod.object({
-    email: zod.string(),
-    name: zod.string(),
-    organization_id: zod.number(),
-    password: zod.string(),
+  z.object({
+    email: z.string(),
+    name: z.string(),
+    organization_id: z.number(),
+    password: z.string(),
   });
 
-export const userInputSchema: zod.ZodSchema<UserInput> = zod.union([
+export const userInputSchema: zod.ZodSchema<UserInput> = z.union([
   userCreateInputSchema,
   userMergePropertiesInputSchema,
   userMergeByIdInputSchema,
 ]);
 
-export const userObjectSchema: zod.ZodSchema<UserObject> = zod.union([
+export const userObjectSchema: zod.ZodSchema<UserObject> = z.union([
   userForAdminSchema,
   userForEndUserSchema,
 ]);
 
-export const activityObjectSchema: zod.ZodSchema<ActivityObject> = zod.object({
+export const activityObjectSchema: zod.ZodSchema<ActivityObject> = z.object({
   actor: userObjectSchema.describe(
     "The full user record of the user responsible for the ticket activity. See [Users](/api-reference/ticketing/users/users/)",
   ),
-  actor_id: zod
+  actor_id: z
     .number()
     .describe(
       'The id of the user responsible for the ticket activity. An `actor_id` of "-1" is a Zendesk system user, such as an automations action.',
     ),
-  created_at: zod.string().describe("When the record was created"),
-  id: zod.number().describe("Automatically assigned on creation"),
-  object: zod
+  created_at: z.string().describe("When the record was created"),
+  id: z.number().describe("Automatically assigned on creation"),
+  object: z
     .object({})
     .passthrough()
     .describe(
       "The content of the activity. Can be a ticket, comment, or change.",
     ),
-  target: zod
+  target: z
     .object({})
     .passthrough()
     .describe("The target of the activity, a ticket."),
-  title: zod.string().describe("Description of the activity"),
-  updated_at: zod.string().describe("When the record was last updated"),
-  url: zod.string().describe("The API url of the activity"),
+  title: z.string().describe("Description of the activity"),
+  updated_at: z.string().describe("When the record was last updated"),
+  url: z.string().describe("The API url of the activity"),
   user: userObjectSchema.describe(
     "The full user record of the agent making the request. See [Users](/api-reference/ticketing/users/users/)",
   ),
-  user_id: zod.number().describe("The id of the agent making the request"),
-  verb: zod
+  user_id: z.number().describe("The id of the agent making the request"),
+  verb: z
     .string()
     .describe(
       'The type of activity. Can be "tickets.assignment", "tickets.comment", or "tickets.priority_increase"',
@@ -7963,24 +7849,25 @@ export const activityObjectSchema: zod.ZodSchema<ActivityObject> = zod.object({
 });
 
 export const activitiesResponseSchema: zod.ZodSchema<ActivitiesResponse> =
-  zod.object({
-    activities: zod.array(activityObjectSchema),
-    actors: zod.array(zod.object({}).passthrough()),
-    count: zod.number(),
-    next_page: zod.string().nullable(),
-    previous_page: zod.string().nullable(),
-    users: zod.array(zod.object({}).passthrough()),
+  z.object({
+    activities: z.array(activityObjectSchema),
+    actors: z.array(z.object({}).passthrough()),
+    count: z.number(),
+    next_page: z.string().nullable(),
+    previous_page: z.string().nullable(),
+    users: z.array(z.object({}).passthrough()),
   });
 
-export const activityResponseSchema: zod.ZodSchema<ActivityResponse> =
-  zod.object({ activity: activityObjectSchema });
+export const activityResponseSchema: zod.ZodSchema<ActivityResponse> = z.object(
+  { activity: activityObjectSchema },
+);
 
 export const currentUserResponseSchema: zod.ZodSchema<CurrentUserResponse> =
-  zod.object({
-    user: zod.intersection(
+  z.object({
+    user: z.intersection(
       userObjectSchema,
-      zod.object({
-        authenticity_token: zod
+      z.object({
+        authenticity_token: z
           .string()
           .describe("CSRF token required by some Zendesk APIs."),
       }),
@@ -7988,76 +7875,76 @@ export const currentUserResponseSchema: zod.ZodSchema<CurrentUserResponse> =
   });
 
 export const cursorBasedExportIncrementalUsersResponseSchema: zod.ZodSchema<CursorBasedExportIncrementalUsersResponse> =
-  zod.object({
-    after_cursor: zod.string().nullable(),
-    after_url: zod.string().nullable(),
-    before_cursor: zod.string().nullable(),
-    before_url: zod.string().nullable(),
-    end_of_stream: zod.boolean(),
-    users: zod.array(userObjectSchema),
+  z.object({
+    after_cursor: z.string().nullable(),
+    after_url: z.string().nullable(),
+    before_cursor: z.string().nullable(),
+    before_url: z.string().nullable(),
+    end_of_stream: z.boolean(),
+    users: z.array(userObjectSchema),
   });
 
 export const timeBasedExportIncrementalUsersResponseSchema: zod.ZodSchema<TimeBasedExportIncrementalUsersResponse> =
-  zod.object({
-    count: zod.number(),
-    end_of_stream: zod.boolean(),
-    end_time: zod.number(),
-    next_page: zod.string().nullable(),
-    users: zod.array(userObjectSchema),
+  z.object({
+    count: z.number(),
+    end_of_stream: z.boolean(),
+    end_time: z.number(),
+    next_page: z.string().nullable(),
+    users: z.array(userObjectSchema),
   });
 
 export const userPasswordRequirementsResponseSchema: zod.ZodSchema<UserPasswordRequirementsResponse> =
-  zod.object({ requirements: zod.array(zod.string()) });
+  z.object({ requirements: z.array(z.string()) });
 
 export const userRelatedObjectSchema: zod.ZodSchema<UserRelatedObject> =
-  zod.object({
-    assigned_tickets: zod.number().describe("Count of assigned tickets"),
-    ccd_tickets: zod.number().describe("Count of collaborated tickets"),
-    organization_subscriptions: zod
+  z.object({
+    assigned_tickets: z.number().describe("Count of assigned tickets"),
+    ccd_tickets: z.number().describe("Count of collaborated tickets"),
+    organization_subscriptions: z
       .number()
       .describe("Count of organization subscriptions"),
-    requested_tickets: zod.number().describe("Count of requested tickets"),
+    requested_tickets: z.number().describe("Count of requested tickets"),
   });
 
 export const userRelatedResponseSchema: zod.ZodSchema<UserRelatedResponse> =
-  zod.object({ user_related: userRelatedObjectSchema });
+  z.object({ user_related: userRelatedObjectSchema });
 
-export const userRequestSchema: zod.ZodSchema<UserRequest> = zod.object({
+export const userRequestSchema: zod.ZodSchema<UserRequest> = z.object({
   user: userInputSchema,
 });
 
-export const userResponseSchema: zod.ZodSchema<UserResponse> = zod.object({
+export const userResponseSchema: zod.ZodSchema<UserResponse> = z.object({
   user: userObjectSchema,
 });
 
-export const usersRequestSchema: zod.ZodSchema<UsersRequest> = zod.object({
-  users: zod.array(userInputSchema),
+export const usersRequestSchema: zod.ZodSchema<UsersRequest> = z.object({
+  users: z.array(userInputSchema),
 });
 
-export const usersResponseSchema: zod.ZodSchema<UsersResponse> = zod.object({
-  users: zod.array(userObjectSchema),
+export const usersResponseSchema: zod.ZodSchema<UsersResponse> = z.object({
+  users: z.array(userObjectSchema),
 });
 
 export const reverseLookupResponseSchema: zod.ZodSchema<ReverseLookupResponse> =
   usersResponseSchema;
 
-export const viaObjectSchema: zod.ZodSchema<ViaObject> = zod
+export const viaObjectSchema: zod.ZodSchema<ViaObject> = z
   .object({
-    channel: zod
+    channel: z
       .string()
       .describe(
         'This tells you how the ticket or event was created. Examples: "web", "mobile", "rule", "system"\n',
       ),
-    source: zod
+    source: z
       .object({
-        from: zod.object({
-          address: zod.string().nullable(),
-          id: zod.number().nullable(),
-          name: zod.string().nullable(),
-          title: zod.string().nullable(),
+        from: z.object({
+          address: z.string().nullable(),
+          id: z.number().nullable(),
+          name: z.string().nullable(),
+          title: z.string().nullable(),
         }),
-        rel: zod.string().nullable(),
-        to: zod.object({ address: zod.string(), name: zod.string() }),
+        rel: z.string().nullable(),
+        to: z.object({ address: z.string(), name: z.string() }),
       })
       .passthrough()
       .describe(
@@ -8068,19 +7955,19 @@ export const viaObjectSchema: zod.ZodSchema<ViaObject> = zod
     "An object explaining how the ticket was created. See the [Via object reference](/documentation/ticketing/reference-guides/via-object-reference)\n",
   );
 
-export const auditObjectSchema: zod.ZodSchema<AuditObject> = zod.object({
-  author_id: zod.number(),
-  created_at: zod.string(),
-  events: zod.array(zod.unknown()),
-  id: zod.number(),
-  metadata: zod.object({}),
-  ticket_id: zod.number(),
+export const auditObjectSchema: zod.ZodSchema<AuditObject> = z.object({
+  author_id: z.number(),
+  created_at: z.string(),
+  events: z.array(z.unknown()),
+  id: z.number(),
+  metadata: z.object({}),
+  ticket_id: z.number(),
   via: viaObjectSchema,
 });
 
 export const suspendedTicketObjectSchema: zod.ZodSchema<SuspendedTicketObject> =
-  zod.object({
-    attachments: zod
+  z.object({
+    attachments: z
       .array(attachmentObjectSchema)
       .nullable()
       .describe(
@@ -8089,107 +7976,107 @@ export const suspendedTicketObjectSchema: zod.ZodSchema<SuspendedTicketObject> =
     author: authorObjectSchema.describe(
       "The author id (if available), name and email",
     ),
-    brand_id: zod
+    brand_id: z
       .number()
       .describe(
         "The id of the brand this ticket is associated with. Only applicable for Enterprise accounts",
       ),
-    cause: zod.string().describe("Why the ticket was suspended"),
-    cause_id: zod.number().describe("The ID of the cause"),
-    content: zod.string().describe("The content that was flagged"),
-    created_at: zod
+    cause: z.string().describe("Why the ticket was suspended"),
+    cause_id: z.number().describe("The ID of the cause"),
+    content: z.string().describe("The content that was flagged"),
+    created_at: z
       .string()
       .describe(
         "The ticket ID this suspended email is associated with, if available",
       ),
-    error_messages: zod
-      .array(zod.object({}))
+    error_messages: z
+      .array(z.object({}))
       .nullable()
       .describe(
         "The error messages if any associated to this suspended ticket",
       ),
-    id: zod.number().describe("Automatically assigned"),
-    message_id: zod.string().describe("The ID of the email, if available"),
-    recipient: zod
+    id: z.number().describe("Automatically assigned"),
+    message_id: z.string().describe("The ID of the email, if available"),
+    recipient: z
       .string()
       .describe("The original recipient e-mail address of the ticket"),
-    subject: zod
+    subject: z
       .string()
       .describe("The value of the subject field for this ticket"),
-    ticket_id: zod
+    ticket_id: z
       .number()
       .describe(
         "The ticket ID this suspended email is associated with, if available",
       ),
-    updated_at: zod.string().describe("When the ticket was assigned"),
-    url: zod.string().describe("The API url of this ticket"),
+    updated_at: z.string().describe("When the ticket was assigned"),
+    url: z.string().describe("The API url of this ticket"),
     via: viaObjectSchema,
   });
 
 export const recoverSuspendedTicketResponseSchema: zod.ZodSchema<RecoverSuspendedTicketResponse> =
-  zod.object({ ticket: zod.array(suspendedTicketObjectSchema) });
+  z.object({ ticket: z.array(suspendedTicketObjectSchema) });
 
 export const recoverSuspendedTicketUnprocessableContentResponseSchema: zod.ZodSchema<RecoverSuspendedTicketUnprocessableContentResponse> =
-  zod.object({ ticket: zod.array(suspendedTicketObjectSchema) });
+  z.object({ ticket: z.array(suspendedTicketObjectSchema) });
 
 export const recoverSuspendedTicketsResponseSchema: zod.ZodSchema<RecoverSuspendedTicketsResponse> =
-  zod.object({ tickets: zod.array(suspendedTicketObjectSchema) });
+  z.object({ tickets: z.array(suspendedTicketObjectSchema) });
 
 export const suspendedTicketResponseSchema: zod.ZodSchema<SuspendedTicketResponse> =
-  zod.object({ suspended_ticket: zod.array(suspendedTicketObjectSchema) });
+  z.object({ suspended_ticket: z.array(suspendedTicketObjectSchema) });
 
 export const suspendedTicketsResponseSchema: zod.ZodSchema<SuspendedTicketsResponse> =
-  zod.object({ suspended_tickets: zod.array(suspendedTicketObjectSchema) });
+  z.object({ suspended_tickets: z.array(suspendedTicketObjectSchema) });
 
 export const ticketCreateInputSchema: zod.ZodSchema<TicketCreateInput> =
-  zod.intersection(
+  z.intersection(
     ticketUpdateInputSchema,
-    zod.object({
-      brand_id: zod
+    z.object({
+      brand_id: z
         .number()
         .describe(
           "Enterprise only. The id of the brand this ticket is associated with",
         ),
-      collaborators: zod
-        .array(zod.unknown())
+      collaborators: z
+        .array(z.unknown())
         .describe(
           "POST requests only. Users to add as cc's when creating a ticket. See [Setting Collaborators](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-collaborators)",
         ),
-      email_cc_ids: zod
-        .array(zod.unknown())
+      email_cc_ids: z
+        .array(z.unknown())
         .describe(
           "The ids of agents or end users currently CC'ed on the ticket. See [CCs and followers resources](https://support.zendesk.com/hc/en-us/articles/360020585233) in the Support Help Center",
         ),
-      follower_ids: zod
-        .array(zod.unknown())
+      follower_ids: z
+        .array(z.unknown())
         .describe(
           "The ids of agents currently following the ticket. See [CCs and followers resources](https://support.zendesk.com/hc/en-us/articles/360020585233)",
         ),
-      macro_ids: zod
-        .array(zod.unknown())
+      macro_ids: z
+        .array(z.unknown())
         .describe(
           "POST requests only. List of macro IDs to be recorded in the ticket audit",
         ),
-      raw_subject: zod
+      raw_subject: z
         .string()
         .describe(
           'The dynamic content placeholder, if present, or the "subject" value, if not. See [Dynamic Content Items](/api-reference/ticketing/ticket-management/dynamic_content/)\n',
         ),
-      recipient: zod
+      recipient: z
         .string()
         .describe("The original recipient e-mail address of the ticket"),
-      submitter_id: zod
+      submitter_id: z
         .number()
         .describe(
           "The user who submitted the ticket. The submitter always becomes the author of the first comment on the ticket",
         ),
-      ticket_form_id: zod
+      ticket_form_id: z
         .number()
         .describe(
           "Enterprise only. The id of the ticket form to render for the ticket",
         ),
       via: viaObjectSchema,
-      via_followup_source_id: zod
+      via_followup_source_id: z
         .number()
         .describe(
           "POST requests only. The id of a closed ticket when creating a follow-up ticket. See [Creating a follow-up ticket](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#creating-a-follow-up-ticket)",
@@ -8198,156 +8085,150 @@ export const ticketCreateInputSchema: zod.ZodSchema<TicketCreateInput> =
   );
 
 export const ticketCreateRequestSchema: zod.ZodSchema<TicketCreateRequest> =
-  zod.object({ ticket: ticketCreateInputSchema });
+  z.object({ ticket: ticketCreateInputSchema });
 
 export const ticketUpdateResponseSchema: zod.ZodSchema<TicketUpdateResponse> =
-  zod.object({ audit: auditObjectSchema, ticket: ticketObjectSchema });
+  z.object({ audit: auditObjectSchema, ticket: ticketObjectSchema });
 
 export const ticketsCreateRequestSchema: zod.ZodSchema<TicketsCreateRequest> =
-  zod.object({ tickets: zod.array(ticketCreateInputSchema) });
+  z.object({ tickets: z.array(ticketCreateInputSchema) });
 
-export const viewCountObjectSchema: zod.ZodSchema<ViewCountObject> = zod.object(
-  {
-    active: zod
-      .boolean()
-      .describe(
-        "Only active views if true, inactive views if false, all views if null.",
-      ),
-    fresh: zod
-      .boolean()
-      .describe(
-        "false if the cached data is stale and the system is still loading and caching new data",
-      ),
-    pretty: zod
-      .string()
-      .describe("A pretty-printed text approximation of the view count"),
-    url: zod.string().describe("The API url of the count"),
-    value: zod
-      .number()
-      .nullable()
-      .describe(
-        "The cached number of tickets in the view. Can also be null if the system is loading and caching new data. Not to be confused with 0 tickets",
-      ),
-    view_id: zod.number().describe("The id of the view"),
-  },
-);
+export const viewCountObjectSchema: zod.ZodSchema<ViewCountObject> = z.object({
+  active: z
+    .boolean()
+    .describe(
+      "Only active views if true, inactive views if false, all views if null.",
+    ),
+  fresh: z
+    .boolean()
+    .describe(
+      "false if the cached data is stale and the system is still loading and caching new data",
+    ),
+  pretty: z
+    .string()
+    .describe("A pretty-printed text approximation of the view count"),
+  url: z.string().describe("The API url of the count"),
+  value: z
+    .number()
+    .nullable()
+    .describe(
+      "The cached number of tickets in the view. Can also be null if the system is loading and caching new data. Not to be confused with 0 tickets",
+    ),
+  view_id: z.number().describe("The id of the view"),
+});
 
 export const viewCountResponseSchema: zod.ZodSchema<ViewCountResponse> =
-  zod.object({ view_count: viewCountObjectSchema });
+  z.object({ view_count: viewCountObjectSchema });
 
 export const viewCountsResponseSchema: zod.ZodSchema<ViewCountsResponse> =
-  zod.object({ view_counts: zod.array(viewCountObjectSchema) });
+  z.object({ view_counts: z.array(viewCountObjectSchema) });
 
 export const viewExportResponseSchema: zod.ZodSchema<ViewExportResponse> =
-  zod.object({
-    export: zod.object({ status: zod.string(), view_id: zod.number() }),
-  });
+  z.object({ export: z.object({ status: z.string(), view_id: z.number() }) });
 
-export const viewObjectSchema: zod.ZodSchema<ViewObject> = zod.object({
-  active: zod.boolean().describe("Whether the view is active"),
-  conditions: zod
+export const viewObjectSchema: zod.ZodSchema<ViewObject> = z.object({
+  active: z.boolean().describe("Whether the view is active"),
+  conditions: z
     .object({})
     .passthrough()
     .describe(
       "Describes how the view is constructed. See [Conditions reference](/documentation/ticketing/reference-guides/conditions-reference)",
     ),
-  created_at: zod.string().describe("The time the view was created"),
-  default: zod.boolean().describe("If true, the view is a default view"),
-  description: zod.string().describe("The description of the view"),
-  execution: zod
+  created_at: z.string().describe("The time the view was created"),
+  default: z.boolean().describe("If true, the view is a default view"),
+  description: z.string().describe("The description of the view"),
+  execution: z
     .object({})
     .passthrough()
     .describe(
       "Describes how the view should be executed. See [Execution](#execution)",
     ),
-  id: zod.number().describe("Automatically assigned when created"),
-  position: zod.number().describe("The position of the view"),
-  restriction: zod
+  id: z.number().describe("Automatically assigned when created"),
+  position: z.number().describe("The position of the view"),
+  restriction: z
     .object({})
     .passthrough()
     .describe(
       "Who may access this account. Is null when everyone in the account can access it",
     ),
-  title: zod.string().describe("The title of the view"),
-  updated_at: zod.string().describe("The time the view was last updated"),
+  title: z.string().describe("The title of the view"),
+  updated_at: z.string().describe("The time the view was last updated"),
 });
 
-export const viewResponseSchema: zod.ZodSchema<ViewResponse> = zod.object({
-  columns: zod.array(zod.object({}).passthrough()),
-  groups: zod.array(zod.object({}).passthrough()),
-  rows: zod.array(zod.object({}).passthrough()),
+export const viewResponseSchema: zod.ZodSchema<ViewResponse> = z.object({
+  columns: z.array(z.object({}).passthrough()),
+  groups: z.array(z.object({}).passthrough()),
+  rows: z.array(z.object({}).passthrough()),
   view: viewObjectSchema,
 });
 
 export const viewsCountResponseSchema: zod.ZodSchema<ViewsCountResponse> =
-  zod.object({
-    count: zod.object({ refreshed_at: zod.string(), value: zod.number() }),
+  z.object({
+    count: z.object({ refreshed_at: z.string(), value: z.number() }),
   });
 
-export const viewsResponseSchema: zod.ZodSchema<ViewsResponse> = zod.object({
-  count: zod.number(),
-  next_page: zod.string().nullable(),
-  previous_page: zod.string().nullable(),
-  views: zod.array(viewObjectSchema),
+export const viewsResponseSchema: zod.ZodSchema<ViewsResponse> = z.object({
+  count: z.number(),
+  next_page: z.string().nullable(),
+  previous_page: z.string().nullable(),
+  views: z.array(viewObjectSchema),
 });
 
-export const workspaceInputSchema: zod.ZodSchema<WorkspaceInput> = zod.object({
+export const workspaceInputSchema: zod.ZodSchema<WorkspaceInput> = z.object({
   conditions: conditionsObjectSchema,
-  description: zod
+  description: z
     .string()
     .describe("User-defined description of this workspace's purpose"),
-  macros: zod.array(zod.number()),
-  ticket_form_id: zod.number(),
-  title: zod.string().describe("The title of the workspace"),
+  macros: z.array(z.number()),
+  ticket_form_id: z.number(),
+  title: z.string().describe("The title of the workspace"),
 });
 
-export const workspaceObjectSchema: zod.ZodSchema<WorkspaceObject> = zod.object(
-  {
-    activated: zod
-      .boolean()
-      .describe("If true, this workspace is available for use"),
-    apps: zod
-      .array(zod.object({}).passthrough())
-      .describe("The apps associated to this workspace"),
-    conditions: conditionsObjectSchema,
-    created_at: zod.string().describe("The time the workspace was created"),
-    description: zod
-      .string()
-      .describe("User-defined description of this workspace's purpose"),
-    id: zod.number().describe("Automatically assigned upon creation"),
-    macro_ids: zod
-      .array(zod.number())
-      .describe("The ids of the macros associated to this workspace"),
-    macros: zod
-      .array(zod.number())
-      .describe("The ids of the macros associated to this workspace"),
-    position: zod
-      .number()
-      .describe("Ordering of the workspace relative to other workspaces"),
-    prefer_workspace_app_order: zod
-      .boolean()
-      .describe(
-        "If true, the order of apps within the workspace will be preserved",
-      ),
-    selected_macros: zod
-      .array(macroObjectSchema)
-      .describe(
-        "An array of the macro objects that will be used in this workspace. See [Macros](/api-reference/ticketing/business-rules/macros/)",
-      ),
-    ticket_form_id: zod
-      .number()
-      .describe("The id of the ticket web form associated to this workspace"),
-    title: zod.string().describe("The title of the workspace"),
-    updated_at: zod
-      .string()
-      .describe("The time of the last update of the workspace"),
-    url: zod.string().describe("The URL for this resource"),
-  },
-);
+export const workspaceObjectSchema: zod.ZodSchema<WorkspaceObject> = z.object({
+  activated: z
+    .boolean()
+    .describe("If true, this workspace is available for use"),
+  apps: z
+    .array(z.object({}).passthrough())
+    .describe("The apps associated to this workspace"),
+  conditions: conditionsObjectSchema,
+  created_at: z.string().describe("The time the workspace was created"),
+  description: z
+    .string()
+    .describe("User-defined description of this workspace's purpose"),
+  id: z.number().describe("Automatically assigned upon creation"),
+  macro_ids: z
+    .array(z.number())
+    .describe("The ids of the macros associated to this workspace"),
+  macros: z
+    .array(z.number())
+    .describe("The ids of the macros associated to this workspace"),
+  position: z
+    .number()
+    .describe("Ordering of the workspace relative to other workspaces"),
+  prefer_workspace_app_order: z
+    .boolean()
+    .describe(
+      "If true, the order of apps within the workspace will be preserved",
+    ),
+  selected_macros: z
+    .array(macroObjectSchema)
+    .describe(
+      "An array of the macro objects that will be used in this workspace. See [Macros](/api-reference/ticketing/business-rules/macros/)",
+    ),
+  ticket_form_id: z
+    .number()
+    .describe("The id of the ticket web form associated to this workspace"),
+  title: z.string().describe("The title of the workspace"),
+  updated_at: z
+    .string()
+    .describe("The time of the last update of the workspace"),
+  url: z.string().describe("The URL for this resource"),
+});
 
 export const workspaceResponseSchema: zod.ZodSchema<WorkspaceResponse> =
-  zod.intersection(
-    zod.object({ workspaces: zod.array(workspaceObjectSchema) }),
+  z.intersection(
+    z.object({ workspaces: z.array(workspaceObjectSchema) }),
     offsetPaginationObjectSchema,
   );
 
@@ -8359,7 +8240,7 @@ export const getApiV2AccountSettingsResponseSchema: zod.ZodSchema<AccountSetting
 
 export const getApiV2AccountsAvailableResponseSchema: zod.ZodSchema<{
   success: boolean;
-}> = zod.object({ success: zod.boolean() });
+}> = z.object({ success: z.boolean() });
 
 export const getApiV2ActivitiesResponseSchema: zod.ZodSchema<ActivitiesResponse> =
   activitiesResponseSchema;
@@ -8444,7 +8325,7 @@ export const getApiV2CustomObjectsByCustomObjectKeyRecordsAutocompleteResponseSc
 
 export const getApiV2CustomObjectsByCustomObjectKeyRecordsCountResponseSchema: zod.ZodSchema<{
   count: Record<string, unknown>;
-}> = zod.object({ count: zod.object({}).passthrough() });
+}> = z.object({ count: z.object({}).passthrough() });
 
 export const getApiV2CustomObjectsByCustomObjectKeyRecordsSearchResponseSchema: zod.ZodSchema<CustomObjectRecordsResponse> =
   customObjectRecordsResponseSchema;
@@ -8601,7 +8482,7 @@ export const getApiV2MacrosByMacroIdAttachmentsResponseSchema: zod.ZodSchema<Mac
 
 export const getApiV2MacrosActionsResponseSchema: zod.ZodSchema<{
   actions: Record<string, unknown>[];
-}> = zod.object({ actions: zod.array(zod.object({}).passthrough()) });
+}> = z.object({ actions: z.array(z.object({}).passthrough()) });
 
 export const getApiV2MacrosActiveResponseSchema: zod.ZodSchema<MacrosResponse> =
   macrosResponseSchema;
@@ -8616,8 +8497,8 @@ export const getApiV2MacrosDefinitionsResponseSchema: zod.ZodSchema<{
   definitions: {
     actions: Record<string, unknown>[];
   };
-}> = zod.object({
-  definitions: zod.object({ actions: zod.array(zod.object({}).passthrough()) }),
+}> = z.object({
+  definitions: z.object({ actions: z.array(z.object({}).passthrough()) }),
 });
 
 export const getApiV2MacrosNewResponseSchema: zod.ZodSchema<MacroResponse> =
@@ -8868,8 +8749,8 @@ export const getApiV2TicketsCountResponseSchema: zod.ZodSchema<{
     refreshed_at: string;
     value: number;
   };
-}> = zod.object({
-  count: zod.object({ refreshed_at: zod.string(), value: zod.number() }),
+}> = z.object({
+  count: z.object({ refreshed_at: z.string(), value: z.number() }),
 });
 
 export const getApiV2TicketsShowManyResponseSchema: zod.ZodSchema<TicketsResponse> =
@@ -8877,7 +8758,7 @@ export const getApiV2TicketsShowManyResponseSchema: zod.ZodSchema<TicketsRespons
 
 export const getApiV2TriggerCategoriesResponseSchema: zod.ZodSchema<
   TriggerCategoriesResponse & Pagination
-> = zod.intersection(triggerCategoriesResponseSchema, paginationSchema);
+> = z.intersection(triggerCategoriesResponseSchema, paginationSchema);
 
 export const getApiV2TriggerCategoriesByTriggerCategoryIdResponseSchema: zod.ZodSchema<TriggerCategoryResponse> =
   triggerCategoryResponseSchema;
@@ -9007,25 +8888,25 @@ export const getApiV2WorkspacesResponseSchema: zod.ZodSchema<WorkspaceResponse> 
 
 export const getApiV2WorkspacesByWorkspaceIdResponseSchema: zod.ZodSchema<{
   workspace: WorkspaceObject;
-}> = zod.object({ workspace: workspaceObjectSchema });
+}> = z.object({ workspace: workspaceObjectSchema });
 
 export const postApiV2AnyChannelChannelbackReportErrorResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const postApiV2AnyChannelPushResponseSchema: zod.ZodSchema<ChannelFrameworkPushResultsResponse> =
   channelFrameworkPushResultsResponseSchema;
 
 export const postApiV2AnyChannelValidateTokenResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const postApiV2BookmarksResponseSchema: zod.ZodSchema<BookmarkResponse> =
   bookmarkResponseSchema;
 
 export const postApiV2ChannelsVoiceAgentsByAgentIdTicketsByTicketIdDisplayResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("empty");
+  z.string().describe("empty");
 
 export const postApiV2ChannelsVoiceAgentsByAgentIdUsersByUserIdDisplayResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("empty");
+  z.string().describe("empty");
 
 export const postApiV2CustomRolesResponseSchema: zod.ZodSchema<CustomRoleResponse> =
   customRoleResponseSchema;
@@ -9038,7 +8919,7 @@ export const postApiV2ImportsTicketsCreateManyResponseSchema: zod.ZodSchema<JobS
 
 export const postApiV2MacrosResponseSchema: zod.ZodSchema<{
   macro: MacroObject;
-}> = zod.object({ macro: macroObjectSchema });
+}> = z.object({ macro: macroObjectSchema });
 
 export const postApiV2OrganizationMembershipsCreateManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
@@ -9056,7 +8937,7 @@ export const postApiV2ProblemsAutocompleteResponseSchema: zod.ZodSchema<ListTick
   listTicketProblemsResponseSchema;
 
 export const postApiV2PushNotificationDevicesDestroyManyResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("empty");
+  z.string().describe("empty");
 
 export const postApiV2ResourceCollectionsResponseSchema: zod.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
@@ -9098,7 +8979,7 @@ export const postApiV2UserFieldsByUserFieldIdOptionsResponseSchema: zod.ZodSchem
   customFieldOptionResponseSchema;
 
 export const postApiV2UsersByUserIdPasswordResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const postApiV2UsersCreateManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
@@ -9110,7 +8991,7 @@ export const postApiV2UsersCreateOrUpdateManyResponseSchema: zod.ZodSchema<JobSt
   jobStatusResponseSchema;
 
 export const postApiV2UsersRequestCreateResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const postApiV2ViewsResponseSchema: zod.ZodSchema<ViewResponse> =
   viewResponseSchema;
@@ -9146,7 +9027,7 @@ export const putApiV2CommentRedactionsByTicketCommentIdResponseSchema: zod.ZodSc
   ticketCommentResponseSchema;
 
 export const putApiV2CustomObjectsByCustomObjectKeyFieldsReorderResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const putApiV2CustomRolesByCustomRoleIdResponseSchema: zod.ZodSchema<CustomRoleResponse> =
   customRoleResponseSchema;
@@ -9158,10 +9039,10 @@ export const putApiV2CustomStatusesByCustomStatusIdResponseSchema: zod.ZodSchema
   customStatusResponseSchema;
 
 export const putApiV2DeletedTicketsByTicketIdRestoreResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const putApiV2DeletedTicketsRestoreManyResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const putApiV2DynamicContentItemsByDynamicContentItemIdResponseSchema: zod.ZodSchema<DynamicContentResponse> =
   dynamicContentResponseSchema;
@@ -9176,14 +9057,14 @@ export const putApiV2GroupSlasPoliciesByGroupSlaPolicyIdResponseSchema: zod.ZodS
   groupSlaPolicyResponseSchema;
 
 export const putApiV2GroupSlasPoliciesReorderResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const putApiV2GroupsByGroupIdResponseSchema: zod.ZodSchema<GroupResponse> =
   groupResponseSchema;
 
 export const putApiV2MacrosByMacroIdResponseSchema: zod.ZodSchema<{
   macro: MacroObject;
-}> = zod.object({ macro: macroObjectSchema });
+}> = z.object({ macro: macroObjectSchema });
 
 export const putApiV2MacrosUpdateManyResponseSchema: zod.ZodSchema<MacrosResponse> =
   macrosResponseSchema;
@@ -9192,7 +9073,7 @@ export const putApiV2OrganizationFieldsByOrganizationFieldIdResponseSchema: zod.
   organizationFieldResponseSchema;
 
 export const putApiV2OrganizationFieldsReorderResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const putApiV2OrganizationsByOrganizationIdResponseSchema: zod.ZodSchema<OrganizationResponse> =
   organizationResponseSchema;
@@ -9204,7 +9085,7 @@ export const putApiV2RecipientAddressesBySupportAddressIdResponseSchema: zod.Zod
   supportAddressResponseSchema;
 
 export const putApiV2RecipientAddressesBySupportAddressIdVerifyResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const putApiV2RequestsByRequestIdResponseSchema: zod.ZodSchema<RequestResponse> =
   requestResponseSchema;
@@ -9222,7 +9103,7 @@ export const putApiV2SlasPoliciesBySlaPolicyIdResponseSchema: zod.ZodSchema<SLAP
   slaPolicyResponseSchema;
 
 export const putApiV2SlasPoliciesReorderResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const putApiV2SuspendedTicketsByIdRecoverResponseSchema: zod.ZodSchema<RecoverSuspendedTicketResponse> =
   recoverSuspendedTicketResponseSchema;
@@ -9246,19 +9127,19 @@ export const putApiV2TicketsByTicketIdResponseSchema: zod.ZodSchema<TicketUpdate
   ticketUpdateResponseSchema;
 
 export const putApiV2TicketsByTicketIdAuditsByTicketAuditIdMakePrivateResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const putApiV2TicketsByTicketIdCommentsByCommentIdAttachmentsByAttachmentIdRedactResponseSchema: zod.ZodSchema<AttachmentResponse> =
   attachmentResponseSchema;
 
 export const putApiV2TicketsByTicketIdCommentsByTicketCommentIdMakePrivateResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const putApiV2TicketsByTicketIdCommentsByTicketCommentIdRedactResponseSchema: zod.ZodSchema<TicketCommentResponse> =
   ticketCommentResponseSchema;
 
 export const putApiV2TicketsByTicketIdMarkAsSpamResponseSchema: zod.ZodSchema<string> =
-  zod.string();
+  z.string();
 
 export const putApiV2TicketsByTicketIdTagsResponseSchema: zod.ZodSchema<TagsByObjectIdResponse> =
   tagsByObjectIdResponseSchema;
@@ -9281,8 +9162,9 @@ export const putApiV2TriggersUpdateManyResponseSchema: zod.ZodSchema<TriggersRes
 export const putApiV2UserFieldsByUserFieldIdResponseSchema: zod.ZodSchema<UserFieldResponse> =
   userFieldResponseSchema;
 
-export const putApiV2UserFieldsReorderResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+export const putApiV2UserFieldsReorderResponseSchema: zod.ZodSchema<string> = z
+  .string()
+  .describe("Empty response");
 
 export const putApiV2UsersByUserIdResponseSchema: zod.ZodSchema<UserResponse> =
   userResponseSchema;
@@ -9297,7 +9179,7 @@ export const putApiV2UsersByUserIdIdentitiesByUserIdentityIdMakePrimaryResponseS
   userIdentitiesResponseSchema;
 
 export const putApiV2UsersByUserIdIdentitiesByUserIdentityIdRequestVerificationResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const putApiV2UsersByUserIdIdentitiesByUserIdentityIdVerifyResponseSchema: zod.ZodSchema<UserIdentityResponse> =
   userIdentityResponseSchema;
@@ -9312,7 +9194,7 @@ export const putApiV2UsersByUserIdOrganizationsByOrganizationIdMakeDefaultRespon
   organizationMembershipResponseSchema;
 
 export const putApiV2UsersByUserIdPasswordResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");
 
 export const putApiV2UsersUpdateManyResponseSchema: zod.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
@@ -9325,10 +9207,11 @@ export const putApiV2ViewsUpdateManyResponseSchema: zod.ZodSchema<ViewsResponse>
 
 export const putApiV2WorkspacesByWorkspaceIdResponseSchema: zod.ZodSchema<{
   workspace: WorkspaceObject;
-}> = zod.object({ workspace: workspaceObjectSchema });
+}> = z.object({ workspace: workspaceObjectSchema });
 
-export const putApiV2WorkspacesReorderResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+export const putApiV2WorkspacesReorderResponseSchema: zod.ZodSchema<string> = z
+  .string()
+  .describe("Empty response");
 
 export const deleteApiV2DeletedTicketsByTicketIdResponseSchema: zod.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
@@ -9361,4 +9244,4 @@ export const deleteApiV2UsersDestroyManyResponseSchema: zod.ZodSchema<JobStatusR
   jobStatusResponseSchema;
 
 export const deleteApiV2WorkspacesDestroyManyResponseSchema: zod.ZodSchema<string> =
-  zod.string().describe("Empty response");
+  z.string().describe("Empty response");

@@ -59,7 +59,7 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
         }
         return factory.createCallExpression(
           factory.createPropertyAccessExpression(
-            factory.createIdentifier("zod"),
+            factory.createIdentifier("z"),
             factory.createIdentifier("intersection"),
           ),
           undefined,
@@ -102,7 +102,7 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
         }
         return factory.createCallExpression(
           factory.createPropertyAccessExpression(
-            factory.createIdentifier("zod"),
+            factory.createIdentifier("z"),
             factory.createIdentifier("union"),
           ),
           undefined,
@@ -149,7 +149,7 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
         }
         return factory.createCallExpression(
           factory.createPropertyAccessExpression(
-            factory.createIdentifier("zod"),
+            factory.createIdentifier("z"),
             factory.createIdentifier("union"),
           ),
           undefined,
@@ -195,7 +195,7 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
       return pipe(
         factory.createCallExpression(
           factory.createPropertyAccessExpression(
-            factory.createIdentifier("zod"),
+            factory.createIdentifier("z"),
             factory.createIdentifier("array"),
           ),
           undefined,
@@ -204,7 +204,7 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
               ? convertOpenApiSchemaToZodSchema(openApiSchema.items)
               : factory.createCallExpression(
                   factory.createPropertyAccessExpression(
-                    factory.createIdentifier("zod"),
+                    factory.createIdentifier("z"),
                     factory.createIdentifier("unknown"),
                   ),
                   undefined,
@@ -232,7 +232,7 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
       return pipe(
         factory.createCallExpression(
           factory.createPropertyAccessExpression(
-            factory.createIdentifier("zod"),
+            factory.createIdentifier("z"),
             factory.createIdentifier("object"),
           ),
           undefined,
@@ -305,7 +305,7 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
           };
           return factory.createCallExpression(
             factory.createPropertyAccessExpression(
-              factory.createIdentifier("zod"),
+              factory.createIdentifier("z"),
               "literal",
             ),
             undefined,
@@ -326,7 +326,7 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
             }
             return factory.createCallExpression(
               factory.createPropertyAccessExpression(
-                factory.createIdentifier("zod"),
+                factory.createIdentifier("z"),
                 factory.createIdentifier("union"),
               ),
               undefined,
@@ -357,7 +357,7 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
       return pipe(
         factory.createCallExpression(
           factory.createPropertyAccessExpression(
-            factory.createIdentifier("zod"),
+            factory.createIdentifier("z"),
             factory.createIdentifier(
               openApiSchema.type === "integer" ? "number" : openApiSchema.type,
             ),

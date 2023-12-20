@@ -48,8 +48,8 @@ module.exports.convertOpenApiDocumentToStatements = (doc) => {
       factory.createNamedImports([
         factory.createImportSpecifier(
           false,
+          undefined,
           factory.createIdentifier("z"),
-          factory.createIdentifier("zod"),
         ),
       ]),
     ),
