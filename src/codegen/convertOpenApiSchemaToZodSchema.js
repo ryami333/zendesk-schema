@@ -19,6 +19,21 @@ const createNullableCallExpression = (expression) => {
 };
 
 /**
+ * @param {ts.Expression} expression
+ * @param {string} description
+ */
+const createDescriptionCallExpression = (expression, description) => {
+  return factory.createCallExpression(
+    factory.createPropertyAccessExpression(
+      expression,
+      factory.createIdentifier("describe"),
+    ),
+    undefined,
+    [factory.createStringLiteral(description)],
+  );
+};
+
+/**
  * @typedef {import("openapi-types").OpenAPIV3.SchemaObject} SchemaObject
  * @typedef {import("openapi-types").OpenAPIV3.ReferenceObject} ReferenceObject
  * @param {SchemaObject | ReferenceObject} openApiSchema
@@ -58,6 +73,14 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
        */
       (carry) =>
         openApiSchema.nullable ? createNullableCallExpression(carry) : carry,
+
+      /**
+       * Chain `zod.description(…)`, if applicable.
+       */
+      (carry) =>
+        openApiSchema.description
+          ? createDescriptionCallExpression(carry, openApiSchema.description)
+          : carry,
     );
   }
   if ("anyOf" in openApiSchema) {
@@ -97,6 +120,14 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
        */
       (carry) =>
         openApiSchema.nullable ? createNullableCallExpression(carry) : carry,
+
+      /**
+       * Chain `zod.description(…)`, if applicable.
+       */
+      (carry) =>
+        openApiSchema.description
+          ? createDescriptionCallExpression(carry, openApiSchema.description)
+          : carry,
     );
   }
   if ("oneOf" in openApiSchema) {
@@ -136,6 +167,14 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
        */
       (carry) =>
         openApiSchema.nullable ? createNullableCallExpression(carry) : carry,
+
+      /**
+       * Chain `zod.description(…)`, if applicable.
+       */
+      (carry) =>
+        openApiSchema.description
+          ? createDescriptionCallExpression(carry, openApiSchema.description)
+          : carry,
     );
   }
   if ("$ref" in openApiSchema) {
@@ -178,6 +217,14 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
          */
         (carry) =>
           openApiSchema.nullable ? createNullableCallExpression(carry) : carry,
+
+        /**
+         * Chain `zod.description(…)`, if applicable.
+         */
+        (carry) =>
+          openApiSchema.description
+            ? createDescriptionCallExpression(carry, openApiSchema.description)
+            : carry,
       );
     }
 
@@ -221,6 +268,14 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
          */
         (carry) =>
           openApiSchema.nullable ? createNullableCallExpression(carry) : carry,
+
+        /**
+         * Chain `zod.description(…)`, if applicable.
+         */
+        (carry) =>
+          openApiSchema.description
+            ? createDescriptionCallExpression(carry, openApiSchema.description)
+            : carry,
       );
     }
     case "number":
@@ -285,6 +340,17 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
             openApiSchema.nullable
               ? createNullableCallExpression(carry)
               : carry,
+
+          /**
+           * Chain `zod.description(…)`, if applicable.
+           */
+          (carry) =>
+            openApiSchema.description
+              ? createDescriptionCallExpression(
+                  carry,
+                  openApiSchema.description,
+                )
+              : carry,
         );
       }
 
@@ -304,6 +370,14 @@ function convertOpenApiSchemaToZodSchema(openApiSchema) {
          */
         (carry) =>
           openApiSchema.nullable ? createNullableCallExpression(carry) : carry,
+
+        /**
+         * Chain `zod.description(…)`, if applicable.
+         */
+        (carry) =>
+          openApiSchema.description
+            ? createDescriptionCallExpression(carry, openApiSchema.description)
+            : carry,
       );
     }
 
