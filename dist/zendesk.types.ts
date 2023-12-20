@@ -1,6 +1,9 @@
 import { z } from "zod";
 
 export type Maybe<T> = T | null;
+/**
+ * @description The active features for an account. See [Active Features](#active-features)
+ */
 
 export interface AccountSettingsActiveFeaturesObject {
   advanced_analytics: boolean;
@@ -45,6 +48,9 @@ export interface AccountSettingsActiveFeaturesObject {
   user_tagging: boolean;
   voice: boolean;
 }
+/**
+ * @description Configuration for the agent workspace. See [Agents](#agents)
+ */
 
 export interface AccountSettingsAgentObject {
   agent_home: boolean;
@@ -54,22 +60,34 @@ export interface AccountSettingsAgentObject {
   idle_timeout_enabled: boolean;
   unified_agent_statuses: boolean;
 }
+/**
+ * @description API configuration options. See [API](#api)
+ */
 
 export interface AccountSettingsApiObject {
   accepted_api_agreement: boolean;
   api_password_access: string;
   api_token_access: string;
 }
+/**
+ * @description Apps configuration options. See [Apps](#apps)
+ */
 
 export interface AccountSettingsAppsObject {
   create_private: boolean;
   create_public: boolean;
   use: boolean;
 }
+/**
+ * @description Billing configuration options. See [Billing](#billing)
+ */
 
 export interface AccountSettingsBillingObject {
   backend: string;
 }
+/**
+ * @description Branding settings. See [Branding](#branding)
+ */
 
 export interface AccountSettingsBrandingObject {
   favicon_url: Maybe<string>;
@@ -79,11 +97,17 @@ export interface AccountSettingsBrandingObject {
   tab_background_color: string;
   text_color: string;
 }
+/**
+ * @description Brand settings. See [Brands](#brands)
+ */
 
 export interface AccountSettingsBrandsObject {
   default_brand_id: number;
   require_brand_on_new_tickets: boolean;
 }
+/**
+ * @description CDN settings
+ */
 
 export interface AccountSettingsCdnObject {
   cdn_provider: string;
@@ -93,6 +117,9 @@ export interface AccountSettingsCdnObject {
     url: string;
   }[];
 }
+/**
+ * @description Zendesk Chat settings. See [Chat](#chat)
+ */
 
 export interface AccountSettingsChatObject {
   available: boolean;
@@ -101,48 +128,78 @@ export interface AccountSettingsChatObject {
   maximum_request_count: number;
   welcome_message: string;
 }
+/**
+ * @description Cross Sell settings
+ */
 
 export interface AccountSettingsCrossSellObject {
   show_chat_tooltip: boolean;
   xsell_source: Maybe<string>;
 }
+/**
+ * @description GoodData settings, used for insights. Legacy configuration prior to Zendesk Explore. See [GoodData Advanced Analytics](#gooddata-advanced-analytics)
+ */
 
 export interface AccountSettingsGooddataAdvancedAnalyticsObject {
   enabled: boolean;
 }
+/**
+ * @description Google Apps configuration. See [G Suite](#g-suite)
+ */
 
 export interface AccountSettingsGoogleAppsObject {
   has_google_apps: boolean;
   has_google_apps_admin: boolean;
 }
+/**
+ * @description Group configuration
+ */
 
 export interface AccountSettingsGroupObject {
   check_group_name_uniqueness: boolean;
 }
+/**
+ * @description Account limits configuration. See [Limits](#limits)
+ */
 
 export interface AccountSettingsLimitsObject {
   attachment_size: number;
 }
+/**
+ * @description Internationalization configuration settings. See [Localization](#localization)
+ */
 
 export interface AccountSettingsLocalizationObject {
   locale_ids: number[];
 }
+/**
+ * @description Support UI settings. See [Lotus](#lotus)
+ */
 
 export interface AccountSettingsLotusObject {
   pod_id: number;
   prefer_lotus: boolean;
   reporting: boolean;
 }
+/**
+ * @description Account metrics settings. See [Metrics](#metrics)
+ */
 
 export interface AccountSettingsMetricsObject {
   account_size: string;
 }
+/**
+ * @description Onboarding settings
+ */
 
 export interface AccountSettingsOnboardingObject {
   checklist_onboarding_version: number;
   onboarding_segments: Maybe<string>;
   product_sign_up: Maybe<string>;
 }
+/**
+ * @description Configuration for routing. See [Routing](#routing)
+ */
 
 export interface AccountSettingsRoutingObject {
   autorouting_tag: string;
@@ -153,6 +210,9 @@ export interface AccountSettingsRoutingObject {
   reassignment_messaging_timeout: number;
   reassignment_talk_timeout: number;
 }
+/**
+ * @description Rules settings for triggers, macros, views, and automations. See [Rules](#rules)
+ */
 
 export interface AccountSettingsRuleObject {
   macro_most_used: boolean;
@@ -160,6 +220,9 @@ export interface AccountSettingsRuleObject {
   skill_based_filtered_views: Record<string, unknown>[];
   using_skill_based_routing: boolean;
 }
+/**
+ * @description Side conversations settings
+ */
 
 export interface AccountSettingsSideConversationsObject {
   email_channel: boolean;
@@ -168,17 +231,26 @@ export interface AccountSettingsSideConversationsObject {
   slack_channel: boolean;
   tickets_channel: boolean;
 }
+/**
+ * @description Account statistics settings. See [Statistics](#statistics)
+ */
 
 export interface AccountSettingsStatisticsObject {
   forum: boolean;
   rule_usage: boolean;
   search: boolean;
 }
+/**
+ * @description Ticket form settings. See [Ticket Form](#ticket-form)
+ */
 
 export interface AccountSettingsTicketFormObject {
   raw_ticket_forms_instructions: string;
   ticket_forms_instructions: string;
 }
+/**
+ * @description Ticket settings. See [Tickets](#tickets)
+ */
 
 export interface AccountSettingsTicketObject {
   accepted_new_collaboration_tos: boolean;
@@ -208,14 +280,23 @@ export interface AccountSettingsTicketObject {
   tagging: boolean;
   using_skill_based_routing: boolean;
 }
+/**
+ * @description Ticket sharing partners settings. See [Ticket Sharing Partners](#ticket-sharing-partners)
+ */
 
 export interface AccountSettingsTicketSharingPartnersObject {
   support_addresses: string[];
 }
+/**
+ * @description X (formerly Twitter) settings. See [X](#x-formerly-twitter)
+ */
 
 export interface AccountSettingsTwitterObject {
   shorten_url: string;
 }
+/**
+ * @description User settings. See [Users](#users)
+ */
 
 export interface AccountSettingsUserObject {
   agent_created_welcome_emails: boolean;
@@ -226,6 +307,9 @@ export interface AccountSettingsUserObject {
   tagging: boolean;
   time_zone_selection: boolean;
 }
+/**
+ * @description Zendesk Talk settings. See [Voice](#voice)
+ */
 
 export interface AccountSettingsVoiceObject {
   agent_confirmation_when_forwarding: boolean;
@@ -451,6 +535,9 @@ export interface BulkUpdateDefaultCustomStatusRequest {
 }
 
 export interface BulkUpdateDefaultCustomStatusResponse {}
+/**
+ * @description The status of the import for the indicated resource
+ */
 
 export interface ChannelFrameworkResultStatusObject {
   code: string;
@@ -489,6 +576,9 @@ export interface ConditionObject {
   operator: string;
   value: string | unknown[];
 }
+/**
+ * @description An object that describes the conditions under which the automation will execute. See [Conditions reference](/documentation/ticketing/reference-guides/conditions-reference)
+ */
 
 export interface ConditionsObject {
   all: ConditionObject[];
@@ -690,6 +780,9 @@ export interface CustomObjectsCreateRequest {
 export interface CustomObjectsResponse {
   custom_objects: CustomObject[];
 }
+/**
+ * @description Configuration settings for the role. See [Configuration](#configuration)
+ */
 
 export interface CustomRoleConfigurationObject {
   assign_tickets_to_any_group: boolean;
@@ -970,6 +1063,9 @@ export interface GroupSLAPolicyFilterDefinitionResponse {
     }[];
   };
 }
+/**
+ * @description An object that describes the conditions a ticket must match for a Group SLA policy to be applied to the ticket. See [Filter](#filter).
+ */
 
 export interface GroupSLAPolicyFilterObject {
   all: GroupSLAPolicyFilterConditionObject[];
@@ -1397,6 +1493,9 @@ export interface SLAPolicyFilterDefinitionResponse {
     }[];
   };
 }
+/**
+ * @description An object that describes the conditions that a ticket must match in order for an SLA policy to be applied to that ticket. See [Filter](#filter).
+ */
 
 export interface SLAPolicyFilterObject {
   all: SLAPolicyFilterConditionObject[];
@@ -1820,6 +1919,9 @@ export interface TargetResponse {
 export interface TargetsResponse {
   targets: TargetObject[];
 }
+/**
+ * @description Describes how the object was created. See the [Via object reference](/documentation/ticketing/reference-guides/via-object-reference)
+ */
 
 export interface TicketAuditViaObject {
   channel: string;
@@ -2250,6 +2352,10 @@ export interface BookmarkResponse {
 export type BookmarksResponse = OffsetPaginationObject & {
   bookmarks: BookmarkObject[];
 };
+/**
+* @description See [Tickets](/api-reference/ticketing/tickets/tickets/) for a detailed example.
+
+*/
 
 export interface CursorBasedExportIncrementalTicketsResponse {
   after_cursor: Maybe<string>;
@@ -2324,6 +2430,10 @@ export interface TicketUpdateRequest {
 export interface TicketsResponse {
   tickets: TicketObject[];
 }
+/**
+* @description See [Tickets](/api-reference/ticketing/tickets/tickets/) for a detailed example.
+
+*/
 
 export interface TimeBasedExportIncrementalTicketsResponse {
   count: number;
@@ -2493,6 +2603,9 @@ export interface TriggerConditionsDiffObject {
   all: Maybe<TriggerConditionDiffObject[]>;
   any: Maybe<TriggerConditionDiffObject[]>;
 }
+/**
+ * @description An object that describes the conditions under which the trigger will execute. See [Conditions reference](/documentation/ticketing/reference-guides/conditions-reference)
+ */
 
 export interface TriggerConditionsObject {
   all: Maybe<TriggerConditionObject[]>;
@@ -2885,6 +2998,10 @@ export interface UsersResponse {
 }
 
 export type ReverseLookupResponse = UsersResponse;
+/**
+* @description An object explaining how the ticket was created. See the [Via object reference](/documentation/ticketing/reference-guides/via-object-reference)
+
+*/
 
 export interface ViaObject {
   channel: string;

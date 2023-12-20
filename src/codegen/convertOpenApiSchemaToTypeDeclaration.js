@@ -1,3 +1,4 @@
+const { pipe } = require("fp-ts/lib/function");
 const ts = require("typescript");
 const {
   convertOpenApiSchemaToTypeNode,
@@ -9,6 +10,22 @@ const { factory } = ts;
  * @typedef {import("openapi-types").OpenAPIV3.SchemaObject} SchemaObject
  * @typedef {import("openapi-types").OpenAPIV3.ReferenceObject} ReferenceObject
  */
+
+/**
+ * @type {<T extends ts.Node>(node: T, description: string): T}
+ */
+function addJsDocComment(node, description) {
+  if (description) {
+    ts.addSyntheticLeadingComment(
+      node,
+      ts.SyntaxKind.MultiLineCommentTrivia,
+      `*\n* @description ${description}\n`,
+      true,
+    );
+  }
+
+  return node;
+}
 
 /**
  * Generates an AST (abstract syntax tree) node which represents an exported
@@ -78,51 +95,62 @@ function convertOpenApiSchemaToTypeDeclaration(name, schema) {
 
   switch (schema.type) {
     case "object": {
-      return factory.createInterfaceDeclaration(
-        [exportModifier],
-        nameIdentifier,
-        undefined,
-        undefined,
-        Object.entries(schema.properties || {}).map(
-          ([propertyName, property]) =>
-            factory.createPropertySignature(
-              undefined,
-              factory.createIdentifier(propertyName),
-              undefined,
-              convertOpenApiSchemaToTypeNode(property),
-            ),
+      return pipe(
+        factory.createInterfaceDeclaration(
+          [exportModifier],
+          nameIdentifier,
+          undefined,
+          undefined,
+          Object.entries(schema.properties || {}).map(
+            ([propertyName, property]) =>
+              factory.createPropertySignature(
+                undefined,
+                factory.createIdentifier(propertyName),
+                undefined,
+                convertOpenApiSchemaToTypeNode(property),
+              ),
+          ),
         ),
+        (carry) => addJsDocComment(carry, schema.description),
       );
     }
     case "array": {
-      return factory.createTypeAliasDeclaration(
-        [exportModifier],
-        nameIdentifier,
-        undefined,
-        factory.createArrayTypeNode(
-          factory.createUnionTypeNode(
-            schema.items
-              ? Object.values(schema.items).map((property) =>
-                  convertOpenApiSchemaToTypeNode(property),
-                )
-              : [factory.createTypeReferenceNode("unknown")],
+      return pipe(
+        factory.createTypeAliasDeclaration(
+          [exportModifier],
+          nameIdentifier,
+          undefined,
+          factory.createArrayTypeNode(
+            factory.createUnionTypeNode(
+              schema.items
+                ? Object.values(schema.items).map((property) =>
+                    convertOpenApiSchemaToTypeNode(property),
+                  )
+                : [factory.createTypeReferenceNode("unknown")],
+            ),
           ),
         ),
+        (carry) => addJsDocComment(carry, schema.description),
       );
     }
     case "integer":
     case "string": {
-      return factory.createTypeAliasDeclaration(
-        [exportModifier],
-        nameIdentifier,
-        undefined,
-        schema.enum
-          ? factory.createUnionTypeNode(
-              schema.enum.map((enumVal) => {
-                return factory.createTypeReferenceNode(JSON.stringify(enumVal));
-              }),
-            )
-          : factory.createTypeReferenceNode(schema.type),
+      return pipe(
+        factory.createTypeAliasDeclaration(
+          [exportModifier],
+          nameIdentifier,
+          undefined,
+          schema.enum
+            ? factory.createUnionTypeNode(
+                schema.enum.map((enumVal) => {
+                  return factory.createTypeReferenceNode(
+                    JSON.stringify(enumVal),
+                  );
+                }),
+              )
+            : factory.createTypeReferenceNode(schema.type),
+        ),
+        (carry) => addJsDocComment(carry, schema.description),
       );
     }
 
