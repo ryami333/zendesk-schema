@@ -71,6 +71,7 @@ tags:
   - name: Custom Object Records
   - name: Essentials Card
   - name: Key Details
+  - name: Omnichannel Routing Queues
 servers:
   - url: https://{subdomain}.{domain}.com
     variables:
@@ -5972,10 +5973,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PushNotificationDevicesRequest.yaml"
+              $ref: "#/components/schemas/PushNotificationDevicesRequest"
             examples:
               default:
-                $ref: "#/components/examples/PushNotificationDevicesRequestExample.yaml"
+                $ref: "#/components/examples/PushNotificationDevicesRequestExample"
       responses:
         "200":
           description: Successful response
@@ -5986,6 +5987,118 @@ paths:
                 description: empty
                 example: ""
               example: ""
+  /api/v2/queues:
+    get:
+      operationId: ListQueues
+      tags:
+        - Omnichannel Routing Queues
+      summary: List queues
+      description: |
+        #### Allowed For
+
+        * Admins
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueuesResponse"
+              examples:
+                default:
+                  $ref: "#/components/examples/QueuesResponseExample"
+    post:
+      operationId: CreateQueue
+      tags:
+        - Omnichannel Routing Queues
+      summary: Create queue
+      description: |
+        #### Allowed For
+
+        * Admins
+      responses:
+        "201":
+          description: Created response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueueResponse"
+              examples:
+                default:
+                  $ref: "#/components/examples/QueueCreateResponseExample"
+  /api/v2/queues/{queue_id}:
+    parameters:
+      - $ref: "#/components/parameters/OcrQueueId"
+    get:
+      operationId: ShowQueueById
+      tags:
+        - Omnichannel Routing Queues
+      summary: Show Queue
+      description: |
+        #### Allowed For
+
+        * Admins
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueueResponse"
+              examples:
+                default:
+                  $ref: "#/components/examples/QueueResponseExample"
+    put:
+      operationId: UpdateQueue
+      tags:
+        - Omnichannel Routing Queues
+      summary: Update queue
+      description: |
+        #### Allowed For
+
+        * Admins
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueueResponse"
+              examples:
+                default:
+                  $ref: "#/components/examples/QueuesUpdateResponseExample"
+    delete:
+      operationId: DeleteQueue
+      tags:
+        - Omnichannel Routing Queues
+      summary: Delete queue
+      description: |
+        #### Allowed For
+
+        * Admins
+      responses:
+        "204":
+          description: No content response
+  /api/v2/queues/definitions:
+    get:
+      operationId: ListQueueDefinitions
+      tags:
+        - Omnichannel Routing Queues
+      summary: List queue definitions
+      description: |
+        #### Allowed For
+
+        * Admins
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DefinitionsResponse"
+              examples:
+                default:
+                  $ref: "#/components/examples/DefinitionsResponseExample"
   /api/v2/recipient_addresses:
     get:
       operationId: ListSupportAddresses
@@ -7638,7 +7751,7 @@ paths:
                 $ref: "#/components/schemas/RecoverSuspendedTicketUnprocessableContentResponse"
               examples:
                 default:
-                  $ref: "#/components/examples/RecoverSuspendedTicketUnprocessableContentResponseExample.yaml"
+                  $ref: "#/components/examples/RecoverSuspendedTicketUnprocessableContentResponseExample"
   /api/v2/suspended_tickets/attachments:
     parameters:
       - $ref: "#/components/parameters/SuspendedTicketId"
@@ -15007,6 +15120,26 @@ components:
           readOnly: true
         events:
           type: array
+          items:
+            type: object
+            properties:
+              body:
+                type: string
+                readOnly: true
+              field_name:
+                type: string
+                readOnly: true
+              id:
+                type: integer
+                readOnly: true
+              type:
+                type: string
+                readOnly: true
+              value:
+                oneOf:
+                  - type: string
+                  - type: integer
+                  - type: array
           readOnly: true
         id:
           type: integer
@@ -15286,6 +15419,8 @@ components:
         ticket_form_ids:
           type: array
           description: The ids of ticket forms that are available for use by a brand
+          items:
+            type: integer
           readOnly: true
         updated_at:
           type: string
@@ -16333,6 +16468,90 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/CustomStatusObject"
+    DefinitionsResponse:
+      type: object
+      properties:
+        definitions:
+          type: object
+          properties:
+            conditions_all:
+              type: array
+              items:
+                type: object
+                properties:
+                  group:
+                    type: string
+                  nullable:
+                    type: boolean
+                  operators:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        terminal:
+                          type: boolean
+                        title:
+                          type: string
+                        value:
+                          type: string
+                  repeatable:
+                    type: boolean
+                  subject:
+                    type: string
+                  title:
+                    type: string
+                  type:
+                    type: string
+                  values:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        enabled:
+                          type: boolean
+                        title:
+                          type: string
+                        value:
+                          type: string
+            conditions_any:
+              type: array
+              items:
+                type: object
+                properties:
+                  group:
+                    type: string
+                  nullable:
+                    type: boolean
+                  operators:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        terminal:
+                          type: boolean
+                        title:
+                          type: string
+                        value:
+                          type: string
+                  repeatable:
+                    type: boolean
+                  subject:
+                    type: string
+                  title:
+                    type: string
+                  type:
+                    type: string
+                  values:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        enabled:
+                          type: boolean
+                        title:
+                          type: string
+                        value:
+                          type: string
     DeletedUserObject:
       type: object
       properties:
@@ -16852,6 +17071,11 @@ components:
         value:
           type: array
           description: The value of a ticket field
+          items:
+            oneOf:
+              - type: string
+              - type: integer
+              - type: array
     GroupSLAPolicyFilterDefinitionResponse:
       type: object
       properties:
@@ -17923,17 +18147,142 @@ components:
               type: string
             has_more:
               type: boolean
-    PushNotificationDevicesInput.yaml:
+    PushNotificationDevicesInput:
       type: array
-      properties:
-        items:
-          type: string
-          description: Mobile device token
-    PushNotificationDevicesRequest.yaml:
+      items:
+        type: string
+        description: Mobile device token
+    PushNotificationDevicesRequest:
       type: object
       properties:
         push_notification_devices:
-          $ref: "#/components/schemas/PushNotificationDevicesInput.yaml"
+          $ref: "#/components/schemas/PushNotificationDevicesInput"
+    QueueObject:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          description: The time the queue was created
+          readOnly: true
+        definition:
+          type: object
+          description: Conditions when queue could be applied
+          properties:
+            all:
+              type: array
+              items:
+                type: object
+                properties:
+                  field:
+                    type: string
+                  operator:
+                    type: string
+                  value:
+                    type: string
+            any:
+              type: array
+              items:
+                type: object
+                properties:
+                  field:
+                    type: string
+                  operator:
+                    type: string
+                  value:
+                    type: string
+        description:
+          type: string
+          description: The description of the queue
+        id:
+          type: string
+          description: Automatically assigned when creating queue
+          readOnly: true
+        name:
+          type: string
+          description: The name of the queue
+        order:
+          type: integer
+          description: The queue-applied order
+        primary_groups:
+          type: object
+          description: Primary group ids linked to the queue
+          properties:
+            count:
+              type: integer
+            groups:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+        priority:
+          type: integer
+          description: The queue-applied priority
+        secondary_groups:
+          type: object
+          description: Secondary group ids linked to the queue
+          properties:
+            count:
+              type: integer
+            groups:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+        updated_at:
+          type: string
+          format: date-time
+          description: The time of the queue's last update
+          readOnly: true
+        url:
+          type: string
+          description: The API URL of the queue
+          readOnly: true
+      example:
+        created_at: "2023-11-27T09:03:59Z"
+        definition:
+          all:
+            - field: priority
+              operator: is
+              value: urgent
+          any: []
+        description: Queue description
+        id: 01HG80ATNNZK1N7XRFVKX48XD6
+        name: New queue with valid definition
+        order: 1
+        primary_groups:
+          count: 2
+          groups:
+            - id: 6784729637757
+              name: EWR
+            - id: 5399674286077
+              name: test
+        priority: 1
+        secondary_groups:
+          count: 0
+          groups: []
+        updated_at: "2023-11-27T09:03:59Z"
+        url: https://company.zendesk.com/api/v2/queues/01HG80ATNNZK1N7XRFVKX48XD6.json
+    QueueResponse:
+      type: object
+      properties:
+        queue:
+          $ref: "#/components/schemas/QueueObject"
+    QueuesResponse:
+      type: object
+      properties:
+        queues:
+          type: array
+          items:
+            $ref: "#/components/schemas/QueueObject"
     RecoverSuspendedTicketResponse:
       type: object
       properties:
@@ -18131,6 +18480,17 @@ components:
         resources:
           type: array
           description: Array of resource metadata objects. See [Resource objects](#resource-objects)
+          items:
+            type: object
+            properties:
+              deleted:
+                type: boolean
+              identifier:
+                type: string
+              resource_id:
+                type: integer
+              type:
+                type: string
           readOnly: true
         updated_at:
           type: string
@@ -19829,15 +20189,23 @@ components:
             collaborators:
               type: array
               description: POST requests only. Users to add as cc's when creating a ticket. See [Setting Collaborators](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-collaborators)
+              items:
+                $ref: "#/components/schemas/CollaboratorObject"
             email_cc_ids:
               type: array
               description: The ids of agents or end users currently CC'ed on the ticket. See [CCs and followers resources](https://support.zendesk.com/hc/en-us/articles/360020585233) in the Support Help Center
+              items:
+                type: integer
             follower_ids:
               type: array
               description: The ids of agents currently following the ticket. See [CCs and followers resources](https://support.zendesk.com/hc/en-us/articles/360020585233)
+              items:
+                type: integer
             macro_ids:
               type: array
               description: POST requests only. List of macro IDs to be recorded in the ticket audit
+              items:
+                type: integer
             raw_subject:
               type: string
               description: |
@@ -20331,6 +20699,8 @@ components:
         ids:
           type: array
           description: Ids of tickets to merge into the target ticket
+          items:
+            type: integer
         source_comment:
           type: string
           description: Private comment to add to the source ticket
@@ -20663,6 +21033,8 @@ components:
         attribute_value_ids:
           type: array
           description: Write only. An array of the IDs of attribute values to be associated with the ticket
+          items:
+            type: integer
           writeOnly: true
         brand_id:
           type: integer
@@ -20670,6 +21042,8 @@ components:
         collaborator_ids:
           type: array
           description: The ids of users currently CC'ed on the ticket
+          items:
+            type: integer
         collaborators:
           type: array
           description: POST requests only. Users to add as cc's when creating a ticket. See [Setting Collaborators](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-collaborators)
@@ -20687,6 +21061,15 @@ components:
         custom_fields:
           type: array
           description: Custom fields for the ticket. See [Setting custom field values](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-custom-field-values)
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: The id of the custom field
+              value:
+                type: string
+                description: The value of the custom field
         custom_status_id:
           type: integer
           description: The custom ticket status id of the ticket. See [custom ticket statuses](#custom-ticket-statuses)
@@ -20703,6 +21086,8 @@ components:
         email_cc_ids:
           type: array
           description: The ids of agents or end users currently CC'ed on the ticket. See [CCs and followers resources](https://support.zendesk.com/hc/en-us/articles/360020585233) in the Support Help Center
+          items:
+            type: integer
         email_ccs:
           type: object
           description: Write only. An array of objects that represent agent or end users email CCs to add or delete from the ticket. See [Setting email CCs](/documentation/ticketing/managing-tickets/creating-and-updating-tickets/#setting-email-ccs)
@@ -20713,6 +21098,8 @@ components:
         follower_ids:
           type: array
           description: The ids of agents currently following the ticket. See [CCs and followers resources](https://support.zendesk.com/hc/en-us/articles/360020585233)
+          items:
+            type: integer
         followers:
           type: object
           description: Write only. An array of objects that represent agent followers to add or delete from the ticket. See [Setting followers](/documentation/ticketing/managing-tickets/creating-and-updating-tickets/#setting-followers)
@@ -20720,6 +21107,8 @@ components:
         followup_ids:
           type: array
           description: The ids of the followups created from this ticket. Ids are only visible once the ticket is closed
+          items:
+            type: integer
           readOnly: true
         forum_topic_id:
           type: integer
@@ -20751,6 +21140,8 @@ components:
         macro_ids:
           type: array
           description: POST requests only. List of macro IDs to be recorded in the ticket audit
+          items:
+            type: integer
         metadata:
           type: object
           description: Write only. Metadata for the audit. In the `audit` object, the data is specified in the `custom` property of the `metadata` object. See [Setting Metadata](/documentation/ticketing/managing-tickets/creating-and-updating-tickets/#setting-metadata)
@@ -20795,6 +21186,8 @@ components:
         sharing_agreement_ids:
           type: array
           description: The ids of the sharing agreements used for this ticket
+          items:
+            type: integer
           readOnly: true
         status:
           type: string
@@ -20819,6 +21212,8 @@ components:
         tags:
           type: array
           description: The array of tags applied to this ticket
+          items:
+            type: string
         ticket_form_id:
           type: integer
           description: Enterprise only. The id of the ticket form to render for the ticket
@@ -21061,11 +21456,15 @@ components:
         collaborator_ids:
           type: array
           description: The ids of users currently CC'ed on the ticket
+          items:
+            type: integer
         comment:
           $ref: "#/components/schemas/TicketCommentObject"
         custom_fields:
           type: array
           description: Custom fields for the ticket. See [Setting custom field values](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-custom-field-values)
+          items:
+            $ref: "#/components/schemas/CustomFieldObject"
         custom_status_id:
           type: integer
           description: The custom ticket status id of the ticket. See [custom ticket statuses](#custom-ticket-statuses)
@@ -21135,6 +21534,8 @@ components:
         tags:
           type: array
           description: The array of tags applied to this ticket
+          items:
+            type: string
         type:
           type: string
           description: The type of this ticket.
@@ -22225,6 +22626,8 @@ components:
         tags:
           type: array
           description: The user's tags. Only present if your account has user tagging enabled
+          items:
+            type: string
         ticket_restriction:
           type: string
           description: 'Specifies which tickets the user has access to. Possible values are: "organization", "groups", "assigned", "requested", null. "groups" and "assigned" are valid only for agents. If you pass an invalid value to an end user (for example, "groups"), they will be assigned to "requested", regardless of their previous access'
@@ -23286,6 +23689,14 @@ components:
       schema:
         type: string
       example: zen:custom_object:car
+    OcrQueueId:
+      name: queue_id
+      in: path
+      description: The id of the omnichannel routing queue
+      required: true
+      schema:
+        type: string
+      example: 01HG80ATNNZK1N7XRFVKX48XD6
     OrganizationExternalId:
       name: external_id
       in: query
@@ -25568,6 +25979,39 @@ components:
             value: banana
         next_page: null
         previous_page: null
+    DefinitionsResponseExample:
+      value:
+        definitions:
+          conditions_all:
+            - group: ticket
+              nullable: false
+              operators:
+                - terminal: false
+                  title: Is
+                  value: is
+              repeatable: false
+              subject: status
+              title: Status
+              type: list
+              values:
+                - enabled: false
+                  title: Closed
+                  value: closed
+          conditions_any:
+            - group: ticket
+              nullable: false
+              operators:
+                - terminal: false
+                  title: Is
+                  value: is
+              repeatable: false
+              subject: status
+              title: Status
+              type: list
+              values:
+                - enabled: false
+                  title: Closed
+                  value: closed
     DeleteUserResponseExample:
       value:
         user:
@@ -26625,11 +27069,119 @@ components:
           status: queued
           total: null
           url: https://example.zendesk.com/api/v2/job_statuses/82de0b0467893ac9fe64f1a99.json
-    PushNotificationDevicesRequestExample.yaml:
+    PushNotificationDevicesRequestExample:
       value:
         push_notification_devices:
           - token1
           - token2
+    QueueCreateResponseExample:
+      value:
+        queue:
+          created_at: "2023-11-27T09:03:59Z"
+          definition:
+            all:
+              - field: priority
+                operator: is
+                value: urgent
+            any: []
+          description: Queue description
+          id: 01HG80ATNNZK1N7XRFVKX48XD6
+          name: New queue with valid definition
+          order: 1
+          primary_groups:
+            count: 2
+            groups:
+              - id: 6784729637757
+                name: EW
+              - id: 5399674286077
+                name: test
+          priority: 1
+          secondary_groups:
+            count: 0
+            groups: []
+          updated_at: "2023-11-27T09:03:59Z"
+          url: https://company.zendesk.com/api/v2/queues/01HG80ATNNZK1N7XRFVKX48XD6.json
+    QueueResponseExample:
+      value:
+        queue:
+          created_at: "2023-11-27T09:03:59Z"
+          definition:
+            all:
+              - field: priority
+                operator: is
+                value: urgent
+            any: []
+          description: Queue description
+          id: 01HG80ATNNZK1N7XRFVKX48XD6
+          name: New queue with valid definition
+          order: 1
+          primary_groups:
+            count: 2
+            groups:
+              - id: 6784729637757
+                name: EW
+              - id: 5399674286077
+                name: test
+          priority: 1
+          secondary_groups:
+            count: 0
+            groups: []
+          updated_at: "2023-11-27T09:03:59Z"
+          url: https://company.zendesk.com/api/v2/queues/01HG80ATNNZK1N7XRFVKX48XD6.json
+    QueuesResponseExample:
+      value:
+        queues:
+          - created_at: "2023-11-27T09:03:59Z"
+            definition:
+              all:
+                - field: priority
+                  operator: is
+                  value: urgent
+              any: []
+            description: Queue description
+            id: 01HG80ATNNZK1N7XRFVKX48XD6
+            name: New queue with valid definition
+            order: 1
+            primary_groups:
+              count: 2
+              groups:
+                - id: 6784729637757
+                  name: EW
+                - id: 5399674286077
+                  name: test
+            priority: 1
+            secondary_groups:
+              count: 0
+              groups: []
+            updated_at: "2023-11-27T09:03:59Z"
+            url: https://company.zendesk.com/api/v2/queues/01HG80ATNNZK1N7XRFVKX48XD6.json
+    QueuesUpdateResponseExample:
+      value:
+        queue:
+          created_at: "2023-11-27T09:03:59Z"
+          definition:
+            all:
+              - field: priority
+                operator: is
+                value: urgent
+            any: []
+          description: Queue description
+          id: 01HG80ATNNZK1N7XRFVKX48XD6
+          name: New queue with valid definition
+          order: 1
+          primary_groups:
+            count: 2
+            groups:
+              - id: 6784729637757
+                name: EW
+              - id: 5399674286077
+                name: test
+          priority: 1
+          secondary_groups:
+            count: 0
+            groups: []
+          updated_at: "2023-11-27T09:03:59Z"
+          url: https://company.zendesk.com/api/v2/queues/01HG80ATNNZK1N7XRFVKX48XD6.json
     RecoverSuspendedTicketResponseExample:
       value:
         ticket:
@@ -26650,7 +27202,7 @@ components:
             url: https://example.zendesk.com/api/v2/tickets/67321.json
             via:
               channel: web
-    RecoverSuspendedTicketUnprocessableContentResponseExample.yaml:
+    RecoverSuspendedTicketUnprocessableContentResponseExample:
       value:
         ticket:
           - author:
