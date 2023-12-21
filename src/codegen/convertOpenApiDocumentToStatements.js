@@ -112,13 +112,7 @@ module.exports.convertOpenApiDocumentToStatements = (doc) => {
   const exportZodEntitySchemaStatements = schemas.map(([name, schema]) =>
     convertOpenApiSchemaToZodSchemaExport(
       name,
-      factory.createTypeReferenceNode(
-        name
-          /**
-           * Fix names which have trailing ".yaml" (possibly erroneously)
-           */
-          .replaceAll(/\..*/g, ""),
-      ),
+      factory.createTypeReferenceNode(name.replaceAll(/\..*/g, "")),
       schema,
     ),
   );

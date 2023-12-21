@@ -47,11 +47,7 @@ function convertOpenApiSchemaToTypeDeclaration(name, schema) {
   const exportModifier = factory.createModifier(ts.SyntaxKind.ExportKeyword);
 
   // No matter the schema-type, the identifier will be the same.
-  const nameIdentifier = factory.createIdentifier(
-    name
-      // Strip trailing ".yaml" (probably erroneously named as such to begin with)
-      .replaceAll(/\..*/g, ""),
-  );
+  const nameIdentifier = factory.createIdentifier(name);
 
   if ("allOf" in schema) {
     return factory.createTypeAliasDeclaration(
