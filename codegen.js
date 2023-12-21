@@ -35,7 +35,7 @@ const { factory } = ts;
   const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
 
   fs.writeFileSync(
-    path.resolve(artefactsDirectory, `zendesk.types.ts`),
+    path.resolve(artefactsDirectory, "index.ts"),
     await prettier.format(
       printer
         .printFile(sourceFile)
