@@ -117,13 +117,9 @@ function convertOpenApiSchemaToTypeDeclaration(name, schema) {
           nameIdentifier,
           undefined,
           factory.createArrayTypeNode(
-            factory.createUnionTypeNode(
-              schema.items
-                ? Object.values(schema.items).map((property) =>
-                    convertOpenApiSchemaToTypeNode(property),
-                  )
-                : [factory.createTypeReferenceNode("unknown")],
-            ),
+            schema.items
+              ? convertOpenApiSchemaToTypeNode(schema.items)
+              : factory.createTypeReferenceNode("unknown"),
           ),
         ),
         (carry) => addJsDocComment(carry, schema.description),

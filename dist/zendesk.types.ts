@@ -513,7 +513,7 @@ export interface BrandObject {
   name: string;
   signature_template: string;
   subdomain: string;
-  ticket_form_ids: unknown[];
+  ticket_form_ids: number[];
   updated_at: string;
   url: string;
 }
@@ -887,6 +887,47 @@ export interface CustomStatusesResponse {
   custom_statuses: CustomStatusObject[];
 }
 
+export interface DefinitionsResponse {
+  definitions: {
+    conditions_all: {
+      group: string;
+      nullable: boolean;
+      operators: {
+        terminal: boolean;
+        title: string;
+        value: string;
+      }[];
+      repeatable: boolean;
+      subject: string;
+      title: string;
+      type: string;
+      values: {
+        enabled: boolean;
+        title: string;
+        value: string;
+      }[];
+    }[];
+    conditions_any: {
+      group: string;
+      nullable: boolean;
+      operators: {
+        terminal: boolean;
+        title: string;
+        value: string;
+      }[];
+      repeatable: boolean;
+      subject: string;
+      title: string;
+      type: string;
+      values: {
+        enabled: boolean;
+        title: string;
+        value: string;
+      }[];
+    }[];
+  };
+}
+
 export interface DeletedUserObject {
   active: boolean;
   created_at: string;
@@ -1040,7 +1081,7 @@ export interface GroupResponse {
 export interface GroupSLAPolicyFilterConditionObject {
   field: string;
   operator: string;
-  value: unknown[];
+  value: (string | number | unknown[])[];
 }
 
 export interface GroupSLAPolicyFilterDefinitionResponse {
@@ -1421,10 +1462,55 @@ export interface Pagination {
   };
 }
 
-export type PushNotificationDevicesInput = unknown[];
+export type PushNotificationDevicesInput = string[];
 
 export interface PushNotificationDevicesRequest {
   push_notification_devices: PushNotificationDevicesInput;
+}
+
+export interface QueueObject {
+  created_at: string;
+  definition: {
+    all: {
+      field: string;
+      operator: string;
+      value: string;
+    }[];
+    any: {
+      field: string;
+      operator: string;
+      value: string;
+    }[];
+  };
+  description: string;
+  id: string;
+  name: string;
+  order: number;
+  primary_groups: {
+    count: number;
+    groups: {
+      id: number;
+      name: string;
+    }[];
+  };
+  priority: number;
+  secondary_groups: {
+    count: number;
+    groups: {
+      id: number;
+      name: string;
+    }[];
+  };
+  updated_at: string;
+  url: string;
+}
+
+export interface QueueResponse {
+  queue: QueueObject;
+}
+
+export interface QueuesResponse {
+  queues: QueueObject[];
 }
 
 export interface RenewSessionResponse {
@@ -1434,7 +1520,12 @@ export interface RenewSessionResponse {
 export interface ResourceCollectionObject {
   created_at: string;
   id: number;
-  resources: unknown[];
+  resources: {
+    deleted: boolean;
+    identifier: string;
+    resource_id: number;
+    type: string;
+  }[];
   updated_at: string;
 }
 
@@ -2178,7 +2269,7 @@ export interface TicketImportRequest {
 }
 
 export interface TicketMergeInput {
-  ids: unknown[];
+  ids: number[];
   source_comment: string;
   source_comment_is_public: boolean;
   target_comment: string;
@@ -2285,22 +2376,25 @@ export interface TicketObject {
   allow_channelback: boolean;
   assignee_email: string;
   assignee_id: number;
-  attribute_value_ids: unknown[];
+  attribute_value_ids: number[];
   brand_id: number;
-  collaborator_ids: unknown[];
+  collaborator_ids: number[];
   collaborators: CollaboratorObject[];
   comment: Record<string, unknown>;
   created_at: string;
-  custom_fields: unknown[];
+  custom_fields: {
+    id: number;
+    value: string;
+  }[];
   custom_status_id: number;
   description: string;
   due_at: Maybe<string>;
-  email_cc_ids: unknown[];
+  email_cc_ids: number[];
   email_ccs: Record<string, unknown>;
   external_id: string;
-  follower_ids: unknown[];
+  follower_ids: number[];
   followers: Record<string, unknown>;
-  followup_ids: unknown[];
+  followup_ids: number[];
   forum_topic_id: number;
   from_messaging_channel: boolean;
   group_id: number;
@@ -2308,7 +2402,7 @@ export interface TicketObject {
   id: number;
   is_public: boolean;
   macro_id: number;
-  macro_ids: unknown[];
+  macro_ids: number[];
   metadata: Record<string, unknown>;
   organization_id: number;
   priority: "urgent" | "high" | "normal" | "low";
@@ -2319,11 +2413,11 @@ export interface TicketObject {
   requester_id: number;
   safe_update: boolean;
   satisfaction_rating: Record<string, unknown>;
-  sharing_agreement_ids: unknown[];
+  sharing_agreement_ids: number[];
   status: "new" | "open" | "pending" | "hold" | "solved" | "closed";
   subject: string;
   submitter_id: number;
-  tags: unknown[];
+  tags: string[];
   ticket_form_id: number;
   type: "problem" | "incident" | "question" | "task";
   updated_at: string;
@@ -2401,9 +2495,9 @@ export interface TicketUpdateInput {
   assignee_email: string;
   assignee_id: number;
   attribute_value_ids: number[];
-  collaborator_ids: unknown[];
+  collaborator_ids: number[];
   comment: TicketCommentObject;
-  custom_fields: unknown[];
+  custom_fields: CustomFieldObject[];
   custom_status_id: number;
   due_at: Maybe<string>;
   email_ccs: EmailCCObject[];
@@ -2418,7 +2512,7 @@ export interface TicketUpdateInput {
   sharing_agreement_ids: number[];
   status: "new" | "open" | "pending" | "hold" | "solved" | "closed";
   subject: string;
-  tags: unknown[];
+  tags: string[];
   type: "problem" | "incident" | "question" | "task";
   updated_stamp: string;
 }
@@ -2837,7 +2931,7 @@ export interface UserForAdmin {
   shared_phone_number: Maybe<boolean>;
   signature: string;
   suspended: boolean;
-  tags: unknown[];
+  tags: string[];
   ticket_restriction: Maybe<string>;
   time_zone: string;
   two_factor_auth_enabled: Maybe<boolean>;
@@ -3023,7 +3117,13 @@ export interface ViaObject {
 export interface AuditObject {
   author_id: number;
   created_at: string;
-  events: unknown[];
+  events: {
+    body: string;
+    field_name: string;
+    id: number;
+    type: string;
+    value: string | number | unknown[];
+  }[];
   id: number;
   metadata: Record<string, unknown>;
   ticket_id: number;
@@ -3071,10 +3171,10 @@ export interface SuspendedTicketsResponse {
 
 export type TicketCreateInput = TicketUpdateInput & {
   brand_id: number;
-  collaborators: unknown[];
-  email_cc_ids: unknown[];
-  follower_ids: unknown[];
-  macro_ids: unknown[];
+  collaborators: CollaboratorObject[];
+  email_cc_ids: number[];
+  follower_ids: number[];
+  macro_ids: number[];
   raw_subject: string;
   recipient: string;
   submitter_id: number;
@@ -3763,7 +3863,7 @@ export const brandObjectSchema: z.ZodSchema<BrandObject> = z.object({
   signature_template: z.string().describe("The signature template for a brand"),
   subdomain: z.string().describe("The subdomain of the brand"),
   ticket_form_ids: z
-    .array(z.unknown())
+    .array(z.number())
     .describe("The ids of ticket forms that are available for use by a brand"),
   updated_at: z.string().describe("The time of the last update of the brand"),
   url: z.string().describe("The API url of this brand"),
@@ -4457,6 +4557,60 @@ export const customStatusUpdateRequestSchema: z.ZodSchema<CustomStatusUpdateRequ
 export const customStatusesResponseSchema: z.ZodSchema<CustomStatusesResponse> =
   z.object({ custom_statuses: z.array(customStatusObjectSchema) });
 
+export const definitionsResponseSchema: z.ZodSchema<DefinitionsResponse> =
+  z.object({
+    definitions: z.object({
+      conditions_all: z.array(
+        z.object({
+          group: z.string(),
+          nullable: z.boolean(),
+          operators: z.array(
+            z.object({
+              terminal: z.boolean(),
+              title: z.string(),
+              value: z.string(),
+            }),
+          ),
+          repeatable: z.boolean(),
+          subject: z.string(),
+          title: z.string(),
+          type: z.string(),
+          values: z.array(
+            z.object({
+              enabled: z.boolean(),
+              title: z.string(),
+              value: z.string(),
+            }),
+          ),
+        }),
+      ),
+      conditions_any: z.array(
+        z.object({
+          group: z.string(),
+          nullable: z.boolean(),
+          operators: z.array(
+            z.object({
+              terminal: z.boolean(),
+              title: z.string(),
+              value: z.string(),
+            }),
+          ),
+          repeatable: z.boolean(),
+          subject: z.string(),
+          title: z.string(),
+          type: z.string(),
+          values: z.array(
+            z.object({
+              enabled: z.boolean(),
+              title: z.string(),
+              value: z.string(),
+            }),
+          ),
+        }),
+      ),
+    }),
+  });
+
 export const deletedUserObjectSchema: z.ZodSchema<DeletedUserObject> = z.object(
   {
     active: z.boolean(),
@@ -4655,7 +4809,9 @@ export const groupSlaPolicyFilterConditionObjectSchema: z.ZodSchema<GroupSLAPoli
   z.object({
     field: z.string().describe("The name of a ticket field"),
     operator: z.string().describe("A comparison operator"),
-    value: z.array(z.unknown()).describe("The value of a ticket field"),
+    value: z
+      .array(z.union([z.string(), z.number(), z.array(z.unknown())]))
+      .describe("The value of a ticket field"),
   });
 
 export const groupSlaPolicyFilterDefinitionResponseSchema: z.ZodSchema<GroupSLAPolicyFilterDefinitionResponse> =
@@ -5266,13 +5422,60 @@ export const paginationSchema: z.ZodSchema<Pagination> = z.object({
   }),
 });
 
-export const pushNotificationDevicesInputYamlSchema: z.ZodSchema<PushNotificationDevicesInput> =
-  z.array(z.unknown());
+export const pushNotificationDevicesInputSchema: z.ZodSchema<PushNotificationDevicesInput> =
+  z.array(z.string().describe("Mobile device token"));
 
-export const pushNotificationDevicesRequestYamlSchema: z.ZodSchema<PushNotificationDevicesRequest> =
-  z.object({
-    push_notification_devices: pushNotificationDevicesInputYamlSchema,
-  });
+export const pushNotificationDevicesRequestSchema: z.ZodSchema<PushNotificationDevicesRequest> =
+  z.object({ push_notification_devices: pushNotificationDevicesInputSchema });
+
+export const queueObjectSchema: z.ZodSchema<QueueObject> = z.object({
+  created_at: z.string().describe("The time the queue was created"),
+  definition: z
+    .object({
+      all: z.array(
+        z.object({
+          field: z.string(),
+          operator: z.string(),
+          value: z.string(),
+        }),
+      ),
+      any: z.array(
+        z.object({
+          field: z.string(),
+          operator: z.string(),
+          value: z.string(),
+        }),
+      ),
+    })
+    .describe("Conditions when queue could be applied"),
+  description: z.string().describe("The description of the queue"),
+  id: z.string().describe("Automatically assigned when creating queue"),
+  name: z.string().describe("The name of the queue"),
+  order: z.number().describe("The queue-applied order"),
+  primary_groups: z
+    .object({
+      count: z.number(),
+      groups: z.array(z.object({ id: z.number(), name: z.string() })),
+    })
+    .describe("Primary group ids linked to the queue"),
+  priority: z.number().describe("The queue-applied priority"),
+  secondary_groups: z
+    .object({
+      count: z.number(),
+      groups: z.array(z.object({ id: z.number(), name: z.string() })),
+    })
+    .describe("Secondary group ids linked to the queue"),
+  updated_at: z.string().describe("The time of the queue's last update"),
+  url: z.string().describe("The API URL of the queue"),
+});
+
+export const queueResponseSchema: z.ZodSchema<QueueResponse> = z.object({
+  queue: queueObjectSchema,
+});
+
+export const queuesResponseSchema: z.ZodSchema<QueuesResponse> = z.object({
+  queues: z.array(queueObjectSchema),
+});
 
 export const renewSessionResponseSchema: z.ZodSchema<RenewSessionResponse> =
   z.object({
@@ -5290,7 +5493,14 @@ export const resourceCollectionObjectSchema: z.ZodSchema<ResourceCollectionObjec
         "id for the resource collection. Automatically assigned upon creation",
       ),
     resources: z
-      .array(z.unknown())
+      .array(
+        z.object({
+          deleted: z.boolean(),
+          identifier: z.string(),
+          resource_id: z.number(),
+          type: z.string(),
+        }),
+      )
       .describe(
         "Array of resource metadata objects. See [Resource objects](#resource-objects)",
       ),
@@ -6545,7 +6755,7 @@ export const ticketImportRequestSchema: z.ZodSchema<TicketImportRequest> =
 
 export const ticketMergeInputSchema: z.ZodSchema<TicketMergeInput> = z.object({
   ids: z
-    .array(z.unknown())
+    .array(z.number())
     .describe("Ids of tickets to merge into the target ticket"),
   source_comment: z
     .string()
@@ -6765,7 +6975,7 @@ export const ticketObjectSchema: z.ZodSchema<TicketObject> = z.object({
     .number()
     .describe("The agent currently assigned to the ticket"),
   attribute_value_ids: z
-    .array(z.unknown())
+    .array(z.number())
     .describe(
       "Write only. An array of the IDs of attribute values to be associated with the ticket",
     ),
@@ -6775,7 +6985,7 @@ export const ticketObjectSchema: z.ZodSchema<TicketObject> = z.object({
       "Enterprise only. The id of the brand this ticket is associated with",
     ),
   collaborator_ids: z
-    .array(z.unknown())
+    .array(z.number())
     .describe("The ids of users currently CC'ed on the ticket"),
   collaborators: z
     .array(collaboratorObjectSchema)
@@ -6789,7 +6999,12 @@ export const ticketObjectSchema: z.ZodSchema<TicketObject> = z.object({
     ),
   created_at: z.string().describe("When this record was created"),
   custom_fields: z
-    .array(z.unknown())
+    .array(
+      z.object({
+        id: z.number().describe("The id of the custom field"),
+        value: z.string().describe("The value of the custom field"),
+      }),
+    )
     .describe(
       "Custom fields for the ticket. See [Setting custom field values](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-custom-field-values)",
     ),
@@ -6810,7 +7025,7 @@ export const ticketObjectSchema: z.ZodSchema<TicketObject> = z.object({
       'If this is a ticket of type "task" it has a due date.  Due date format uses [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format.',
     ),
   email_cc_ids: z
-    .array(z.unknown())
+    .array(z.number())
     .describe(
       "The ids of agents or end users currently CC'ed on the ticket. See [CCs and followers resources](https://support.zendesk.com/hc/en-us/articles/360020585233) in the Support Help Center",
     ),
@@ -6825,7 +7040,7 @@ export const ticketObjectSchema: z.ZodSchema<TicketObject> = z.object({
       "An id you can use to link Zendesk Support tickets to local records",
     ),
   follower_ids: z
-    .array(z.unknown())
+    .array(z.number())
     .describe(
       "The ids of agents currently following the ticket. See [CCs and followers resources](https://support.zendesk.com/hc/en-us/articles/360020585233)",
     ),
@@ -6835,7 +7050,7 @@ export const ticketObjectSchema: z.ZodSchema<TicketObject> = z.object({
       "Write only. An array of objects that represent agent followers to add or delete from the ticket. See [Setting followers](/documentation/ticketing/managing-tickets/creating-and-updating-tickets/#setting-followers)",
     ),
   followup_ids: z
-    .array(z.unknown())
+    .array(z.number())
     .describe(
       "The ids of the followups created from this ticket. Ids are only visible once the ticket is closed",
     ),
@@ -6863,7 +7078,7 @@ export const ticketObjectSchema: z.ZodSchema<TicketObject> = z.object({
     .number()
     .describe("Write only. A macro ID to be recorded in the ticket audit"),
   macro_ids: z
-    .array(z.unknown())
+    .array(z.number())
     .describe(
       "POST requests only. List of macro IDs to be recorded in the ticket audit",
     ),
@@ -6918,7 +7133,7 @@ export const ticketObjectSchema: z.ZodSchema<TicketObject> = z.object({
       'The satisfaction rating of the ticket, if it exists, or the state of satisfaction, "offered" or "unoffered". The value is null for plan types that don\'t support CSAT',
     ),
   sharing_agreement_ids: z
-    .array(z.unknown())
+    .array(z.number())
     .describe("The ids of the sharing agreements used for this ticket"),
   status: z
     .union([
@@ -6941,7 +7156,7 @@ export const ticketObjectSchema: z.ZodSchema<TicketObject> = z.object({
       "The user who submitted the ticket. The submitter always becomes the author of the first comment on the ticket",
     ),
   tags: z
-    .array(z.unknown())
+    .array(z.string())
     .describe("The array of tags applied to this ticket"),
   ticket_form_id: z
     .number()
@@ -7088,11 +7303,11 @@ export const ticketUpdateInputSchema: z.ZodSchema<TicketUpdateInput> = z.object(
         "An array of the IDs of attribute values to be associated with the ticket",
       ),
     collaborator_ids: z
-      .array(z.unknown())
+      .array(z.number())
       .describe("The ids of users currently CC'ed on the ticket"),
     comment: ticketCommentObjectSchema,
     custom_fields: z
-      .array(z.unknown())
+      .array(customFieldObjectSchema)
       .describe(
         "Custom fields for the ticket. See [Setting custom field values](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-custom-field-values)",
       ),
@@ -7168,7 +7383,7 @@ export const ticketUpdateInputSchema: z.ZodSchema<TicketUpdateInput> = z.object(
       .string()
       .describe("The value of the subject field for this ticket"),
     tags: z
-      .array(z.unknown())
+      .array(z.string())
       .describe("The array of tags applied to this ticket"),
     type: z
       .union([
@@ -7771,7 +7986,7 @@ export const userForAdminSchema: z.ZodSchema<UserForAdmin> = z.object({
       "If the agent is suspended. Tickets from suspended users are also suspended, and these users cannot sign in to the end user portal",
     ),
   tags: z
-    .array(z.unknown())
+    .array(z.string())
     .describe(
       "The user's tags. Only present if your account has user tagging enabled",
     ),
@@ -8066,7 +8281,15 @@ export const viaObjectSchema: z.ZodSchema<ViaObject> = z
 export const auditObjectSchema: z.ZodSchema<AuditObject> = z.object({
   author_id: z.number(),
   created_at: z.string(),
-  events: z.array(z.unknown()),
+  events: z.array(
+    z.object({
+      body: z.string(),
+      field_name: z.string(),
+      id: z.number(),
+      type: z.string(),
+      value: z.union([z.string(), z.number(), z.array(z.unknown())]),
+    }),
+  ),
   id: z.number(),
   metadata: z.object({}),
   ticket_id: z.number(),
@@ -8146,22 +8369,22 @@ export const ticketCreateInputSchema: z.ZodSchema<TicketCreateInput> =
           "Enterprise only. The id of the brand this ticket is associated with",
         ),
       collaborators: z
-        .array(z.unknown())
+        .array(collaboratorObjectSchema)
         .describe(
           "POST requests only. Users to add as cc's when creating a ticket. See [Setting Collaborators](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-collaborators)",
         ),
       email_cc_ids: z
-        .array(z.unknown())
+        .array(z.number())
         .describe(
           "The ids of agents or end users currently CC'ed on the ticket. See [CCs and followers resources](https://support.zendesk.com/hc/en-us/articles/360020585233) in the Support Help Center",
         ),
       follower_ids: z
-        .array(z.unknown())
+        .array(z.number())
         .describe(
           "The ids of agents currently following the ticket. See [CCs and followers resources](https://support.zendesk.com/hc/en-us/articles/360020585233)",
         ),
       macro_ids: z
-        .array(z.unknown())
+        .array(z.number())
         .describe(
           "POST requests only. List of macro IDs to be recorded in the ticket audit",
         ),
@@ -8657,6 +8880,15 @@ export const getApiV2OrganizationsShowManyResponseSchema: z.ZodSchema<Organizati
 
 export const getApiV2ProblemsResponseSchema: z.ZodSchema<ListTicketProblemsResponse> =
   listTicketProblemsResponseSchema;
+
+export const getApiV2QueuesResponseSchema: z.ZodSchema<QueuesResponse> =
+  queuesResponseSchema;
+
+export const getApiV2QueuesByQueueIdResponseSchema: z.ZodSchema<QueueResponse> =
+  queueResponseSchema;
+
+export const getApiV2QueuesDefinitionsResponseSchema: z.ZodSchema<DefinitionsResponse> =
+  definitionsResponseSchema;
 
 export const getApiV2RecipientAddressesResponseSchema: z.ZodSchema<SupportAddressesResponse> =
   supportAddressesResponseSchema;
@@ -9190,6 +9422,9 @@ export const putApiV2OrganizationsByOrganizationIdResponseSchema: z.ZodSchema<Or
 
 export const putApiV2OrganizationsUpdateManyResponseSchema: z.ZodSchema<JobStatusResponse> =
   jobStatusResponseSchema;
+
+export const putApiV2QueuesByQueueIdResponseSchema: z.ZodSchema<QueueResponse> =
+  queueResponseSchema;
 
 export const putApiV2RecipientAddressesBySupportAddressIdResponseSchema: z.ZodSchema<SupportAddressResponse> =
   supportAddressResponseSchema;
