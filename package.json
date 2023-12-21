@@ -24,7 +24,11 @@
     "zod": "^3.22.4"
   },
   "scripts": {
-    "check-build": "node codegen.js && git diff --exit-code || echo 'Source does not match build'"
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --check .",
+    "lint": "eslint .",
+    "check-build": "node codegen.js && git diff --exit-code || echo 'Source does not match build'",
+    "pre-release": "yarn format && yarn lint && yarn check-build && yarn typecheck"
   },
   "sideEffects": false,
   "files": [
