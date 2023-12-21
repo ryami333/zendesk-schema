@@ -1,7 +1,7 @@
 {
   "name": "zendesk-schema",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.ts",
   "author": "Mitch Ryan <mitch@mitch-ryan.com>",
   "license": "MIT",
   "devDependencies": {
@@ -26,5 +26,8 @@
   "scripts": {
     "check-build": "node codegen.js && git diff --exit-code || echo 'Source does not match build'"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "files": [
+    "dist/**/*"
+  ]
 }
