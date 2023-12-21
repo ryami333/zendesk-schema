@@ -12,7 +12,7 @@ const { factory } = ts;
  */
 
 /**
- * @type {<T extends ts.Node>(node: T, description: string): T}
+ * @type {<T extends ts.Node>(node: T, description: string | undefined) => T}
  */
 function addJsDocComment(node, description) {
   if (description) {
