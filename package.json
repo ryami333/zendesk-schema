@@ -23,5 +23,8 @@
     "yaml": "^2.3.4",
     "zod": "^3.22.4"
   },
+  "scripts": {
+    "check-build": "node codegen.js && git diff --exit-code || echo 'Source does not match build'"
+  },
   "sideEffects": false
 }
