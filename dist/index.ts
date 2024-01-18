@@ -262,6 +262,7 @@ export interface AccountSettingsTicketObject {
   assign_tickets_upon_solve: boolean;
   auto_translation_enabled: boolean;
   auto_updated_ccs_followers_rules: boolean;
+  chat_sla_enablement: boolean;
   collaboration: boolean;
   comments_public_by_default: boolean;
   email_attachments: boolean;
@@ -574,7 +575,7 @@ export interface ComplianceDeletionStatusesResponse {
 export interface ConditionObject {
   field: string;
   operator: string;
-  value: string | unknown[];
+  value: string;
 }
 /**
  * @description An object that describes the conditions under which the automation will execute. See [Conditions reference](/documentation/ticketing/reference-guides/conditions-reference)
@@ -1081,7 +1082,7 @@ export interface GroupResponse {
 export interface GroupSLAPolicyFilterConditionObject {
   field: string;
   operator: string;
-  value: (string | number | unknown[])[];
+  value: (string | number)[];
 }
 
 export interface GroupSLAPolicyFilterDefinitionResponse {
@@ -1543,7 +1544,7 @@ export interface ResourceCollectionsResponse {
 export interface SLAPolicyFilterConditionObject {
   field: string;
   operator: string;
-  value: string | unknown[];
+  value: string | (string | number)[];
 }
 
 export interface SLAPolicyFilterDefinitionResponse {
@@ -2563,7 +2564,7 @@ export interface TriggerActionDefinitionObject {
 
 export interface TriggerActionObject {
   field: string;
-  value: string | unknown[] | number;
+  value: string | number | (string | number)[];
 }
 
 export interface TriggerBatchRequest {
@@ -2631,7 +2632,7 @@ export interface TriggerCategoriesResponse {
 
 export interface TriggerChangeObject {
   change: string;
-  content: boolean | string | number | unknown[];
+  content: boolean | string | number | (string | number | boolean)[];
 }
 
 export interface TriggerActionDiffObject {
@@ -2690,7 +2691,7 @@ export interface TriggerConditionDiffObject {
 export interface TriggerConditionObject {
   field: string;
   operator: string;
-  value: string | unknown[];
+  value: string | number | (string | number)[];
 }
 
 export interface TriggerConditionsDiffObject {
@@ -3122,7 +3123,7 @@ export interface AuditObject {
     field_name: string;
     id: number;
     type: string;
-    value: string | number | unknown[];
+    value: string | number;
   }[];
   id: number;
   metadata: Record<string, unknown>;
@@ -3537,6 +3538,7 @@ export const accountSettingsTicketObjectSchema: z.ZodSchema<AccountSettingsTicke
       assign_tickets_upon_solve: z.boolean(),
       auto_translation_enabled: z.boolean(),
       auto_updated_ccs_followers_rules: z.boolean(),
+      chat_sla_enablement: z.boolean(),
       collaboration: z.boolean(),
       comments_public_by_default: z.boolean(),
       email_attachments: z.boolean(),
@@ -3943,9 +3945,7 @@ export const complianceDeletionStatusesResponseSchema: z.ZodSchema<ComplianceDel
 export const conditionObjectSchema: z.ZodSchema<ConditionObject> = z.object({
   field: z.string().describe("The name of a ticket field"),
   operator: z.string().describe("A comparison operator"),
-  value: z
-    .union([z.string(), z.array(z.unknown())])
-    .describe("The value of a ticket field"),
+  value: z.string().describe("The value of a ticket field"),
 });
 
 export const conditionsObjectSchema: z.ZodSchema<ConditionsObject> = z
@@ -4045,7 +4045,7 @@ export const customFieldObjectSchema: z.ZodSchema<CustomFieldObject> = z.object(
     key: z
       .string()
       .describe(
-        "A unique key that identifies this custom field. This is used for updating the field and referencing in placeholders. Cannot be reused if deleted.",
+        "A unique key that identifies this custom field. This is used for updating the field and referencing in placeholders. The key must consist of only letters, numbers, and underscores. It can't be only numbers and can't be reused if deleted.",
       ),
     position: z
       .number()
@@ -4074,7 +4074,7 @@ export const customFieldObjectSchema: z.ZodSchema<CustomFieldObject> = z.object(
     relationship_target_type: z
       .string()
       .describe(
-        'A representation of what type of object the field references. Options are "zen:user", "zen:organization", "zen:ticket", and "zen:custom_object:CUSTOM_OBJECT_KEY". For example "zen:custom_object:apartment".',
+        'A representation of what type of object the field references. Options are "zen:user", "zen:organization", "zen:ticket", and "zen:custom_object:{key}" where key is a custom object key. For example "zen:custom_object:apartment".',
       ),
     system: z
       .boolean()
@@ -4810,7 +4810,7 @@ export const groupSlaPolicyFilterConditionObjectSchema: z.ZodSchema<GroupSLAPoli
     field: z.string().describe("The name of a ticket field"),
     operator: z.string().describe("A comparison operator"),
     value: z
-      .array(z.union([z.string(), z.number(), z.array(z.unknown())]))
+      .array(z.union([z.string(), z.number()]))
       .describe("The value of a ticket field"),
   });
 
@@ -5525,7 +5525,7 @@ export const slaPolicyFilterConditionObjectSchema: z.ZodSchema<SLAPolicyFilterCo
     field: z.string().describe("The name of a ticket field"),
     operator: z.string().describe("A comparison operator"),
     value: z
-      .union([z.string(), z.array(z.unknown())])
+      .union([z.string(), z.array(z.union([z.string(), z.number()]))])
       .describe("The value of a ticket field"),
   });
 
@@ -6603,7 +6603,7 @@ export const ticketFieldObjectSchema: z.ZodSchema<TicketFieldObject> = z.object(
     relationship_target_type: z
       .string()
       .describe(
-        'A representation of what type of object the field references. Options are "zen:user", "zen:organization", "zen:ticket", or "zen:custom_object:CUSTOM_OBJECT_KEY". For example "zen:custom_object:apartment".',
+        'A representation of what type of object the field references. Options are "zen:user", "zen:organization", "zen:ticket", or "zen:custom_object:{key}" where key is a custom object key. For example "zen:custom_object:apartment".',
       ),
     removable: z
       .boolean()
@@ -7447,7 +7447,11 @@ export const triggerActionDefinitionObjectSchema: z.ZodSchema<TriggerActionDefin
 export const triggerActionObjectSchema: z.ZodSchema<TriggerActionObject> =
   z.object({
     field: z.string(),
-    value: z.union([z.string(), z.array(z.unknown()), z.number()]),
+    value: z.union([
+      z.string(),
+      z.number(),
+      z.array(z.union([z.string(), z.number()])),
+    ]),
   });
 
 export const triggerBatchRequestSchema: z.ZodSchema<TriggerBatchRequest> =
@@ -7518,7 +7522,12 @@ export const triggerChangeObjectSchema: z.ZodSchema<TriggerChangeObject> =
       .string()
       .describe("One of `-`, `+`, `=` representing the type of change"),
     content: z
-      .union([z.boolean(), z.string(), z.number(), z.array(z.unknown())])
+      .union([
+        z.boolean(),
+        z.string(),
+        z.number(),
+        z.array(z.union([z.string(), z.number(), z.boolean()])),
+      ])
       .describe("The value of the item it represents"),
   });
 
@@ -7587,7 +7596,11 @@ export const triggerConditionObjectSchema: z.ZodSchema<TriggerConditionObject> =
   z.object({
     field: z.string(),
     operator: z.string(),
-    value: z.union([z.string(), z.array(z.unknown())]),
+    value: z.union([
+      z.string(),
+      z.number(),
+      z.array(z.union([z.string(), z.number()])),
+    ]),
   });
 
 export const triggerConditionsDiffObjectSchema: z.ZodSchema<TriggerConditionsDiffObject> =
@@ -8287,7 +8300,7 @@ export const auditObjectSchema: z.ZodSchema<AuditObject> = z.object({
       field_name: z.string(),
       id: z.number(),
       type: z.string(),
-      value: z.union([z.string(), z.number(), z.array(z.unknown())]),
+      value: z.union([z.string(), z.number()]),
     }),
   ),
   id: z.number(),
@@ -8564,6 +8577,15 @@ export const workspaceResponseSchema: z.ZodSchema<WorkspaceResponse> =
     offsetPaginationObjectSchema,
   );
 
+export const getApiLotusAssignablesAutocompleteJsonResponseSchema: z.ZodSchema<AssigneeFieldAssignableGroupsAndAgentsSearchResponse> =
+  assigneeFieldAssignableGroupsAndAgentsSearchResponseSchema;
+
+export const getApiLotusAssignablesGroupsJsonResponseSchema: z.ZodSchema<AssigneeFieldAssignableGroupsResponse> =
+  assigneeFieldAssignableGroupsResponseSchema;
+
+export const getApiLotusAssignablesGroupsByGroupIdAgentsJsonResponseSchema: z.ZodSchema<AssigneeFieldAssignableGroupAgentsResponse> =
+  assigneeFieldAssignableGroupAgentsResponseSchema;
+
 export const getApiV2ByTargetTypeByTargetIdRelationshipFieldsByFieldIdBySourceTypeResponseSchema: z.ZodSchema<ReverseLookupResponse> =
   reverseLookupResponseSchema;
 
@@ -8838,6 +8860,15 @@ export const getApiV2MacrosNewResponseSchema: z.ZodSchema<MacroResponse> =
 
 export const getApiV2MacrosSearchResponseSchema: z.ZodSchema<MacrosResponse> =
   macrosResponseSchema;
+
+export const getApiV2ObjectLayoutsByObjectTypeEssentialsCardResponseSchema: z.ZodSchema<EssentialsCardResponse> =
+  essentialsCardResponseSchema;
+
+export const getApiV2ObjectLayoutsByObjectZrnTypeKeyDetailResponseSchema: z.ZodSchema<KeyDetailsResponse> =
+  keyDetailsResponseSchema;
+
+export const getApiV2ObjectLayoutsEssentialsCardsResponseSchema: z.ZodSchema<EssentialsCardsResponse> =
+  essentialsCardsResponseSchema;
 
 export const getApiV2OrganizationFieldsResponseSchema: z.ZodSchema<OrganizationFieldsResponse> =
   organizationFieldsResponseSchema;
@@ -9410,6 +9441,12 @@ export const putApiV2MacrosByMacroIdResponseSchema: z.ZodSchema<{
 
 export const putApiV2MacrosUpdateManyResponseSchema: z.ZodSchema<MacrosResponse> =
   macrosResponseSchema;
+
+export const putApiV2ObjectLayoutsByObjectTypeEssentialsCardResponseSchema: z.ZodSchema<EssentialsCardResponse> =
+  essentialsCardResponseSchema;
+
+export const putApiV2ObjectLayoutsByObjectZrnTypeKeyDetailResponseSchema: z.ZodSchema<KeyDetailsResponse> =
+  keyDetailsResponseSchema;
 
 export const putApiV2OrganizationFieldsByOrganizationFieldIdResponseSchema: z.ZodSchema<OrganizationFieldResponse> =
   organizationFieldResponseSchema;

@@ -80,6 +80,77 @@ servers:
       subdomain:
         default: example
 paths:
+  /api/lotus/assignables/autocomplete.json:
+    get:
+      operationId: ListAssigneeFieldAssignableGroupsAndAgentsSearch
+      tags:
+        - AssigneeFieldAssignableGroups
+        - AssigneeFieldAssignableAgents
+      summary: List assignable groups and agents based on query matched against name
+      description: |
+        List assignable groups and agents based on query matched against name
+
+        #### Allowed For
+
+        * Agents
+      parameters:
+        - $ref: "#/components/parameters/AssigneeFieldSearchValue"
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AssigneeFieldAssignableGroupsAndAgentsSearchResponse"
+              examples:
+                default:
+                  $ref: "#/components/examples/AssigneeFieldAssignableGroupsAndAgentsSearchResponseExample"
+  /api/lotus/assignables/groups.json:
+    get:
+      operationId: ListAssigneeFieldAssignableGroups
+      tags:
+        - AssigneeFieldAssignableAgents
+      summary: List assignable groups on the AssigneeField
+      description: |
+        List assignable groups on the AssigneeField
+
+        #### Allowed For
+
+        * Agents
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AssigneeFieldAssignableGroupsResponse"
+              examples:
+                default:
+                  $ref: "#/components/examples/AssigneeFieldAssignableGroupsResponseExample"
+  /api/lotus/assignables/groups/{group_id}/agents.json:
+    get:
+      operationId: ListAssigneeFieldAssignableGroupAgents
+      tags:
+        - AssigneeFieldAssignableAgents
+      summary: List assignable agents from a group on the AssigneeField
+      description: |
+        List assignable agents from a group on the AssigneeField
+
+        #### Allowed For
+
+        * Agents
+      parameters:
+        - $ref: "#/components/parameters/GroupId"
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AssigneeFieldAssignableGroupAgentsResponse"
+              examples:
+                default:
+                  $ref: "#/components/examples/AssigneeFieldAssignableGroupAgentsResponseExample"
   /api/v2/{target_type}/{target_id}/relationship_fields/{field_id}/{source_type}:
     get:
       operationId: GetSourcesByTarget
@@ -5001,6 +5072,117 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/MacrosResponseExample"
+  /api/v2/object_layouts/{object_type}/essentials_card:
+    parameters:
+      - $ref: "#/components/parameters/EssentialsCardKey"
+    get:
+      operationId: ShowEssentialsCard
+      tags:
+        - Essentials Card
+      summary: Show Essentials Card
+      description: |
+        Gets the essentials card for an object type.
+        #### Allowed For
+        * Admins and agents
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EssentialsCardResponse"
+              examples:
+                default:
+                  $ref: "#/components/examples/EssentialsCardExample"
+    put:
+      operationId: UpdateEssentialsCard
+      tags:
+        - Essentials Card
+      summary: Update Essentials Card
+      description: |
+        Updates the essentials card for an object type.
+        #### Allowed For
+        * Admins
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EssentialsCardResponse"
+              examples:
+                default:
+                  $ref: "#/components/examples/EssentialsCardExample"
+    delete:
+      operationId: DeleteEssentialsCard
+      tags:
+        - Essentials Card
+      summary: Delete Essentials Card
+      description: |
+        Delete the essentials card for an object type.
+        #### Allowed For
+        * Admins and agents
+      responses:
+        "204":
+          description: Success response
+  /api/v2/object_layouts/{object_zrn_type}/key_detail:
+    parameters:
+      - $ref: "#/components/parameters/ObjectKey"
+    get:
+      operationId: ShowKeyDetails
+      tags:
+        - Key Details
+      summary: Show Key Details
+      description: "Gets the key details for a custom object type. If no key details are configured, the first eight fields \nfor the object type are returned. If no fields have been defined for the object type, \nan empty state is returned.\n#### Allowed For\n* Admins and agents\n"
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/KeyDetailsResponse"
+              examples:
+                default:
+                  $ref: "#/components/examples/KeyDetailsResponseExample"
+    put:
+      operationId: UpdateKeyDetails
+      tags:
+        - Key Details
+      summary: Update Key Details
+      description: |
+        Updates the key details for a custom object type.
+        #### Allowed For
+        * Admins
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/KeyDetailsResponse"
+              examples:
+                default:
+                  $ref: "#/components/examples/KeyDetailsResponseExample"
+  /api/v2/object_layouts/essentials_cards:
+    get:
+      operationId: ShowEssentialsCards
+      tags:
+        - Essentials Card
+      summary: List of Essentials Cards
+      description: |
+        Gets the list of essentials cards.
+        #### Allowed For
+        * Admins
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EssentialsCardsResponse"
+              examples:
+                default:
+                  $ref: "#/components/examples/EssentialsCardsExample"
   /api/v2/organization_fields:
     get:
       operationId: ListOrganizationFields
@@ -13830,6 +14012,7 @@ components:
           assign_tickets_upon_solve: true
           auto_translation_enabled: false
           auto_updated_ccs_followers_rules: false
+          chat_sla_enablement: false
           collaboration: true
           comments_public_by_default: true
           email_attachments: false
@@ -14031,6 +14214,7 @@ components:
             assign_tickets_upon_solve: true
             auto_translation_enabled: false
             auto_updated_ccs_followers_rules: false
+            chat_sla_enablement: false
             collaboration: true
             comments_public_by_default: true
             email_attachments: false
@@ -14155,6 +14339,8 @@ components:
         auto_translation_enabled:
           type: boolean
         auto_updated_ccs_followers_rules:
+          type: boolean
+        chat_sla_enablement:
           type: boolean
         collaboration:
           type: boolean
@@ -15139,7 +15325,6 @@ components:
                 oneOf:
                   - type: string
                   - type: integer
-                  - type: array
           readOnly: true
         id:
           type: integer
@@ -15584,10 +15769,8 @@ components:
           type: string
           description: A comparison operator
         value:
+          type: string
           description: The value of a ticket field
-          oneOf:
-            - type: string
-            - type: array
     ConditionsObject:
       type: object
       description: An object that describes the conditions under which the automation will execute. See [Conditions reference](/documentation/ticketing/reference-guides/conditions-reference)
@@ -15824,7 +16007,7 @@ components:
           readOnly: true
         key:
           type: string
-          description: A unique key that identifies this custom field. This is used for updating the field and referencing in placeholders. Cannot be reused if deleted.
+          description: A unique key that identifies this custom field. This is used for updating the field and referencing in placeholders. The key must consist of only letters, numbers, and underscores. It can't be only numbers and can't be reused if deleted.
         position:
           type: integer
           description: Ordering of the field relative to other fields
@@ -15843,7 +16026,7 @@ components:
           description: A filter definition that allows your autocomplete to filter down results
         relationship_target_type:
           type: string
-          description: A representation of what type of object the field references. Options are "zen:user", "zen:organization", "zen:ticket", and "zen:custom_object:CUSTOM_OBJECT_KEY". For example "zen:custom_object:apartment".
+          description: A representation of what type of object the field references. Options are "zen:user", "zen:organization", "zen:ticket", and "zen:custom_object:{key}" where key is a custom object key. For example "zen:custom_object:apartment".
         system:
           type: boolean
           description: If true, only active and position values of this field can be changed
@@ -17075,7 +17258,6 @@ components:
             oneOf:
               - type: string
               - type: integer
-              - type: array
     GroupSLAPolicyFilterDefinitionResponse:
       type: object
       properties:
@@ -18569,6 +18751,10 @@ components:
           oneOf:
             - type: string
             - type: array
+              items:
+                oneOf:
+                  - type: string
+                  - type: integer
     SLAPolicyFilterDefinitionResponse:
       type: object
       properties:
@@ -20420,7 +20606,7 @@ components:
           description: A filter definition that allows your autocomplete to filter down results
         relationship_target_type:
           type: string
-          description: A representation of what type of object the field references. Options are "zen:user", "zen:organization", "zen:ticket", or "zen:custom_object:CUSTOM_OBJECT_KEY". For example "zen:custom_object:apartment".
+          description: A representation of what type of object the field references. Options are "zen:user", "zen:organization", "zen:ticket", or "zen:custom_object:{key}" where key is a custom object key. For example "zen:custom_object:apartment".
         removable:
           type: boolean
           description: If false, this field is a system field that must be present on all tickets
@@ -21786,8 +21972,12 @@ components:
         value:
           oneOf:
             - type: string
-            - type: array
             - type: integer
+            - type: array
+              items:
+                oneOf:
+                  - type: string
+                  - type: integer
       example:
         field: status
         value: solved
@@ -21914,6 +22104,11 @@ components:
             - type: string
             - type: integer
             - type: array
+              items:
+                oneOf:
+                  - type: string
+                  - type: integer
+                  - type: boolean
       example:
         change: +
         content: solved
@@ -22018,7 +22213,12 @@ components:
         value:
           oneOf:
             - type: string
+            - type: integer
             - type: array
+              items:
+                oneOf:
+                  - type: string
+                  - type: integer
       example:
         field: status
         operator: less_than
@@ -24306,6 +24506,7 @@ components:
             assign_tickets_upon_solve: true
             auto_translation_enabled: false
             auto_updated_ccs_followers_rules: false
+            chat_sla_enablement: false
             collaboration: true
             comments_public_by_default: true
             email_attachments: false
